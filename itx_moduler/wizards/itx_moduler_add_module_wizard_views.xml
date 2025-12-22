@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Wizard Form View -->
+    <record id="itx_moduler_add_module_wizard_form" model="ir.ui.view">
+        <field name="name">itx.moduler.add.module.wizard.form</field>
+        <field name="model">itx.moduler.add.module.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Add Module to Workspace">
+                <sheet>
+                    <div class="oe_title mb-4">
+                        <h1>Add Module to Workspace</h1>
+                        <p class="text-muted">Choose how you want to add a module to your workspace</p>
+                    </div>
+
+                    <!-- Three Big Option Cards - Vertically Stacked -->
+                    <div class="container-fluid">
+                        <!-- Option 1: Create New Module (Coming Soon) -->
+                        <div class="alert alert-light border rounded p-3 mb-3" style="opacity: 0.6;">
+                            <div class="d-flex align-items-center">
+                                <div style="min-width: 80px;" class="text-center">
+                                    <i class="fa fa-plus-circle fa-3x text-secondary"/>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="mb-1 text-secondary">
+                                        <i class="fa fa-lock"/> Create New Module
+                                        <span class="badge text-bg-warning ms-2">Coming Soon</span>
+                                    </h5>
+                                    <p class="mb-1 text-muted">Start from scratch with a blank module workspace</p>
+                                    <small class="text-muted">
+                                        Define properties, auto-generate structure, perfect for new modules
+                                    </small>
+                                </div>
+                                <div class="ms-3">
+                                    <button type="object"
+                                            name="action_create_module"
+                                            class="btn btn-outline-secondary"
+                                            disabled="1">
+                                        Coming Soon
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Option 2: Load from Odoo (Available) -->
+                        <div class="alert alert-primary border border-primary rounded p-3 mb-3"
+                             style="background-color: #e7f3ff;">
+                            <div class="d-flex align-items-center">
+                                <div style="min-width: 80px;" class="text-center">
+                                    <i class="fa fa-database fa-3x text-primary"/>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="mb-1 text-primary">
+                                        <i class="fa fa-check-circle"/> Load from Odoo
+                                        <span class="badge text-bg-success ms-2">✓ Available</span>
+                                    </h5>
+                                    <p class="mb-1">Import an existing module from your Odoo database</p>
+                                    <small class="text-muted">
+                                        Load any module, import all components, fastest way to start
+                                    </small>
+                                </div>
+                                <div class="ms-3">
+                                    <button type="object"
+                                            name="action_load_from_odoo"
+                                            class="btn btn-primary btn-lg">
+                                        <i class="fa fa-download"/> Load Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Option 3: Import from ZIP (Coming Soon) -->
+                        <div class="alert alert-light border rounded p-3 mb-3" style="opacity: 0.6;">
+                            <div class="d-flex align-items-center">
+                                <div style="min-width: 80px;" class="text-center">
+                                    <i class="fa fa-file-archive-o fa-3x text-secondary"/>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="mb-1 text-secondary">
+                                        <i class="fa fa-lock"/> Import from ZIP File
+                                        <span class="badge text-bg-warning ms-2">Coming Soon</span>
+                                    </h5>
+                                    <p class="mb-1 text-muted">Upload a module package file (ZIP or tar.gz)</p>
+                                    <small class="text-muted">
+                                        Upload archive, extract and analyze, import from external sources
+                                    </small>
+                                </div>
+                                <div class="ms-3">
+                                    <button type="object"
+                                            name="action_import_from_zip"
+                                            class="btn btn-outline-secondary"
+                                            disabled="1">
+                                        Coming Soon
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Info Box -->
+                    <div class="alert alert-info mt-3">
+                        <i class="fa fa-lightbulb-o"/> <strong>Tip:</strong>
+                        Each module gets its own workspace where you can manage models, views, menus, and actions independently.
+                    </div>
+                </sheet>
+
+                <footer>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Wizard Action -->
+    <record id="itx_moduler_add_module_wizard_action" model="ir.actions.act_window">
+        <field name="name">Add Module to Workspace</field>
+        <field name="res_model">itx.moduler.add.module.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_itx_moduler_module"/>
+    </record>
+
+</odoo>

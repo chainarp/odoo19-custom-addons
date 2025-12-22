@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+        <!-- Demo Data -->
+        <record id="demo_helloworld_1" model="itx.helloworld">
+            <field name="name">Test Record 1</field>
+            <field name="value">100</field>
+            <field name="description">This is a demo record for testing</field>
+        </record>
+
+        <record id="demo_helloworld_2" model="itx.helloworld">
+            <field name="name">Test Record 2</field>
+            <field name="value">250</field>
+            <field name="description">Another demo record with higher value</field>
+        </record>
+
+        <record id="demo_helloworld_3" model="itx.helloworld">
+            <field name="name">Test Record 3</field>
+            <field name="value">500</field>
+            <field name="description">Third demo record</field>
+        </record>
+
+        <record id="demo_helloworld_4" model="itx.helloworld">
+            <field name="name">Inactive Record</field>
+            <field name="value">75</field>
+            <field name="description">This record is inactive</field>
+            <field name="active" eval="False"/>
+        </record>
+    </data>
+</odoo>

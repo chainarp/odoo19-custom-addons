@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Server Action 1: Auto-set description on create -->
+        <record id="action_auto_set_description" model="ir.actions.server">
+            <field name="name">Auto-set Description</field>
+            <field name="model_id" ref="model_itx_helloworld"/>
+            <field name="state">code</field>
+            <field name="code">
+# Auto-set description based on value
+for record in records:
+    if not record.description:
+        if record.value &gt; 100:
+            record.write({'description': f"High value item: {record.name}"})
+        elif record.value &gt; 50:
+            record.write({'description': f"Medium value item: {record.name}"})
+        else:
+            record.write({'description': f"Low value item: {record.name}"})
+            </field>
+        </record>
+
+        <!-- Server Action 2: Set high value flag -->
+        <record id="action_log_high_value" model="ir.actions.server">
+            <field name="name">Mark High Value Records</field>
+            <field name="model_id" ref="model_itx_helloworld"/>
+            <field name="state">code</field>
+            <field name="code">
+# Mark records with high value in description
+for record in records:
+    if record.value &gt; 100:
+        desc = record.description or ''
+        if '[HIGH VALUE]' not in desc:
+            record.write({'description': f"[HIGH VALUE] {desc}".strip()})
+            </field>
+        </record>
+
+        <!-- Server Action 3: Mark as inactive -->
+        <record id="action_mark_inactive" model="ir.actions.server">
+            <field name="name">Mark as Inactive</field>
+            <field name="model_id" ref="model_itx_helloworld"/>
+            <field name="state">code</field>
+            <field name="code">
+for record in records:
+    record.write({'active': False})
+            </field>
+        </record>
+    </data>
+</odoo>

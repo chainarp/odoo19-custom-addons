@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Report Template -->
+        <template id="report_itx_helloworld_document">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <h2>ITX Hello World Report</h2>
+                        <div class="row mt32 mb32">
+                            <div class="col-6">
+                                <strong>Name:</strong>
+                                <p t-field="o.name"/>
+                            </div>
+                            <div class="col-6">
+                                <strong>Status:</strong>
+                                <p>
+                                    <span t-if="o.active" class="badge badge-success">Active</span>
+                                    <span t-else="" class="badge badge-secondary">Inactive</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <strong>Value:</strong>
+                                <p t-field="o.value"/>
+                            </div>
+                            <div class="col-6">
+                                <strong>Value Percentage:</strong>
+                                <p t-field="o.value2"/>
+                            </div>
+                        </div>
+                        <div class="row mt16">
+                            <div class="col-12">
+                                <strong>Description:</strong>
+                                <p t-field="o.description"/>
+                            </div>
+                        </div>
+                        <div class="row mt32" t-if="o.hardware_info">
+                            <div class="col-12">
+                                <strong>Hardware Information:</strong>
+                                <pre t-field="o.hardware_info"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

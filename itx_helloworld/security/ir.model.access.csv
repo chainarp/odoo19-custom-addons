@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_itx_helloworld_public,ITX Hello World Public,model_itx_helloworld,base.group_user,1,1,1,1
+access_itx_helloworld_user,ITX Hello World User,model_itx_helloworld,group_itx_helloworld_user,1,0,0,0
+access_itx_helloworld_manager,ITX Hello World Manager,model_itx_helloworld,group_itx_helloworld_manager,1,1,1,1
+access_itx_license_info_wizard_public,ITX License Wizard Public,model_itx_license_info_wizard,base.group_user,1,1,1,1
+access_itx_license_info_wizard_user,ITX License Wizard User,model_itx_license_info_wizard,group_itx_helloworld_user,1,1,1,0
+access_itx_license_info_wizard_manager,ITX License Wizard Manager,model_itx_license_info_wizard,group_itx_helloworld_manager,1,1,1,1

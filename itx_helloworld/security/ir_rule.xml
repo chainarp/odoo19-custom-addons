@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Record Rule 1: Users can only see active records -->
+        <record id="itx_helloworld_rule_user_active_only" model="ir.rule">
+            <field name="name">ITX Hello World: User - Active Only</field>
+            <field name="model_id" ref="model_itx_helloworld"/>
+            <field name="domain_force">[('active', '=', True)]</field>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="groups" eval="[(4,ref('itx_helloworld.group_itx_helloworld_user'))]"/>
+        </record>
+
+        <!-- Record Rule 2: Managers can see all records -->
+        <record id="itx_helloworld_rule_manager_all" model="ir.rule">
+            <field name="name">ITX Hello World: Manager - All Records</field>
+            <field name="model_id" ref="model_itx_helloworld"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="groups" eval="[(4,ref('itx_helloworld.group_itx_helloworld_manager'))]"/>
+        </record>
+
+        <!-- Record Rule 3: Users can only see records with value <= 100 -->
+        <record id="itx_helloworld_rule_user_low_value" model="ir.rule">
+            <field name="name">ITX Hello World: User - Low Value Only</field>
+            <field name="model_id" ref="model_itx_helloworld"/>
+            <field name="domain_force">[('value', '&lt;=', 100)]</field>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="groups" eval="[(4,ref('itx_helloworld.group_itx_helloworld_user'))]"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Odoo
+*.pyc
+*.pyo
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backups
+backups/
+*.tar.gz
+*.zip
+
+# Other modules (only track itx_security_shield, itx_moduler, itx_helloworld)
+dynamic_odoo/
+itx_odoo_studio/
+itx_wms/
+stock_location_empty/
+
+# Logs
+*.log
+
+# Session notes (optional - uncomment if you don't want to track)
+# SESSION_NOTES_*.md

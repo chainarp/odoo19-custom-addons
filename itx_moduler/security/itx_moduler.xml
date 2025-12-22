@@ -1,0 +1,8 @@
+<?xml version= "1.0" ?>
+<odoo>
+
+    <record model="res.groups" id="itx_moduler_manager">
+        <field name="name">ITX Moduler / Manager</field>
+    </record>
+
+</odoo>

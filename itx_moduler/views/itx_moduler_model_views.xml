@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ========================================== -->
+    <!-- ITX Moduler Model Views -->
+    <!-- ========================================== -->
+
+    <!-- List View -->
+    <record id="view_itx_moduler_model_tree" model="ir.ui.view">
+        <field name="name">itx.moduler.model.tree</field>
+        <field name="model">itx.moduler.model</field>
+        <field name="arch" type="xml">
+            <list string="Models" decoration-info="state=='draft'"
+                  decoration-success="state=='applied'"
+                  decoration-muted="state=='archived'">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="model"/>
+                <field name="module_id"/>
+                <field name="field_count"/>
+                <field name="method_count"/>
+                <field name="state" widget="badge"
+                       decoration-info="state=='draft'"
+                       decoration-success="state in ('validated', 'applied')"
+                       decoration-warning="state=='exported'"
+                       decoration-muted="state=='archived'"/>
+                <field name="version"/>
+                <field name="created_by_ai" invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_itx_moduler_model_form" model="ir.ui.view">
+        <field name="name">itx.moduler.model.form</field>
+        <field name="model">itx.moduler.model</field>
+        <field name="arch" type="xml">
+            <form string="Model">
+                <header>
+                    <button name="action_validate" string="Validate" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_apply_to_odoo" string="Apply to Odoo" type="object"
+                            class="btn-success" invisible="state not in ('validated', 'applied')"/>
+                    <button name="action_generate_python_code" string="Generate Python Code" type="object"
+                            class="btn-info" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,validated,applied,exported"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_revisions" type="object" class="oe_stat_button" icon="fa-history">
+                            <field name="revision_count" widget="statinfo" string="Revisions"/>
+                        </button>
+                        <button name="action_view_fields" type="object" class="oe_stat_button" icon="fa-list">
+                            <field name="field_count" widget="statinfo" string="Fields"/>
+                        </button>
+                        <button name="action_view_methods" type="object" class="oe_stat_button" icon="fa-code">
+                            <field name="method_count" widget="statinfo" string="Methods"/>
+                        </button>
+                    </div>
+
+                    <widget name="web_ribbon" title="AI Generated" bg_color="text-bg-info"
+                            invisible="not created_by_ai"/>
+
+                    <group>
+                        <group name="basic_info">
+                            <field name="name" placeholder="e.g., Product Template"/>
+                            <field name="model" placeholder="e.g., product.template"/>
+                            <field name="module_id"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group name="config">
+                            <field name="rec_name"/>
+                            <field name="order_field"/>
+                            <field name="transient_model"/>
+                            <field name="abstract_model"/>
+                        </group>
+                    </group>
+
+                    <group name="version_info" string="Version Info">
+                        <field name="version"/>
+                        <field name="parent_version_id"/>
+                        <field name="applied_date" readonly="1"/>
+                        <field name="ir_model_id" readonly="1"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description" placeholder="Describe what this model represents..."/>
+                        </page>
+
+                        <page string="Inheritance" name="inheritance">
+                            <group>
+                                <field name="inherit_model_ids" widget="many2many_tags"/>
+                                <field name="inherit_model_names"
+                                       placeholder="Alternative: mail.thread, mail.activity.mixin"/>
+                            </group>
+                        </page>
+
+                        <page string="Fields" name="fields">
+                            <field name="field_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="field_description"/>
+                                    <field name="ttype"/>
+                                    <field name="required"/>
+                                    <field name="readonly"/>
+                                    <field name="relation"
+                                           column_invisible="ttype not in ('many2one', 'one2many', 'many2many')"/>
+                                    <field name="help"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Methods" name="methods">
+                            <field name="method_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="method_type"/>
+                                    <field name="decorator"/>
+                                </list>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="name"/>
+                                            <field name="method_type"/>
+                                        </group>
+                                        <group>
+                                            <field name="decorator"/>
+                                        </group>
+                                    </group>
+                                    <field name="code" widget="ace" options="{'mode': 'python'}"/>
+                                </form>
+                            </field>
+                        </page>
+
+                        <page string="Revisions" name="revisions">
+                            <field name="revision_ids" readonly="1">
+                                <list>
+                                    <field name="version"/>
+                                    <field name="change_type" widget="badge"/>
+                                    <field name="change_summary"/>
+                                    <field name="fields_added"/>
+                                    <field name="fields_modified"/>
+                                    <field name="fields_removed"/>
+                                    <field name="create_uid"/>
+                                    <field name="create_date"/>
+                                    <field name="created_by_ai" invisible="1"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="AI Prompt" name="ai_prompt" invisible="not created_by_ai">
+                            <group>
+                                <field name="created_by_ai"/>
+                                <field name="ai_prompt" widget="text"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View - Temporarily disabled
+    <record id="view_itx_moduler_model_search" model="ir.ui.view">
+        <field name="name">itx.moduler.model.search</field>
+        <field name="model">itx.moduler.model</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="model"/>
+                <field name="module_id"/>
+                <filter string="Draft" name="draft" domain="[('state','=','draft')]"/>
+                <filter string="Validated" name="validated" domain="[('state','=','validated')]"/>
+                <filter string="Applied" name="applied" domain="[('state','=','applied')]"/>
+                <filter string="AI Generated" name="ai_generated" domain="[('created_by_ai','=',True)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Module" name="group_module" context="{'group_by':'module_id'}"/>
+                    <filter string="State" name="group_state" context="{'group_by':'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    -->
+
+    <!-- Kanban View -->
+    <record id="view_itx_moduler_model_kanban" model="ir.ui.view">
+        <field name="name">itx.moduler.model.kanban</field>
+        <field name="model">itx.moduler.model</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" class="o_kanban_small_column">
+                <field name="name"/>
+                <field name="model"/>
+                <field name="module_id"/>
+                <field name="field_count"/>
+                <field name="state"/>
+                <field name="created_by_ai"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary"><strong><field name="name"/></strong></div>
+                                    <div class="o_secondary"><field name="model"/></div>
+                                </div>
+                            </div>
+                            <div class="o_kanban_card_body">
+                                <span class="badge text-bg-primary" t-if="record.created_by_ai.raw_value">
+                                    <i class="fa fa-magic"/> AI Generated
+                                </span>
+                                <div>
+                                    <i class="fa fa-list"/> <field name="field_count"/> fields
+                                </div>
+                            </div>
+                            <div class="o_kanban_card_footer">
+                                <div>
+                                    <field name="module_id"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_itx_moduler_model" model="ir.actions.act_window">
+        <field name="name">Models</field>
+        <field name="res_model">itx.moduler.model</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Model Snapshot
+            </p>
+            <p>
+                Models represent database tables in Odoo. Create a model to define
+                the structure of your data, including fields and methods.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu: Removed - access via workspace -->
+    <!--
+    <menuitem id="menu_itx_moduler_model"
+              name="Models"
+              parent="itx_moduler.itx_moduler_main_menu"
+              action="action_itx_moduler_model"
+              sequence="10"/>
+    -->
+
+</odoo>

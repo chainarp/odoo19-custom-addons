@@ -1,0 +1,6 @@
+0. Today is 26 January 2026 (Sunday) started this module again
+1. ~/PycharmProjects/odoo18$ ./odoo/odoo-bin scaffold itx_code_generator custom_addons/
+2. use chat gpt generate icon 128x128 pixel in webp filetype convert to png (online) put it into
+itx_code_generator/static/description/
+3. edit __manifest__.py insert a line >> 'icon': '/itx_code_generator/static/description/itx_code_generator_icon_128x128.png',
+

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="access_import_module_wizard_all" model="ir.model.access">
+        <field name="name">Import Module Wizard All Users</field>
+        <field name="model_id" ref="model_import_module_wizard"/>
+        <field name="group_id" ref="base.group_user"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+
+    <record id="import_module_wizard_form" model="ir.ui.view">
+        <field name="name">import.module.wizard.form</field>
+        <field name="model">import.module.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Load Module from Odoo">
+                <group>
+                    <field name="module_ids" nolabel="1">
+                        <list string="Select Modules to Load into Workspace">
+                            <field name="shortdesc"/>
+                            <field name="name"/>
+                            <field name="author"/>
+                            <field name="category_id"/>
+                            <field name="state"/>
+                        </list>
+                    </field>
+                </group>
+                <footer>
+                    <button name="action_import_modules" string="Load Selected Modules" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="import_module_wizard_action" model="ir.actions.act_window">
+        <field name="name">Load Module from Odoo</field>
+        <field name="res_model">import.module.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

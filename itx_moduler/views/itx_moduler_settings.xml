@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="itx_moduler_settings_form">
+        <field name="name">res.config.settings.form.inherit.codegenerator</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//form" position="inside">
+                <app data-string="ITX Moduler" string="ITX Moduler" name="itx_itx_moduler" groups="itx_moduler.itx_moduler_manager">
+                    <block title="Code Generation" name="itx_moduler_setting_container">
+                        <setting string="Data Exportation" help="Set how the data models must be treated in the exportation process.">
+                            <div class="content-group">
+                                <field name="s_data2export"/>
+                            </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="itx_moduler_settings_actionwindow">
+        <field name="name">Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'module': 'itx_moduler'}</field>
+    </record>
+
+    <menuitem id="itx_moduler_settings_menu"
+              name="Settings"
+              parent="itx_moduler_main_menu"
+              action="itx_moduler_settings_actionwindow"
+              sequence="99"
+    />
+
+</odoo>

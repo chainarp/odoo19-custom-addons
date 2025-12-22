@@ -1,0 +1,45 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_itx_moduler_module_all,ITX Moduler Module All Users,model_itx_moduler_module,base.group_user,1,1,1,1
+itx_moduler_module_managment,ITX Moduler Module Management,model_itx_moduler_module,itx_moduler_manager,1,1,1,1
+access_itx_moduler_module_dependency_all,ITX Moduler Module Dependency All Users,model_itx_moduler_module_dependency,base.group_user,1,1,1,1
+itx_moduler_module_dependency_managment,ITX Moduler Module Dependency Management,model_itx_moduler_module_dependency,itx_moduler_manager,1,1,1,1
+access_itx_moduler_pyclass_all,ITX Moduler Python Class All Users,model_itx_moduler_pyclass,base.group_user,1,1,1,1
+itx_moduler_pyclass_managment,ITX Moduler Python Class Management,model_itx_moduler_pyclass,itx_moduler_manager,1,1,1,1
+access_itx_moduler_serverconstrain_all,ITX Moduler ServerConstrain All Users,model_ir_model_server_constrain,base.group_user,1,1,1,1
+itx_moduler_irmodelserverconstrain_managment,ITX Moduler IrModelServerConstrain Management,model_ir_model_server_constrain,itx_moduler_manager,1,1,1,1
+access_itx_moduler_model_all,ITX Moduler Model All Users,model_itx_moduler_model,base.group_user,1,1,1,1
+itx_moduler_model_management,ITX Moduler Model Management,model_itx_moduler_model,itx_moduler_manager,1,1,1,1
+access_itx_moduler_model_field_all,ITX Moduler Model Field All Users,model_itx_moduler_model_field,base.group_user,1,1,1,1
+itx_moduler_model_field_management,ITX Moduler Model Field Management,model_itx_moduler_model_field,itx_moduler_manager,1,1,1,1
+access_itx_moduler_model_field_selection_all,ITX Moduler Field Selection All Users,model_itx_moduler_model_field_selection,base.group_user,1,1,1,1
+itx_moduler_model_field_selection_management,ITX Moduler Field Selection Management,model_itx_moduler_model_field_selection,itx_moduler_manager,1,1,1,1
+access_itx_moduler_model_method_all,ITX Moduler Model Method All Users,model_itx_moduler_model_method,base.group_user,1,1,1,1
+itx_moduler_model_method_management,ITX Moduler Model Method Management,model_itx_moduler_model_method,itx_moduler_manager,1,1,1,1
+access_itx_moduler_model_revision_all,ITX Moduler Model Revision All Users,model_itx_moduler_model_revision,base.group_user,1,1,1,0
+itx_moduler_model_revision_management,ITX Moduler Model Revision Management,model_itx_moduler_model_revision,itx_moduler_manager,1,1,1,1
+access_itx_moduler_view_all,ITX Moduler View All Users,model_itx_moduler_view,base.group_user,1,1,1,1
+itx_moduler_view_management,ITX Moduler View Management,model_itx_moduler_view,itx_moduler_manager,1,1,1,1
+access_itx_moduler_view_field_all,ITX Moduler View Field All Users,model_itx_moduler_view_field,base.group_user,1,1,1,1
+itx_moduler_view_field_management,ITX Moduler View Field Management,model_itx_moduler_view_field,itx_moduler_manager,1,1,1,1
+access_itx_moduler_menu_all,ITX Moduler Menu All Users,model_itx_moduler_menu,base.group_user,1,1,1,1
+itx_moduler_menu_management,ITX Moduler Menu Management,model_itx_moduler_menu,itx_moduler_manager,1,1,1,1
+access_itx_moduler_action_window_all,ITX Moduler Action Window All Users,model_itx_moduler_action_window,base.group_user,1,1,1,1
+itx_moduler_action_window_management,ITX Moduler Action Window Management,model_itx_moduler_action_window,itx_moduler_manager,1,1,1,1
+access_itx_moduler_add_module_wizard_all,ITX Moduler Add Module Wizard All Users,model_itx_moduler_add_module_wizard,base.group_user,1,1,1,1
+itx_moduler_add_module_wizard_management,ITX Moduler Add Module Wizard Management,model_itx_moduler_add_module_wizard,itx_moduler_manager,1,1,1,1
+access_itx_moduler_group_all,ITX Moduler Group All Users,model_itx_moduler_group,base.group_user,1,1,1,1
+itx_moduler_group_management,ITX Moduler Group Management,model_itx_moduler_group,itx_moduler_manager,1,1,1,1
+access_itx_moduler_acl_all,ITX Moduler ACL All Users,model_itx_moduler_acl,base.group_user,1,1,1,1
+itx_moduler_acl_management,ITX Moduler ACL Management,model_itx_moduler_acl,itx_moduler_manager,1,1,1,1
+access_itx_moduler_rule_all,ITX Moduler Rule All Users,model_itx_moduler_rule,base.group_user,1,1,1,1
+itx_moduler_rule_management,ITX Moduler Rule Management,model_itx_moduler_rule,itx_moduler_manager,1,1,1,1
+access_itx_moduler_constraint_all,ITX Moduler Constraint All Users,model_itx_moduler_constraint,base.group_user,1,1,1,1
+itx_moduler_constraint_management,ITX Moduler Constraint Management,model_itx_moduler_constraint,itx_moduler_manager,1,1,1,1
+access_itx_moduler_server_constraint_all,ITX Moduler Server Constraint All Users,model_itx_moduler_server_constraint,base.group_user,1,1,1,1
+itx_moduler_server_constraint_management,ITX Moduler Server Constraint Management,model_itx_moduler_server_constraint,itx_moduler_manager,1,1,1,1
+access_itx_moduler_server_action_all,ITX Moduler Server Action All Users,model_itx_moduler_server_action,base.group_user,1,1,1,1
+itx_moduler_server_action_management,ITX Moduler Server Action Management,model_itx_moduler_server_action,itx_moduler_manager,1,1,1,1
+access_itx_moduler_server_action_field_all,ITX Moduler Server Action Field All Users,model_itx_moduler_server_action_field,base.group_user,1,1,1,1
+itx_moduler_server_action_field_management,ITX Moduler Server Action Field Management,model_itx_moduler_server_action_field,itx_moduler_manager,1,1,1,1
+access_itx_moduler_report_all,ITX Moduler Report All Users,model_itx_moduler_report,base.group_user,1,1,1,1
+itx_moduler_report_management,ITX Moduler Report Management,model_itx_moduler_report,itx_moduler_manager,1,1,1,1

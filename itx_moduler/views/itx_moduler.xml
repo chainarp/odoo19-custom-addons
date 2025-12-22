@@ -1,0 +1,365 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Server Action: Download Addon as ZIP -->
+    <record model="ir.actions.server" id="itx_moduler_module_actionserver">
+        <field name="name">📦 Download Addon</field>
+        <field name="model_id" ref="model_itx_moduler_module"/>
+        <field name="binding_model_id" ref="model_itx_moduler_module"/>
+        <field name="binding_view_types">form,list</field>
+        <field name="state">code</field>
+        <field name="code">
+if records:
+    action = {"type": "ir.actions.act_url", "target": "self", "url": "/itx_moduler/%s" % ','.join(records.mapped(lambda r: str(r.id)))}
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="itx_moduler_module_form">
+        <field name="name">itx.moduler.module.form</field>
+        <field name="model">itx.moduler.module</field>
+        <field name="arch" type="xml">
+            <form string="ITX Moduler Module">
+                <header>
+                    <button name="%(itx_moduler_module_actionserver)d" string="📦 Download Addon" type="action" class="btn-primary" invisible="snapshot_model_count == 0"/>
+                    <button name="action_generate_xml" string="📄 View XML" type="object" class="btn-secondary" invisible="snapshot_model_count == 0"/>
+                    <button name="action_import_snapshots" string="📤 Load from Odoo" type="object" class="btn-info"/>
+                    <button name="button_immediate_install" string="Install" type="object"/>
+                    <button name="button_immediate_upgrade" string="Upgrade" type="object"/>
+                    <button name="button_immediate_uninstall" string="Uninstall" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="uninstalled,installed"/>
+                </header>
+                <sheet>
+                    <!-- Workspace Statistics Smart Buttons -->
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_snapshot_models" type="object" class="oe_stat_button" icon="fa-cubes">
+                            <field name="snapshot_model_count" widget="statinfo" string="Models"/>
+                        </button>
+                        <button name="action_view_snapshot_views" type="object" class="oe_stat_button" icon="fa-desktop">
+                            <field name="snapshot_view_count" widget="statinfo" string="Views"/>
+                        </button>
+                        <button name="action_view_snapshot_menus" type="object" class="oe_stat_button" icon="fa-bars">
+                            <field name="snapshot_menu_count" widget="statinfo" string="Menus"/>
+                        </button>
+                        <button name="action_view_snapshot_actions" type="object" class="oe_stat_button" icon="fa-bolt">
+                            <field name="snapshot_action_count" widget="statinfo" string="Actions"/>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="shortdesc" placeholder="Brief Description"/>
+                        </h1>
+                        <h3>
+                            By <field name="author" class="oe_inline" placeholder="Author Name"/>
+                        </h3>
+                        <div class="row">
+                            <div class="col-auto">
+                                <label for="workspace_status" class="fw-bold">Workspace Status:</label>
+                                <field name="workspace_status" readonly="1" class="ms-2"/>
+                            </div>
+                            <div class="col-auto text-muted">
+                                <i class="fa fa-clock-o"/> Last activity:
+                                <field name="last_activity" widget="relative" class="ms-1"/>
+                            </div>
+                        </div>
+                    </div>
+                    <notebook>
+                    <page string="Information">
+                        <group>
+                            <group>
+                                <field name="category_id" />
+                                <field name="summary" />
+                            </group>
+                            <group>
+                                <field name="name" class="name_input" />
+                                <field name="license"/>
+                                <field name="installed_version"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Technical Data">
+                        <group>
+                            <group>
+                                <field name="application" class="application_input" />
+                            </group>
+                        </group>
+                        <group string="Dependencies"/>
+                        <field name="dependencies_id">
+                            <list string="Dependencies">
+                                <field name="name"/>
+                                <field name="state"/>
+                            </list>
+                        </field>
+                    </page>
+                    <page string="Elements">
+                        <notebook>
+                            <page string="Groups">
+                                <field name="o2m_groups_snapshot" />
+                            </page>
+                            <page string="Models">
+                                <field name="o2m_models" context="{'hide_m2o_module': True}" />
+                            </page>
+                            <page string="ACLs">
+                                <field name="o2m_acls_snapshot" />
+                            </page>
+                            <page string="Rules">
+                                <field name="o2m_rules_snapshot" />
+                            </page>
+                            <page string="SQL Constraints">
+                                <field name="o2m_constraints_snapshot" />
+                            </page>
+                            <page string="Python Constraints">
+                                <field name="o2m_server_constraints_snapshot" />
+                            </page>
+                            <page string="Views">
+                                <field name="o2m_views" />
+                            </page>
+                            <page string="Action Windows">
+                                <field name="o2m_actions" />
+                            </page>
+                            <page string="Action Server">
+                                <field name="o2m_server_actions_snapshot" />
+                            </page>
+                            <page string="Menues">
+                                <field name="o2m_menus" context="{'hide_m2o_module': True}" />
+                            </page>
+                            <page string="Reports">
+                                <field name="o2m_reports_snapshot" />
+                            </page>
+                        </notebook>
+                    </page>
+                </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="itx_moduler_module_tree">
+        <field name="name">itx.moduler.module.tree</field>
+        <field name="model">itx.moduler.module</field>
+        <field name="inherit_id" ref="base.module_tree"/>
+        <field name="arch" type="xml">
+            <list position="attributes">
+                <attribute name="create">1</attribute>
+            </list>
+        </field>
+    </record>
+
+    <!-- Workspace Dashboard Kanban View -->
+    <record model="ir.ui.view" id="itx_moduler_module_kanban">
+        <field name="name">itx.moduler.module.workspace.kanban</field>
+        <field name="model">itx.moduler.module</field>
+        <field name="arch" type="xml">
+            <kanban class="o_moduler_workspace_kanban" action="open" sample="1" on_create="itx_moduler.itx_moduler_add_module_wizard_action">
+                <!-- Fields needed for display -->
+                <field name="id"/>
+                <field name="name"/>
+                <field name="shortdesc"/>
+                <field name="author"/>
+                <field name="icon_image"/>
+
+                <!-- Workspace Statistics -->
+                <field name="snapshot_model_count"/>
+                <field name="snapshot_view_count"/>
+                <field name="snapshot_menu_count"/>
+                <field name="snapshot_action_count"/>
+                <field name="workspace_status"/>
+                <field name="workspace_status_color"/>
+                <field name="last_activity"/>
+
+                <templates>
+                    <t t-name="card" t-att-class="'oe_kanban_color_' + record.workspace_status_color.raw_value">
+                        <!-- Card Header with Icon & Title -->
+                        <div class="o_kanban_card_header">
+                            <div class="o_kanban_card_header_title">
+                                <div class="o_primary">
+                                    <img t-att-src="'/web/image/itx.moduler.module/' + record.id.raw_value + '/icon_image'"
+                                         alt="Module Icon"
+                                         class="o_image_32_cover float-start me-2"
+                                         style="width: 32px; height: 32px; border-radius: 4px;"/>
+                                    <strong class="o_kanban_record_title">
+                                        <field name="shortdesc"/>
+                                    </strong>
+                                    <div class="text-muted small">
+                                        <field name="name"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Workspace Status Badge -->
+                        <div class="ribbon ribbon-top-right">
+                            <span class="badge"
+                                  t-att-class="{
+                                      'empty': 'text-bg-secondary',
+                                      'draft': 'text-bg-warning',
+                                      'editing': 'text-bg-info',
+                                      'ready': 'text-bg-primary',
+                                      'applied': 'text-bg-success',
+                                      'exported': 'text-bg-dark'
+                                  }[record.workspace_status.raw_value]">
+                                <i class="fa" t-att-class="{
+                                      'empty': 'fa-inbox',
+                                      'draft': 'fa-pencil',
+                                      'editing': 'fa-code',
+                                      'ready': 'fa-check-circle',
+                                      'applied': 'fa-rocket',
+                                      'exported': 'fa-download'
+                                  }[record.workspace_status.raw_value]"/>
+                                <field name="workspace_status"/>
+                            </span>
+                        </div>
+
+                        <!-- Workspace Statistics Grid -->
+                        <div class="container o_kanban_card_content mt-3">
+                            <div class="row g-2">
+                                <!-- Models -->
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center p-2 bg-light rounded">
+                                        <i class="fa fa-cubes fa-2x text-primary me-2"/>
+                                        <div>
+                                            <div class="fw-bold fs-5">
+                                                <field name="snapshot_model_count"/>
+                                            </div>
+                                            <small class="text-muted">Models</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Views -->
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center p-2 bg-light rounded">
+                                        <i class="fa fa-desktop fa-2x text-success me-2"/>
+                                        <div>
+                                            <div class="fw-bold fs-5">
+                                                <field name="snapshot_view_count"/>
+                                            </div>
+                                            <small class="text-muted">Views</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Menus -->
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center p-2 bg-light rounded">
+                                        <i class="fa fa-bars fa-2x text-warning me-2"/>
+                                        <div>
+                                            <div class="fw-bold fs-5">
+                                                <field name="snapshot_menu_count"/>
+                                            </div>
+                                            <small class="text-muted">Menus</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Actions -->
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center p-2 bg-light rounded">
+                                        <i class="fa fa-bolt fa-2x text-danger me-2"/>
+                                        <div>
+                                            <div class="fw-bold fs-5">
+                                                <field name="snapshot_action_count"/>
+                                            </div>
+                                            <small class="text-muted">Actions</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Last Activity -->
+                        <div class="o_kanban_card_footer mt-3">
+                            <div class="text-muted small">
+                                <i class="fa fa-clock-o"/> Last activity:
+                                <field name="last_activity" widget="relative"/>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="o_kanban_card_footer mt-2">
+                            <div class="d-flex gap-2">
+                                <button type="object"
+                                        name="action_import_snapshots"
+                                        class="btn btn-sm btn-primary flex-grow-1"
+                                        t-if="record.snapshot_model_count.raw_value == 0">
+                                    <i class="fa fa-download"/> Import
+                                </button>
+                                <button type="object"
+                                        name="action_generate_xml"
+                                        class="btn btn-sm btn-success flex-grow-1"
+                                        t-if="record.snapshot_model_count.raw_value > 0">
+                                    <i class="fa fa-code"/> Export
+                                </button>
+                                <button type="delete"
+                                        class="btn btn-sm btn-outline-danger">
+                                    <i class="fa fa-trash"/>
+                                </button>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="itx_moduler_module_search">
+        <field name="name">itx.moduler.module.search</field>
+        <field name="model">itx.moduler.module</field>
+        <field name="inherit_id" ref="base.view_module_filter"/>
+        <field name="arch" type="xml">
+            <search position="attributes">
+                <attribute name="string">ITX Moduler Module Search</attribute>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="itx_moduler_module_actionwindow">
+        <field name="name">Modules</field>
+        <field name="res_model">itx.moduler.module</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="domain">[('state', '!=', 'uninstallable')]</field>
+        <field name="context">{
+            'search_default_app': 1,
+            'create': False
+        }</field>
+        <field name="search_view_id" ref="itx_moduler_module_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                <b>Welcome to ITX Moduler Workspace!</b>
+            </p>
+            <p>Your workspace is empty. Ready to create something amazing?</p>
+
+            <!-- Big New Module Button -->
+            <p class="mt-4">
+                <a type="action"
+                   name="%(itx_moduler_add_module_wizard_action)d"
+                   class="btn btn-primary btn-lg">
+                    <i class="fa fa-plus-circle"/> New Module
+                </a>
+            </p>
+
+            <p class="text-muted mt-4">
+                <small>
+                    💡 <b>What you can do:</b><br/>
+                    • <b>Create:</b> Build from scratch (Coming Soon)<br/>
+                    • <b>Load:</b> Import from Odoo database ✅<br/>
+                    • <b>Import:</b> Upload ZIP package (Coming Soon)
+                </small>
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="itx_moduler_main_menu"
+              name="ITX Moduler"
+              action="itx_moduler_module_actionwindow"
+              web_icon="itx_itx_moduler,static/description/itx_itx_moduler_icon_128x128.png"
+              sequence="10"/>
+
+    <!-- Removed submenus - workspace is accessed directly from main menu -->
+    <!--
+    <menuitem id="itx_moduler_generator_menu"... />
+    <menuitem id="itx_moduler_new_module_menu"... />
+    <menuitem id="itx_moduler_import_menu"... />
+    -->
+
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- User Group (Read Only) -->
+        <record id="group_itx_helloworld_user" model="res.groups">
+            <field name="name">ITX Hello World / User</field>
+        </record>
+
+        <!-- Manager Group (Full Access) -->
+        <record id="group_itx_helloworld_manager" model="res.groups">
+            <field name="name">ITX Hello World / Manager</field>
+            <field name="implied_ids" eval="[(4, ref('group_itx_helloworld_user'))]"/>
+        </record>
+
+    </data>
+</odoo>

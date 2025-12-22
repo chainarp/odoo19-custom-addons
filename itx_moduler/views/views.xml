@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="itx_itx_moduler.list">
+      <field name="name">itx_itx_moduler list</field>
+      <field name="model">itx_itx_moduler.itx_itx_moduler</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </list>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="itx_itx_moduler.action_window">
+      <field name="name">itx_itx_moduler window</field>
+      <field name="res_model">itx_itx_moduler.itx_itx_moduler</field>
+      <field name="view_mode">list,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="itx_itx_moduler.action_server">
+      <field name="name">itx_itx_moduler server</field>
+      <field name="model_id" ref="model_itx_itx_moduler_itx_itx_moduler"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "list,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="itx_itx_moduler" id="itx_itx_moduler.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="itx_itx_moduler.menu_1" parent="itx_itx_moduler.menu_root"/>
+    <menuitem name="Menu 2" id="itx_itx_moduler.menu_2" parent="itx_itx_moduler.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="itx_itx_moduler.menu_1_list" parent="itx_itx_moduler.menu_1"
+              action="itx_itx_moduler.action_window"/>
+    <menuitem name="Server to list" id="itx_itx_moduler" parent="itx_itx_moduler.menu_2"
+              action="itx_itx_moduler.action_server"/>
+-->
+  </data>
+</odoo>

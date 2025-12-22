@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Report Action -->
+        <record id="action_report_itx_helloworld" model="ir.actions.report">
+            <field name="name">Hello World Report</field>
+            <field name="model">itx.helloworld</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">itx_helloworld.report_itx_helloworld_document</field>
+            <field name="report_file">itx_helloworld.report_itx_helloworld_document</field>
+            <field name="binding_model_id" ref="model_itx_helloworld"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>
