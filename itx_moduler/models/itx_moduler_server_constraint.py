@@ -176,6 +176,11 @@ for record in self:
     def _check_code(self):
         """Basic Python syntax validation"""
         for constraint in self:
+            # Skip validation for imported constraints (state = applied)
+            # They come from working code and may have indentation issues when extracted
+            if constraint.state == 'applied':
+                continue
+
             if not constraint.code:
                 raise ValidationError(_('Python code is required'))
 

@@ -1121,24 +1121,51 @@ class ItxModulerModule(models.Model):
             ('module_id', '=', self.id)
         ])
 
+        _logger.info(f"🔍 Checking Python Constraints for {len(model_snapshots)} models...")
+
         for model_snapshot in model_snapshots:
             if not model_snapshot.ir_model_id:
+                _logger.debug(f"⏭️  Skipping {model_snapshot.model} - no ir_model_id")
                 continue
 
             try:
                 # Get the actual Python model class
                 py_model = self.env[model_snapshot.model]
+                _logger.debug(f"🔍 Checking model: {model_snapshot.model}")
 
-                # Check if model has constraint methods
+                # In Odoo, constraint methods are stored in _constraint_methods
+                # It stores function objects, not strings
+                constraint_methods = []
+
+                # Method 1: Try _constraint_methods attribute (contains function objects)
                 if hasattr(py_model, '_constraint_methods'):
-                    for method_name in py_model._constraint_methods:
-                        method = getattr(py_model.__class__, method_name, None)
-                        if not method:
-                            continue
+                    constraint_methods = list(py_model._constraint_methods)
+                    _logger.debug(f"   Found _constraint_methods: {constraint_methods}")
+
+                # Method 2: Scan all methods for @api.constrains decorator
+                if not constraint_methods:
+                    for attr_name in dir(py_model.__class__):
+                        if attr_name.startswith('_'):
+                            attr = getattr(py_model.__class__, attr_name, None)
+                            if callable(attr) and hasattr(attr, '_constrains'):
+                                constraint_methods.append(attr)  # Append function object
+                    _logger.debug(f"   Found by scanning: {constraint_methods}")
+
+                if not constraint_methods:
+                    _logger.debug(f"   No Python constraints found for {model_snapshot.model}")
+                    continue
+
+                # Process each constraint method
+                for method in constraint_methods:
+                    try:
+                        # Extract method name from function object
+                        method_name = method.__name__
+                        _logger.debug(f"   Processing constraint: {method_name}")
 
                         # Get constraint info from method
                         constraint_fields = getattr(method, '_constrains', [])
                         if not constraint_fields:
+                            _logger.debug(f"   ⏭️  Method {method_name} has no _constrains")
                             continue
 
                         # Check if already imported
@@ -1149,6 +1176,7 @@ class ItxModulerModule(models.Model):
                         ], limit=1)
 
                         if existing:
+                            _logger.debug(f"   ⏭️  {method_name} already imported")
                             continue
 
                         # Get method docstring as description
@@ -1157,7 +1185,8 @@ class ItxModulerModule(models.Model):
                         # Try to get source code
                         try:
                             source_code = inspect.getsource(method)
-                        except Exception:
+                        except Exception as e:
+                            _logger.warning(f"   ⚠️  Could not get source for {method_name}: {e}")
                             # Fallback if source not available
                             source_code = f'''# Constraint method: {method_name}
 # Validates: {', '.join(constraint_fields)}
@@ -1177,11 +1206,17 @@ for record in self:
                             'message': 'Validation failed',  # Default message
                             'state': 'applied',
                         })
-                        _logger.info(f"✅ Imported Python Constraint: {method_name} on {model_snapshot.model}")
+                        _logger.info(f"✅ Imported Python Constraint: {method_name} on {model_snapshot.model} (fields: {', '.join(constraint_fields)})")
+
+                    except Exception as e:
+                        _logger.error(f"   ❌ Failed to import constraint {method_name}: {e}", exc_info=True)
+                        continue
 
             except Exception as e:
-                _logger.warning(f"⚠️ Could not import Python constraints for {model_snapshot.model}: {e}")
+                _logger.error(f"❌ Could not process Python constraints for {model_snapshot.model}: {e}", exc_info=True)
                 continue
+
+        _logger.info(f"✅ Python Constraints import completed")
 
         return {
             'type': 'ir.actions.client',

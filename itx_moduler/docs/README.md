@@ -1,194 +1,134 @@
 # ITX Moduler Documentation
 
-AI-Powered Visual Odoo Module Creator with Hardware-Licensed Security
-
-**Version:** 19.0.2.0.0
-**Last Updated:** 2025-12-14
-**Status:** Phase 1 Implementation
+AI-Powered Odoo Module Creator with Snapshot Architecture
 
 ---
 
-## 📚 Documentation Index
+## 📚 Documentation Structure
 
-### 1. Core Concepts
+### [01-Getting-Started/](./01-Getting-Started/)
+Start here if you're new to ITX Moduler
 
-**[SNAPSHOT_ARCHITECTURE.md](SNAPSHOT_ARCHITECTURE.md)** ⭐ **START HERE**
-- Complete snapshot table design
-- State workflow: Draft → Validated → Applied → Exported → Archived
-- Version & revision management system
-- Standard vs Custom module modification rules
-- 22 table specifications (16 MVP + 6 advanced)
-- Implementation priority & sprints
-- **Status:** ✅ Approved for Implementation
+- **[README.md](./01-Getting-Started/README.md)** - Quick start guide and overview
 
-**[OCE_MODULE_CREATOR_CONCEPT.md](OCE_MODULE_CREATOR_CONCEPT.md)**
-- Original metadata-first philosophy
-- Virtual Module concept from itx_oce_module_creator
-- Phase 1 vs Phase 2 comparison
-- Historical context
+### [02-Architecture/](./02-Architecture/)
+Technical architecture and design decisions
 
-### 2. AI Integration
+- **[SNAPSHOT_ARCHITECTURE.md](./02-Architecture/SNAPSHOT_ARCHITECTURE.md)** - Core snapshot architecture design
+- **[COMPATIBILITY_PROPERTIES_FIX.md](./02-Architecture/COMPATIBILITY_PROPERTIES_FIX.md)** - Properties compatibility fix
+- **[VERSION_COMPATIBILITY_STRATEGY.md](./02-Architecture/VERSION_COMPATIBILITY_STRATEGY.md)** - Multi-version Odoo support
+- **[VERSION_CONTROL_INTEGRATION.md](./02-Architecture/VERSION_CONTROL_INTEGRATION.md)** - Git integration
+- **[XML_VALIDATION_STRATEGY.md](./02-Architecture/XML_VALIDATION_STRATEGY.md)** - XML validation approach
+- **[OWL_VISUAL_DESIGNER_WITH_RNG.md](./02-Architecture/OWL_VISUAL_DESIGNER_WITH_RNG.md)** - Visual designer with OWL
 
-**[CLAUDE_ASSISTANCE.md](CLAUDE_ASSISTANCE.md)**
-- AI-powered module creation vision
-- Natural language to code generation
-- User experience scenarios
-- Paradigm shift: Clicking → Describing
+### [03-Development/](./03-Development/)
+Development session notes and progress tracking
 
-**[CLAUDE_API_INTEGRATION.md](CLAUDE_API_INTEGRATION.md)**
-- Technical architecture for Claude API
-- Service layer implementation
-- AI wizard design
-- Token usage tracking
-- Cost management strategies
+- **[SESSION_2025-12-20_SNAPSHOT_ARCHITECTURE_COMPLETE.md](./03-Development/SESSION_2025-12-20_SNAPSHOT_ARCHITECTURE_COMPLETE.md)** - Snapshot architecture completion
+- **[SESSION_NOTES_2025-12-21.md](./03-Development/SESSION_NOTES_2025-12-21.md)** - Latest development session
+- **[SESSION_MEMO_2025-12-15.md](./03-Development/SESSION_MEMO_2025-12-15.md)** - Development memo
+- **[CURRENT_FOCUS.md](./03-Development/CURRENT_FOCUS.md)** - Current development priorities
+- **[TESTING_REMAINING_ELEMENTS.md](./03-Development/TESTING_REMAINING_ELEMENTS.md)** - Testing checklist
 
-### 3. Commercial Product
+### [04-Integration/](./04-Integration/)
+Integration with external services
 
-**[LICENSE_INTEGRATION.md](LICENSE_INTEGRATION.md)**
-- ITX Security Shield integration
-- Hardware-based licensing (RSA-4096 + AES-256-GCM)
-- Pricing tiers:
-  - Free: 3 models max, no AI
-  - Professional: $99/month, 10 AI requests/day
-  - Enterprise: $299/month, unlimited AI
-  - Lifetime: $4,999 one-time
-- Feature matrix by tier
+- **[CLAUDE_API_INTEGRATION.md](./04-Integration/CLAUDE_API_INTEGRATION.md)** - Claude API integration guide
+- **[CLAUDE_ASSISTANCE.md](./04-Integration/CLAUDE_ASSISTANCE.md)** - AI assistance features
+- **[LICENSE_INTEGRATION.md](./04-Integration/LICENSE_INTEGRATION.md)** - License system integration
 
-### 4. Development Plan
+### [05-Reference/](./05-Reference/)
+Quick reference and coverage documentation
 
-**[CONSOLIDATION_PLAN.md](CONSOLIDATION_PLAN.md)**
-- Strategic plan to merge 4 modules → 1 ultimate module
-- 6-phase implementation (14 weeks)
-- Final architecture design
-- File structure blueprint
-- Success criteria & launch checklist
+- **[ODOO_ELEMENTS_COVERAGE.md](./05-Reference/ODOO_ELEMENTS_COVERAGE.md)** - Odoo elements coverage status
+
+### [06-Planning/](./06-Planning/)
+Vision, roadmap, and future plans
+
+- **[VISION_AND_WORKFLOW.md](./06-Planning/VISION_AND_WORKFLOW.md)** - Project vision and workflow
+- **[CONSOLIDATION_PLAN.md](./06-Planning/CONSOLIDATION_PLAN.md)** - Module consolidation plan
+- **[OCE_MODULE_CREATOR_CONCEPT.md](./06-Planning/OCE_MODULE_CREATOR_CONCEPT.md)** - OCE module creator concept
 
 ---
 
-## 🎯 Quick Start
+## 🚀 Quick Links
 
-### What is ITX Moduler?
+### For New Users
+1. [Getting Started](./01-Getting-Started/README.md) - Start here!
+2. [Snapshot Architecture](./02-Architecture/SNAPSHOT_ARCHITECTURE.md) - Understanding the core concept
+3. [Elements Coverage](./05-Reference/ODOO_ELEMENTS_COVERAGE.md) - What's supported
 
-ITX Moduler combines the best features of multiple approaches:
+### For Developers
+1. [Current Focus](./03-Development/CURRENT_FOCUS.md) - What we're working on now
+2. [Latest Session Notes](./03-Development/SESSION_NOTES_2025-12-21.md) - Latest development progress
+3. [Architecture Docs](./02-Architecture/) - Technical details
 
-1. **Import & Enhance** (from itx_code_generator)
-   - Import existing Odoo modules
-   - Reverse engineer models, views, menus
-   - Export modified versions
-
-2. **Metadata-First Creation** (from itx_oce_module_creator)
-   - Create virtual modules in database
-   - Design without files
-   - Export when ready
-
-3. **AI-Assisted Development** (planned)
-   - Describe what you want in natural language
-   - Claude generates models, fields, views
-   - Iterative refinement
-
-4. **Visual Builder** (planned)
-   - Owl 2.x components
-   - Drag-drop interface
-   - Real-time preview
+### For Integrators
+1. [Claude API Integration](./04-Integration/CLAUDE_API_INTEGRATION.md) - AI features
+2. [License Integration](./04-Integration/LICENSE_INTEGRATION.md) - Security features
+3. [Version Compatibility](./02-Architecture/VERSION_COMPATIBILITY_STRATEGY.md) - Multi-version support
 
 ---
 
-## 🏗️ Architecture Overview
+## 📊 Project Status
 
-```
-┌─────────────────────────────────────────┐
-│         ITX Moduler (Odoo Module)        │
-│                                          │
-│  ┌────────────────────────────────────┐ │
-│  │  Import Engine                      │ │
-│  │  - Reverse engineer existing        │ │
-│  │  - Map models/views/menus           │ │
-│  └───────────────┬────────────────────┘ │
-│                  │                       │
-│  ┌───────────────▼────────────────────┐ │
-│  │  Metadata Layer (Snapshots)         │ │
-│  │  - itx.moduler.module               │ │
-│  │  - Virtual models/fields/views      │ │
-│  │  - State workflow                   │ │
-│  └───────────────┬────────────────────┘ │
-│                  │                       │
-│  ┌───────────────▼────────────────────┐ │
-│  │  AI Layer (Future)                  │ │
-│  │  - Claude API integration           │ │
-│  │  - Natural language → code          │ │
-│  └───────────────┬────────────────────┘ │
-│                  │                       │
-│  ┌───────────────▼────────────────────┐ │
-│  │  Visual Builder (Future)            │ │
-│  │  - Owl components                   │ │
-│  │  - Drag-drop interface              │ │
-│  └───────────────┬────────────────────┘ │
-│                  │                       │
-│  ┌───────────────▼────────────────────┐ │
-│  │  Code Generator                     │ │
-│  │  - Python/XML generation            │ │
-│  │  - Export to ZIP                    │ │
-│  └────────────────────────────────────┘ │
-└─────────────────────────────────────────┘
-```
+### ✅ Completed
+- Core snapshot architecture
+- Models, Fields, Views, Menus
+- Security (Groups, ACLs, Rules)
+- Actions (Windows, Server Actions)
+- Reports
+- Constraints (SQL, Python)
+
+### 🚧 In Progress
+- Python Constraints import refinement
+- Documentation organization
+- Testing coverage
+
+### 📅 Planned
+- Automated Actions (base.automation)
+- Email Templates
+- Cron Jobs
+- Sequences
+- Wizards
+
+See [ODOO_ELEMENTS_COVERAGE.md](./05-Reference/ODOO_ELEMENTS_COVERAGE.md) for detailed status.
 
 ---
 
-## 🚀 Current Status
+## 📝 Recent Updates
 
-### ✅ Implemented (v19.0.2.0.0)
-- Module import from existing Odoo modules
-- Model/field/view mapping
-- ir.model extensions
-- SQL constraint management
-- Import wizard
-- Export to ZIP capability
+### 2025-12-26
+- ✅ Fixed Python Constraints import
+- ✅ Organized documentation into categories
+- ✅ Created elements coverage document
 
-### 🔜 Planned (Phases 2-6)
-- **Phase 2**: Snapshot metadata layer
-- **Phase 3**: Claude AI integration
-- **Phase 4**: Owl visual builder
-- **Phase 5**: ITX Security Shield licensing
-- **Phase 6**: Polish & commercial launch
+### 2025-12-21
+- ✅ Snapshot Architecture validated and working
+- ✅ Groups & ACLs persist after uninstall
+- ✅ Added comprehensive test elements to itx_helloworld
 
----
-
-## 📖 For Developers
-
-### Key Models
-
-1. **itx.moduler.module** - Main module wrapper
-2. **itx.moduler.module.dependency** - Module dependencies
-3. **itx.moduler.pyclass** - Python class tracking
-4. **ir.model** (extended) - Model management with constraints
-5. **ir.model.server_constrain** - Python server constraints
-6. **ir.actions.act_window** (extended) - Action windows
-7. **ir.ui.menu** (extended) - Menu structure
-8. **ir.ui.view** (extended) - View auto-generation
-
-### Important Files
-
-- `models/itx_moduler_module.py` - Core module model
-- `models/ir_model.py` - Advanced model extensions
-- `controllers/main.py` - HTTP endpoints & export logic
-- `wizards/import_module_wizard.py` - Import wizard
+### 2025-12-20
+- ✅ Completed Snapshot Architecture implementation
+- ✅ All major elements import successfully
 
 ---
 
 ## 🤝 Contributing
 
-This is a commercial product in development. For inquiries:
-- Website: https://www.itexpert.co.th
-- Author: Chainaris P
+This is an internal project. For questions or suggestions, contact the development team.
 
 ---
 
-## 📄 License
+## 📞 Support
 
-TBD - Will integrate with ITX Security Shield for commercial licensing
+For issues or questions:
+1. Check the [Getting Started Guide](./01-Getting-Started/README.md)
+2. Review [Architecture Documentation](./02-Architecture/)
+3. Check [Latest Session Notes](./03-Development/)
 
 ---
 
-**Last Updated**: 2025-12-14
-**Version**: 19.0.2.0.0
-**Status**: Phase 1 Complete, Phase 2+ Planned
+**Last Updated:** 2025-12-26
+**Version:** 19.0.2.0.0
+**Status:** Active Development
