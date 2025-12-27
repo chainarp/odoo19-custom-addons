@@ -27,7 +27,7 @@ ITX Moduler is an **AI-Powered Odoo Module Creator** with **Snapshot Architectur
 
 ### 👨‍💻 Developer?
 **Check these:**
-1. [03-Development/SESSION_NOTES_2025-12-21.md](./03-Development/SESSION_NOTES_2025-12-21.md) - Latest progress
+1. [03-Development/SESSION_NOTES_2025-12-26.md](./03-Development/SESSION_NOTES_2025-12-26.md) - Latest progress
 2. [02-Architecture/](./02-Architecture/) - Technical architecture
 3. [03-Development/CURRENT_FOCUS.md](./03-Development/CURRENT_FOCUS.md) - Current priorities
 
@@ -39,9 +39,10 @@ ITX Moduler is an **AI-Powered Odoo Module Creator** with **Snapshot Architectur
 
 ### 📋 Planning / Roadmap?
 **See:**
-1. [06-Planning/VISION_AND_WORKFLOW.md](./06-Planning/VISION_AND_WORKFLOW.md) - Vision
-2. [05-Reference/ODOO_ELEMENTS_COVERAGE.md](./05-Reference/ODOO_ELEMENTS_COVERAGE.md) - Status
-3. [06-Planning/CONSOLIDATION_PLAN.md](./06-Planning/CONSOLIDATION_PLAN.md) - Plans
+1. [06-Planning/IMPLEMENTATION_ROADMAP.md](./06-Planning/IMPLEMENTATION_ROADMAP.md) - Complete roadmap ⭐
+2. [06-Planning/STRATEGY_SUMMARY.md](./06-Planning/STRATEGY_SUMMARY.md) - Strategic direction
+3. [05-Reference/ODOO_ELEMENTS_COVERAGE.md](./05-Reference/ODOO_ELEMENTS_COVERAGE.md) - Coverage status
+4. [06-Planning/PRACTICAL_WORKFLOW_AND_AI_INTEGRATION.md](./06-Planning/PRACTICAL_WORKFLOW_AND_AI_INTEGRATION.md) - Real-world workflow
 
 ---
 
@@ -64,13 +65,16 @@ docs/
 │   └── OWL_VISUAL_DESIGNER_WITH_RNG.md
 │
 ├── 03-Development/
-│   ├── SESSION_NOTES_2025-12-21.md ⭐ Latest
+│   ├── SESSION_NOTES_2025-12-26.md ⭐ Latest
+│   ├── SESSION_NOTES_2025-12-21.md
 │   ├── SESSION_2025-12-20_SNAPSHOT_ARCHITECTURE_COMPLETE.md
 │   ├── SESSION_MEMO_2025-12-15.md
 │   ├── CURRENT_FOCUS.md
 │   └── TESTING_REMAINING_ELEMENTS.md
 │
 ├── 04-Integration/
+│   ├── AI_CONVERSATION_MANAGEMENT.md ⭐ 10 AI capabilities
+│   ├── AI_TECHNICAL_IMPLEMENTATION.md ⭐ Technical design
 │   ├── CLAUDE_API_INTEGRATION.md
 │   ├── CLAUDE_ASSISTANCE.md
 │   └── LICENSE_INTEGRATION.md
@@ -79,6 +83,9 @@ docs/
 │   └── ODOO_ELEMENTS_COVERAGE.md ⭐ Coverage status
 │
 └── 06-Planning/
+    ├── IMPLEMENTATION_ROADMAP.md ⭐ Complete roadmap
+    ├── STRATEGY_SUMMARY.md
+    ├── PRACTICAL_WORKFLOW_AND_AI_INTEGRATION.md
     ├── VISION_AND_WORKFLOW.md
     ├── CONSOLIDATION_PLAN.md
     └── OCE_MODULE_CREATOR_CONCEPT.md
@@ -96,9 +103,13 @@ docs/
 **Why it matters:** Know what's supported and what's planned
 **What you'll learn:** Coverage status, roadmap, priorities
 
-### 3. [SESSION_NOTES_2025-12-21.md](./03-Development/SESSION_NOTES_2025-12-21.md)
-**Why it matters:** Latest development progress and achievements
-**What you'll learn:** Recent fixes, current status, known issues
+### 3. [SESSION_NOTES_2025-12-26.md](./03-Development/SESSION_NOTES_2025-12-26.md)
+**Why it matters:** Latest development progress and strategic planning
+**What you'll learn:** Python Constraints fix, AI integration design, complete roadmap
+
+### 4. [IMPLEMENTATION_ROADMAP.md](./06-Planning/IMPLEMENTATION_ROADMAP.md)
+**Why it matters:** Complete 5-phase implementation plan with AI integration
+**What you'll learn:** Strategic direction, timeline, costs, next steps
 
 ---
 
@@ -111,13 +122,16 @@ docs/
 → Check [05-Reference/ODOO_ELEMENTS_COVERAGE.md](./05-Reference/ODOO_ELEMENTS_COVERAGE.md)
 
 ### Want to see latest progress?
-→ See [03-Development/SESSION_NOTES_2025-12-21.md](./03-Development/SESSION_NOTES_2025-12-21.md)
+→ See [03-Development/SESSION_NOTES_2025-12-26.md](./03-Development/SESSION_NOTES_2025-12-26.md)
 
 ### Want to integrate AI features?
 → Read [04-Integration/CLAUDE_API_INTEGRATION.md](./04-Integration/CLAUDE_API_INTEGRATION.md)
 
 ### Want to understand the vision?
 → Read [06-Planning/VISION_AND_WORKFLOW.md](./06-Planning/VISION_AND_WORKFLOW.md)
+
+### Want to see the complete roadmap?
+→ Read [06-Planning/IMPLEMENTATION_ROADMAP.md](./06-Planning/IMPLEMENTATION_ROADMAP.md)
 
 ---
 
