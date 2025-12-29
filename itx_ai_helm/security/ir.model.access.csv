@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_itx_ai_project_user,itx.ai.project user,model_itx_ai_project,base.group_user,1,1,1,1
+access_itx_ai_session_user,itx.ai.session user,model_itx_ai_session,base.group_user,1,1,1,1
+access_itx_ai_message_user,itx.ai.message user,model_itx_ai_message,base.group_user,1,1,1,1
+access_itx_ai_context_user,itx.ai.context user,model_itx_ai_context,base.group_user,1,1,1,1
+access_itx_ai_logbook_section_user,itx.ai.logbook.section user,model_itx_ai_logbook_section,base.group_user,1,1,1,0
+access_itx_ai_logbook_index_user,itx.ai.logbook.index user,model_itx_ai_logbook_index,base.group_user,1,0,0,0
+access_itx_ai_logbook_section_system,itx.ai.logbook.section system,model_itx_ai_logbook_section,base.group_system,1,1,1,1
+access_itx_ai_logbook_index_system,itx.ai.logbook.index system,model_itx_ai_logbook_index,base.group_system,1,1,1,1

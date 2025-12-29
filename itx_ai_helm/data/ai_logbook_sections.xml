@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Odoo Development Domain - SDLC Sections -->
+
+        <record id="section_odoo_requirements" model="itx.ai.logbook.section">
+            <field name="domain_id">odoo_development</field>
+            <field name="section_id">requirements</field>
+            <field name="name">Requirements</field>
+            <field name="description">Project requirements, features, and specifications</field>
+            <field name="is_default" eval="True"/>
+            <field name="sequence">10</field>
+            <field name="icon">📋</field>
+            <field name="keywords">requirements, features, specifications, user story, functional, business rules</field>
+            <field name="example_topics">User wants, System should, Business needs, Approval workflow, Data validation</field>
+        </record>
+
+        <record id="section_odoo_design" model="itx.ai.logbook.section">
+            <field name="domain_id">odoo_development</field>
+            <field name="section_id">design</field>
+            <field name="name">Design</field>
+            <field name="description">Design decisions, patterns, and architecture</field>
+            <field name="is_default" eval="True"/>
+            <field name="sequence">20</field>
+            <field name="icon">📐</field>
+            <field name="keywords">design, architecture, pattern, model, field, view, workflow, state machine</field>
+            <field name="example_topics">Use mail.thread, State machine pattern, Model structure, Field types, View layout</field>
+        </record>
+
+        <record id="section_odoo_implementation" model="itx.ai.logbook.section">
+            <field name="domain_id">odoo_development</field>
+            <field name="section_id">implementation</field>
+            <field name="name">Implementation</field>
+            <field name="description">Implementation notes, code decisions, and solutions</field>
+            <field name="is_default" eval="True"/>
+            <field name="sequence">30</field>
+            <field name="icon">💻</field>
+            <field name="keywords">code, implementation, method, function, compute, onchange, constraint</field>
+            <field name="example_topics">Compute field logic, Onchange behavior, Constraint validation, API method</field>
+        </record>
+
+        <record id="section_odoo_testing" model="itx.ai.logbook.section">
+            <field name="domain_id">odoo_development</field>
+            <field name="section_id">testing</field>
+            <field name="name">Testing</field>
+            <field name="description">Testing strategies, test cases, and results</field>
+            <field name="is_default" eval="True"/>
+            <field name="sequence">40</field>
+            <field name="icon">🧪</field>
+            <field name="keywords">test, testing, unit test, scenario, validation, bug fix</field>
+            <field name="example_topics">Test cases, Bug fix, Unit tests, Integration tests, Validation results</field>
+        </record>
+
+        <record id="section_odoo_deployment" model="itx.ai.logbook.section">
+            <field name="domain_id">odoo_development</field>
+            <field name="section_id">deployment</field>
+            <field name="name">Deployment</field>
+            <field name="description">Deployment notes, migration, and production issues</field>
+            <field name="is_default" eval="True"/>
+            <field name="sequence">50</field>
+            <field name="icon">🚀</field>
+            <field name="keywords">deployment, migration, production, install, upgrade, data migration</field>
+            <field name="example_topics">Migration script, Production deployment, Data migration, Module upgrade</field>
+        </record>
+
+        <!-- Odoo Knowledge Sections (Domain-level, not project-specific) -->
+
+        <record id="section_odoo_knowledge_v17" model="itx.ai.logbook.section">
+            <field name="domain_id">odoo_development</field>
+            <field name="section_id">odoo_knowledge_v17</field>
+            <field name="name">Odoo Knowledge v17</field>
+            <field name="description">Odoo v17 specific knowledge, changes, and best practices</field>
+            <field name="is_default" eval="True"/>
+            <field name="is_domain_knowledge" eval="True"/>
+            <field name="sequence">100</field>
+            <field name="icon">📚</field>
+            <field name="keywords">odoo 17, version 17, v17, changes, migration, deprecated</field>
+            <field name="example_topics">Tree view → List view, API changes, Deprecated methods</field>
+        </record>
+
+        <record id="section_odoo_knowledge_v18" model="itx.ai.logbook.section">
+            <field name="domain_id">odoo_development</field>
+            <field name="section_id">odoo_knowledge_v18</field>
+            <field name="name">Odoo Knowledge v18</field>
+            <field name="description">Odoo v18 specific knowledge, changes, and best practices</field>
+            <field name="is_default" eval="True"/>
+            <field name="is_domain_knowledge" eval="True"/>
+            <field name="sequence">110</field>
+            <field name="icon">📚</field>
+            <field name="keywords">odoo 18, version 18, v18, changes, migration, new features</field>
+            <field name="example_topics">New features, API updates, Framework changes</field>
+        </record>
+
+        <record id="section_odoo_knowledge_v19" model="itx.ai.logbook.section">
+            <field name="domain_id">odoo_development</field>
+            <field name="section_id">odoo_knowledge_v19</field>
+            <field name="name">Odoo Knowledge v19</field>
+            <field name="description">Odoo v19 specific knowledge, changes, and best practices</field>
+            <field name="is_default" eval="True"/>
+            <field name="is_domain_knowledge" eval="True"/>
+            <field name="sequence">120</field>
+            <field name="icon">📚</field>
+            <field name="keywords">odoo 19, version 19, v19, changes, migration, group_ids, privilege_id</field>
+            <field name="example_topics">group_ids → privilege_id.group_ids, New security model, Framework updates</field>
+        </record>
+
+        <record id="section_odoo_knowledge_general" model="itx.ai.logbook.section">
+            <field name="domain_id">odoo_development</field>
+            <field name="section_id">odoo_knowledge_general</field>
+            <field name="name">Odoo Knowledge (General)</field>
+            <field name="description">General Odoo knowledge, best practices, and common patterns</field>
+            <field name="is_default" eval="True"/>
+            <field name="is_domain_knowledge" eval="True"/>
+            <field name="sequence">130</field>
+            <field name="icon">📖</field>
+            <field name="keywords">best practice, common pitfall, pattern, ORM, security, performance</field>
+            <field name="example_topics">ORM best practices, Security patterns, Performance optimization, Common mistakes</field>
+        </record>
+
+    </data>
+</odoo>

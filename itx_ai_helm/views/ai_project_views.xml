@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- AI Project Tree View -->
+    <record id="view_ai_project_tree" model="ir.ui.view">
+        <field name="name">itx.ai.project.tree</field>
+        <field name="model">itx.ai.project</field>
+        <field name="arch" type="xml">
+            <tree string="AI Projects">
+                <field name="name"/>
+                <field name="domain_type"/>
+                <field name="session_count"/>
+                <field name="state"/>
+                <field name="user_id"/>
+                <field name="create_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- AI Project Form View -->
+    <record id="view_ai_project_form" model="ir.ui.view">
+        <field name="name">itx.ai.project.form</field>
+        <field name="model">itx.ai.project</field>
+        <field name="arch" type="xml">
+            <form string="AI Project">
+                <header>
+                    <button name="create_session" type="object" string="New Session" class="btn-primary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_sessions" type="object" class="oe_stat_button" icon="fa-comments">
+                            <field name="session_count" widget="statinfo" string="Sessions"/>
+                        </button>
+                        <button name="action_view_logbook" type="object" class="oe_stat_button" icon="fa-book">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Log Book</span>
+                            </div>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="domain_type"/>
+                            <field name="user_id"/>
+                        </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Domain Data">
+                            <field name="domain_data" widget="ace" options="{'mode': 'json'}"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- AI Project Action -->
+    <record id="action_ai_project" model="ir.actions.act_window">
+        <field name="name">AI Projects</field>
+        <field name="res_model">itx.ai.project</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first AI-assisted project
+            </p>
+            <p>
+                AI Projects help you manage development with AI guidance,
+                tracking context, decisions, and knowledge throughout the process.
+            </p>
+        </field>
+    </record>
+
+</odoo>

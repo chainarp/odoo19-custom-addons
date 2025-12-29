@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Main Menu -->
+    <menuitem id="menu_ai_helm_root"
+              name="AI Helm"
+              sequence="10"
+              web_icon="itx_ai_helm,static/description/icon.png"/>
+
+    <!-- Projects Menu -->
+    <menuitem id="menu_ai_projects"
+              name="Projects"
+              parent="menu_ai_helm_root"
+              action="action_ai_project"
+              sequence="10"/>
+
+    <!-- Context / Log Book Menu -->
+    <menuitem id="menu_ai_context"
+              name="Context / Log Book"
+              parent="menu_ai_helm_root"
+              action="action_ai_context"
+              sequence="20"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_ai_config"
+              name="Configuration"
+              parent="menu_ai_helm_root"
+              sequence="100"
+              groups="base.group_system"/>
+
+    <!-- Logbook Sections Menu -->
+    <menuitem id="menu_ai_logbook_sections"
+              name="Logbook Sections"
+              parent="menu_ai_config"
+              action="action_ai_logbook_section"
+              sequence="10"/>
+
+</odoo>

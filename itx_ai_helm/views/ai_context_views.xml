@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- AI Context Tree View -->
+    <record id="view_ai_context_tree" model="ir.ui.view">
+        <field name="name">itx.ai.context.tree</field>
+        <field name="model">itx.ai.context</field>
+        <field name="arch" type="xml">
+            <tree string="Context / Log Book">
+                <field name="context_type"/>
+                <field name="domain_id"/>
+                <field name="project_id"/>
+                <field name="entry_count"/>
+                <field name="last_entry_date"/>
+                <field name="version"/>
+                <field name="active_version"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- AI Context Form View -->
+    <record id="view_ai_context_form" model="ir.ui.view">
+        <field name="name">itx.ai.context.form</field>
+        <field name="model">itx.ai.context</field>
+        <field name="arch" type="xml">
+            <form string="Context / Log Book">
+                <header>
+                    <button name="create_new_version" type="object" string="Create New Version" class="btn-primary"/>
+                    <field name="active_version" widget="boolean_toggle"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="domain_id"/>
+                            <field name="project_id"/>
+                            <field name="session_id"/>
+                        </group>
+                        <group>
+                            <field name="context_type"/>
+                            <field name="version"/>
+                            <field name="entry_count"/>
+                            <field name="last_entry_date"/>
+                            <field name="data_size"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Entries">
+                            <field name="context_data" widget="ace" options="{'mode': 'json'}"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- AI Context Action -->
+    <record id="action_ai_context" model="ir.actions.act_window">
+        <field name="name">Context / Log Book</field>
+        <field name="res_model">itx.ai.context</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No context entries yet
+            </p>
+            <p>
+                Context entries are automatically created when AI conversation detects
+                decisions or knowledge worth saving.
+            </p>
+        </field>
+    </record>
+
+</odoo>
