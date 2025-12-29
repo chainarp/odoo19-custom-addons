@@ -1,6 +1,6 @@
-# ITX AI Steerer - Core AI Conversation Framework
+# ITX AI Helm - Core AI Conversation Framework
 
-**Date:** 2025-12-27
+**Date:** 2025-12-27 (Updated: 2025-12-29)
 **Status:** Vision & Architecture (ฟุ้ง)
 **Type:** Core Framework / Standalone Addon
 
@@ -8,16 +8,24 @@
 
 ## 🎯 Vision Statement
 
-**ITX AI Steerer เป็น Core Framework สำหรับสร้าง AI-Assisted Applications ที่:**
+**ITX AI Helm เป็น Core Framework สำหรับสร้าง AI-Assisted Applications ที่:**
 - 🎨 **Domain-agnostic** - ใช้ได้กับงานใดก็ได้ (Odoo development, Audio circuit, Camping vehicle, etc.)
 - 🔌 **Pluggable** - ใส่ knowledge domain เข้าไปได้
 - 🧩 **Reusable** - Addon อื่นๆ extend ไปใช้
 - 🤖 **AI-Powered** - ใช้ Claude API (หรือ AI อื่นๆ)
-- 🎓 **Guided Conversation** - "ตะล่อม" (Steer) AI ให้ทำงานถูกทาง
+- ⛵ **Ship's Wheel Metaphor** - Helm (พังงา) with 10 Spokes to control the mighty AI ship
+
+### 🚢 The Ship's Wheel Metaphor
+```
+AI = Mighty Ship (powerful, large)
+Helm (Ship's Wheel) = ITX AI Helm (control interface)
+10 Spokes = The conversation management capabilities
+Small person grabs the spokes to control the mighty ship
+```
 
 ---
 
-## 💡 Why ITX AI Steerer?
+## 💡 Why ITX AI Helm?
 
 ### ปัญหาที่พบ:
 1. **AI ต้องถูก "ตะล่อม"** - AI ต้องการการชี้แนะ เตือนความจำ กำหนดกรอบ
@@ -26,8 +34,8 @@
 4. **ไม่ควรเขียนซ้ำ** - AI conversation management ควรเป็น framework
 
 ### โซลูชัน:
-**แยก Core Framework (`itx_ai_steerer`) ออกมา:**
-- ✅ Core AI conversation management (10 capabilities)
+**แยก Core Framework (`itx_ai_helm`) ออกมา:**
+- ✅ Core AI conversation management (The 10 Spokes)
 - ✅ Domain plugin architecture
 - ✅ Version control (requirements, design)
 - ✅ Claude API integration
@@ -45,22 +53,23 @@
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│                itx_ai_steerer                        │
+│                itx_ai_helm                           │
 │         (Core AI Conversation Framework)             │
+│              Ship's Wheel (Helm) 🚢                  │
 ├─────────────────────────────────────────────────────┤
 │                                                      │
 │ ┌─────────────────────────────────────────────┐    │
-│ │  10 Conversation Management Capabilities     │    │
-│ │  • Context Memory                            │    │
-│ │  • Decision Log                              │    │
-│ │  • Guided Conversation                       │    │
-│ │  • Constraint Validation                     │    │
-│ │  • Incremental Refinement                    │    │
-│ │  • Why Tracking                              │    │
-│ │  • Assumption Checking                       │    │
-│ │  • Conflict Resolution                       │    │
-│ │  • Progress Awareness                        │    │
-│ │  • Rollback & Iteration                      │    │
+│ │  The 10 Spokes (Conversation Management)    │    │
+│ │  • Spoke 1: Context Memory (Log Book)       │    │
+│ │  • Spoke 2: Decision Log                    │    │
+│ │  • Spoke 3: Guided Conversation             │    │
+│ │  • Spoke 4: Constraint Validation           │    │
+│ │  • Spoke 5: Incremental Refinement          │    │
+│ │  • Spoke 6: Why Tracking                    │    │
+│ │  • Spoke 7: Assumption Checking             │    │
+│ │  • Spoke 8: Conflict Resolution             │    │
+│ │  • Spoke 9: Progress Awareness              │    │
+│ │  • Spoke 10: Rollback & Iteration           │    │
 │ └─────────────────────────────────────────────┘    │
 │                                                      │
 │ ┌─────────────────────────────────────────────┐    │
@@ -141,9 +150,9 @@
 
 ---
 
-## 🎯 10 Conversation Management Capabilities
+## 🎯 The 10 Spokes (Conversation Management Capabilities)
 
-### 1. Context Memory 🧠
+### Spoke 1: Context Memory 🧠 (Log Book)
 **What:** Remember project, decisions, current state
 
 **Models:**
@@ -163,7 +172,7 @@
 
 ---
 
-### 2. Decision Log 📝
+### Spoke 2: Decision Log 📝
 **What:** Track all decisions with reasons (why) and impacts (what affected)
 
 **Models:**
@@ -182,7 +191,7 @@ Decision: "Use mail.thread mixin"
 
 ---
 
-### 3. Guided Conversation 🗺️
+### Spoke 3: Guided Conversation 🗺️
 **What:** Step-by-step, progressive disclosure, not overwhelming
 
 **Models:**
@@ -204,7 +213,7 @@ Current State: Step 3 (Generate Checklist)
 
 ---
 
-### 4. Constraint Validation ✅
+### Spoke 4: Constraint Validation ✅
 **What:** Check conflicts, feasibility before acting
 
 **Models:**
@@ -223,7 +232,7 @@ Validation: Check naming conflicts
 
 ---
 
-### 5. Incremental Refinement 🔄
+### Spoke 5: Incremental Refinement 🔄
 **What:** Build in rounds (skeleton → core → polish)
 
 **Models:**
@@ -250,7 +259,7 @@ Round 3: Polish
 
 ---
 
-### 6. Why Tracking 🔍
+### Spoke 6: Why Tracking 🔍
 **What:** Capture rationale for all decisions
 
 **Models:**
@@ -268,7 +277,7 @@ Why: "Why use state field instead of boolean flags?"
 
 ---
 
-### 7. Assumption Checking 🤔
+### Spoke 7: Assumption Checking 🤔
 **What:** Ask before assuming, confirm interpretations
 
 **Models:**
@@ -286,7 +295,7 @@ AI: "ผมเข้าใจว่า Manager คือ department.manager_id �
 
 ---
 
-### 8. Conflict Resolution ⚔️
+### Spoke 8: Conflict Resolution ⚔️
 **What:** Detect conflicts and suggest resolutions
 
 **Models:**
@@ -307,7 +316,7 @@ Conflict: Naming conflict
 
 ---
 
-### 9. Progress Awareness 📊
+### Spoke 9: Progress Awareness 📊
 **What:** Always know current state, completion %
 
 **Models:**
@@ -327,7 +336,7 @@ Progress: Requirements Phase
 
 ---
 
-### 10. Rollback & Iteration 🔙
+### Spoke 10: Rollback & Iteration 🔙
 **What:** Safe rollback, iterate on decisions
 
 **Models:**
@@ -1365,29 +1374,29 @@ class AudioCircuitDomain(models.AbstractModel):
 
 ---
 
-### Phase 2: 10 Capabilities (Weeks 5-8) 🟡
+### Phase 2: The 10 Spokes (Weeks 5-8) 🟡
 
 **Week 5-6: Memory & Tracking**
-- ✅ Context Memory (Capability 1)
-- ✅ Decision Log (Capability 2)
-- ✅ Why Tracking (Capability 6)
+- ✅ Spoke 1: Context Memory (Log Book) ⭐ MOST IMPORTANT
+- ✅ Spoke 2: Decision Log
+- ✅ Spoke 6: Why Tracking
 
 **Week 7-8: Validation & Refinement**
-- ✅ Constraint Validation (Capability 4)
-- ✅ Incremental Refinement (Capability 5)
-- ✅ Conflict Resolution (Capability 8)
+- ✅ Spoke 4: Constraint Validation
+- ✅ Spoke 5: Incremental Refinement
+- ✅ Spoke 8: Conflict Resolution
 
 ---
 
 ### Phase 3: Advanced Features (Weeks 9-12) 🟡
 
 **Week 9-10: Conversation Management**
-- ✅ Guided Conversation (Capability 3)
-- ✅ Assumption Checking (Capability 7)
-- ✅ Progress Awareness (Capability 9)
+- ✅ Spoke 3: Guided Conversation
+- ✅ Spoke 7: Assumption Checking
+- ✅ Spoke 9: Progress Awareness
 
 **Week 11-12: Safety & Iteration**
-- ✅ Rollback & Iteration (Capability 10)
+- ✅ Spoke 10: Rollback & Iteration
 - ✅ State snapshots
 - ✅ Safe rollback mechanism
 
@@ -1452,7 +1461,7 @@ Per Month (estimated):
 ## 🎯 Success Criteria
 
 ### For Framework:
-- ✅ All 10 capabilities working
+- ✅ All 10 Spokes working
 - ✅ Domain plugin system functional
 - ✅ Claude API integration stable
 - ✅ Version control working
@@ -1475,7 +1484,8 @@ Per Month (estimated):
 
 - [REQUIREMENTS_MANAGEMENT_VISION.md](./REQUIREMENTS_MANAGEMENT_VISION.md) - Requirements workflow
 - [DESIGN_DOCUMENT_VISION.md](./DESIGN_DOCUMENT_VISION.md) - Design doc workflow
-- [AI_CONVERSATION_MANAGEMENT.md](../04-Integration/AI_CONVERSATION_MANAGEMENT.md) - 10 capabilities detail
+- [AI_CONVERSATION_MANAGEMENT.md](../04-Integration/AI_CONVERSATION_MANAGEMENT.md) - The 10 Spokes detail
+- [SPOKE_1_CONTEXT_MEMORY_DESIGN.md](./SPOKE_1_CONTEXT_MEMORY_DESIGN.md) - Spoke 1 (Context Memory / Log Book) design
 - [AI_TECHNICAL_IMPLEMENTATION.md](../04-Integration/AI_TECHNICAL_IMPLEMENTATION.md) - Technical specs
 - [IMPLEMENTATION_ROADMAP.md](./IMPLEMENTATION_ROADMAP.md) - Overall roadmap
 
@@ -1491,13 +1501,14 @@ Per Month (estimated):
 
 ---
 
-**Status:** Vision Complete - Ready for Implementation Planning
-**Module Name:** `itx_ai_steerer`
+**Status:** Vision Complete - Spoke 1 Designed - Ready for Implementation
+**Module Name:** `itx_ai_helm`
 **Dependencies:** `base`, `mail`
 **License:** Proprietary (or as decided)
 
 ---
 
 *Created: 2025-12-27*
+*Updated: 2025-12-29 (Renamed from itx_ai_steerer to itx_ai_helm)*
 *Type: Vision & Architecture Document*
-*Version: 1.0.0*
+*Version: 2.0.0*
