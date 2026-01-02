@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- itx_ai_helm/views/ai_chat_views.xml -->
+<odoo>
+    <!-- Client Action for Chat Widget -->
+    <record id="action_ai_chat" model="ir.actions.client">
+        <field name="name">AI Chat</field>
+        <field name="tag">itx_ai_helm.ai_chat</field>
+        <field name="target">main</field>
+    </record>
+</odoo>

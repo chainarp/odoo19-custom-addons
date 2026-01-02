@@ -7,3 +7,5 @@ access_itx_ai_logbook_section_user,itx.ai.logbook.section user,model_itx_ai_logb
 access_itx_ai_logbook_index_user,itx.ai.logbook.index user,model_itx_ai_logbook_index,base.group_user,1,0,0,0
 access_itx_ai_logbook_section_system,itx.ai.logbook.section system,model_itx_ai_logbook_section,base.group_system,1,1,1,1
 access_itx_ai_logbook_index_system,itx.ai.logbook.index system,model_itx_ai_logbook_index,base.group_system,1,1,1,1
+access_ai_conversation_user,ai.conversation.user,model_ai_conversation,base.group_user,1,1,1,1
+access_ai_conversation_message_user,ai.conversation.message.user,model_ai_conversation_message,base.group_user,1,1,1,1

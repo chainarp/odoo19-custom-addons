@@ -52,7 +52,7 @@ class AiContext(models.Model):
     )
 
     # Flexible JSON storage
-    context_data = fields.Serialized(
+    context_data = fields.Json(
         'Context Data',
         help='Structure: {"entries": [{"timestamp", "classification", "content", "summary", "reason", "impact", "keywords"}, ...]}'
     )

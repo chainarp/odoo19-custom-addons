@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'ITX AI Helm',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.1.0',
     'category': 'Productivity/AI',
     'summary': 'AI-Powered Conversation Framework with 10 Spokes - Ship\'s Wheel to Control the Mighty AI',
     'description': """
@@ -54,16 +54,30 @@ ITX AI Helm - Core AI Conversation Framework
     'data': [
         # Security
         'security/ir.model.access.csv',
+        'security/ai_helm_security.xml',
 
         # Data - Default sections
         'data/ai_logbook_sections.xml',
 
-        # Views
+        # Views - Original
         'views/ai_project_views.xml',
         'views/ai_context_views.xml',
         'views/ai_logbook_section_views.xml',
         'views/ai_menu.xml',
+
+        # Views - New (Chat & Conversation)
+        'views/ai_conversation_views.xml',
+        'views/ai_chat_views.xml',
+        'views/menu_views.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            # Components
+            'itx_ai_helm/static/src/components/ai_chat/ai_chat.js',
+            'itx_ai_helm/static/src/components/ai_chat/ai_chat.xml',
+            'itx_ai_helm/static/src/components/ai_chat/ai_chat.scss',
+        ],
+    },
     'demo': [],
     'installable': True,
     'application': True,

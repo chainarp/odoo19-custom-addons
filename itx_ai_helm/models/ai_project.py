@@ -31,7 +31,7 @@ class AiProject(models.Model):
         help='Domain of this project (e.g., odoo_development)'
     )
 
-    domain_data = fields.Serialized(
+    domain_data = fields.Json(
         'Domain Data',
         help='Domain-specific data storage'
     )

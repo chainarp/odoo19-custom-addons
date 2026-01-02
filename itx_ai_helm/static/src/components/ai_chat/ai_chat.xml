@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- itx_ai_helm/static/src/components/ai_chat/ai_chat.xml -->
+<templates xml:space="preserve">
+    <t t-name="itx_ai_helm.AIChatWidget">
+        <div class="ai-chat-container h-100 d-flex flex-column">
+            <div class="ai-chat-header bg-primary text-white p-3 d-flex justify-content-between align-items-center">
+                <h4 class="mb-0">
+                    <i class="fa fa-robot me-2"/>Claude AI Assistant
+                </h4>
+                <button class="btn btn-sm btn-light" t-on-click="clearConversation">
+                    <i class="fa fa-trash"/> Clear
+                </button>
+            </div>
+
+            <div class="ai-chat-messages flex-grow-1 overflow-auto p-3" style="background-color: #f5f5f5;">
+                <t t-foreach="state.messages" t-as="message" t-key="message_index">
+                    <div t-attf-class="message-wrapper mb-3 d-flex {{ message.type === 'user' ? 'justify-content-end' : '' }}">
+                        <div t-attf-class="message-bubble p-3 rounded {{ message.type === 'user' ? 'bg-primary text-white' : 'bg-white' }}"
+                             style="max-width: 70%;">
+
+                            <div t-if="message.status === 'sending'" class="text-center">
+                                <i class="fa fa-spinner fa-spin"/>
+                            </div>
+
+                            <div t-else="" class="message-content">
+                                <div t-esc="message.content" style="white-space: pre-wrap;"/>
+
+                                <t t-if="message.code_blocks">
+                                    <div t-foreach="message.code_blocks" t-as="block" t-key="block_index" class="code-block mt-2">
+                                        <div class="code-header d-flex justify-content-between align-items-center bg-dark text-white px-2 py-1 rounded-top">
+                                            <small t-esc="block.language"/>
+                                            <button class="btn btn-sm btn-secondary" t-on-click="() => this.copyCode(block.code)">
+                                                <i class="fa fa-copy"/> Copy
+                                            </button>
+                                        </div>
+                                        <pre class="bg-dark text-white p-2 rounded-bottom mb-0"><code t-esc="block.code"/></pre>
+                                    </div>
+                                </t>
+                            </div>
+
+                            <small t-if="message.type !== 'user'" class="text-muted d-block mt-2">
+                                <i t-attf-class="fa {{ message.type === 'assistant' ? 'fa-robot' : message.type === 'error' ? 'fa-exclamation-triangle' : 'fa-info-circle' }} me-1"/>
+                                <t t-esc="message.type"/>
+                            </small>
+                        </div>
+                    </div>
+                </t>
+            </div>
+
+            <div class="ai-chat-input p-3 bg-white border-top">
+                <div class="input-group">
+                    <textarea
+                        t-ref="messageInput"
+                        class="form-control"
+                        placeholder="Ask Claude..."
+                        t-model="state.currentMessage"
+                        t-on-keypress="onKeyPress"
+                        rows="2"
+                        t-att-disabled="state.isLoading"/>
+                    <button
+                        class="btn btn-primary"
+                        t-on-click="sendMessage"
+                        t-att-disabled="state.isLoading || !state.currentMessage.trim()">
+                        <i t-if="state.isLoading" class="fa fa-spinner fa-spin"/>
+                        <i t-else="" class="fa fa-paper-plane"/>
+                        Send
+                    </button>
+                </div>
+                <small class="text-muted">Press Enter to send, Shift+Enter for new line</small>
+            </div>
+        </div>
+    </t>
+</templates>

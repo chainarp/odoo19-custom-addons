@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- itx_ai_helm/views/menu_views.xml -->
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="menu_ai_helm_root"
+              name="AI Assistant"
+              sequence="100"
+              web_icon="itx_ai_helm,static/description/icon.png"/>
+
+    <!-- Chat Menu -->
+    <menuitem id="menu_ai_chat"
+              name="AI Chat"
+              parent="menu_ai_helm_root"
+              action="action_ai_chat"
+              sequence="10"/>
+
+    <!-- Conversations Menu -->
+    <menuitem id="menu_ai_conversations"
+              name="Conversation History"
+              parent="menu_ai_helm_root"
+              action="action_ai_conversation"
+              sequence="20"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_ai_config"
+              name="Configuration"
+              parent="menu_ai_helm_root"
+              sequence="100"
+              groups="base.group_system"/>
+</odoo>

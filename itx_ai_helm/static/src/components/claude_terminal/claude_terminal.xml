@@ -1,0 +1,15 @@
+<!-- itx_ai_helm/static/src/components/claude_terminal/claude_terminal.xml -->
+
+<templates xml:space="preserve">
+    <t t-name="itx_ai_helm.ClaudeTerminal">
+        <div class="claude-terminal-container">
+            <div class="terminal-header">
+                <i class="fa fa-terminal"/> Claude CLI Terminal
+                <button class="btn btn-sm btn-danger float-end" t-on-click="cleanup">
+                    <i class="fa fa-times"/> Close
+                </button>
+            </div>
+            <div id="terminal" style="height: 600px; padding: 10px;"/>
+        </div>
+    </t>
+</templates>

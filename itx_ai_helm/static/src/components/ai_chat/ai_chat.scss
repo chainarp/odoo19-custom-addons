@@ -1,0 +1,146 @@
+// itx_ai_helm/static/src/components/ai_chat/ai_chat.scss
+
+.ai-chat-container {
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+
+    .ai-chat-header {
+        flex-shrink: 0;
+    }
+
+    .ai-chat-messages {
+        flex: 1;
+        overflow-y: auto;
+        background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+
+        .message-wrapper {
+            animation: slideIn 0.3s ease-in-out;
+
+            &:hover .message-bubble {
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+        }
+
+        .message-bubble {
+            position: relative;
+            max-width: 70%;
+            word-wrap: break-word;
+            transition: box-shadow 0.3s;
+
+            &.bg-primary {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: -10px;
+                    top: 10px;
+                    width: 0;
+                    height: 0;
+                    border-left: 10px solid #764ba2;
+                    border-top: 10px solid transparent;
+                    border-bottom: 10px solid transparent;
+                }
+            }
+
+            &.bg-white {
+                border: 1px solid #dee2e6;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: -10px;
+                    top: 10px;
+                    width: 0;
+                    height: 0;
+                    border-right: 10px solid #fff;
+                    border-top: 10px solid transparent;
+                    border-bottom: 10px solid transparent;
+                }
+            }
+        }
+
+        .code-block {
+            margin-top: 10px;
+
+            .code-header {
+                font-size: 0.85rem;
+                padding: 5px 10px;
+                background: #2d3748;
+
+                button {
+                    padding: 2px 8px;
+                    font-size: 0.75rem;
+                }
+            }
+
+            pre {
+                max-height: 400px;
+                overflow: auto;
+                margin: 0;
+
+                code {
+                    font-family: 'Fira Code', 'Courier New', monospace;
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+
+    .ai-chat-input {
+        border-top: 2px solid #dee2e6;
+        background: #fff;
+
+        textarea {
+            resize: none;
+            border: 1px solid #ced4da;
+
+            &:focus {
+                border-color: #667eea;
+                box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+            }
+        }
+
+        button {
+            min-width: 80px;
+        }
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Dark mode support
+body.o_dark_mode {
+    .ai-chat-container {
+        .ai-chat-messages {
+            background: linear-gradient(to bottom, #1a202c, #2d3748);
+
+            .message-bubble.bg-white {
+                background: #2d3748 !important;
+                color: #fff;
+                border-color: #4a5568;
+            }
+        }
+
+        .ai-chat-input {
+            background: #2d3748;
+            border-top-color: #4a5568;
+
+            textarea {
+                background: #1a202c;
+                color: #fff;
+                border-color: #4a5568;
+            }
+        }
+    }
+}
