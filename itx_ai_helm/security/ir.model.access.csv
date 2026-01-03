@@ -9,3 +9,4 @@ access_itx_ai_logbook_section_system,itx.ai.logbook.section system,model_itx_ai_
 access_itx_ai_logbook_index_system,itx.ai.logbook.index system,model_itx_ai_logbook_index,base.group_system,1,1,1,1
 access_ai_conversation_user,ai.conversation.user,model_ai_conversation,base.group_user,1,1,1,1
 access_ai_conversation_message_user,ai.conversation.message.user,model_ai_conversation_message,base.group_user,1,1,1,1
+access_terminal_session_user,terminal.session.user,model_terminal_session,base.group_user,1,1,1,1

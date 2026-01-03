@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- itx_ai_helm/static/src/components/terminal/terminal.xml -->
+<templates xml:space="preserve">
+    <t t-name="itx_ai_helm.ClaudeTerminal">
+        <div class="claude-terminal-container h-100 d-flex flex-column">
+            <div class="terminal-header bg-dark text-white p-2 d-flex justify-content-between align-items-center">
+                <div>
+                    <i class="fa fa-terminal me-2"/>
+                    <span t-if="props.command === 'bash'">Bash Terminal</span>
+                    <span t-elif="props.command === 'claude'">Claude CLI Terminal</span>
+                    <span t-else="">Terminal</span>
+                    <span t-if="state.session_id" class="text-muted ms-2">
+                        (Session: <t t-esc="state.session_id.slice(0, 8)"/>...)
+                    </span>
+                </div>
+                <div>
+                    <span t-if="state.connected" class="badge bg-success me-2">
+                        <i class="fa fa-circle"/> Connected
+                    </span>
+                    <span t-else="" class="badge bg-danger me-2">
+                        <i class="fa fa-circle-o"/> Disconnected
+                    </span>
+                    <button class="btn btn-sm btn-secondary" t-on-click="clearTerminal">
+                        <i class="fa fa-eraser"/> Clear
+                    </button>
+                </div>
+            </div>
+
+            <!-- Terminal Body - อยู่ตลอดเวลา แต่ซ่อนถ้า loading -->
+            <div class="terminal-body-wrapper flex-grow-1 position-relative">
+                <!-- Loading Spinner -->
+                <div t-if="state.loading"
+                     class="position-absolute w-100 h-100 d-flex justify-content-center align-items-center"
+                     style="background: #1e1e1e; z-index: 10;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading terminal...</span>
+                    </div>
+                </div>
+
+                <!-- Terminal Container - render ตลอดเวลา -->
+                <div t-ref="terminal"
+                     class="terminal-body h-100"
+                     style="padding: 10px; background: #1e1e1e;"/>
+            </div>
+        </div>
+    </t>
+</templates>

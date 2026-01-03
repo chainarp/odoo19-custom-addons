@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- itx_ai_helm/views/terminal_views.xml -->
+<odoo>
+    <!-- Bash Terminal Action (ทดสอบก่อน) -->
+    <record id="action_bash_terminal" model="ir.actions.client">
+        <field name="name">Bash Terminal</field>
+        <field name="tag">itx_ai_helm.terminal</field>
+        <field name="target">main</field>
+        <field name="params">{
+            "command": "bash"
+        }</field>
+    </record>
+
+    <!-- Claude Terminal Action -->
+    <record id="action_claude_terminal" model="ir.actions.client">
+        <field name="name">Claude Terminal</field>
+        <field name="tag">itx_ai_helm.terminal</field>
+        <field name="target">main</field>
+        <field name="params">{
+            "command": "claude"
+        }</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_bash_terminal"
+              name="Bash Terminal"
+              parent="menu_ai_helm_root"
+              action="action_bash_terminal"
+              sequence="5"/>
+
+    <menuitem id="menu_claude_terminal"
+              name="Claude Terminal"
+              parent="menu_ai_helm_root"
+              action="action_claude_terminal"
+              sequence="6"/>
+</odoo>

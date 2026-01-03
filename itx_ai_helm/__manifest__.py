@@ -69,10 +69,23 @@ ITX AI Helm - Core AI Conversation Framework
         'views/ai_conversation_views.xml',
         'views/ai_chat_views.xml',
         'views/menu_views.xml',
+
+        # Views - Terminal (เพิ่มใหม่)
+        'views/terminal_views.xml',
     ],
     'assets': {
         'web.assets_backend': [
-            # Components
+            # Terminal Libraries (เพิ่มใหม่)
+            'itx_ai_helm/static/lib/xterm/xterm.css',
+            'itx_ai_helm/static/lib/xterm/xterm.js',
+            'itx_ai_helm/static/lib/xterm-addon-fit/xterm-addon-fit.js',
+
+            # Terminal Component (เพิ่มใหม่)
+            'itx_ai_helm/static/src/components/terminal/terminal.scss',
+            'itx_ai_helm/static/src/components/terminal/terminal.js',
+            'itx_ai_helm/static/src/components/terminal/terminal.xml',
+
+            # Chat Components (existing)
             'itx_ai_helm/static/src/components/ai_chat/ai_chat.js',
             'itx_ai_helm/static/src/components/ai_chat/ai_chat.xml',
             'itx_ai_helm/static/src/components/ai_chat/ai_chat.scss',

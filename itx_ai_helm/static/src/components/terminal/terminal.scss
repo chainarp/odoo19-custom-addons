@@ -1,0 +1,27 @@
+// itx_ai_helm/static/src/components/terminal/terminal.scss
+
+.claude-terminal-container {
+    height: 100%;
+    min-height: 500px;
+    background: #1e1e1e;
+
+    .terminal-header {
+        border-bottom: 2px solid #007bff;
+        flex-shrink: 0;
+    }
+
+    .terminal-body {
+        overflow: hidden;
+
+        .xterm {
+            height: 100%;
+        }
+
+        .xterm-viewport {
+            overflow-y: auto;
+        }
+    }
+}
+
+// xterm.css already loaded in __manifest__.py assets
+// No need to import here - Odoo handles asset loading

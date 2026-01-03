@@ -6,7 +6,7 @@ from . import ai_session
 from . import ai_message
 
 from . import ai_conversation
-
+from . import terminal_session
 
 # Spoke 1: Context Memory (Log Book)
 from . import ai_context
