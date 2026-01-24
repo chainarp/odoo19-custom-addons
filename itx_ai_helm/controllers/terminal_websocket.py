@@ -1,5 +1,5 @@
 # itx_ai_helm/controllers/terminal_websocket.py
-# Long Polling Implementation (แทน WebSocket)
+# Terminal Controller with Bus.bus (Primary) + Long Polling (Fallback)
 
 from odoo import http
 from odoo.http import request
@@ -18,36 +18,48 @@ try:
 except Exception as e:
     _logger.warning(f"Could not install log filter: {e}")
 
+# Bus Broadcaster for real-time output
+try:
+    from ..services.bus_broadcaster import start_broadcaster, broadcast_terminal_output
+    _BUS_AVAILABLE = True
+    _logger.info("Bus broadcaster module loaded")
+except Exception as e:
+    _BUS_AVAILABLE = False
+    _logger.warning(f"Bus broadcaster not available, will use Long Polling: {e}")
+
 
 class TerminalController(http.Controller):
     """
-    Terminal Controller แบบ Long Polling
+    Terminal Controller with Bus.bus (Primary) + Long Polling (Fallback)
 
-    Long Polling ทำงานโดย:
-    1. Client ส่ง request มาที่ /terminal/poll
-    2. Server รอจนกว่าจะมี output ใหม่ (หรือ timeout)
-    3. ส่ง output กลับไป
-    4. Client ส่ง request ใหม่ทันที (วนไปเรื่อยๆ)
+    Connection Strategy:
+    1. Bus.bus (Primary) - Real-time output via Odoo WebSocket
+       - Output: bus.bus push (real-time)
+       - Input: JSON-RPC POST
 
-    ข้อดี: ใช้ HTTP ธรรมดา ไม่ต้องติดตั้งอะไรเพิ่ม
-    ข้อเสีย: มี latency มากกว่า WebSocket เล็กน้อย แต่ยอมรับได้
+    2. Long Polling (Fallback) - If bus not available
+       - Output: Poll /terminal/poll every 0.1s
+       - Input: JSON-RPC POST
     """
 
     @http.route('/terminal/connect', type='json', auth='user')
-    def connect_terminal(self, session_id=None, command='bash'):
+    def connect_terminal(self, session_id=None, command='bash', use_bus=True):
         """
         สร้างหรือ Resume terminal session
 
         Args:
             session_id: ID ของ session เดิม (ถ้ามี) หรือ None เพื่อสร้างใหม่
             command: คำสั่งที่จะรัน (default: 'bash')
+            use_bus: ใช้ bus.bus สำหรับ output (default: True)
 
         Returns:
             dict: {
                 'success': True,
                 'session_id': '...',
                 'is_resumed': True/False,
-                'history': '...'  # ถ้า resume
+                'history': '...',
+                'bus_channel': '...',  # Channel name for bus.bus subscription
+                'use_bus': True/False  # Whether bus.bus is available
             }
         """
         try:
@@ -55,6 +67,18 @@ class TerminalController(http.Controller):
 
             is_resumed = False
             history = ''
+            bus_enabled = False
+
+            # Start bus broadcaster if available
+            if use_bus and _BUS_AVAILABLE:
+                try:
+                    db_name = request.env.cr.dbname
+                    start_broadcaster(db_name)
+                    bus_enabled = True
+                    _logger.info(f"Bus broadcaster started for db: {db_name}")
+                except Exception as e:
+                    _logger.warning(f"Failed to start bus broadcaster: {e}")
+                    bus_enabled = False
 
             # ถ้ามี session_id → ลอง resume
             if session_id:
@@ -62,14 +86,21 @@ class TerminalController(http.Controller):
                 if existing_session and existing_session.running and existing_session.is_alive():
                     # Resume session เดิม
                     is_resumed = True
-                    history = existing_session.get_history(lines=500)  # ส่ง history 500 บรรทัดล่าสุด
+                    history = existing_session.get_history(lines=500)
+
+                    # Set bus broadcaster callback (ถ้า bus enabled)
+                    if bus_enabled:
+                        existing_session.set_bus_broadcaster(broadcast_terminal_output)
+
                     _logger.info(f"Resumed terminal session: {session_id}")
 
                     return {
                         'success': True,
                         'session_id': session_id,
                         'is_resumed': True,
-                        'history': history
+                        'history': history,
+                        'bus_channel': f'terminal_{session_id}',
+                        'use_bus': bus_enabled
                     }
                 else:
                     # Session เก่าตายแล้ว → สร้างใหม่ด้วย session_id เดิม
@@ -85,13 +116,20 @@ class TerminalController(http.Controller):
 
             # สร้าง terminal process
             session = TerminalManager.create_session(session_id, command)
+
+            # Set bus broadcaster callback (ถ้า bus enabled)
+            if bus_enabled:
+                session.set_bus_broadcaster(broadcast_terminal_output)
+
             session.start()
 
             return {
                 'success': True,
                 'session_id': session_id,
                 'is_resumed': False,
-                'message': f'Terminal session started: {session_id[:8]}'
+                'message': f'Terminal session started: {session_id[:8]}',
+                'bus_channel': f'terminal_{session_id}',
+                'use_bus': bus_enabled
             }
 
         except Exception as e:

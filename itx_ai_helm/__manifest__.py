@@ -50,6 +50,7 @@ ITX AI Helm - Core AI Conversation Framework
     'depends': [
         'base',
         'mail',
+        'bus',  # For WebSocket infrastructure
     ],
     'data': [
         # Security
@@ -80,7 +81,10 @@ ITX AI Helm - Core AI Conversation Framework
             'itx_ai_helm/static/lib/xterm/xterm.js',
             'itx_ai_helm/static/lib/xterm-addon-fit/xterm-addon-fit.js',
 
-            # Terminal Component (เพิ่มใหม่)
+            # Terminal Services
+            'itx_ai_helm/static/src/services/terminal_connection.js',
+
+            # Terminal Component
             'itx_ai_helm/static/src/components/terminal/terminal.scss',
             'itx_ai_helm/static/src/components/terminal/terminal.js',
             'itx_ai_helm/static/src/components/terminal/terminal.xml',

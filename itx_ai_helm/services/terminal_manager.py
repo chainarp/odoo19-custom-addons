@@ -88,10 +88,10 @@ class TerminalSession:
     """
     Single terminal session
 
-    แก้ไขเพื่อรองรับ Long Polling:
-    - เพิ่ม pending_output_queue เพื่อเก็บ output ใหม่ที่ยังไม่ได้ส่ง
-    - เพิ่ม get_pending_output() method สำหรับ polling
-    - เก็บ websockets ไว้เผื่ออนาคตจะใช้ (ตอนนี้ไม่ใช้)
+    รองรับ 3 modes:
+    1. Bus.bus (Primary) - Real-time push ผ่าน Odoo WebSocket
+    2. Long Polling (Fallback) - เก็บ output ใน pending_output queue
+    3. Direct WebSocket (Legacy) - broadcast ไปยัง connected websockets
     """
 
     def __init__(self, session_id, command='claude', cwd=None):
@@ -100,37 +100,74 @@ class TerminalSession:
         self.cwd = cwd or '/tmp'
         self.child_pid = None
         self.fd = None
-        self.websockets = set()  # เก็บไว้เผื่ออนาคต (ไม่ใช้แล้ว)
+        self.websockets = set()  # WebSocket connections for broadcast (legacy)
+        self._ws_lock = threading.Lock()  # Thread-safe access to websockets
         self.output_buffer = []  # เก็บ history ทั้งหมด
         self.pending_output = []  # เก็บ output ใหม่ที่ยังไม่ได้ส่ง (สำหรับ polling)
         self.max_buffer_size = 1000
         self.running = False
+
+        # Bus.bus callback for real-time output
+        # Set by controller via set_bus_broadcaster()
+        self._bus_broadcaster = None
+        self._bus_lock = threading.Lock()
 
         # Claude specific path
         self.claude_path = self._find_claude_cli()
 
         _logger.info(f"Creating terminal session {session_id}")
 
+    def set_bus_broadcaster(self, broadcaster_func):
+        """
+        Set callback function for broadcasting output via bus.bus
+
+        Args:
+            broadcaster_func: Function(session_id, output_text) that broadcasts via bus.bus
+        """
+        with self._bus_lock:
+            self._bus_broadcaster = broadcaster_func
+            _logger.info(f"Bus broadcaster set for session {self.session_id}")
+
+    def _broadcast_to_bus(self, text):
+        """
+        Broadcast output via bus.bus (real-time)
+
+        Args:
+            text: Output text to broadcast
+        """
+        with self._bus_lock:
+            if self._bus_broadcaster:
+                try:
+                    self._bus_broadcaster(self.session_id, text)
+                except Exception as e:
+                    _logger.warning(f"Bus broadcast failed: {e}")
+
     def _find_claude_cli(self):
         """Find claude CLI executable"""
         paths = [
-            '/home/chainarp/.nvm/versions/node/v22.19.0/bin/claude',
-            os.path.expanduser('~/.nvm/versions/node/v22.19.0/bin/claude'),
+            # Native Claude CLI (primary)
+            os.path.expanduser('~/.local/bin/claude'),
+            '/home/chainarp/.local/bin/claude',
+            # Fallback to PATH
             'claude'
         ]
 
         for path in paths:
             if os.path.exists(path) and os.access(path, os.X_OK):
+                _logger.info(f"Found Claude CLI at: {path}")
                 return path
 
         # Try which
         try:
             result = subprocess.run(['which', 'claude'], capture_output=True, text=True)
             if result.returncode == 0:
-                return result.stdout.strip()
+                found_path = result.stdout.strip()
+                _logger.info(f"Found Claude CLI via which: {found_path}")
+                return found_path
         except:
             pass
 
+        _logger.warning("Claude CLI not found, will use 'claude' from PATH")
         return 'claude'  # Fallback
 
     def start(self):
@@ -203,14 +240,64 @@ class TerminalSession:
             _logger.error(f"Failed to start terminal: {e}")
             self.running = False
 
+    def add_websocket(self, ws):
+        """
+        Register a WebSocket connection for output broadcast
+
+        Args:
+            ws: WebSocket object from request.ws
+        """
+        with self._ws_lock:
+            self.websockets.add(ws)
+            _logger.info(f"WebSocket added to session {self.session_id}. Total: {len(self.websockets)}")
+
+    def remove_websocket(self, ws):
+        """
+        Unregister a WebSocket connection
+
+        Args:
+            ws: WebSocket object to remove
+        """
+        with self._ws_lock:
+            self.websockets.discard(ws)
+            _logger.info(f"WebSocket removed from session {self.session_id}. Remaining: {len(self.websockets)}")
+
+    def _broadcast_to_websockets(self, text):
+        """
+        Broadcast output to all connected WebSocket clients
+
+        Args:
+            text: Output text to broadcast
+        """
+        import json
+
+        message = json.dumps({
+            'type': 'output',
+            'data': text
+        })
+
+        dead_sockets = []
+
+        with self._ws_lock:
+            for ws in self.websockets:
+                try:
+                    ws.send(message)
+                except Exception as e:
+                    _logger.warning(f"Failed to send to WebSocket: {e}")
+                    dead_sockets.append(ws)
+
+            # Cleanup dead sockets
+            for ws in dead_sockets:
+                self.websockets.discard(ws)
+
     def _read_output(self):
         """
         อ่าน output จาก terminal
 
-        แก้ไขสำหรับ Long Polling:
-        - เก็บ output ใน pending_output list (สำหรับ client ดึงไปแสดง)
-        - เก็บ output ใน output_buffer (เป็น history)
-        - ไม่ broadcast ผ่าน websocket แล้ว (ใช้ polling แทน)
+        รองรับ 3 modes:
+        1. Bus.bus (Primary) - Real-time push ผ่าน Odoo WebSocket
+        2. Long Polling (Fallback) - เก็บ output ใน pending_output
+        3. Direct WebSocket (Legacy) - broadcast ไปยัง connected websockets
         """
         while self.running:
             try:
@@ -221,7 +308,14 @@ class TerminalSession:
                         # Decode output
                         text = output.decode('utf-8', errors='replace')
 
-                        # เก็บใน pending_output สำหรับ polling
+                        # 1. Bus.bus broadcast (Primary - real-time)
+                        self._broadcast_to_bus(text)
+
+                        # 2. Direct WebSocket broadcast (Legacy)
+                        if self.websockets:
+                            self._broadcast_to_websockets(text)
+
+                        # 3. เก็บใน pending_output สำหรับ Long Polling fallback
                         self.pending_output.append(text)
 
                         # เก็บใน history buffer

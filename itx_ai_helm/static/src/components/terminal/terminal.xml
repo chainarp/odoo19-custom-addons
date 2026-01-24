@@ -13,20 +13,35 @@
                         (Session: <t t-esc="state.session_id.slice(0, 8)"/>...)
                     </span>
                 </div>
-                <div>
-                    <span t-if="state.connected" class="badge bg-success me-2">
+                <div class="d-flex align-items-center gap-2">
+                    <!-- Connection Mode Badge -->
+                    <span t-if="state.connectionMode === 'websocket'"
+                          class="badge bg-primary"
+                          title="Real-time WebSocket connection">
+                        <i class="fa fa-bolt"/> WebSocket
+                    </span>
+                    <span t-elif="state.connectionMode === 'polling'"
+                          class="badge bg-warning text-dark"
+                          title="Long Polling fallback mode">
+                        <i class="fa fa-refresh"/> Polling
+                    </span>
+
+                    <!-- Connection Status Badge -->
+                    <span t-if="state.connected" class="badge bg-success">
                         <i class="fa fa-circle"/> Connected
                     </span>
-                    <span t-else="" class="badge bg-danger me-2">
+                    <span t-else="" class="badge bg-danger">
                         <i class="fa fa-circle-o"/> Disconnected
                     </span>
+
+                    <!-- Clear Button -->
                     <button class="btn btn-sm btn-secondary" t-on-click="clearTerminal">
                         <i class="fa fa-eraser"/> Clear
                     </button>
                 </div>
             </div>
 
-            <!-- Terminal Body - อยู่ตลอดเวลา แต่ซ่อนถ้า loading -->
+            <!-- Terminal Body - always rendered, hidden when loading -->
             <div class="terminal-body-wrapper flex-grow-1 position-relative">
                 <!-- Loading Spinner -->
                 <div t-if="state.loading"
@@ -37,7 +52,7 @@
                     </div>
                 </div>
 
-                <!-- Terminal Container - render ตลอดเวลา -->
+                <!-- Terminal Container - always render -->
                 <div t-ref="terminal"
                      class="terminal-body h-100"
                      style="padding: 10px; background: #1e1e1e;"/>
