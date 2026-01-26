@@ -1,0 +1,6 @@
+id,name,code,description,sequence,color
+workrole_operator,Operator,OPERATOR,Production line operator,10,2
+workrole_technician,Technician,TECHNICIAN,Maintenance and repair technician,20,4
+workrole_supervisor,Supervisor,SUPERVISOR,Shift supervisor and team leader,30,3
+workrole_driver,Driver,DRIVER,Equipment and vehicle driver,40,5
+workrole_inspector,Inspector,QC,Quality control inspector,50,1

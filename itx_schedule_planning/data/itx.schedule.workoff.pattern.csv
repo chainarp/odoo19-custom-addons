@@ -1,0 +1,6 @@
+id,name,code,pattern_type,work_days,off_days,weekday_mon,weekday_tue,weekday_wed,weekday_thu,weekday_fri,weekday_sat,weekday_sun,sequence,is_default
+pattern_4on2off,4 On 2 Off,4ON2OFF,consecutive,4,2,1,1,1,1,1,0,0,10,1
+pattern_5on2off,5 On 2 Off,5ON2OFF,consecutive,5,2,1,1,1,1,1,0,0,20,0
+pattern_7on3off,7 On 3 Off,7ON3OFF,consecutive,7,3,1,1,1,1,1,0,0,30,0
+pattern_weekday,Weekday (Mon-Fri),WEEKDAY,weekday,5,2,1,1,1,1,1,0,0,40,0
+pattern_6day,6 Day Week,6DAY,weekday,6,1,1,1,1,1,1,1,0,50,0

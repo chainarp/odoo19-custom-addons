@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Root Menu -->
+    <menuitem
+        id="itx_schedule_planning_menu_root"
+        name="Schedule Planning"
+        web_icon="itx_schedule_planning,static/description/icon.png"
+        sequence="50"/>
+
+    <!-- ==================== -->
+    <!-- Employee Menus       -->
+    <!-- ==================== -->
+
+    <!-- My Schedule (for employees) -->
+    <menuitem
+        id="itx_schedule_planning_menu_my_schedule"
+        name="My Schedule"
+        parent="itx_schedule_planning_menu_root"
+        action="action_my_schedule"
+        sequence="5"/>
+
+    <!-- ==================== -->
+    <!-- Manager Menus        -->
+    <!-- ==================== -->
+
+    <!-- Schedule Planning -->
+    <menuitem
+        id="itx_schedule_planning_menu_planning"
+        name="Schedule Planning"
+        parent="itx_schedule_planning_menu_root"
+        action="action_schedule_planning"
+        sequence="10"/>
+
+    <!-- Planning Work Roles -->
+    <menuitem
+        id="itx_schedule_planning_menu_planning_workrole"
+        name="Planning Work Roles"
+        parent="itx_schedule_planning_menu_root"
+        action="action_schedule_planning_workrole"
+        sequence="20"/>
+
+    <!-- Schedule Entries -->
+    <menuitem
+        id="itx_schedule_planning_menu_entries"
+        name="Schedule Entries"
+        parent="itx_schedule_planning_menu_root"
+        action="action_schedule_planning_entry"
+        sequence="30"/>
+
+    <!-- ==================== -->
+    <!-- Configuration Menu   -->
+    <!-- ==================== -->
+
+    <menuitem
+        id="itx_schedule_planning_menu_config"
+        name="Configuration"
+        parent="itx_schedule_planning_menu_root"
+        sequence="100"/>
+
+    <!-- Master Data Menu -->
+    <menuitem
+        id="itx_schedule_planning_menu_master"
+        name="Master Data"
+        parent="itx_schedule_planning_menu_config"
+        sequence="10"/>
+
+    <!-- Work Roles -->
+    <menuitem
+        id="itx_schedule_planning_menu_workrole"
+        name="Work Roles"
+        parent="itx_schedule_planning_menu_master"
+        action="itx_employee_workrole_action"
+        sequence="10"/>
+
+    <!-- Work Teams -->
+    <menuitem
+        id="itx_schedule_planning_menu_workteam"
+        name="Work Teams"
+        parent="itx_schedule_planning_menu_master"
+        action="itx_employee_workteam_action"
+        sequence="20"/>
+
+    <!-- Work-Off Patterns -->
+    <menuitem
+        id="itx_schedule_planning_menu_workoff_pattern"
+        name="Work-Off Patterns"
+        parent="itx_schedule_planning_menu_master"
+        action="itx_schedule_workoff_pattern_action"
+        sequence="30"/>
+
+    <!-- Shift Types -->
+    <menuitem
+        id="itx_schedule_planning_menu_shift_type"
+        name="Shift Types"
+        parent="itx_schedule_planning_menu_master"
+        action="itx_schedule_shift_type_action"
+        sequence="40"/>
+
+    <!-- Planning Templates -->
+    <menuitem
+        id="itx_schedule_planning_menu_template"
+        name="Planning Templates"
+        parent="itx_schedule_planning_menu_config"
+        action="itx_schedule_planning_template_action"
+        sequence="20"/>
+
+    <!-- Schedule Periods -->
+    <menuitem
+        id="itx_schedule_planning_menu_period"
+        name="Schedule Periods"
+        parent="itx_schedule_planning_menu_config"
+        action="itx_schedule_period_action"
+        sequence="30"/>
+
+</odoo>

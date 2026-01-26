@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List View -->
+    <record id="itx_schedule_period_view_list" model="ir.ui.view">
+        <field name="name">itx.schedule.period.view.list</field>
+        <field name="model">itx.schedule.period</field>
+        <field name="arch" type="xml">
+            <list string="Schedule Periods" decoration-info="state == 'draft'" decoration-success="state == 'active'" decoration-muted="state == 'closed'">
+                <field name="name"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="days_count"/>
+                <field name="planning_count"/>
+                <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'active'" decoration-muted="state == 'closed'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="itx_schedule_period_view_form" model="ir.ui.view">
+        <field name="name">itx.schedule.period.view.form</field>
+        <field name="model">itx.schedule.period</field>
+        <field name="arch" type="xml">
+            <form string="Schedule Period">
+                <header>
+                    <button name="action_activate" string="Activate" type="object" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_close" string="Close" type="object" class="btn-secondary" invisible="state != 'active'"/>
+                    <button name="action_reset_to_draft" string="Reset to Draft" type="object" class="btn-secondary" invisible="state != 'active'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" icon="fa-calendar" type="object" name="action_view_plannings" invisible="planning_count == 0">
+                            <field name="planning_count" widget="statinfo" string="Plannings"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g., March 2026"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                        </group>
+                        <group>
+                            <field name="days_count"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Calendar View -->
+    <record id="itx_schedule_period_view_calendar" model="ir.ui.view">
+        <field name="name">itx.schedule.period.view.calendar</field>
+        <field name="model">itx.schedule.period</field>
+        <field name="arch" type="xml">
+            <calendar string="Schedule Periods" date_start="date_start" date_stop="date_end" color="state" mode="month">
+                <field name="name"/>
+                <field name="state"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="itx_schedule_period_view_search" model="ir.ui.view">
+        <field name="name">itx.schedule.period.view.search</field>
+        <field name="model">itx.schedule.period</field>
+        <field name="arch" type="xml">
+            <search string="Search Schedule Periods">
+                <field name="name"/>
+                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Active" name="active_state" domain="[('state', '=', 'active')]"/>
+                <filter string="Closed" name="closed" domain="[('state', '=', 'closed')]"/>
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="itx_schedule_period_action" model="ir.actions.act_window">
+        <field name="name">Schedule Periods</field>
+        <field name="res_model">itx.schedule.period</field>
+        <field name="view_mode">list,form,calendar</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Schedule Period
+            </p>
+            <p>
+                Define schedule periods (e.g., 26th of month to 25th of next month).
+            </p>
+        </field>
+    </record>
+
+</odoo>

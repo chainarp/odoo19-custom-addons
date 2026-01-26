@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Demo Employees for Testing -->
+        <record id="demo_employee_1" model="hr.employee">
+            <field name="name">John Smith</field>
+            <field name="employee_number">EMP001</field>
+            <field name="workrole_id" ref="workrole_operator"/>
+            <field name="workteam_id" ref="workteam_operator_a"/>
+        </record>
+        <record id="demo_employee_2" model="hr.employee">
+            <field name="name">Jane Doe</field>
+            <field name="employee_number">EMP002</field>
+            <field name="workrole_id" ref="workrole_operator"/>
+            <field name="workteam_id" ref="workteam_operator_a"/>
+        </record>
+        <record id="demo_employee_3" model="hr.employee">
+            <field name="name">Bob Wilson</field>
+            <field name="employee_number">EMP003</field>
+            <field name="workrole_id" ref="workrole_operator"/>
+            <field name="workteam_id" ref="workteam_operator_b"/>
+        </record>
+        <record id="demo_employee_4" model="hr.employee">
+            <field name="name">Alice Brown</field>
+            <field name="employee_number">EMP004</field>
+            <field name="workrole_id" ref="workrole_operator"/>
+            <field name="workteam_id" ref="workteam_operator_b"/>
+        </record>
+        <record id="demo_employee_5" model="hr.employee">
+            <field name="name">Charlie Davis</field>
+            <field name="employee_number">EMP005</field>
+            <field name="workrole_id" ref="workrole_operator"/>
+            <field name="workteam_id" ref="workteam_operator_c"/>
+        </record>
+        <record id="demo_employee_6" model="hr.employee">
+            <field name="name">Diana Miller</field>
+            <field name="employee_number">EMP006</field>
+            <field name="workrole_id" ref="workrole_operator"/>
+            <field name="workteam_id" ref="workteam_operator_c"/>
+        </record>
+
+        <!-- Demo Period: January 2026 -->
+        <record id="demo_period_jan2026" model="itx.schedule.period">
+            <field name="name">January 2026</field>
+            <field name="date_start">2026-01-01</field>
+            <field name="date_end">2026-01-31</field>
+            <field name="state">active</field>
+        </record>
+
+        <!-- Demo Planning -->
+        <record id="demo_planning_jan2026" model="itx.schedule.planning">
+            <field name="name">Schedule January 2026</field>
+            <field name="period_id" ref="demo_period_jan2026"/>
+            <field name="state">active</field>
+        </record>
+
+        <!-- Demo Planning Workrole for Operators -->
+        <record id="demo_planning_workrole_operator" model="itx.schedule.planning.workrole">
+            <field name="planning_id" ref="demo_planning_jan2026"/>
+            <field name="workrole_id" ref="workrole_operator"/>
+            <field name="template_id" ref="template_3shift_4team"/>
+            <field name="min_employees_per_shift">2</field>
+        </record>
+
+        <!-- Demo Schedule Entries: Week 4 of January 2026 (Jan 20-26) -->
+
+        <!-- Team A (John, Jane) - Morning Shift Mon-Thu, OFF Fri-Sat, Afternoon Sun -->
+        <!-- John Smith -->
+        <record id="demo_entry_1_mon" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_1"/>
+            <field name="workteam_id" ref="workteam_operator_a"/>
+            <field name="date">2026-01-20</field>
+            <field name="shift_type_id" ref="shift_type_morning"/>
+            <field name="hour_start">6.0</field>
+            <field name="hour_end">14.0</field>
+            <field name="source">generated</field>
+        </record>
+        <record id="demo_entry_1_tue" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_1"/>
+            <field name="workteam_id" ref="workteam_operator_a"/>
+            <field name="date">2026-01-21</field>
+            <field name="shift_type_id" ref="shift_type_morning"/>
+            <field name="hour_start">6.0</field>
+            <field name="hour_end">14.0</field>
+            <field name="source">generated</field>
+        </record>
+        <record id="demo_entry_1_wed" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_1"/>
+            <field name="workteam_id" ref="workteam_operator_a"/>
+            <field name="date">2026-01-22</field>
+            <field name="shift_type_id" ref="shift_type_morning"/>
+            <field name="hour_start">6.0</field>
+            <field name="hour_end">14.0</field>
+            <field name="source">generated</field>
+        </record>
+        <record id="demo_entry_1_thu" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_1"/>
+            <field name="workteam_id" ref="workteam_operator_a"/>
+            <field name="date">2026-01-23</field>
+            <field name="shift_type_id" ref="shift_type_morning"/>
+            <field name="hour_start">6.0</field>
+            <field name="hour_end">14.0</field>
+            <field name="source">generated</field>
+        </record>
+        <record id="demo_entry_1_fri" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_1"/>
+            <field name="workteam_id" ref="workteam_operator_a"/>
+            <field name="date">2026-01-24</field>
+            <field name="shift_type_id" ref="shift_type_off"/>
+            <field name="is_day_off" eval="True"/>
+            <field name="source">generated</field>
+        </record>
+        <record id="demo_entry_1_sat" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_1"/>
+            <field name="workteam_id" ref="workteam_operator_a"/>
+            <field name="date">2026-01-25</field>
+            <field name="shift_type_id" ref="shift_type_off"/>
+            <field name="is_day_off" eval="True"/>
+            <field name="source">generated</field>
+        </record>
+        <record id="demo_entry_1_sun" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_1"/>
+            <field name="workteam_id" ref="workteam_operator_a"/>
+            <field name="date">2026-01-26</field>
+            <field name="shift_type_id" ref="shift_type_afternoon"/>
+            <field name="hour_start">14.0</field>
+            <field name="hour_end">22.0</field>
+            <field name="source">generated</field>
+        </record>
+
+        <!-- Team B (Bob, Alice) - Afternoon Shift Mon-Thu, OFF Fri-Sat, Night Sun -->
+        <!-- Bob Wilson -->
+        <record id="demo_entry_3_mon" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_3"/>
+            <field name="workteam_id" ref="workteam_operator_b"/>
+            <field name="date">2026-01-20</field>
+            <field name="shift_type_id" ref="shift_type_afternoon"/>
+            <field name="hour_start">14.0</field>
+            <field name="hour_end">22.0</field>
+            <field name="source">generated</field>
+        </record>
+        <record id="demo_entry_3_tue" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_3"/>
+            <field name="workteam_id" ref="workteam_operator_b"/>
+            <field name="date">2026-01-21</field>
+            <field name="shift_type_id" ref="shift_type_afternoon"/>
+            <field name="hour_start">14.0</field>
+            <field name="hour_end">22.0</field>
+            <field name="source">generated</field>
+        </record>
+        <record id="demo_entry_3_wed" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_3"/>
+            <field name="workteam_id" ref="workteam_operator_b"/>
+            <field name="date">2026-01-22</field>
+            <field name="shift_type_id" ref="shift_type_afternoon"/>
+            <field name="hour_start">14.0</field>
+            <field name="hour_end">22.0</field>
+            <field name="source">generated</field>
+        </record>
+        <record id="demo_entry_3_thu" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_3"/>
+            <field name="workteam_id" ref="workteam_operator_b"/>
+            <field name="date">2026-01-23</field>
+            <field name="shift_type_id" ref="shift_type_afternoon"/>
+            <field name="hour_start">14.0</field>
+            <field name="hour_end">22.0</field>
+            <field name="source">generated</field>
+        </record>
+        <record id="demo_entry_3_fri" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_3"/>
+            <field name="workteam_id" ref="workteam_operator_b"/>
+            <field name="date">2026-01-24</field>
+            <field name="shift_type_id" ref="shift_type_off"/>
+            <field name="is_day_off" eval="True"/>
+            <field name="source">generated</field>
+        </record>
+        <record id="demo_entry_3_sat" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_3"/>
+            <field name="workteam_id" ref="workteam_operator_b"/>
+            <field name="date">2026-01-25</field>
+            <field name="shift_type_id" ref="shift_type_off"/>
+            <field name="is_day_off" eval="True"/>
+            <field name="source">generated</field>
+        </record>
+        <record id="demo_entry_3_sun" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_3"/>
+            <field name="workteam_id" ref="workteam_operator_b"/>
+            <field name="date">2026-01-26</field>
+            <field name="shift_type_id" ref="shift_type_night"/>
+            <field name="hour_start">22.0</field>
+            <field name="hour_end">6.0</field>
+            <field name="source">generated</field>
+        </record>
+
+        <!-- Team C (Charlie, Diana) - Night Shift Mon-Thu, OFF Fri-Sat, Morning Sun -->
+        <!-- Charlie Davis -->
+        <record id="demo_entry_5_mon" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_5"/>
+            <field name="workteam_id" ref="workteam_operator_c"/>
+            <field name="date">2026-01-20</field>
+            <field name="shift_type_id" ref="shift_type_night"/>
+            <field name="hour_start">22.0</field>
+            <field name="hour_end">6.0</field>
+            <field name="source">generated</field>
+        </record>
+        <record id="demo_entry_5_tue" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_5"/>
+            <field name="workteam_id" ref="workteam_operator_c"/>
+            <field name="date">2026-01-21</field>
+            <field name="shift_type_id" ref="shift_type_night"/>
+            <field name="hour_start">22.0</field>
+            <field name="hour_end">6.0</field>
+            <field name="source">generated</field>
+        </record>
+        <record id="demo_entry_5_wed" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_5"/>
+            <field name="workteam_id" ref="workteam_operator_c"/>
+            <field name="date">2026-01-22</field>
+            <field name="shift_type_id" ref="shift_type_night"/>
+            <field name="hour_start">22.0</field>
+            <field name="hour_end">6.0</field>
+            <field name="source">generated</field>
+        </record>
+        <record id="demo_entry_5_thu" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_5"/>
+            <field name="workteam_id" ref="workteam_operator_c"/>
+            <field name="date">2026-01-23</field>
+            <field name="shift_type_id" ref="shift_type_night"/>
+            <field name="hour_start">22.0</field>
+            <field name="hour_end">6.0</field>
+            <field name="source">generated</field>
+        </record>
+        <record id="demo_entry_5_fri" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_5"/>
+            <field name="workteam_id" ref="workteam_operator_c"/>
+            <field name="date">2026-01-24</field>
+            <field name="shift_type_id" ref="shift_type_off"/>
+            <field name="is_day_off" eval="True"/>
+            <field name="source">generated</field>
+        </record>
+        <record id="demo_entry_5_sat" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_5"/>
+            <field name="workteam_id" ref="workteam_operator_c"/>
+            <field name="date">2026-01-25</field>
+            <field name="shift_type_id" ref="shift_type_off"/>
+            <field name="is_day_off" eval="True"/>
+            <field name="source">generated</field>
+        </record>
+        <record id="demo_entry_5_sun" model="itx.schedule.planning.workrole.entry">
+            <field name="planning_workrole_id" ref="demo_planning_workrole_operator"/>
+            <field name="employee_id" ref="demo_employee_5"/>
+            <field name="workteam_id" ref="workteam_operator_c"/>
+            <field name="date">2026-01-26</field>
+            <field name="shift_type_id" ref="shift_type_morning"/>
+            <field name="hour_start">6.0</field>
+            <field name="hour_end">14.0</field>
+            <field name="source">generated</field>
+        </record>
+
+    </data>
+</odoo>

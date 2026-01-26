@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List View -->
+    <record id="itx_schedule_workoff_pattern_view_list" model="ir.ui.view">
+        <field name="name">itx.schedule.workoff.pattern.view.list</field>
+        <field name="model">itx.schedule.workoff.pattern</field>
+        <field name="arch" type="xml">
+            <list string="Work-Off Patterns">
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="pattern_type"/>
+                <field name="work_days" optional="show"/>
+                <field name="off_days" optional="show"/>
+                <field name="weekday_work_days" optional="show"/>
+                <field name="pattern_length"/>
+                <field name="is_default"/>
+                <field name="active" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="itx_schedule_workoff_pattern_view_form" model="ir.ui.view">
+        <field name="name">itx.schedule.workoff.pattern.view.form</field>
+        <field name="model">itx.schedule.workoff.pattern</field>
+        <field name="arch" type="xml">
+            <form string="Work-Off Pattern">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <widget name="web_ribbon" title="Default" bg_color="text-bg-success" invisible="not is_default"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g., 7-On 3-Off or Mon-Fri"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Basic Info">
+                            <field name="code" placeholder="e.g., 7ON3OFF"/>
+                            <field name="pattern_type"/>
+                            <field name="sequence"/>
+                            <field name="is_default"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Pattern Details">
+                            <!-- Consecutive Pattern -->
+                            <field name="work_days" invisible="pattern_type != 'consecutive'"/>
+                            <field name="off_days" invisible="pattern_type != 'consecutive'"/>
+                            <!-- Summary -->
+                            <field name="pattern_length" readonly="1"/>
+                            <field name="weekday_work_days" readonly="1" invisible="pattern_type != 'weekday'"/>
+                        </group>
+                    </group>
+                    <!-- Weekday Pattern -->
+                    <group string="Work Days" invisible="pattern_type != 'weekday'">
+                        <group>
+                            <field name="weekday_mon"/>
+                            <field name="weekday_tue"/>
+                            <field name="weekday_wed"/>
+                            <field name="weekday_thu"/>
+                        </group>
+                        <group>
+                            <field name="weekday_fri"/>
+                            <field name="weekday_sat"/>
+                            <field name="weekday_sun"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="itx_schedule_workoff_pattern_view_search" model="ir.ui.view">
+        <field name="name">itx.schedule.workoff.pattern.view.search</field>
+        <field name="model">itx.schedule.workoff.pattern</field>
+        <field name="arch" type="xml">
+            <search string="Search Work-Off Patterns">
+                <field name="name"/>
+                <field name="code"/>
+                <filter string="Consecutive" name="consecutive" domain="[('pattern_type', '=', 'consecutive')]"/>
+                <filter string="Weekday" name="weekday" domain="[('pattern_type', '=', 'weekday')]"/>
+                <separator/>
+                <filter string="Default" name="default" domain="[('is_default', '=', True)]"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter string="Pattern Type" name="group_type" context="{'group_by': 'pattern_type'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="itx_schedule_workoff_pattern_action" model="ir.actions.act_window">
+        <field name="name">Work-Off Patterns</field>
+        <field name="res_model">itx.schedule.workoff.pattern</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Work-Off Pattern
+            </p>
+            <p>
+                <b>Consecutive:</b> 7-On 3-Off (7 working days, 3 days off) - for 24/7 operations<br/>
+                <b>Weekday:</b> Mon-Fri work, Sat-Sun off - for office staff
+            </p>
+        </field>
+    </record>
+
+</odoo>

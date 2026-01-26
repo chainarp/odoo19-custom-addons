@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ================================ -->
+    <!-- Schedule Planning Entry (L3)     -->
+    <!-- ================================ -->
+
+    <!-- Form View -->
+    <record id="view_schedule_planning_entry_form" model="ir.ui.view">
+        <field name="name">itx.schedule.planning.workrole.entry.form</field>
+        <field name="model">itx.schedule.planning.workrole.entry</field>
+        <field name="arch" type="xml">
+            <form string="Schedule Entry">
+                <sheet>
+                    <group>
+                        <group string="Assignment">
+                            <field name="planning_workrole_id"/>
+                            <field name="planning_id" readonly="1"/>
+                            <field name="workrole_id" readonly="1"/>
+                            <field name="employee_id"/>
+                            <field name="employee_number" readonly="1"/>
+                            <field name="workteam_id"/>
+                            <field name="date"/>
+                        </group>
+                        <group string="Shift">
+                            <field name="shift_type_id"/>
+                            <field name="hour_start" widget="float_time"/>
+                            <field name="hour_end" widget="float_time"/>
+                            <field name="duration" readonly="1"/>
+                            <field name="is_day_off"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <group string="Leave" invisible="not is_leave">
+                            <field name="is_leave"/>
+                            <field name="leave_id"/>
+                            <field name="leave_type" readonly="1"/>
+                        </group>
+                        <group string="Substitution" invisible="not substitute_id and not is_substitute">
+                            <field name="substitute_id"/>
+                            <field name="is_substitute"/>
+                            <field name="original_employee_id" invisible="not is_substitute"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <group string="Tracking">
+                            <field name="source"/>
+                            <field name="planning_state" widget="badge" readonly="1"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group string="Notes">
+                            <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- List View -->
+    <record id="view_schedule_planning_entry_list" model="ir.ui.view">
+        <field name="name">itx.schedule.planning.workrole.entry.list</field>
+        <field name="model">itx.schedule.planning.workrole.entry</field>
+        <field name="arch" type="xml">
+            <list string="Schedule Entries"
+                  decoration-info="is_day_off"
+                  decoration-danger="is_leave"
+                  decoration-muted="planning_state == 'archived'">
+                <field name="date"/>
+                <field name="employee_id"/>
+                <field name="employee_number" optional="show"/>
+                <field name="workrole_id" optional="hide"/>
+                <field name="workteam_id"/>
+                <field name="shift_type_id"/>
+                <field name="hour_start" widget="float_time"/>
+                <field name="hour_end" widget="float_time"/>
+                <field name="duration" sum="Total Hours"/>
+                <field name="is_day_off"/>
+                <field name="is_leave"/>
+                <field name="leave_type" optional="hide"/>
+                <field name="substitute_id" optional="hide"/>
+                <field name="source" optional="hide"/>
+                <field name="planning_state" widget="badge" optional="hide"
+                       decoration-info="planning_state == 'draft'"
+                       decoration-warning="planning_state == 'published'"
+                       decoration-success="planning_state == 'active'"
+                       decoration-muted="planning_state == 'archived'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_schedule_planning_entry_search" model="ir.ui.view">
+        <field name="name">itx.schedule.planning.workrole.entry.search</field>
+        <field name="model">itx.schedule.planning.workrole.entry</field>
+        <field name="arch" type="xml">
+            <search string="Schedule Entries">
+                <field name="employee_id"/>
+                <field name="employee_number"/>
+                <field name="planning_id"/>
+                <field name="workrole_id"/>
+                <field name="workteam_id"/>
+                <field name="date"/>
+                <separator/>
+                <filter string="Today" name="filter_today"
+                        domain="[('date', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter string="This Week" name="filter_week"
+                        domain="[('date', '&gt;=', (context_today() - relativedelta(days=context_today().weekday())).strftime('%Y-%m-%d')),
+                                 ('date', '&lt;', (context_today() + relativedelta(days=7-context_today().weekday())).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter string="Day Off" name="filter_dayoff" domain="[('is_day_off', '=', True)]"/>
+                <filter string="On Leave" name="filter_leave" domain="[('is_leave', '=', True)]"/>
+                <filter string="Working" name="filter_working" domain="[('is_day_off', '=', False), ('is_leave', '=', False)]"/>
+                <separator/>
+                <filter string="Morning Shift" name="filter_morning" domain="[('hour_start', '&gt;=', 5), ('hour_start', '&lt;', 12)]"/>
+                <filter string="Afternoon Shift" name="filter_afternoon" domain="[('hour_start', '&gt;=', 12), ('hour_start', '&lt;', 20)]"/>
+                <filter string="Night Shift" name="filter_night" domain="['|', ('hour_start', '&gt;=', 20), ('hour_start', '&lt;', 5)]"/>
+                <separator/>
+                <filter string="Group by Date" name="group_date" context="{'group_by': 'date'}"/>
+                <filter string="Group by Employee" name="group_employee" context="{'group_by': 'employee_id'}"/>
+                <filter string="Group by Team" name="group_team" context="{'group_by': 'workteam_id'}"/>
+                <filter string="Group by Shift Type" name="group_shift" context="{'group_by': 'shift_type_id'}"/>
+                <filter string="Group by Work Role" name="group_workrole" context="{'group_by': 'workrole_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Calendar View -->
+    <record id="view_schedule_planning_entry_calendar" model="ir.ui.view">
+        <field name="name">itx.schedule.planning.workrole.entry.calendar</field>
+        <field name="model">itx.schedule.planning.workrole.entry</field>
+        <field name="arch" type="xml">
+            <calendar string="Schedule Calendar"
+                      date_start="date"
+                      color="workteam_id"
+                      quick_create="0"
+                      event_limit="5">
+                <field name="employee_id"/>
+                <field name="shift_type_id"/>
+                <field name="workteam_id"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Timeline View -->
+    <record id="view_schedule_planning_entry_timeline" model="ir.ui.view">
+        <field name="name">itx.schedule.planning.workrole.entry.timeline</field>
+        <field name="model">itx.schedule.planning.workrole.entry</field>
+        <field name="type">timeline</field>
+        <field name="arch" type="xml">
+            <timeline date_start="date_start"
+                      date_stop="date_end"
+                      default_group_by="employee_id"
+                      color="color"
+                      event_open_popup="1">
+                <field name="employee_id"/>
+                <field name="shift_type_id"/>
+                <field name="workteam_id"/>
+                <field name="hour_start"/>
+                <field name="hour_end"/>
+                <field name="is_day_off"/>
+                <field name="is_leave"/>
+                <templates>
+                    <t t-name="timeline-item">
+                        <div>
+                            <strong t-out="record.shift_type_id and record.shift_type_id[1] or (record.is_day_off and 'OFF' or (record.is_leave and 'LEAVE' or ''))"/>
+                        </div>
+                    </t>
+                </templates>
+            </timeline>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_schedule_planning_entry" model="ir.actions.act_window">
+        <field name="name">Schedule Entries</field>
+        <field name="res_model">itx.schedule.planning.workrole.entry</field>
+        <field name="view_mode">timeline,list,calendar,form</field>
+        <field name="search_view_id" ref="view_schedule_planning_entry_search"/>
+        <field name="context">{'search_default_filter_working': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No schedule entries yet
+            </p>
+            <p>
+                Entries are created when you generate schedules.
+            </p>
+        </field>
+    </record>
+
+    <!-- Action for My Schedule (Employee view) -->
+    <record id="action_my_schedule" model="ir.actions.act_window">
+        <field name="name">My Schedule</field>
+        <field name="res_model">itx.schedule.planning.workrole.entry</field>
+        <field name="view_mode">timeline,calendar,list,form</field>
+        <field name="search_view_id" ref="view_schedule_planning_entry_search"/>
+        <field name="domain">[('employee_id.user_id', '=', uid)]</field>
+        <field name="context">{'search_default_filter_working': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No schedule assigned to you yet
+            </p>
+        </field>
+    </record>
+
+</odoo>

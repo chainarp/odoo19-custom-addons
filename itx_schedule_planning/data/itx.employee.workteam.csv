@@ -1,0 +1,7 @@
+id,name,code,workrole_id:id,sequence,color
+workteam_operator_a,Team A,A,itx_schedule_planning.workrole_operator,10,2
+workteam_operator_b,Team B,B,itx_schedule_planning.workrole_operator,20,4
+workteam_operator_c,Team C,C,itx_schedule_planning.workrole_operator,30,3
+workteam_operator_d,Team D,D,itx_schedule_planning.workrole_operator,40,5
+workteam_technician_a,Team A,A,itx_schedule_planning.workrole_technician,10,2
+workteam_technician_b,Team B,B,itx_schedule_planning.workrole_technician,20,4

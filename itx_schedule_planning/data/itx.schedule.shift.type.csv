@@ -1,0 +1,6 @@
+id,name,code,hour_start,hour_end,is_day_off,sequence,color
+shift_type_morning,Morning Shift,MORNING,6.0,14.0,0,10,2
+shift_type_afternoon,Afternoon Shift,AFTERNOON,14.0,22.0,0,20,4
+shift_type_night,Night Shift,NIGHT,22.0,6.0,0,30,1
+shift_type_day,Day Shift,DAY,8.0,17.0,0,40,3
+shift_type_off,Day Off,OFF,0.0,0.0,1,100,7

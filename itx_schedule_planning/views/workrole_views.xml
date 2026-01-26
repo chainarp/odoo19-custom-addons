@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List View -->
+    <record id="itx_employee_workrole_view_list" model="ir.ui.view">
+        <field name="name">itx.employee.workrole.view.list</field>
+        <field name="model">itx.employee.workrole</field>
+        <field name="arch" type="xml">
+            <list string="Work Roles">
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="team_count"/>
+                <field name="employee_count"/>
+                <field name="active" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="itx_employee_workrole_view_form" model="ir.ui.view">
+        <field name="name">itx.employee.workrole.view.form</field>
+        <field name="model">itx.employee.workrole</field>
+        <field name="arch" type="xml">
+            <form string="Work Role">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(itx_employee_workteam_action)d"
+                                type="action"
+                                class="oe_stat_button"
+                                icon="fa-users"
+                                context="{'default_workrole_id': id, 'search_default_workrole_id': id}">
+                            <field name="team_count" widget="statinfo" string="Teams"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g., APM Driver"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code" placeholder="e.g., DRIVER"/>
+                            <field name="sequence"/>
+                            <field name="color" widget="color_picker"/>
+                        </group>
+                        <group>
+                            <field name="employee_count"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description" placeholder="Detailed description of this work role..."/>
+                        </page>
+                        <page string="Employees" name="employees">
+                            <field name="employee_ids" widget="many2many_tags"/>
+                        </page>
+                        <page string="Teams" name="teams">
+                            <field name="team_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                    <field name="employee_count"/>
+                                    <field name="color" widget="color_picker"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="itx_employee_workrole_view_search" model="ir.ui.view">
+        <field name="name">itx.employee.workrole.view.search</field>
+        <field name="model">itx.employee.workrole</field>
+        <field name="arch" type="xml">
+            <search string="Search Work Roles">
+                <field name="name"/>
+                <field name="code"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter string="Active" name="group_active" context="{'group_by': 'active'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="itx_employee_workrole_action" model="ir.actions.act_window">
+        <field name="name">Work Roles</field>
+        <field name="res_model">itx.employee.workrole</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Work Role
+            </p>
+            <p>
+                Work roles define groups of employees who can work the same positions
+                and swap shifts with each other (e.g., APM Driver, APM Operator, Maintenance).
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,4 @@
+id,name,code,description,rotation_direction,rotation_period_count,shifts_per_day,pattern_id:id,shift_duration,break_duration,is_default,sequence
+template_3shift_4team,3 Shifts 4 Teams,3S4T,Standard 3-shift rotation with 4 teams (A/B/C/D),forward,1,3,itx_schedule_planning.pattern_4on2off,8.0,1.0,1,10
+template_3shift_fixed,3 Shifts Fixed,3SF,Fixed shift assignment (no rotation),none,1,3,itx_schedule_planning.pattern_4on2off,8.0,1.0,0,20
+template_day_only,Day Shift Only,DAY,Single day shift Mon-Fri,none,1,1,itx_schedule_planning.pattern_weekday,8.0,1.0,0,30

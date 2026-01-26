@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Inherit Employee Form View -->
+    <record id="view_employee_form_inherit_schedule" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.schedule</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <!-- Add Employee Number after name -->
+            <field name="job_id" position="before">
+                <field name="employee_number"/>
+            </field>
+
+            <!-- Add Schedule Planning tab after Work Information -->
+            <xpath expr="//page[@name='hr_settings']" position="before">
+                <page string="Schedule Planning" name="schedule_planning">
+                    <group>
+                        <group string="Work Assignment">
+                            <field name="workrole_id"/>
+                            <field name="workteam_id"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Employee List View -->
+    <record id="view_employee_list_inherit_schedule" model="ir.ui.view">
+        <field name="name">hr.employee.list.inherit.schedule</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree"/>
+        <field name="arch" type="xml">
+            <field name="job_id" position="before">
+                <field name="employee_number" optional="show"/>
+            </field>
+            <field name="department_id" position="after">
+                <field name="workrole_id" optional="hide"/>
+                <field name="workteam_id" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Inherit Employee Search View -->
+    <record id="view_employee_search_inherit_schedule" model="ir.ui.view">
+        <field name="name">hr.employee.search.inherit.schedule</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="arch" type="xml">
+            <field name="department_id" position="after">
+                <field name="employee_number"/>
+                <field name="workrole_id"/>
+                <field name="workteam_id"/>
+            </field>
+            <filter name="my_team" position="after">
+                <separator/>
+                <filter string="Has Work Role" name="has_workrole"
+                        domain="[('workrole_id', '!=', False)]"/>
+                <filter string="No Work Role" name="no_workrole"
+                        domain="[('workrole_id', '=', False)]"/>
+            </filter>
+        </field>
+    </record>
+
+</odoo>

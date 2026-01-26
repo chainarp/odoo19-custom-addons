@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ================================ -->
+    <!-- Schedule Planning Workrole (L2)  -->
+    <!-- ================================ -->
+
+    <!-- Form View -->
+    <record id="view_schedule_planning_workrole_form" model="ir.ui.view">
+        <field name="name">itx.schedule.planning.workrole.form</field>
+        <field name="model">itx.schedule.planning.workrole</field>
+        <field name="arch" type="xml">
+            <form string="Planning Work Role">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(itx_schedule_planning.action_schedule_planning_entry)d"
+                                type="action"
+                                class="oe_stat_button"
+                                icon="fa-calendar-check-o"
+                                context="{'default_planning_workrole_id': id, 'search_default_planning_workrole_id': id}">
+                            <field name="entry_count" widget="statinfo" string="Entries"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group string="Configuration">
+                            <field name="planning_id"/>
+                            <field name="workrole_id"/>
+                            <field name="template_id"/>
+                            <field name="responsible_id"/>
+                            <field name="min_employees_per_shift"/>
+                        </group>
+                        <group string="Period">
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="planning_state" widget="badge"/>
+                            <field name="employee_count"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Team Snapshots" name="team_snapshots">
+                            <group>
+                                <button name="prepare_team_snapshots"
+                                        string="Initialize Teams from Master Data"
+                                        type="object"
+                                        class="btn-secondary mb-3"
+                                        icon="fa-refresh"/>
+                            </group>
+                            <field name="team_snapshot_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="team_id"/>
+                                    <field name="initial_shift_sequence"/>
+                                    <field name="initial_day_in_pattern"/>
+                                    <field name="final_shift_sequence" readonly="1"/>
+                                    <field name="final_day_in_pattern" readonly="1"/>
+                                </list>
+                            </field>
+                            <group>
+                                <p class="text-muted">
+                                    <strong>Initial values:</strong> Starting point for schedule generation.<br/>
+                                    <strong>Final values:</strong> Computed after generation, used for next period.
+                                </p>
+                            </group>
+                        </page>
+                        <page string="Entries" name="entries">
+                            <field name="entry_ids" readonly="1">
+                                <list>
+                                    <field name="date"/>
+                                    <field name="employee_id"/>
+                                    <field name="employee_number"/>
+                                    <field name="workteam_id"/>
+                                    <field name="shift_type_id"/>
+                                    <field name="hour_start" widget="float_time"/>
+                                    <field name="hour_end" widget="float_time"/>
+                                    <field name="duration"/>
+                                    <field name="is_day_off"/>
+                                    <field name="is_leave"/>
+                                    <field name="source"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- List View -->
+    <record id="view_schedule_planning_workrole_list" model="ir.ui.view">
+        <field name="name">itx.schedule.planning.workrole.list</field>
+        <field name="model">itx.schedule.planning.workrole</field>
+        <field name="arch" type="xml">
+            <list string="Planning Work Roles">
+                <field name="sequence" widget="handle"/>
+                <field name="planning_id"/>
+                <field name="workrole_id"/>
+                <field name="template_id"/>
+                <field name="responsible_id"/>
+                <field name="min_employees_per_shift"/>
+                <field name="employee_count"/>
+                <field name="entry_count"/>
+                <field name="planning_state" widget="badge"
+                       decoration-info="planning_state == 'draft'"
+                       decoration-warning="planning_state == 'published'"
+                       decoration-success="planning_state == 'active'"
+                       decoration-muted="planning_state == 'archived'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_schedule_planning_workrole_search" model="ir.ui.view">
+        <field name="name">itx.schedule.planning.workrole.search</field>
+        <field name="model">itx.schedule.planning.workrole</field>
+        <field name="arch" type="xml">
+            <search string="Planning Work Roles">
+                <field name="planning_id"/>
+                <field name="workrole_id"/>
+                <field name="responsible_id"/>
+                <separator/>
+                <filter string="Draft" name="filter_draft" domain="[('planning_state', '=', 'draft')]"/>
+                <filter string="Published" name="filter_published" domain="[('planning_state', '=', 'published')]"/>
+                <filter string="Active" name="filter_active" domain="[('planning_state', '=', 'active')]"/>
+                <separator/>
+                <filter string="Group by Planning" name="group_planning" context="{'group_by': 'planning_id'}"/>
+                <filter string="Group by Work Role" name="group_workrole" context="{'group_by': 'workrole_id'}"/>
+                <filter string="Group by Responsible" name="group_responsible" context="{'group_by': 'responsible_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_schedule_planning_workrole" model="ir.actions.act_window">
+        <field name="name">Planning Work Roles</field>
+        <field name="res_model">itx.schedule.planning.workrole</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_schedule_planning_workrole_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No work roles in this planning yet
+            </p>
+            <p>
+                Add work roles to define which teams and templates to use.
+            </p>
+        </field>
+    </record>
+
+</odoo>

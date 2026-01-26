@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List View -->
+    <record id="itx_employee_workteam_view_list" model="ir.ui.view">
+        <field name="name">itx.employee.workteam.view.list</field>
+        <field name="model">itx.employee.workteam</field>
+        <field name="arch" type="xml">
+            <list string="Work Teams">
+                <field name="sequence" widget="handle"/>
+                <field name="workrole_id"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="employee_count"/>
+                <field name="color"/>
+                <field name="active" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="itx_employee_workteam_view_form" model="ir.ui.view">
+        <field name="name">itx.employee.workteam.view.form</field>
+        <field name="model">itx.employee.workteam</field>
+        <field name="arch" type="xml">
+            <form string="Work Team">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g., Team A"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code" placeholder="e.g., A"/>
+                            <field name="workrole_id"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="employee_count"/>
+                            <field name="color"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Members" name="members">
+                            <field name="employee_ids" widget="many2many_tags"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="itx_employee_workteam_view_search" model="ir.ui.view">
+        <field name="name">itx.employee.workteam.view.search</field>
+        <field name="model">itx.employee.workteam</field>
+        <field name="arch" type="xml">
+            <search string="Search Work Teams">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="workrole_id"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter string="Work Role" name="group_workrole" context="{'group_by': 'workrole_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="itx_employee_workteam_action" model="ir.actions.act_window">
+        <field name="name">Work Teams</field>
+        <field name="res_model">itx.employee.workteam</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_group_workrole': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Work Team
+            </p>
+            <p>
+                Work teams are groups within a work role that rotate shifts together
+                (e.g., Team A, Team B, Team C, Team D).
+            </p>
+        </field>
+    </record>
+
+</odoo>
