@@ -1,111 +1,130 @@
 # ITX Schedule Planning - Data Model
 
-## 1. Core Models
+## 1. Core Models (3-Level Structure)
 
-### 1.1 itx.schedule.planning (Main Output)
+### 1.1 itx.schedule.planning (Level 1 - Header)
 
-ตารางงานหลัก - ผลลัพธ์สุดท้ายที่ generate ออกมา
+ตารางงานหลัก - 1 record ต่อ 1 period
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | Char | ชื่อ Planning เช่น "Schedule Mar 2026 - v1" |
-| `date_start` | Date | วันเริ่ม period |
-| `date_end` | Date | วันสิ้นสุด period |
+| `period_id` | Many2one → period | Period ที่ใช้ |
+| `date_start` | Date (related) | วันเริ่ม period |
+| `date_end` | Date (related) | วันสิ้นสุด period |
 | `state` | Selection | `draft` / `published` / `active` / `archived` |
 | `version` | Integer | เลข version (สำหรับ clone) |
 | `parent_id` | Many2one → self | Clone มาจาก version ไหน |
-| `config_ids` | One2many → config | Configs ที่ใช้ generate |
-| `line_ids` | One2many → line | รายละเอียดกะรายคน รายวัน |
+| `workrole_ids` | One2many → planning.workrole | Work roles ใน planning นี้ |
+| **Tracking** | | |
 | `published_date` | Datetime | วันที่ publish |
 | `published_by` | Many2one → res.users | ใคร publish |
 | `activated_date` | Datetime | วันที่ activate |
 | `archived_date` | Datetime | วันที่ archive |
 | **Computed** | | |
 | `total_employees` | Integer | จำนวนพนักงานทั้งหมด |
-| `total_lines` | Integer | จำนวน records ทั้งหมด |
+| `total_entries` | Integer | จำนวน entries ทั้งหมด |
 | `gap_count` | Integer | จำนวน gap ที่ตรวจพบ |
-
-**Records Calculation:**
-```
-จำนวน records = จำนวน Employee × จำนวนวันใน Period
-ตัวอย่าง: 50 คน × 30 วัน = 1,500 records ต่อ 1 Planning
-```
 
 ---
 
-### 1.2 itx.schedule.planning.line (Daily Schedule per Employee)
+### 1.2 itx.schedule.planning.workrole (Level 2 - Per Workrole)
+
+การตั้งค่าต่อ workrole - 1 planning มีหลาย workrole
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `planning_id` | Many2one → planning | อยู่ใน Planning ไหน |
+| `workrole_id` | Many2one → workrole | กลุ่มงาน |
+| `template_id` | Many2one → template | Template ที่ใช้ generate |
+| `responsible_id` | Many2one → res.users | ผู้รับผิดชอบ workrole นี้ |
+| `min_employees_per_shift` | Integer | จำนวนคนขั้นต่ำต่อกะ |
+| `sequence` | Integer | ลำดับการแสดงผล |
+| **Team Snapshots** | | |
+| `team_snapshot_ids` | One2many → workrole.team | สถานะทีมเริ่มต้น/สิ้นสุด |
+| **Entries** | | |
+| `entry_ids` | One2many → workrole.entry | ตารางรายวันรายคน |
+
+---
+
+### 1.3 itx.schedule.planning.workrole.entry (Level 3 - Per Employee Per Day)
 
 รายละเอียดตารางงานรายวันของแต่ละพนักงาน
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `planning_id` | Many2one → planning | อยู่ใน Planning ไหน |
+| `planning_workrole_id` | Many2one → planning.workrole | อยู่ใน Workrole ไหน |
+| `planning_id` | Many2one (related) | อยู่ใน Planning ไหน |
+| `workrole_id` | Many2one (related) | Work role |
 | `employee_id` | Many2one → hr.employee | พนักงาน |
+| `employee_number` | Char (related) | รหัสพนักงาน |
 | `date` | Date | วันที่ |
-| `hour_start` | Float | เข้างานกี่โมง (0-24) เช่น 6.0 = 06:00 |
-| `hour_end` | Float | เลิกงานกี่โมง เช่น 14.0 = 14:00 |
-| `duration` | Float (computed) | ชั่วโมงทำงาน (ไม่รวมพัก) |
-| `is_day_off` | Boolean | เป็นวันหยุดตามกะหรือไม่ |
+| **Shift Info** | | |
 | `shift_type_id` | Many2one → shift.type | ประเภทกะ (เช้า/บ่าย/ดึก) |
-| `workrole_id` | Many2one → workrole | ทำ role อะไร |
+| `hour_start` | Float | เข้างานกี่โมง (0-24) |
+| `hour_end` | Float | เลิกงานกี่โมง |
+| `duration` | Float (computed) | ชั่วโมงทำงาน |
+| `is_day_off` | Boolean | เป็นวันหยุดตามกะ |
 | `workteam_id` | Many2one → workteam | อยู่ทีมไหน |
+| **Timeline Fields** | | |
+| `date_start` | Datetime (computed) | วันเวลาเริ่ม (สำหรับ timeline) |
+| `date_end` | Datetime (computed) | วันเวลาสิ้นสุด (สำหรับ timeline) |
+| `color` | Integer (computed) | สี (สำหรับ timeline) |
 | **Time-off** | | |
 | `is_leave` | Boolean | มีการลาหรือไม่ |
 | `leave_id` | Many2one → hr.leave | Link ไปใบลา |
 | `leave_type` | Char (related) | ประเภทการลา |
 | **Substitution** | | |
-| `substitute_id` | Many2one → hr.employee | คนมาทำแทน (ถ้ามี) |
+| `substitute_id` | Many2one → hr.employee | คนมาทำแทน |
 | `is_substitute` | Boolean | เป็นคนทำแทนหรือไม่ |
 | `original_employee_id` | Many2one → hr.employee | ทำแทนใคร |
 | **Tracking** | | |
 | `source` | Selection | `generated` / `manual` / `swapped` / `timeoff` |
 | `note` | Text | หมายเหตุ |
 
+**Records Calculation:**
+```
+จำนวน records = จำนวน Employee × จำนวนวันใน Period
+ตัวอย่าง: 50 คน × 30 วัน = 1,500 records ต่อ 1 Workrole
+```
+
 ---
 
-### 1.3 itx.schedule.planning.config (Mapping: Workrole + Template)
+### 1.4 itx.schedule.planning.workrole.team (Team Snapshot)
 
-การจับคู่ระหว่าง Workrole กับ Template
+สถานะทีมเริ่มต้น/สิ้นสุด สำหรับการ generate ต่อเนื่อง
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `planning_id` | Many2one → planning | อยู่ใน Planning ไหน |
-| `workrole_id` | Many2one → workrole | กลุ่มงาน |
-| `template_id` | Many2one → template | Template ที่ใช้ |
-| `min_employees_per_shift` | Integer | จำนวนคนขั้นต่ำต่อกะ |
-| `initial_shift` | Selection | กะเริ่มต้น (morning/afternoon/night) |
-| `initial_team` | Many2one → workteam | ทีมเริ่มต้น |
-| `initial_day_in_pattern` | Integer | วันที่เท่าไหร่ใน pattern (1-10 สำหรับ 7on-3off) |
+| `planning_workrole_id` | Many2one → planning.workrole | อยู่ใน Workrole ไหน |
+| `workteam_id` | Many2one → workteam | ทีม |
+| `initial_shift_type_id` | Many2one → shift.type | กะเริ่มต้น |
+| `initial_day_in_pattern` | Integer | วันที่เท่าไหร่ใน pattern |
+| `final_shift_type_id` | Many2one → shift.type | กะสิ้นสุด |
+| `final_day_in_pattern` | Integer | วันที่สิ้นสุดใน pattern |
 
 ---
 
 ## 2. Master Data Models
 
-### 2.1 itx.employee.workrole (Work Role/Position)
+### 2.1 itx.employee.workrole (Work Role)
 
 กลุ่มงาน/ตำแหน่งงาน - พนักงานที่ทำงานเหมือนกัน แลกกะกันได้
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `name` | Char | ชื่อ เช่น "APM Driver", "APM Operator", "Maintenance" |
-| `code` | Char | รหัส เช่น "DRIVER", "OPERATOR", "MAINT" |
+| `name` | Char | ชื่อ เช่น "Operator", "Technician" |
+| `code` | Char | รหัส เช่น "OPERATOR", "TECHNICIAN" |
 | `description` | Text | รายละเอียด |
 | `team_ids` | One2many → workteam | ทีมย่อยในกลุ่มงานนี้ |
 | `employee_ids` | Many2many → hr.employee | พนักงานทั้งหมดใน role นี้ |
-| `skill_ids` | Many2many → hr.skill | ทักษะที่ต้องมี |
+| `sequence` | Integer | ลำดับ |
+| `color` | Integer | สี |
 | `active` | Boolean | Active/Inactive |
-
-**Example Workroles:**
-
-| Name | Code | Description |
-|------|------|-------------|
-| APM Driver | DRIVER | พนักงานขับรถอัตโนมัติ |
-| APM Operator | OPERATOR | พนักงานควบคุมระบบ |
-| Maintenance | MAINT | ทีมซ่อมบำรุง |
 
 ---
 
-### 2.2 itx.employee.workteam (Team within Workrole)
+### 2.2 itx.employee.workteam (Work Team)
 
 ทีมย่อยภายในกลุ่มงาน - สำหรับหมุนเวียนกะ
 
@@ -119,239 +138,124 @@
 | `color` | Integer | สีแสดงบน Timeline |
 | `active` | Boolean | Active/Inactive |
 
-**Example Teams:**
-
-| Name | Code | Sequence | Workrole |
-|------|------|----------|----------|
-| Team A | A | 1 | APM Driver |
-| Team B | B | 2 | APM Driver |
-| Team C | C | 3 | APM Driver |
-| Team D | D | 4 | APM Driver |
-
 ---
 
-### 2.3 itx.schedule.planning.template (Schedule Template)
+### 2.3 itx.schedule.shift.type (Shift Type)
 
-Template รูปแบบการทำงาน - เก็บกฎเกณฑ์การหมุนเวียนกะ (User สร้างเองได้หลาย pattern)
+ประเภทกะ
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `name` | Char | ชื่อ Template เช่น "3 Shifts 4 Teams Rotation" |
-| `code` | Char | รหัส |
-| `description` | Text | รายละเอียด |
-| `is_default` | Boolean | เป็น default template หรือไม่ |
-| **Rotation Settings** | | |
-| `rotation_direction` | Selection | `forward` (เช้า→บ่าย→ดึก) / `backward` (เช้า→ดึก→บ่าย) |
-| `rotation_period_count` | Integer | เปลี่ยนกะทุกกี่ period (default: 1 = ทุก period) |
-| `shifts_per_day` | Integer | จำนวนกะต่อวัน (default: 3) |
-| **Work-Off Pattern** | | |
-| `pattern_id` | Many2one → pattern | Work-Off Pattern ที่ใช้ |
-| **Shift Duration** | | |
-| `shift_duration` | Float | ชั่วโมงทำงานต่อกะ (default: 8) |
-| `break_duration` | Float | ชั่วโมงพัก (default: 1) |
-| `total_shift_hours` | Float (computed) | รวมชั่วโมงต่อกะ (shift + break) |
-| **Day Break Pattern** | | |
-| `day_break_pattern` | Selection | `4w1b4w` / `5w1b3w` / `custom` |
-| `day_break_work_before` | Integer | ชั่วโมงทำงานก่อนพัก (4 หรือ 5) |
-| `day_break_work_after` | Integer | ชั่วโมงทำงานหลังพัก (4 หรือ 3) |
-| **Shift Times** | | |
-| `shift_time_ids` | One2many → shift.time | เวลาแต่ละกะ |
+| `name` | Char | ชื่อ เช่น "Morning Shift" |
+| `code` | Char | รหัส เช่น "MORNING" |
+| `hour_start` | Float | เวลาเริ่ม |
+| `hour_end` | Float | เวลาสิ้นสุด |
+| `duration` | Float (computed) | ชั่วโมงทำงาน |
+| `is_overnight` | Boolean (computed) | ข้ามวันหรือไม่ |
+| `is_day_off` | Boolean | เป็นวันหยุดหรือไม่ |
+| `sequence` | Integer | ลำดับ |
+| `color` | Integer | สี |
 | `active` | Boolean | Active/Inactive |
+
+**Seed Data:**
+
+| Name | Code | Start | End | Day Off |
+|------|------|-------|-----|---------|
+| Morning Shift | MORNING | 06:00 | 14:00 | No |
+| Afternoon Shift | AFTERNOON | 14:00 | 22:00 | No |
+| Night Shift | NIGHT | 22:00 | 06:00 | No |
+| Day Shift | DAY | 08:00 | 17:00 | No |
+| Day Off | OFF | - | - | Yes |
 
 ---
 
 ### 2.4 itx.schedule.workoff.pattern (Work-Off Pattern)
 
-รูปแบบวันทำงาน-วันหยุด (User สร้างเองได้หลาย pattern)
+รูปแบบวันทำงาน-วันหยุด
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `name` | Char | ชื่อ Pattern เช่น "7-On 3-Off" |
-| `code` | Char | รหัส เช่น "7ON3OFF" |
-| `work_days` | Integer | จำนวนวันทำงานติดต่อกัน (7) |
-| `off_days` | Integer | จำนวนวันหยุดติดต่อกัน (3) |
-| `pattern_length` | Integer (computed) | ความยาว pattern (work_days + off_days) |
-| `is_default` | Boolean | เป็น default pattern หรือไม่ |
+| `name` | Char | ชื่อ Pattern เช่น "4 On 2 Off" |
+| `code` | Char | รหัส เช่น "4ON2OFF" |
+| `pattern_type` | Selection | `consecutive` / `weekday` |
+| `work_days` | Integer | จำนวนวันทำงานติดต่อกัน |
+| `off_days` | Integer | จำนวนวันหยุดติดต่อกัน |
+| `pattern_length` | Integer (computed) | ความยาว pattern |
+| `weekday_mon` - `weekday_sun` | Boolean | วันทำงาน (สำหรับ weekday type) |
+| `is_default` | Boolean | เป็น default pattern |
 | `active` | Boolean | Active/Inactive |
 
-**Example Patterns (User สร้างเอง):**
+**Seed Data:**
 
-| Name | Code | Work Days | Off Days | Length |
-|------|------|-----------|----------|--------|
-| 7-On 3-Off | 7ON3OFF | 7 | 3 | 10 |
-| 5-On 2-Off | 5ON2OFF | 5 | 2 | 7 |
-| 4-On 2-Off | 4ON2OFF | 4 | 2 | 6 |
-
----
-
-### 2.5 itx.schedule.shift.time (Shift Time Definition)
-
-กำหนดเวลาของแต่ละกะ
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `template_id` | Many2one → template | อยู่ใน Template ไหน |
-| `name` | Char | ชื่อกะ เช่น "กะเช้า", "กะบ่าย", "กะดึก" |
-| `code` | Char | รหัส เช่น "MORNING", "AFTERNOON", "NIGHT" |
-| `sequence` | Integer | ลำดับ 1, 2, 3 |
-| `hour_start` | Float | เวลาเริ่ม (0-24) |
-| `hour_end` | Float | เวลาสิ้นสุด (0-24, ข้ามวันได้) |
-| `is_overnight` | Boolean (computed) | ข้ามวันหรือไม่ |
-| `color` | Integer | สีแสดงบน Timeline |
-
-**Default Shift Times:**
-
-| Name | Code | Start | End | Overnight |
-|------|------|-------|-----|-----------|
-| กะเช้า | MORNING | 06:00 | 14:00 | No |
-| กะบ่าย | AFTERNOON | 14:00 | 22:00 | No |
-| กะดึก | NIGHT | 22:00 | 06:00 | Yes |
+| Name | Code | Type | Work | Off |
+|------|------|------|------|-----|
+| 4 On 2 Off | 4ON2OFF | consecutive | 4 | 2 |
+| 5 On 2 Off | 5ON2OFF | consecutive | 5 | 2 |
+| 7 On 3 Off | 7ON3OFF | consecutive | 7 | 3 |
+| Weekday (Mon-Fri) | WEEKDAY | weekday | 5 | 2 |
 
 ---
 
-### 2.6 itx.schedule.shift.type (Shift Type - Simplified)
+### 2.5 itx.schedule.planning.template (Planning Template)
 
-ประเภทกะ (Master Data แยกจาก Template สำหรับใช้ทั่วไป)
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | Char | ชื่อ เช่น "กะเช้า" |
-| `code` | Char | รหัส เช่น "MORNING" |
-| `hour_start` | Float | เวลาเริ่ม default |
-| `hour_end` | Float | เวลาสิ้นสุด default |
-| `is_day_off` | Boolean | เป็นวันหยุดหรือไม่ |
-| `color` | Integer | สี |
-| `active` | Boolean | Active/Inactive |
-
----
-
-## 3. Shift Swap Request Model
-
-### 3.1 itx.schedule.swap.request
-
-ใบขอแลกกะ
+Template รูปแบบการทำงาน
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `name` | Char (computed) | ชื่อ Request |
-| `planning_id` | Many2one → planning | อยู่ใน Planning ไหน |
-| **Requester (Employee A)** | | |
-| `requester_id` | Many2one → hr.employee | พนักงานที่ขอ |
-| `requester_line_id` | Many2one → line | กะของผู้ขอ |
-| `requester_date` | Date (related) | วันที่กะผู้ขอ |
-| **Partner (Employee B)** | | |
-| `partner_id` | Many2one → hr.employee | พนักงานคู่แลก |
-| `partner_line_id` | Many2one → line | กะของคู่แลก |
-| `partner_date` | Date (related) | วันที่กะคู่แลก |
-| **Workflow** | | |
-| `state` | Selection | (see below) |
-| `reason` | Text | เหตุผลที่ขอแลก |
-| `reject_reason` | Text | เหตุผลที่ปฏิเสธ |
-| **Timestamps** | | |
-| `confirmed_date` | Datetime | วันที่คู่แลก confirm |
-| `supervisor_approved_date` | Datetime | วันที่หัวหน้าอนุมัติ |
-| `hr_approved_date` | Datetime | วันที่ HR อนุมัติ |
-| `rejected_date` | Datetime | วันที่ถูก reject |
-| `rejected_by` | Many2one → res.users | ใคร reject |
-
-**States:**
-
-| State | Value | Description |
-|-------|-------|-------------|
-| Draft | `draft` | พนักงาน A สร้าง Request |
-| Confirmed | `confirmed` | พนักงาน B acknowledge |
-| Supervisor Approved | `supervisor_approved` | หัวหน้าอนุมัติ |
-| HR Approved | `hr_approved` | HR อนุมัติ |
-| Done | `done` | สลับกะเรียบร้อย |
-| Rejected | `rejected` | ถูกปฏิเสธ |
-
----
-
-## 4. Constraint Engine Models
-
-### 4.1 itx.schedule.constraint
-
-กฎเกณฑ์/ข้อจำกัดที่ HR จัดการได้
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | Char | ชื่อ Constraint |
-| `code` | Char | รหัส เช่น "REST_10H", "MAX_48H_WEEK" |
+| `name` | Char | ชื่อ Template |
+| `code` | Char | รหัส |
 | `description` | Text | รายละเอียด |
-| `constraint_type` | Selection | `warning` / `blocking` |
-| `is_active` | Boolean | เปิด/ปิดใช้งาน |
-| `python_code` | Text | Python code สำหรับ validate |
-| `error_message` | Char | ข้อความ error |
-| `sequence` | Integer | ลำดับการตรวจสอบ |
+| `is_default` | Boolean | เป็น default template |
+| **Rotation** | | |
+| `rotation_direction` | Selection | `none` / `forward` / `backward` |
+| `rotation_period_count` | Integer | เปลี่ยนกะทุกกี่ period |
+| `shifts_per_day` | Integer | จำนวนกะต่อวัน |
+| **Pattern** | | |
+| `pattern_id` | Many2one → pattern | Work-Off Pattern |
+| **Duration** | | |
+| `shift_duration` | Float | ชั่วโมงทำงานต่อกะ |
+| `break_duration` | Float | ชั่วโมงพัก |
+| `active` | Boolean | Active/Inactive |
 
-**Default Constraints:**
+**Seed Data:**
 
-| Name | Code | Type | Description |
-|------|------|------|-------------|
-| พักขั้นต่ำ 10 ชม. | REST_10H | blocking | พักติดต่อกันไม่น้อยกว่า 10 ชม.ก่อนกะถัดไป |
-| ไม่เกิน 8 ชม./วัน | MAX_8H_DAY | warning | ทำงานไม่เกิน 8 ชม./วัน |
-| ไม่เกิน 48 ชม./สัปดาห์ | MAX_48H_WEEK | blocking | ทำงานไม่เกิน 48 ชม./สัปดาห์ |
-| พักระหว่างวัน 30 นาที | BREAK_30M | warning | ต้องมีพักระหว่างวันอย่างน้อย 30 นาที |
+| Name | Code | Rotation | Pattern |
+|------|------|----------|---------|
+| 3 Shifts 4 Teams | 3S4T | forward | 4ON2OFF |
+| 3 Shifts Fixed | 3SF | none | 4ON2OFF |
+| Day Shift Only | DAY | none | WEEKDAY |
 
 ---
 
-## 5. Extended Models
+### 2.6 itx.schedule.period (Schedule Period)
 
-### 5.1 hr.employee (Extension)
+กำหนดช่วงเวลา period
 
 | Field | Type | Description |
 |-------|------|-------------|
+| `name` | Char | ชื่อ Period เช่น "January 2026" |
+| `date_start` | Date | วันเริ่ม period |
+| `date_end` | Date | วันสิ้นสุด period |
+| `state` | Selection | `draft` / `active` / `closed` |
+| `days_count` | Integer (computed) | จำนวนวัน |
+| `planning_ids` | One2many → planning | Planning ใน period นี้ |
+| `active` | Boolean | Active/Inactive |
+
+---
+
+## 3. Extended Models
+
+### 3.1 hr.employee (Extension)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `employee_number` | Char | รหัสพนักงาน (user-entered) |
 | `workrole_id` | Many2one → workrole | กลุ่มงาน |
 | `workteam_id` | Many2one → workteam | ทีม |
-| `schedule_line_ids` | One2many → line | ตารางงานทั้งหมด |
-| `swap_request_ids` | One2many → swap | Requests ทั้งหมด |
-
-### 5.2 hr.leave (Extension)
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `schedule_line_ids` | One2many → line | กะที่ถูก affected |
 
 ---
 
-## 6. Configuration Models
-
-### 6.1 itx.schedule.period (Period Definition)
-
-กำหนดช่วงเวลา period - User กำหนดเองได้
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | Char | ชื่อ Period เช่น "March 2026" |
-| `date_start` | Date | วันเริ่ม period (default: 26) |
-| `date_end` | Date | วันสิ้นสุด period (default: 25 ของเดือนถัดไป) |
-| `planning_ids` | One2many → planning | Planning ใน period นี้ |
-| `state` | Selection | `draft` / `active` / `closed` |
-
-**Default Period:**
-```
-ปกติ: วันที่ 26 ของเดือน → วันที่ 25 ของเดือนถัดไป
-
-ตัวอย่าง: Period เดือนมีนาคม 2026
-         เริ่ม:     26 กุมภาพันธ์ 2026
-         สิ้นสุด:   25 มีนาคม 2026
-```
-
-### 6.2 itx.schedule.config.settings
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `default_period_start_day` | Integer | วันเริ่มต้น period default (default: 26) |
-| `default_planning_weeks` | Integer | จำนวนสัปดาห์ที่วางแผนล่วงหน้า |
-| `auto_activate` | Boolean | Auto activate วันแรกของ period |
-
-**Note:**
-- Cross-workrole swap = **ไม่อนุญาต** (hardcoded)
-- Archive ทำได้ทันทีหลังจบ period (ไม่ต้องรอ)
-
----
-
-## 7. Model Relationships Diagram
+## 4. Model Relationships Diagram
 
 ```
                          ┌─────────────────────────┐
@@ -366,35 +270,46 @@ Template รูปแบบการทำงาน - เก็บกฎเก�
                          └────────────┬────────────┘
                                       │ many2many
                                       ▼
-┌─────────────────────┐        ┌─────────────────┐        ┌─────────────────────┐
-│ itx.schedule        │        │   hr.employee   │        │    hr.contract      │
-│ .planning.template  │        │    (พนักงาน)     │        │   (สัญญาจ้าง)        │
-└──────────┬──────────┘        └────────┬────────┘        └─────────────────────┘
+┌─────────────────────┐        ┌─────────────────┐
+│ itx.schedule        │        │   hr.employee   │
+│ .planning.template  │        │    (พนักงาน)     │
+└──────────┬──────────┘        └────────┬────────┘
            │                            │
-           │ many2one                   │ many2one
+           │                            │
            └──────────┬─────────────────┘
                       ▼
-         ┌─────────────────────────────────┐
-         │  itx.schedule.planning.config   │
-         │    (Mapping: workrole+template) │
-         └───────────────┬─────────────────┘
-                         │ one2many
-                         ▼
-         ┌─────────────────────────────────┐
-         │     itx.schedule.planning       │
-         │        (Main Output)            │
-         └───────────────┬─────────────────┘
-                         │ one2many
-                         ▼
-         ┌─────────────────────────────────┐
-         │   itx.schedule.planning.line    │
-         │      (Daily per Employee)       │
-         └───────────────┬─────────────────┘
-                         │
-            ┌────────────┴────────────┐
-            ▼                         ▼
-┌─────────────────────┐    ┌─────────────────────────┐
-│     hr.leave        │    │ itx.schedule.swap       │
-│   (ใบลา)            │    │ .request (ใบขอแลกกะ)    │
-└─────────────────────┘    └─────────────────────────┘
+┌─────────────────────────────────────────────────┐
+│            itx.schedule.period                  │
+│               (งวดตารางงาน)                       │
+└───────────────────────┬─────────────────────────┘
+                        │ one2many
+                        ▼
+┌─────────────────────────────────────────────────┐
+│         itx.schedule.planning (Level 1)         │
+│              (Header - ตารางงานหลัก)              │
+└───────────────────────┬─────────────────────────┘
+                        │ one2many
+                        ▼
+┌─────────────────────────────────────────────────┐
+│     itx.schedule.planning.workrole (Level 2)    │
+│          (Per Workrole - ตั้งค่าต่อกลุ่มงาน)       │
+└───────────────────────┬─────────────────────────┘
+                        │ one2many
+                        ▼
+┌─────────────────────────────────────────────────┐
+│  itx.schedule.planning.workrole.entry (Level 3) │
+│         (Per Employee Per Day - รายวันรายคน)     │
+└─────────────────────────────────────────────────┘
 ```
+
+---
+
+## 5. Future Models (Not Yet Implemented)
+
+### 5.1 itx.schedule.swap.request (Phase 2)
+
+ใบขอแลกกะ - จะพัฒนาใน Phase 2
+
+### 5.2 itx.schedule.constraint (Phase 3)
+
+กฎเกณฑ์/ข้อจำกัด - จะพัฒนาใน Phase 3
