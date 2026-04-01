@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_itx_info_vehicle_brand_user,itx.info.vehicle.brand.user,model_itx_info_vehicle_brand,stock.group_stock_user,1,0,0,0
+access_itx_info_vehicle_brand_manager,itx.info.vehicle.brand.manager,model_itx_info_vehicle_brand,stock.group_stock_manager,1,1,1,1
+access_itx_info_vehicle_model_user,itx.info.vehicle.model.user,model_itx_info_vehicle_model,stock.group_stock_user,1,0,0,0
+access_itx_info_vehicle_model_manager,itx.info.vehicle.model.manager,model_itx_info_vehicle_model,stock.group_stock_manager,1,1,1,1
+access_itx_info_vehicle_generation_user,itx.info.vehicle.generation.user,model_itx_info_vehicle_generation,stock.group_stock_user,1,0,0,0
+access_itx_info_vehicle_generation_manager,itx.info.vehicle.generation.manager,model_itx_info_vehicle_generation,stock.group_stock_manager,1,1,1,1
+access_itx_info_vehicle_variant_user,itx.info.vehicle.variant.user,model_itx_info_vehicle_variant,stock.group_stock_user,1,0,0,0
+access_itx_info_vehicle_variant_manager,itx.info.vehicle.variant.manager,model_itx_info_vehicle_variant,stock.group_stock_manager,1,1,1,1
+access_itx_info_vehicle_part_category_user,itx.info.vehicle.part.category.user,model_itx_info_vehicle_part_category,stock.group_stock_user,1,0,0,0
+access_itx_info_vehicle_part_category_manager,itx.info.vehicle.part.category.manager,model_itx_info_vehicle_part_category,stock.group_stock_manager,1,1,1,1
+access_itx_info_vehicle_mgr_body_type_user,itx.info.vehicle.mgr.body.type.user,model_itx_info_vehicle_mgr_body_type,stock.group_stock_user,1,0,0,0
+access_itx_info_vehicle_mgr_body_type_manager,itx.info.vehicle.mgr.body.type.manager,model_itx_info_vehicle_mgr_body_type,stock.group_stock_manager,1,1,1,1
+access_itx_info_vehicle_mgr_engine_user,itx.info.vehicle.mgr.engine.user,model_itx_info_vehicle_mgr_engine,stock.group_stock_user,1,0,0,0
+access_itx_info_vehicle_mgr_engine_manager,itx.info.vehicle.mgr.engine.manager,model_itx_info_vehicle_mgr_engine,stock.group_stock_manager,1,1,1,1

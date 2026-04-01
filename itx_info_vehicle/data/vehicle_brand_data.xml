@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- ==================== -->
+        <!-- JAPANESE BRANDS      -->
+        <!-- ==================== -->
+
+        <record id="brand_toyota" model="itx.info.vehicle.brand">
+            <field name="code">TOYOTA</field>
+            <field name="name">Toyota</field>
+            <field name="abbr">TOY</field>
+            <field name="country_id" ref="base.jp"/>
+            <field name="desc">Toyota Motor Corporation - ยี่ห้อยอดนิยมอันดับ 1 ในไทย</field>
+        </record>
+
+        <record id="brand_honda" model="itx.info.vehicle.brand">
+            <field name="code">HONDA</field>
+            <field name="name">Honda</field>
+            <field name="abbr">HON</field>
+            <field name="country_id" ref="base.jp"/>
+            <field name="desc">Honda Motor Co., Ltd.</field>
+        </record>
+
+        <record id="brand_isuzu" model="itx.info.vehicle.brand">
+            <field name="code">ISUZU</field>
+            <field name="name">Isuzu</field>
+            <field name="abbr">ISZ</field>
+            <field name="country_id" ref="base.jp"/>
+            <field name="desc">Isuzu Motors Ltd. - เจ้าตลาดรถกระบะดีเซล</field>
+        </record>
+
+        <record id="brand_nissan" model="itx.info.vehicle.brand">
+            <field name="code">NISSAN</field>
+            <field name="name">Nissan</field>
+            <field name="abbr">NIS</field>
+            <field name="country_id" ref="base.jp"/>
+            <field name="desc">Nissan Motor Co., Ltd.</field>
+        </record>
+
+        <record id="brand_mitsubishi" model="itx.info.vehicle.brand">
+            <field name="code">MITSUBISHI</field>
+            <field name="name">Mitsubishi</field>
+            <field name="abbr">MIT</field>
+            <field name="country_id" ref="base.jp"/>
+            <field name="desc">Mitsubishi Motors Corporation</field>
+        </record>
+
+        <record id="brand_mazda" model="itx.info.vehicle.brand">
+            <field name="code">MAZDA</field>
+            <field name="name">Mazda</field>
+            <field name="abbr">MAZ</field>
+            <field name="country_id" ref="base.jp"/>
+            <field name="desc">Mazda Motor Corporation</field>
+        </record>
+
+        <record id="brand_suzuki" model="itx.info.vehicle.brand">
+            <field name="code">SUZUKI</field>
+            <field name="name">Suzuki</field>
+            <field name="abbr">SUZ</field>
+            <field name="country_id" ref="base.jp"/>
+            <field name="desc">Suzuki Motor Corporation</field>
+        </record>
+
+        <record id="brand_subaru" model="itx.info.vehicle.brand">
+            <field name="code">SUBARU</field>
+            <field name="name">Subaru</field>
+            <field name="abbr">SUB</field>
+            <field name="country_id" ref="base.jp"/>
+            <field name="desc">Subaru Corporation</field>
+        </record>
+
+        <record id="brand_lexus" model="itx.info.vehicle.brand">
+            <field name="code">LEXUS</field>
+            <field name="name">Lexus</field>
+            <field name="abbr">LEX</field>
+            <field name="country_id" ref="base.jp"/>
+            <field name="desc">Lexus - Premium brand ของ Toyota</field>
+        </record>
+
+        <record id="brand_daihatsu" model="itx.info.vehicle.brand">
+            <field name="code">DAIHATSU</field>
+            <field name="name">Daihatsu</field>
+            <field name="abbr">DAI</field>
+            <field name="country_id" ref="base.jp"/>
+            <field name="desc">Daihatsu Motor Co., Ltd.</field>
+        </record>
+
+        <record id="brand_hino" model="itx.info.vehicle.brand">
+            <field name="code">HINO</field>
+            <field name="name">Hino</field>
+            <field name="abbr">HIN</field>
+            <field name="country_id" ref="base.jp"/>
+            <field name="desc">Hino Motors - รถบรรทุก</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- AMERICAN BRANDS      -->
+        <!-- ==================== -->
+
+        <record id="brand_ford" model="itx.info.vehicle.brand">
+            <field name="code">FORD</field>
+            <field name="name">Ford</field>
+            <field name="abbr">FRD</field>
+            <field name="country_id" ref="base.us"/>
+            <field name="desc">Ford Motor Company</field>
+        </record>
+
+        <record id="brand_chevrolet" model="itx.info.vehicle.brand">
+            <field name="code">CHEVROLET</field>
+            <field name="name">Chevrolet</field>
+            <field name="abbr">CHV</field>
+            <field name="country_id" ref="base.us"/>
+            <field name="desc">Chevrolet - General Motors</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- EUROPEAN BRANDS      -->
+        <!-- ==================== -->
+
+        <record id="brand_mercedes" model="itx.info.vehicle.brand">
+            <field name="code">MERCEDES</field>
+            <field name="name">Mercedes-Benz</field>
+            <field name="abbr">MBZ</field>
+            <field name="country_id" ref="base.de"/>
+            <field name="desc">Mercedes-Benz AG</field>
+        </record>
+
+        <record id="brand_bmw" model="itx.info.vehicle.brand">
+            <field name="code">BMW</field>
+            <field name="name">BMW</field>
+            <field name="abbr">BMW</field>
+            <field name="country_id" ref="base.de"/>
+            <field name="desc">Bayerische Motoren Werke AG</field>
+        </record>
+
+        <record id="brand_audi" model="itx.info.vehicle.brand">
+            <field name="code">AUDI</field>
+            <field name="name">Audi</field>
+            <field name="abbr">AUD</field>
+            <field name="country_id" ref="base.de"/>
+            <field name="desc">Audi AG - Volkswagen Group</field>
+        </record>
+
+        <record id="brand_volkswagen" model="itx.info.vehicle.brand">
+            <field name="code">VOLKSWAGEN</field>
+            <field name="name">Volkswagen</field>
+            <field name="abbr">VW</field>
+            <field name="country_id" ref="base.de"/>
+            <field name="desc">Volkswagen AG</field>
+        </record>
+
+        <record id="brand_volvo" model="itx.info.vehicle.brand">
+            <field name="code">VOLVO</field>
+            <field name="name">Volvo</field>
+            <field name="abbr">VOL</field>
+            <field name="country_id" ref="base.se"/>
+            <field name="desc">Volvo Cars</field>
+        </record>
+
+        <record id="brand_peugeot" model="itx.info.vehicle.brand">
+            <field name="code">PEUGEOT</field>
+            <field name="name">Peugeot</field>
+            <field name="abbr">PGT</field>
+            <field name="country_id" ref="base.fr"/>
+            <field name="desc">Peugeot - Stellantis</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- KOREAN BRANDS        -->
+        <!-- ==================== -->
+
+        <record id="brand_hyundai" model="itx.info.vehicle.brand">
+            <field name="code">HYUNDAI</field>
+            <field name="name">Hyundai</field>
+            <field name="abbr">HYU</field>
+            <field name="country_id" ref="base.kr"/>
+            <field name="desc">Hyundai Motor Company</field>
+        </record>
+
+        <record id="brand_kia" model="itx.info.vehicle.brand">
+            <field name="code">KIA</field>
+            <field name="name">Kia</field>
+            <field name="abbr">KIA</field>
+            <field name="country_id" ref="base.kr"/>
+            <field name="desc">Kia Corporation</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- CHINESE BRANDS       -->
+        <!-- ==================== -->
+
+        <record id="brand_mg" model="itx.info.vehicle.brand">
+            <field name="code">MG</field>
+            <field name="name">MG</field>
+            <field name="abbr">MG</field>
+            <field name="country_id" ref="base.cn"/>
+            <field name="desc">MG Motor - SAIC Motor</field>
+        </record>
+
+        <record id="brand_byd" model="itx.info.vehicle.brand">
+            <field name="code">BYD</field>
+            <field name="name">BYD</field>
+            <field name="abbr">BYD</field>
+            <field name="country_id" ref="base.cn"/>
+            <field name="desc">BYD Auto - รถยนต์ไฟฟ้า</field>
+        </record>
+
+        <record id="brand_gwm" model="itx.info.vehicle.brand">
+            <field name="code">GWM</field>
+            <field name="name">GWM</field>
+            <field name="abbr">GWM</field>
+            <field name="country_id" ref="base.cn"/>
+            <field name="desc">Great Wall Motors</field>
+        </record>
+
+        <record id="brand_neta" model="itx.info.vehicle.brand">
+            <field name="code">NETA</field>
+            <field name="name">Neta</field>
+            <field name="abbr">NTA</field>
+            <field name="country_id" ref="base.cn"/>
+            <field name="desc">Neta Auto - รถยนต์ไฟฟ้า</field>
+        </record>
+
+        <record id="brand_ora" model="itx.info.vehicle.brand">
+            <field name="code">ORA</field>
+            <field name="name">Ora</field>
+            <field name="abbr">ORA</field>
+            <field name="country_id" ref="base.cn"/>
+            <field name="desc">Ora - GWM รถยนต์ไฟฟ้า</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- ==================== -->
+        <!-- TOYOTA MODELS        -->
+        <!-- ==================== -->
+
+        <!-- Pickup -->
+        <record id="model_toyota_hilux" model="itx.info.vehicle.model">
+            <field name="code">HILUX</field>
+            <field name="name">Hilux</field>
+            <field name="abbr">HLX</field>
+            <field name="brand_id" ref="brand_toyota"/>
+        </record>
+
+        <record id="model_toyota_revo" model="itx.info.vehicle.model">
+            <field name="code">REVO</field>
+            <field name="name">Hilux Revo</field>
+            <field name="abbr">REV</field>
+            <field name="brand_id" ref="brand_toyota"/>
+        </record>
+
+        <record id="model_toyota_vigo" model="itx.info.vehicle.model">
+            <field name="code">VIGO</field>
+            <field name="name">Hilux Vigo</field>
+            <field name="abbr">VIG</field>
+            <field name="brand_id" ref="brand_toyota"/>
+        </record>
+
+        <!-- SUV -->
+        <record id="model_toyota_fortuner" model="itx.info.vehicle.model">
+            <field name="code">FORTUNER</field>
+            <field name="name">Fortuner</field>
+            <field name="abbr">FTN</field>
+            <field name="brand_id" ref="brand_toyota"/>
+        </record>
+
+        <record id="model_toyota_chr" model="itx.info.vehicle.model">
+            <field name="code">CHR</field>
+            <field name="name">C-HR</field>
+            <field name="abbr">CHR</field>
+            <field name="brand_id" ref="brand_toyota"/>
+        </record>
+
+        <record id="model_toyota_cross" model="itx.info.vehicle.model">
+            <field name="code">CROSS</field>
+            <field name="name">Corolla Cross</field>
+            <field name="abbr">CRS</field>
+            <field name="brand_id" ref="brand_toyota"/>
+        </record>
+
+        <!-- Sedan -->
+        <record id="model_toyota_camry" model="itx.info.vehicle.model">
+            <field name="code">CAMRY</field>
+            <field name="name">Camry</field>
+            <field name="abbr">CMR</field>
+            <field name="brand_id" ref="brand_toyota"/>
+        </record>
+
+        <record id="model_toyota_altis" model="itx.info.vehicle.model">
+            <field name="code">ALTIS</field>
+            <field name="name">Corolla Altis</field>
+            <field name="abbr">ALT</field>
+            <field name="brand_id" ref="brand_toyota"/>
+        </record>
+
+        <record id="model_toyota_yaris" model="itx.info.vehicle.model">
+            <field name="code">YARIS</field>
+            <field name="name">Yaris</field>
+            <field name="abbr">YRS</field>
+            <field name="brand_id" ref="brand_toyota"/>
+        </record>
+
+        <record id="model_toyota_yaris_ativ" model="itx.info.vehicle.model">
+            <field name="code">YARIS_ATIV</field>
+            <field name="name">Yaris Ativ</field>
+            <field name="abbr">YAT</field>
+            <field name="brand_id" ref="brand_toyota"/>
+        </record>
+
+        <record id="model_toyota_vios" model="itx.info.vehicle.model">
+            <field name="code">VIOS</field>
+            <field name="name">Vios</field>
+            <field name="abbr">VIO</field>
+            <field name="brand_id" ref="brand_toyota"/>
+        </record>
+
+        <!-- Van -->
+        <record id="model_toyota_commuter" model="itx.info.vehicle.model">
+            <field name="code">COMMUTER</field>
+            <field name="name">Commuter</field>
+            <field name="abbr">COM</field>
+            <field name="brand_id" ref="brand_toyota"/>
+        </record>
+
+        <record id="model_toyota_hiace" model="itx.info.vehicle.model">
+            <field name="code">HIACE</field>
+            <field name="name">Hiace</field>
+            <field name="abbr">HIA</field>
+            <field name="brand_id" ref="brand_toyota"/>
+        </record>
+
+        <record id="model_toyota_alphard" model="itx.info.vehicle.model">
+            <field name="code">ALPHARD</field>
+            <field name="name">Alphard</field>
+            <field name="abbr">ALP</field>
+            <field name="brand_id" ref="brand_toyota"/>
+        </record>
+
+        <record id="model_toyota_vellfire" model="itx.info.vehicle.model">
+            <field name="code">VELLFIRE</field>
+            <field name="name">Vellfire</field>
+            <field name="abbr">VEL</field>
+            <field name="brand_id" ref="brand_toyota"/>
+        </record>
+
+        <!-- ==================== -->
+        <!-- HONDA MODELS         -->
+        <!-- ==================== -->
+
+        <record id="model_honda_civic" model="itx.info.vehicle.model">
+            <field name="code">CIVIC</field>
+            <field name="name">Civic</field>
+            <field name="abbr">CIV</field>
+            <field name="brand_id" ref="brand_honda"/>
+        </record>
+
+        <record id="model_honda_accord" model="itx.info.vehicle.model">
+            <field name="code">ACCORD</field>
+            <field name="name">Accord</field>
+            <field name="abbr">ACD</field>
+            <field name="brand_id" ref="brand_honda"/>
+        </record>
+
+        <record id="model_honda_city" model="itx.info.vehicle.model">
+            <field name="code">CITY</field>
+            <field name="name">City</field>
+            <field name="abbr">CTY</field>
+            <field name="brand_id" ref="brand_honda"/>
+        </record>
+
+        <record id="model_honda_jazz" model="itx.info.vehicle.model">
+            <field name="code">JAZZ</field>
+            <field name="name">Jazz</field>
+            <field name="abbr">JAZ</field>
+            <field name="brand_id" ref="brand_honda"/>
+        </record>
+
+        <record id="model_honda_crv" model="itx.info.vehicle.model">
+            <field name="code">CRV</field>
+            <field name="name">CR-V</field>
+            <field name="abbr">CRV</field>
+            <field name="brand_id" ref="brand_honda"/>
+        </record>
+
+        <record id="model_honda_hrv" model="itx.info.vehicle.model">
+            <field name="code">HRV</field>
+            <field name="name">HR-V</field>
+            <field name="abbr">HRV</field>
+            <field name="brand_id" ref="brand_honda"/>
+        </record>
+
+        <record id="model_honda_brv" model="itx.info.vehicle.model">
+            <field name="code">BRV</field>
+            <field name="name">BR-V</field>
+            <field name="abbr">BRV</field>
+            <field name="brand_id" ref="brand_honda"/>
+        </record>
+
+        <!-- ==================== -->
+        <!-- ISUZU MODELS         -->
+        <!-- ==================== -->
+
+        <record id="model_isuzu_dmax" model="itx.info.vehicle.model">
+            <field name="code">DMAX</field>
+            <field name="name">D-Max</field>
+            <field name="abbr">DMX</field>
+            <field name="brand_id" ref="brand_isuzu"/>
+        </record>
+
+        <record id="model_isuzu_vcross" model="itx.info.vehicle.model">
+            <field name="code">VCROSS</field>
+            <field name="name">D-Max V-Cross</field>
+            <field name="abbr">VCR</field>
+            <field name="brand_id" ref="brand_isuzu"/>
+        </record>
+
+        <record id="model_isuzu_mux" model="itx.info.vehicle.model">
+            <field name="code">MUX</field>
+            <field name="name">MU-X</field>
+            <field name="abbr">MUX</field>
+            <field name="brand_id" ref="brand_isuzu"/>
+        </record>
+
+        <!-- ==================== -->
+        <!-- NISSAN MODELS        -->
+        <!-- ==================== -->
+
+        <record id="model_nissan_navara" model="itx.info.vehicle.model">
+            <field name="code">NAVARA</field>
+            <field name="name">Navara</field>
+            <field name="abbr">NAV</field>
+            <field name="brand_id" ref="brand_nissan"/>
+        </record>
+
+        <record id="model_nissan_terra" model="itx.info.vehicle.model">
+            <field name="code">TERRA</field>
+            <field name="name">Terra</field>
+            <field name="abbr">TER</field>
+            <field name="brand_id" ref="brand_nissan"/>
+        </record>
+
+        <record id="model_nissan_almera" model="itx.info.vehicle.model">
+            <field name="code">ALMERA</field>
+            <field name="name">Almera</field>
+            <field name="abbr">ALM</field>
+            <field name="brand_id" ref="brand_nissan"/>
+        </record>
+
+        <record id="model_nissan_kicks" model="itx.info.vehicle.model">
+            <field name="code">KICKS</field>
+            <field name="name">Kicks</field>
+            <field name="abbr">KCK</field>
+            <field name="brand_id" ref="brand_nissan"/>
+        </record>
+
+        <record id="model_nissan_note" model="itx.info.vehicle.model">
+            <field name="code">NOTE</field>
+            <field name="name">Note</field>
+            <field name="abbr">NOT</field>
+            <field name="brand_id" ref="brand_nissan"/>
+        </record>
+
+        <record id="model_nissan_xtrail" model="itx.info.vehicle.model">
+            <field name="code">XTRAIL</field>
+            <field name="name">X-Trail</field>
+            <field name="abbr">XTR</field>
+            <field name="brand_id" ref="brand_nissan"/>
+        </record>
+
+        <!-- ==================== -->
+        <!-- MITSUBISHI MODELS    -->
+        <!-- ==================== -->
+
+        <record id="model_mitsubishi_triton" model="itx.info.vehicle.model">
+            <field name="code">TRITON</field>
+            <field name="name">Triton</field>
+            <field name="abbr">TRT</field>
+            <field name="brand_id" ref="brand_mitsubishi"/>
+        </record>
+
+        <record id="model_mitsubishi_pajero" model="itx.info.vehicle.model">
+            <field name="code">PAJERO</field>
+            <field name="name">Pajero Sport</field>
+            <field name="abbr">PAJ</field>
+            <field name="brand_id" ref="brand_mitsubishi"/>
+        </record>
+
+        <record id="model_mitsubishi_xpander" model="itx.info.vehicle.model">
+            <field name="code">XPANDER</field>
+            <field name="name">Xpander</field>
+            <field name="abbr">XPN</field>
+            <field name="brand_id" ref="brand_mitsubishi"/>
+        </record>
+
+        <record id="model_mitsubishi_attrage" model="itx.info.vehicle.model">
+            <field name="code">ATTRAGE</field>
+            <field name="name">Attrage</field>
+            <field name="abbr">ATR</field>
+            <field name="brand_id" ref="brand_mitsubishi"/>
+        </record>
+
+        <record id="model_mitsubishi_mirage" model="itx.info.vehicle.model">
+            <field name="code">MIRAGE</field>
+            <field name="name">Mirage</field>
+            <field name="abbr">MRG</field>
+            <field name="brand_id" ref="brand_mitsubishi"/>
+        </record>
+
+        <!-- ==================== -->
+        <!-- MAZDA MODELS         -->
+        <!-- ==================== -->
+
+        <record id="model_mazda_bt50" model="itx.info.vehicle.model">
+            <field name="code">BT50</field>
+            <field name="name">BT-50</field>
+            <field name="abbr">BT5</field>
+            <field name="brand_id" ref="brand_mazda"/>
+        </record>
+
+        <record id="model_mazda_cx5" model="itx.info.vehicle.model">
+            <field name="code">CX5</field>
+            <field name="name">CX-5</field>
+            <field name="abbr">CX5</field>
+            <field name="brand_id" ref="brand_mazda"/>
+        </record>
+
+        <record id="model_mazda_cx30" model="itx.info.vehicle.model">
+            <field name="code">CX30</field>
+            <field name="name">CX-30</field>
+            <field name="abbr">C30</field>
+            <field name="brand_id" ref="brand_mazda"/>
+        </record>
+
+        <record id="model_mazda_cx3" model="itx.info.vehicle.model">
+            <field name="code">CX3</field>
+            <field name="name">CX-3</field>
+            <field name="abbr">CX3</field>
+            <field name="brand_id" ref="brand_mazda"/>
+        </record>
+
+        <record id="model_mazda_2" model="itx.info.vehicle.model">
+            <field name="code">MAZDA2</field>
+            <field name="name">Mazda 2</field>
+            <field name="abbr">MZ2</field>
+            <field name="brand_id" ref="brand_mazda"/>
+        </record>
+
+        <record id="model_mazda_3" model="itx.info.vehicle.model">
+            <field name="code">MAZDA3</field>
+            <field name="name">Mazda 3</field>
+            <field name="abbr">MZ3</field>
+            <field name="brand_id" ref="brand_mazda"/>
+        </record>
+
+        <!-- ==================== -->
+        <!-- FORD MODELS          -->
+        <!-- ==================== -->
+
+        <record id="model_ford_ranger" model="itx.info.vehicle.model">
+            <field name="code">RANGER</field>
+            <field name="name">Ranger</field>
+            <field name="abbr">RNG</field>
+            <field name="brand_id" ref="brand_ford"/>
+        </record>
+
+        <record id="model_ford_raptor" model="itx.info.vehicle.model">
+            <field name="code">RAPTOR</field>
+            <field name="name">Ranger Raptor</field>
+            <field name="abbr">RPT</field>
+            <field name="brand_id" ref="brand_ford"/>
+        </record>
+
+        <record id="model_ford_everest" model="itx.info.vehicle.model">
+            <field name="code">EVEREST</field>
+            <field name="name">Everest</field>
+            <field name="abbr">EVR</field>
+            <field name="brand_id" ref="brand_ford"/>
+        </record>
+
+        <!-- ==================== -->
+        <!-- MG MODELS            -->
+        <!-- ==================== -->
+
+        <record id="model_mg_zs" model="itx.info.vehicle.model">
+            <field name="code">ZS</field>
+            <field name="name">ZS</field>
+            <field name="abbr">ZS</field>
+            <field name="brand_id" ref="brand_mg"/>
+        </record>
+
+        <record id="model_mg_hs" model="itx.info.vehicle.model">
+            <field name="code">HS</field>
+            <field name="name">HS</field>
+            <field name="abbr">HS</field>
+            <field name="brand_id" ref="brand_mg"/>
+        </record>
+
+        <record id="model_mg_ep" model="itx.info.vehicle.model">
+            <field name="code">EP</field>
+            <field name="name">EP</field>
+            <field name="abbr">EP</field>
+            <field name="brand_id" ref="brand_mg"/>
+        </record>
+
+        <record id="model_mg_extender" model="itx.info.vehicle.model">
+            <field name="code">EXTENDER</field>
+            <field name="name">Extender</field>
+            <field name="abbr">EXT</field>
+            <field name="brand_id" ref="brand_mg"/>
+        </record>
+
+        <record id="model_mg_4" model="itx.info.vehicle.model">
+            <field name="code">MG4</field>
+            <field name="name">MG4</field>
+            <field name="abbr">MG4</field>
+            <field name="brand_id" ref="brand_mg"/>
+            <field name="desc">EV</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- BYD MODELS           -->
+        <!-- ==================== -->
+
+        <record id="model_byd_atto3" model="itx.info.vehicle.model">
+            <field name="code">ATTO3</field>
+            <field name="name">Atto 3</field>
+            <field name="abbr">AT3</field>
+            <field name="brand_id" ref="brand_byd"/>
+            <field name="desc">EV</field>
+        </record>
+
+        <record id="model_byd_dolphin" model="itx.info.vehicle.model">
+            <field name="code">DOLPHIN</field>
+            <field name="name">Dolphin</field>
+            <field name="abbr">DLP</field>
+            <field name="brand_id" ref="brand_byd"/>
+            <field name="desc">EV</field>
+        </record>
+
+        <record id="model_byd_seal" model="itx.info.vehicle.model">
+            <field name="code">SEAL</field>
+            <field name="name">Seal</field>
+            <field name="abbr">SEL</field>
+            <field name="brand_id" ref="brand_byd"/>
+            <field name="desc">EV</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- HYUNDAI MODELS       -->
+        <!-- ==================== -->
+
+        <record id="model_hyundai_h1" model="itx.info.vehicle.model">
+            <field name="code">H1</field>
+            <field name="name">H-1</field>
+            <field name="abbr">H1</field>
+            <field name="brand_id" ref="brand_hyundai"/>
+        </record>
+
+        <record id="model_hyundai_staria" model="itx.info.vehicle.model">
+            <field name="code">STARIA</field>
+            <field name="name">Staria</field>
+            <field name="abbr">STA</field>
+            <field name="brand_id" ref="brand_hyundai"/>
+        </record>
+
+        <record id="model_hyundai_creta" model="itx.info.vehicle.model">
+            <field name="code">CRETA</field>
+            <field name="name">Creta</field>
+            <field name="abbr">CRT</field>
+            <field name="brand_id" ref="brand_hyundai"/>
+        </record>
+
+        <!-- ==================== -->
+        <!-- SUZUKI MODELS        -->
+        <!-- ==================== -->
+
+        <record id="model_suzuki_swift" model="itx.info.vehicle.model">
+            <field name="code">SWIFT</field>
+            <field name="name">Swift</field>
+            <field name="abbr">SWF</field>
+            <field name="brand_id" ref="brand_suzuki"/>
+        </record>
+
+        <record id="model_suzuki_ciaz" model="itx.info.vehicle.model">
+            <field name="code">CIAZ</field>
+            <field name="name">Ciaz</field>
+            <field name="abbr">CIZ</field>
+            <field name="brand_id" ref="brand_suzuki"/>
+        </record>
+
+        <record id="model_suzuki_xl7" model="itx.info.vehicle.model">
+            <field name="code">XL7</field>
+            <field name="name">XL7</field>
+            <field name="abbr">XL7</field>
+            <field name="brand_id" ref="brand_suzuki"/>
+        </record>
+
+        <record id="model_suzuki_jimny" model="itx.info.vehicle.model">
+            <field name="code">JIMNY</field>
+            <field name="name">Jimny</field>
+            <field name="abbr">JMN</field>
+            <field name="brand_id" ref="brand_suzuki"/>
+        </record>
+
+    </data>
+</odoo>

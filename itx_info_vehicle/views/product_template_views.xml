@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Vehicle Parts List View -->
+    <record id="product_template_view_list_vehicle_parts" model="ir.ui.view">
+        <field name="name">product.template.view.list.vehicle.parts</field>
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+            <list string="Vehicle Parts">
+                <field name="default_code" string="Internal Ref"/>
+                <field name="name"/>
+                <field name="itx_brand_id"/>
+                <field name="itx_model_id"/>
+                <field name="itx_generation_id" optional="hide"/>
+                <field name="itx_variant_id" optional="show"/>
+                <field name="itx_part_category_id"/>
+                <field name="itx_part_origin"/>
+                <field name="itx_condition"/>
+                <field name="itx_oem_part_number" optional="show"/>
+                <field name="list_price" string="Price"/>
+                <field name="qty_available" string="On Hand" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Inherit Product Template Form View -->
+    <record id="product_template_form_view_vehicle_part" model="ir.ui.view">
+        <field name="name">product.template.form.vehicle.part</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <!-- Add Vehicle Part checkbox in options div -->
+            <div name="options" position="inside">
+                <span class="d-inline-flex">
+                    <field name="itx_is_vehicle_part"/>
+                    <label for="itx_is_vehicle_part"/>
+                </span>
+            </div>
+
+            <!-- Add Vehicle Part page in notebook -->
+            <page name="sales" position="before">
+                <page string="Vehicle Part" name="vehicle_part"
+                      invisible="not itx_is_vehicle_part">
+                    <group>
+                        <group string="Vehicle Information">
+                            <field name="itx_brand_id"
+                                   options="{'no_create': True}"/>
+                            <field name="itx_model_id"
+                                   domain="[('brand_id', '=', itx_brand_id)]"
+                                   options="{'no_create': True}"/>
+                            <field name="itx_generation_id"
+                                   domain="[('model_id', '=', itx_model_id)]"
+                                   options="{'no_create': True}"/>
+                            <field name="itx_variant_id"
+                                   domain="[('generation_id', '=', itx_generation_id)]"
+                                   options="{'no_create': True}"/>
+                        </group>
+                        <group string="Part Information">
+                            <field name="itx_part_category_id"
+                                   options="{'no_create': True}"/>
+                            <field name="itx_part_origin"/>
+                            <field name="itx_condition"/>
+                            <field name="itx_oem_part_number"
+                                   placeholder="(optional, fill later)"/>
+                            <field name="itx_sequence"/>
+                        </group>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+
+    <!-- Inherit Product Template Search View -->
+    <record id="product_template_search_view_vehicle_part" model="ir.ui.view">
+        <field name="name">product.template.search.vehicle.part</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field name="itx_brand_id"/>
+                <field name="itx_model_id"/>
+                <field name="itx_generation_id"/>
+                <field name="itx_variant_id"/>
+                <field name="itx_part_category_id"/>
+                <field name="itx_oem_part_number"/>
+            </field>
+            <filter name="filter_to_sell" position="after">
+                <filter string="Vehicle Parts" name="vehicle_parts"
+                        domain="[('itx_is_vehicle_part', '=', True)]"/>
+                <separator/>
+                <filter string="OEM" name="filter_oem"
+                        domain="[('itx_part_origin', '=', 'oem')]"/>
+                <filter string="Aftermarket" name="filter_aftermarket"
+                        domain="[('itx_part_origin', '=', 'aftermarket')]"/>
+                <separator/>
+                <filter string="New" name="filter_new"
+                        domain="[('itx_condition', '=', 'new')]"/>
+                <filter string="Like New" name="filter_like_new"
+                        domain="[('itx_condition', '=', 'like_new')]"/>
+                <filter string="Good" name="filter_good"
+                        domain="[('itx_condition', '=', 'good')]"/>
+            </filter>
+            <filter name="group_by_categ_id" position="after">
+                <filter string="Brand" name="groupby_brand"
+                        context="{'group_by': 'itx_brand_id'}"/>
+                <filter string="Model" name="groupby_model"
+                        context="{'group_by': 'itx_model_id'}"/>
+                <filter string="Part Category" name="groupby_part_category"
+                        context="{'group_by': 'itx_part_category_id'}"/>
+                <filter string="Part Origin" name="groupby_origin"
+                        context="{'group_by': 'itx_part_origin'}"/>
+                <filter string="Condition" name="groupby_condition"
+                        context="{'group_by': 'itx_condition'}"/>
+            </filter>
+        </field>
+    </record>
+
+    <!-- Action for Vehicle Parts -->
+    <record id="product_template_action_vehicle_parts" model="ir.actions.act_window">
+        <field name="name">Vehicle Parts</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="domain">[('itx_is_vehicle_part', '=', True)]</field>
+        <field name="context">{'default_itx_is_vehicle_part': True}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first vehicle part
+            </p>
+            <p>
+                Vehicle parts are products with vehicle compatibility information.
+            </p>
+        </field>
+    </record>
+
+    <!-- Action View: Use custom list view -->
+    <record id="product_template_action_vehicle_parts_view_list" model="ir.actions.act_window.view">
+        <field name="sequence">1</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="product_template_view_list_vehicle_parts"/>
+        <field name="act_window_id" ref="product_template_action_vehicle_parts"/>
+    </record>
+
+</odoo>

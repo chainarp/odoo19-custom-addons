@@ -68,10 +68,10 @@
                   decoration-info="is_day_off"
                   decoration-danger="is_leave"
                   decoration-muted="planning_state == 'archived'">
+                <field name="workrole_id"/>
                 <field name="date"/>
                 <field name="employee_id"/>
                 <field name="employee_number" optional="show"/>
-                <field name="workrole_id" optional="hide"/>
                 <field name="workteam_id"/>
                 <field name="shift_type_id"/>
                 <field name="hour_start" widget="float_time"/>
@@ -104,25 +104,35 @@
                 <field name="workteam_id"/>
                 <field name="date"/>
                 <separator/>
+                <!-- Workrole Filters (Primary) -->
+                <filter string="My Workroles" name="filter_my_workroles"
+                        domain="[('planning_workrole_id.responsible_id', '=', uid)]"
+                        help="Show only entries for workroles I am responsible for"/>
+                <field name="workrole_id" string="Filter by Workrole" filter_domain="[('workrole_id', '=', self)]"/>
+                <separator/>
+                <!-- Date Filters -->
                 <filter string="Today" name="filter_today"
                         domain="[('date', '=', context_today().strftime('%Y-%m-%d'))]"/>
                 <filter string="This Week" name="filter_week"
                         domain="[('date', '&gt;=', (context_today() - relativedelta(days=context_today().weekday())).strftime('%Y-%m-%d')),
                                  ('date', '&lt;', (context_today() + relativedelta(days=7-context_today().weekday())).strftime('%Y-%m-%d'))]"/>
                 <separator/>
+                <!-- Status Filters -->
                 <filter string="Day Off" name="filter_dayoff" domain="[('is_day_off', '=', True)]"/>
                 <filter string="On Leave" name="filter_leave" domain="[('is_leave', '=', True)]"/>
                 <filter string="Working" name="filter_working" domain="[('is_day_off', '=', False), ('is_leave', '=', False)]"/>
                 <separator/>
+                <!-- Shift Filters -->
                 <filter string="Morning Shift" name="filter_morning" domain="[('hour_start', '&gt;=', 5), ('hour_start', '&lt;', 12)]"/>
                 <filter string="Afternoon Shift" name="filter_afternoon" domain="[('hour_start', '&gt;=', 12), ('hour_start', '&lt;', 20)]"/>
                 <filter string="Night Shift" name="filter_night" domain="['|', ('hour_start', '&gt;=', 20), ('hour_start', '&lt;', 5)]"/>
                 <separator/>
-                <filter string="Group by Date" name="group_date" context="{'group_by': 'date'}"/>
+                <!-- Group By -->
+                <filter string="Group by Work Role" name="group_workrole" context="{'group_by': 'workrole_id'}"/>
                 <filter string="Group by Employee" name="group_employee" context="{'group_by': 'employee_id'}"/>
                 <filter string="Group by Team" name="group_team" context="{'group_by': 'workteam_id'}"/>
+                <filter string="Group by Date" name="group_date" context="{'group_by': 'date'}"/>
                 <filter string="Group by Shift Type" name="group_shift" context="{'group_by': 'shift_type_id'}"/>
-                <filter string="Group by Work Role" name="group_workrole" context="{'group_by': 'workrole_id'}"/>
             </search>
         </field>
     </record>
@@ -155,8 +165,10 @@
                       default_group_by="employee_id"
                       color="color"
                       event_open_popup="1">
+                <field name="workrole_id"/>
                 <field name="employee_id"/>
                 <field name="shift_type_id"/>
+                <field name="shift_type_code"/>
                 <field name="workteam_id"/>
                 <field name="hour_start"/>
                 <field name="hour_end"/>
@@ -164,18 +176,16 @@
                 <field name="is_leave"/>
                 <templates>
                     <t t-name="timeline-item">
-                        <div>
-                            <strong t-out="record.shift_type_id and record.shift_type_id[1] or (record.is_day_off and 'OFF' or (record.is_leave and 'LEAVE' or ''))"/>
-                        </div>
+                        <span t-out="record.shift_type_code or (record.is_day_off and 'OFF' or (record.is_leave and 'LV' or ''))"/>
                     </t>
                 </templates>
             </timeline>
         </field>
     </record>
 
-    <!-- Action -->
+    <!-- Action: All Schedule Entries (Admin/Full view) -->
     <record id="action_schedule_planning_entry" model="ir.actions.act_window">
-        <field name="name">Schedule Entries</field>
+        <field name="name">All Schedule Entries</field>
         <field name="res_model">itx.schedule.planning.workrole.entry</field>
         <field name="view_mode">timeline,list,calendar,form</field>
         <field name="search_view_id" ref="view_schedule_planning_entry_search"/>
@@ -190,7 +200,28 @@
         </field>
     </record>
 
-    <!-- Action for My Schedule (Employee view) -->
+    <!-- Action: Team Schedule (Manager view - auto filter by responsible workroles) -->
+    <record id="action_team_schedule" model="ir.actions.act_window">
+        <field name="name">Team Schedule</field>
+        <field name="res_model">itx.schedule.planning.workrole.entry</field>
+        <field name="view_mode">timeline,list,calendar,form</field>
+        <field name="search_view_id" ref="view_schedule_planning_entry_search"/>
+        <field name="context">{
+            'search_default_filter_my_workroles': 1,
+            'search_default_filter_working': 1
+        }</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No schedule for your workroles yet
+            </p>
+            <p>
+                This view shows schedules for workroles you are responsible for.
+                Remove the "My Workroles" filter to see all entries.
+            </p>
+        </field>
+    </record>
+
+    <!-- Action: My Schedule (Employee view) -->
     <record id="action_my_schedule" model="ir.actions.act_window">
         <field name="name">My Schedule</field>
         <field name="res_model">itx.schedule.planning.workrole.entry</field>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Toyota Diesel -->
+        <record id="engine_2kd" model="itx.info.vehicle.mgr.engine">
+            <field name="code">2KD</field>
+            <field name="name">2KD-FTV</field>
+            <field name="displacement">2.5</field>
+            <field name="fuel_type">diesel</field>
+        </record>
+        <record id="engine_1kd" model="itx.info.vehicle.mgr.engine">
+            <field name="code">1KD</field>
+            <field name="name">1KD-FTV</field>
+            <field name="displacement">3.0</field>
+            <field name="fuel_type">diesel</field>
+        </record>
+        <record id="engine_1gd" model="itx.info.vehicle.mgr.engine">
+            <field name="code">1GD</field>
+            <field name="name">1GD-FTV</field>
+            <field name="displacement">2.8</field>
+            <field name="fuel_type">diesel</field>
+        </record>
+        <record id="engine_2gd" model="itx.info.vehicle.mgr.engine">
+            <field name="code">2GD</field>
+            <field name="name">2GD-FTV</field>
+            <field name="displacement">2.4</field>
+            <field name="fuel_type">diesel</field>
+        </record>
+
+        <!-- Toyota Gasoline -->
+        <record id="engine_1zz" model="itx.info.vehicle.mgr.engine">
+            <field name="code">1ZZ</field>
+            <field name="name">1ZZ-FE</field>
+            <field name="displacement">1.8</field>
+            <field name="fuel_type">gasoline</field>
+        </record>
+        <record id="engine_2zz" model="itx.info.vehicle.mgr.engine">
+            <field name="code">2ZZ</field>
+            <field name="name">2ZZ-GE</field>
+            <field name="displacement">1.8</field>
+            <field name="fuel_type">gasoline</field>
+        </record>
+        <record id="engine_2az" model="itx.info.vehicle.mgr.engine">
+            <field name="code">2AZ</field>
+            <field name="name">2AZ-FE</field>
+            <field name="displacement">2.4</field>
+            <field name="fuel_type">gasoline</field>
+        </record>
+        <record id="engine_2gr" model="itx.info.vehicle.mgr.engine">
+            <field name="code">2GR</field>
+            <field name="name">2GR-FE</field>
+            <field name="displacement">3.5</field>
+            <field name="fuel_type">gasoline</field>
+        </record>
+
+        <!-- Honda -->
+        <record id="engine_r18a" model="itx.info.vehicle.mgr.engine">
+            <field name="code">R18A</field>
+            <field name="name">R18A</field>
+            <field name="displacement">1.8</field>
+            <field name="fuel_type">gasoline</field>
+        </record>
+        <record id="engine_k20a" model="itx.info.vehicle.mgr.engine">
+            <field name="code">K20A</field>
+            <field name="name">K20A</field>
+            <field name="displacement">2.0</field>
+            <field name="fuel_type">gasoline</field>
+        </record>
+        <record id="engine_k24a" model="itx.info.vehicle.mgr.engine">
+            <field name="code">K24A</field>
+            <field name="name">K24A</field>
+            <field name="displacement">2.4</field>
+            <field name="fuel_type">gasoline</field>
+        </record>
+        <record id="engine_l15b" model="itx.info.vehicle.mgr.engine">
+            <field name="code">L15B</field>
+            <field name="name">L15B VTEC Turbo</field>
+            <field name="displacement">1.5</field>
+            <field name="fuel_type">gasoline</field>
+        </record>
+
+        <!-- Isuzu Diesel -->
+        <record id="engine_4jj1" model="itx.info.vehicle.mgr.engine">
+            <field name="code">4JJ1</field>
+            <field name="name">4JJ1-TCX</field>
+            <field name="displacement">3.0</field>
+            <field name="fuel_type">diesel</field>
+        </record>
+        <record id="engine_4jk1" model="itx.info.vehicle.mgr.engine">
+            <field name="code">4JK1</field>
+            <field name="name">4JK1-TCX</field>
+            <field name="displacement">2.5</field>
+            <field name="fuel_type">diesel</field>
+        </record>
+        <record id="engine_rz4e" model="itx.info.vehicle.mgr.engine">
+            <field name="code">RZ4E</field>
+            <field name="name">RZ4E-TC</field>
+            <field name="displacement">1.9</field>
+            <field name="fuel_type">diesel</field>
+        </record>
+
+        <!-- Mitsubishi Diesel -->
+        <record id="engine_4d56" model="itx.info.vehicle.mgr.engine">
+            <field name="code">4D56</field>
+            <field name="name">4D56</field>
+            <field name="displacement">2.5</field>
+            <field name="fuel_type">diesel</field>
+        </record>
+        <record id="engine_4n15" model="itx.info.vehicle.mgr.engine">
+            <field name="code">4N15</field>
+            <field name="name">4N15 MIVEC</field>
+            <field name="displacement">2.4</field>
+            <field name="fuel_type">diesel</field>
+        </record>
+
+    </data>
+</odoo>

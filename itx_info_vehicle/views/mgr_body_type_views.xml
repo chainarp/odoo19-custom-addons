@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List View -->
+    <record id="itx_info_vehicle_mgr_body_type_view_list" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.mgr.body.type.view.list</field>
+        <field name="model">itx.info.vehicle.mgr.body.type</field>
+        <field name="arch" type="xml">
+            <list string="Body Types" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="active" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="itx_info_vehicle_mgr_body_type_view_form" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.mgr.body.type.view.form</field>
+        <field name="model">itx.info.vehicle.mgr.body.type</field>
+        <field name="arch" type="xml">
+            <form string="Body Type">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                        <group>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="itx_info_vehicle_mgr_body_type_view_search" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.mgr.body.type.view.search</field>
+        <field name="model">itx.info.vehicle.mgr.body.type</field>
+        <field name="arch" type="xml">
+            <search string="Search Body Types">
+                <field name="name"/>
+                <field name="code"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="itx_info_vehicle_mgr_body_type_action" model="ir.actions.act_window">
+        <field name="name">Body Types</field>
+        <field name="res_model">itx.info.vehicle.mgr.body.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="itx_info_vehicle_mgr_body_type_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first body type
+            </p>
+            <p>
+                Define body types like Sedan, Hatchback, Double Cab, etc.
+            </p>
+        </field>
+    </record>
+
+</odoo>

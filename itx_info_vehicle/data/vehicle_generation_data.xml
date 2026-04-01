@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- ==================== -->
+        <!-- TOYOTA HILUX REVO    -->
+        <!-- ==================== -->
+
+        <record id="gen_revo_gen1" model="itx.info.vehicle.generation">
+            <field name="code">REVO_GEN1</field>
+            <field name="name">Gen 1 (GUN125)</field>
+            <field name="abbr">G1</field>
+            <field name="model_id" ref="model_toyota_revo"/>
+            <field name="chassis_code">GUN125/GUN126</field>
+            <field name="year_start">2015</field>
+            <field name="year_end">2020</field>
+        </record>
+
+        <record id="gen_revo_gen2" model="itx.info.vehicle.generation">
+            <field name="code">REVO_GEN2</field>
+            <field name="name">Gen 2 Facelift (GUN125)</field>
+            <field name="abbr">G2</field>
+            <field name="model_id" ref="model_toyota_revo"/>
+            <field name="chassis_code">GUN125/GUN126</field>
+            <field name="year_start">2020</field>
+            <field name="year_end">0</field>
+            <field name="desc">Facelift รุ่นปรับโฉม</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- TOYOTA HILUX VIGO    -->
+        <!-- ==================== -->
+
+        <record id="gen_vigo_gen1" model="itx.info.vehicle.generation">
+            <field name="code">VIGO_GEN1</field>
+            <field name="name">Gen 1 (KUN25/26)</field>
+            <field name="abbr">G1</field>
+            <field name="model_id" ref="model_toyota_vigo"/>
+            <field name="chassis_code">KUN25/KUN26</field>
+            <field name="year_start">2004</field>
+            <field name="year_end">2008</field>
+        </record>
+
+        <record id="gen_vigo_gen2" model="itx.info.vehicle.generation">
+            <field name="code">VIGO_GEN2</field>
+            <field name="name">Gen 2 Champ (KUN25/26)</field>
+            <field name="abbr">G2</field>
+            <field name="model_id" ref="model_toyota_vigo"/>
+            <field name="chassis_code">KUN25/KUN26</field>
+            <field name="year_start">2008</field>
+            <field name="year_end">2011</field>
+            <field name="desc">Vigo Champ</field>
+        </record>
+
+        <record id="gen_vigo_gen3" model="itx.info.vehicle.generation">
+            <field name="code">VIGO_GEN3</field>
+            <field name="name">Gen 3 Champ (KUN25/26)</field>
+            <field name="abbr">G3</field>
+            <field name="model_id" ref="model_toyota_vigo"/>
+            <field name="chassis_code">KUN25/KUN26</field>
+            <field name="year_start">2011</field>
+            <field name="year_end">2015</field>
+            <field name="desc">Vigo Champ รุ่นสุดท้าย</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- TOYOTA FORTUNER      -->
+        <!-- ==================== -->
+
+        <record id="gen_fortuner_gen1" model="itx.info.vehicle.generation">
+            <field name="code">FORTUNER_GEN1</field>
+            <field name="name">Gen 1 (KUN50/51)</field>
+            <field name="abbr">G1</field>
+            <field name="model_id" ref="model_toyota_fortuner"/>
+            <field name="chassis_code">KUN50/KUN51</field>
+            <field name="year_start">2005</field>
+            <field name="year_end">2008</field>
+        </record>
+
+        <record id="gen_fortuner_gen1_mc" model="itx.info.vehicle.generation">
+            <field name="code">FORTUNER_GEN1_MC</field>
+            <field name="name">Gen 1 MC (KUN50/51)</field>
+            <field name="abbr">G1M</field>
+            <field name="model_id" ref="model_toyota_fortuner"/>
+            <field name="chassis_code">KUN50/KUN51</field>
+            <field name="year_start">2008</field>
+            <field name="year_end">2011</field>
+            <field name="desc">Minor Change</field>
+        </record>
+
+        <record id="gen_fortuner_gen1_mc2" model="itx.info.vehicle.generation">
+            <field name="code">FORTUNER_GEN1_MC2</field>
+            <field name="name">Gen 1 MC2 (KUN50/51)</field>
+            <field name="abbr">G1N</field>
+            <field name="model_id" ref="model_toyota_fortuner"/>
+            <field name="chassis_code">KUN50/KUN51</field>
+            <field name="year_start">2011</field>
+            <field name="year_end">2015</field>
+            <field name="desc">Minor Change 2 / Champ</field>
+        </record>
+
+        <record id="gen_fortuner_gen2" model="itx.info.vehicle.generation">
+            <field name="code">FORTUNER_GEN2</field>
+            <field name="name">Gen 2 (GUN155/156)</field>
+            <field name="abbr">G2</field>
+            <field name="model_id" ref="model_toyota_fortuner"/>
+            <field name="chassis_code">GUN155/GUN156</field>
+            <field name="year_start">2015</field>
+            <field name="year_end">2020</field>
+        </record>
+
+        <record id="gen_fortuner_gen2_mc" model="itx.info.vehicle.generation">
+            <field name="code">FORTUNER_GEN2_MC</field>
+            <field name="name">Gen 2 MC (GUN155/156)</field>
+            <field name="abbr">G2M</field>
+            <field name="model_id" ref="model_toyota_fortuner"/>
+            <field name="chassis_code">GUN155/GUN156</field>
+            <field name="year_start">2020</field>
+            <field name="year_end">0</field>
+            <field name="desc">Minor Change - Legender</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- TOYOTA CAMRY         -->
+        <!-- ==================== -->
+
+        <record id="gen_camry_xv40" model="itx.info.vehicle.generation">
+            <field name="code">CAMRY_XV40</field>
+            <field name="name">XV40</field>
+            <field name="abbr">X40</field>
+            <field name="model_id" ref="model_toyota_camry"/>
+            <field name="chassis_code">ACV40/ACV41</field>
+            <field name="year_start">2006</field>
+            <field name="year_end">2011</field>
+        </record>
+
+        <record id="gen_camry_xv50" model="itx.info.vehicle.generation">
+            <field name="code">CAMRY_XV50</field>
+            <field name="name">XV50</field>
+            <field name="abbr">X50</field>
+            <field name="model_id" ref="model_toyota_camry"/>
+            <field name="chassis_code">ASV50/ASV51</field>
+            <field name="year_start">2011</field>
+            <field name="year_end">2017</field>
+        </record>
+
+        <record id="gen_camry_xv70" model="itx.info.vehicle.generation">
+            <field name="code">CAMRY_XV70</field>
+            <field name="name">XV70</field>
+            <field name="abbr">X70</field>
+            <field name="model_id" ref="model_toyota_camry"/>
+            <field name="chassis_code">ASV70/AXVH70</field>
+            <field name="year_start">2018</field>
+            <field name="year_end">0</field>
+            <field name="desc">TNGA Platform</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- TOYOTA ALTIS         -->
+        <!-- ==================== -->
+
+        <record id="gen_altis_e140" model="itx.info.vehicle.generation">
+            <field name="code">ALTIS_E140</field>
+            <field name="name">E140 (Altis)</field>
+            <field name="abbr">140</field>
+            <field name="model_id" ref="model_toyota_altis"/>
+            <field name="chassis_code">ZZE141/ZZE142</field>
+            <field name="year_start">2008</field>
+            <field name="year_end">2013</field>
+        </record>
+
+        <record id="gen_altis_e170" model="itx.info.vehicle.generation">
+            <field name="code">ALTIS_E170</field>
+            <field name="name">E170 (Altis)</field>
+            <field name="abbr">170</field>
+            <field name="model_id" ref="model_toyota_altis"/>
+            <field name="chassis_code">ZRE172/ZRE173</field>
+            <field name="year_start">2013</field>
+            <field name="year_end">2018</field>
+        </record>
+
+        <record id="gen_altis_e210" model="itx.info.vehicle.generation">
+            <field name="code">ALTIS_E210</field>
+            <field name="name">E210 (Altis)</field>
+            <field name="abbr">210</field>
+            <field name="model_id" ref="model_toyota_altis"/>
+            <field name="chassis_code">ZWE211/ZWE214</field>
+            <field name="year_start">2019</field>
+            <field name="year_end">0</field>
+            <field name="desc">TNGA Platform / Hybrid</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- TOYOTA YARIS         -->
+        <!-- ==================== -->
+
+        <record id="gen_yaris_xp90" model="itx.info.vehicle.generation">
+            <field name="code">YARIS_XP90</field>
+            <field name="name">XP90</field>
+            <field name="abbr">X90</field>
+            <field name="model_id" ref="model_toyota_yaris"/>
+            <field name="chassis_code">NCP91/NCP93</field>
+            <field name="year_start">2006</field>
+            <field name="year_end">2013</field>
+        </record>
+
+        <record id="gen_yaris_xp150" model="itx.info.vehicle.generation">
+            <field name="code">YARIS_XP150</field>
+            <field name="name">XP150</field>
+            <field name="abbr">150</field>
+            <field name="model_id" ref="model_toyota_yaris"/>
+            <field name="chassis_code">NCP150/NCP151</field>
+            <field name="year_start">2013</field>
+            <field name="year_end">2020</field>
+        </record>
+
+        <record id="gen_yaris_mxpa10" model="itx.info.vehicle.generation">
+            <field name="code">YARIS_MXPA10</field>
+            <field name="name">MXPA10 (Play)</field>
+            <field name="abbr">MXP</field>
+            <field name="model_id" ref="model_toyota_yaris"/>
+            <field name="chassis_code">MXPA10</field>
+            <field name="year_start">2020</field>
+            <field name="year_end">0</field>
+            <field name="desc">Yaris Play - TNGA-B</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- TOYOTA COMMUTER      -->
+        <!-- ==================== -->
+
+        <record id="gen_commuter_h200" model="itx.info.vehicle.generation">
+            <field name="code">COMMUTER_H200</field>
+            <field name="name">H200</field>
+            <field name="abbr">200</field>
+            <field name="model_id" ref="model_toyota_commuter"/>
+            <field name="chassis_code">KDH200/KDH222</field>
+            <field name="year_start">2005</field>
+            <field name="year_end">2019</field>
+        </record>
+
+        <record id="gen_commuter_h300" model="itx.info.vehicle.generation">
+            <field name="code">COMMUTER_H300</field>
+            <field name="name">H300</field>
+            <field name="abbr">300</field>
+            <field name="model_id" ref="model_toyota_commuter"/>
+            <field name="chassis_code">GDH300</field>
+            <field name="year_start">2019</field>
+            <field name="year_end">0</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- TOYOTA ALPHARD       -->
+        <!-- ==================== -->
+
+        <record id="gen_alphard_ah20" model="itx.info.vehicle.generation">
+            <field name="code">ALPHARD_AH20</field>
+            <field name="name">AH20</field>
+            <field name="abbr">H20</field>
+            <field name="model_id" ref="model_toyota_alphard"/>
+            <field name="chassis_code">ANH20/GGH20</field>
+            <field name="year_start">2008</field>
+            <field name="year_end">2015</field>
+        </record>
+
+        <record id="gen_alphard_ah30" model="itx.info.vehicle.generation">
+            <field name="code">ALPHARD_AH30</field>
+            <field name="name">AH30</field>
+            <field name="abbr">H30</field>
+            <field name="model_id" ref="model_toyota_alphard"/>
+            <field name="chassis_code">AGH30/GGH30</field>
+            <field name="year_start">2015</field>
+            <field name="year_end">2023</field>
+        </record>
+
+        <record id="gen_alphard_ah40" model="itx.info.vehicle.generation">
+            <field name="code">ALPHARD_AH40</field>
+            <field name="name">AH40</field>
+            <field name="abbr">H40</field>
+            <field name="model_id" ref="model_toyota_alphard"/>
+            <field name="chassis_code">AGH40/AAHH40</field>
+            <field name="year_start">2023</field>
+            <field name="year_end">0</field>
+            <field name="desc">TNGA-K Platform</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- HONDA CIVIC          -->
+        <!-- ==================== -->
+
+        <record id="gen_civic_fd" model="itx.info.vehicle.generation">
+            <field name="code">CIVIC_FD</field>
+            <field name="name">FD (Gen 8)</field>
+            <field name="abbr">FD</field>
+            <field name="model_id" ref="model_honda_civic"/>
+            <field name="chassis_code">FD1/FD2</field>
+            <field name="year_start">2006</field>
+            <field name="year_end">2011</field>
+        </record>
+
+        <record id="gen_civic_fb" model="itx.info.vehicle.generation">
+            <field name="code">CIVIC_FB</field>
+            <field name="name">FB (Gen 9)</field>
+            <field name="abbr">FB</field>
+            <field name="model_id" ref="model_honda_civic"/>
+            <field name="chassis_code">FB2/FB4</field>
+            <field name="year_start">2012</field>
+            <field name="year_end">2015</field>
+        </record>
+
+        <record id="gen_civic_fc" model="itx.info.vehicle.generation">
+            <field name="code">CIVIC_FC</field>
+            <field name="name">FC (Gen 10)</field>
+            <field name="abbr">FC</field>
+            <field name="model_id" ref="model_honda_civic"/>
+            <field name="chassis_code">FC1/FK7</field>
+            <field name="year_start">2016</field>
+            <field name="year_end">2021</field>
+        </record>
+
+        <record id="gen_civic_fe" model="itx.info.vehicle.generation">
+            <field name="code">CIVIC_FE</field>
+            <field name="name">FE (Gen 11)</field>
+            <field name="abbr">FE</field>
+            <field name="model_id" ref="model_honda_civic"/>
+            <field name="chassis_code">FE1/FL1</field>
+            <field name="year_start">2021</field>
+            <field name="year_end">0</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- HONDA ACCORD         -->
+        <!-- ==================== -->
+
+        <record id="gen_accord_cp" model="itx.info.vehicle.generation">
+            <field name="code">ACCORD_CP</field>
+            <field name="name">CP (Gen 8)</field>
+            <field name="abbr">CP</field>
+            <field name="model_id" ref="model_honda_accord"/>
+            <field name="chassis_code">CP1/CP2</field>
+            <field name="year_start">2008</field>
+            <field name="year_end">2012</field>
+        </record>
+
+        <record id="gen_accord_cr" model="itx.info.vehicle.generation">
+            <field name="code">ACCORD_CR</field>
+            <field name="name">CR (Gen 9)</field>
+            <field name="abbr">CR</field>
+            <field name="model_id" ref="model_honda_accord"/>
+            <field name="chassis_code">CR1/CR2</field>
+            <field name="year_start">2013</field>
+            <field name="year_end">2017</field>
+        </record>
+
+        <record id="gen_accord_cv" model="itx.info.vehicle.generation">
+            <field name="code">ACCORD_CV</field>
+            <field name="name">CV (Gen 10)</field>
+            <field name="abbr">CV</field>
+            <field name="model_id" ref="model_honda_accord"/>
+            <field name="chassis_code">CV1/CV3</field>
+            <field name="year_start">2019</field>
+            <field name="year_end">0</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- HONDA CITY           -->
+        <!-- ==================== -->
+
+        <record id="gen_city_gm2" model="itx.info.vehicle.generation">
+            <field name="code">CITY_GM2</field>
+            <field name="name">GM2 (Gen 4)</field>
+            <field name="abbr">GM2</field>
+            <field name="model_id" ref="model_honda_city"/>
+            <field name="chassis_code">GM2/GM3</field>
+            <field name="year_start">2008</field>
+            <field name="year_end">2013</field>
+        </record>
+
+        <record id="gen_city_gm6" model="itx.info.vehicle.generation">
+            <field name="code">CITY_GM6</field>
+            <field name="name">GM6 (Gen 5)</field>
+            <field name="abbr">GM6</field>
+            <field name="model_id" ref="model_honda_city"/>
+            <field name="chassis_code">GM6</field>
+            <field name="year_start">2014</field>
+            <field name="year_end">2019</field>
+        </record>
+
+        <record id="gen_city_gn" model="itx.info.vehicle.generation">
+            <field name="code">CITY_GN</field>
+            <field name="name">GN (Gen 6)</field>
+            <field name="abbr">GN</field>
+            <field name="model_id" ref="model_honda_city"/>
+            <field name="chassis_code">GN1/GN2</field>
+            <field name="year_start">2020</field>
+            <field name="year_end">0</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- HONDA CR-V           -->
+        <!-- ==================== -->
+
+        <record id="gen_crv_re" model="itx.info.vehicle.generation">
+            <field name="code">CRV_RE</field>
+            <field name="name">RE (Gen 3)</field>
+            <field name="abbr">RE</field>
+            <field name="model_id" ref="model_honda_crv"/>
+            <field name="chassis_code">RE3/RE4</field>
+            <field name="year_start">2007</field>
+            <field name="year_end">2012</field>
+        </record>
+
+        <record id="gen_crv_rm" model="itx.info.vehicle.generation">
+            <field name="code">CRV_RM</field>
+            <field name="name">RM (Gen 4)</field>
+            <field name="abbr">RM</field>
+            <field name="model_id" ref="model_honda_crv"/>
+            <field name="chassis_code">RM1/RM4</field>
+            <field name="year_start">2012</field>
+            <field name="year_end">2017</field>
+        </record>
+
+        <record id="gen_crv_rw" model="itx.info.vehicle.generation">
+            <field name="code">CRV_RW</field>
+            <field name="name">RW (Gen 5)</field>
+            <field name="abbr">RW</field>
+            <field name="model_id" ref="model_honda_crv"/>
+            <field name="chassis_code">RW1/RW2</field>
+            <field name="year_start">2017</field>
+            <field name="year_end">2023</field>
+        </record>
+
+        <record id="gen_crv_rz" model="itx.info.vehicle.generation">
+            <field name="code">CRV_RZ</field>
+            <field name="name">RZ (Gen 6)</field>
+            <field name="abbr">RZ</field>
+            <field name="model_id" ref="model_honda_crv"/>
+            <field name="chassis_code">RZ</field>
+            <field name="year_start">2023</field>
+            <field name="year_end">0</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- ISUZU D-MAX          -->
+        <!-- ==================== -->
+
+        <record id="gen_dmax_gen1" model="itx.info.vehicle.generation">
+            <field name="code">DMAX_GEN1</field>
+            <field name="name">Gen 1</field>
+            <field name="abbr">G1</field>
+            <field name="model_id" ref="model_isuzu_dmax"/>
+            <field name="chassis_code">TFR/TFS</field>
+            <field name="year_start">2002</field>
+            <field name="year_end">2011</field>
+        </record>
+
+        <record id="gen_dmax_gen2" model="itx.info.vehicle.generation">
+            <field name="code">DMAX_GEN2</field>
+            <field name="name">Gen 2</field>
+            <field name="abbr">G2</field>
+            <field name="model_id" ref="model_isuzu_dmax"/>
+            <field name="chassis_code">TFR86/TFS86</field>
+            <field name="year_start">2011</field>
+            <field name="year_end">2019</field>
+        </record>
+
+        <record id="gen_dmax_gen3" model="itx.info.vehicle.generation">
+            <field name="code">DMAX_GEN3</field>
+            <field name="name">Gen 3 (RG)</field>
+            <field name="abbr">G3</field>
+            <field name="model_id" ref="model_isuzu_dmax"/>
+            <field name="chassis_code">RG01</field>
+            <field name="year_start">2019</field>
+            <field name="year_end">0</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- ISUZU MU-X           -->
+        <!-- ==================== -->
+
+        <record id="gen_mux_gen1" model="itx.info.vehicle.generation">
+            <field name="code">MUX_GEN1</field>
+            <field name="name">Gen 1</field>
+            <field name="abbr">G1</field>
+            <field name="model_id" ref="model_isuzu_mux"/>
+            <field name="chassis_code">UC</field>
+            <field name="year_start">2013</field>
+            <field name="year_end">2020</field>
+        </record>
+
+        <record id="gen_mux_gen2" model="itx.info.vehicle.generation">
+            <field name="code">MUX_GEN2</field>
+            <field name="name">Gen 2 (RJ)</field>
+            <field name="abbr">G2</field>
+            <field name="model_id" ref="model_isuzu_mux"/>
+            <field name="chassis_code">RJ</field>
+            <field name="year_start">2020</field>
+            <field name="year_end">0</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- NISSAN NAVARA        -->
+        <!-- ==================== -->
+
+        <record id="gen_navara_d40" model="itx.info.vehicle.generation">
+            <field name="code">NAVARA_D40</field>
+            <field name="name">D40</field>
+            <field name="abbr">D40</field>
+            <field name="model_id" ref="model_nissan_navara"/>
+            <field name="chassis_code">D40</field>
+            <field name="year_start">2006</field>
+            <field name="year_end">2014</field>
+        </record>
+
+        <record id="gen_navara_d23" model="itx.info.vehicle.generation">
+            <field name="code">NAVARA_D23</field>
+            <field name="name">D23 (NP300)</field>
+            <field name="abbr">D23</field>
+            <field name="model_id" ref="model_nissan_navara"/>
+            <field name="chassis_code">D23</field>
+            <field name="year_start">2014</field>
+            <field name="year_end">0</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- MITSUBISHI TRITON    -->
+        <!-- ==================== -->
+
+        <record id="gen_triton_kb" model="itx.info.vehicle.generation">
+            <field name="code">TRITON_KB</field>
+            <field name="name">KB (Gen 4)</field>
+            <field name="abbr">KB</field>
+            <field name="model_id" ref="model_mitsubishi_triton"/>
+            <field name="chassis_code">KB4T/KB8T</field>
+            <field name="year_start">2005</field>
+            <field name="year_end">2014</field>
+        </record>
+
+        <record id="gen_triton_kk" model="itx.info.vehicle.generation">
+            <field name="code">TRITON_KK</field>
+            <field name="name">KK (Gen 5)</field>
+            <field name="abbr">KK</field>
+            <field name="model_id" ref="model_mitsubishi_triton"/>
+            <field name="chassis_code">KK1T/KK3T</field>
+            <field name="year_start">2015</field>
+            <field name="year_end">2018</field>
+        </record>
+
+        <record id="gen_triton_kl" model="itx.info.vehicle.generation">
+            <field name="code">TRITON_KL</field>
+            <field name="name">KL (Gen 5 MC)</field>
+            <field name="abbr">KL</field>
+            <field name="model_id" ref="model_mitsubishi_triton"/>
+            <field name="chassis_code">KL1T/KL3T</field>
+            <field name="year_start">2019</field>
+            <field name="year_end">0</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- MITSUBISHI PAJERO    -->
+        <!-- ==================== -->
+
+        <record id="gen_pajero_kg" model="itx.info.vehicle.generation">
+            <field name="code">PAJERO_KG</field>
+            <field name="name">KG (Gen 2)</field>
+            <field name="abbr">KG</field>
+            <field name="model_id" ref="model_mitsubishi_pajero"/>
+            <field name="chassis_code">KG4W/KG6W</field>
+            <field name="year_start">2008</field>
+            <field name="year_end">2015</field>
+        </record>
+
+        <record id="gen_pajero_kh" model="itx.info.vehicle.generation">
+            <field name="code">PAJERO_KH</field>
+            <field name="name">KH (Gen 3)</field>
+            <field name="abbr">KH</field>
+            <field name="model_id" ref="model_mitsubishi_pajero"/>
+            <field name="chassis_code">KH4W/KH6W</field>
+            <field name="year_start">2015</field>
+            <field name="year_end">2019</field>
+        </record>
+
+        <record id="gen_pajero_qs" model="itx.info.vehicle.generation">
+            <field name="code">PAJERO_QS</field>
+            <field name="name">QS (Gen 3 MC)</field>
+            <field name="abbr">QS</field>
+            <field name="model_id" ref="model_mitsubishi_pajero"/>
+            <field name="chassis_code">QS0W</field>
+            <field name="year_start">2019</field>
+            <field name="year_end">0</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- FORD RANGER          -->
+        <!-- ==================== -->
+
+        <record id="gen_ranger_t6" model="itx.info.vehicle.generation">
+            <field name="code">RANGER_T6</field>
+            <field name="name">T6</field>
+            <field name="abbr">T6</field>
+            <field name="model_id" ref="model_ford_ranger"/>
+            <field name="chassis_code">T6</field>
+            <field name="year_start">2012</field>
+            <field name="year_end">2015</field>
+        </record>
+
+        <record id="gen_ranger_t6_mc" model="itx.info.vehicle.generation">
+            <field name="code">RANGER_T6_MC</field>
+            <field name="name">T6 MC</field>
+            <field name="abbr">T6M</field>
+            <field name="model_id" ref="model_ford_ranger"/>
+            <field name="chassis_code">T6</field>
+            <field name="year_start">2015</field>
+            <field name="year_end">2018</field>
+            <field name="desc">Minor Change</field>
+        </record>
+
+        <record id="gen_ranger_t6_mc2" model="itx.info.vehicle.generation">
+            <field name="code">RANGER_T6_MC2</field>
+            <field name="name">T6 MC2</field>
+            <field name="abbr">T6N</field>
+            <field name="model_id" ref="model_ford_ranger"/>
+            <field name="chassis_code">T6</field>
+            <field name="year_start">2018</field>
+            <field name="year_end">2022</field>
+            <field name="desc">Minor Change 2</field>
+        </record>
+
+        <record id="gen_ranger_p703" model="itx.info.vehicle.generation">
+            <field name="code">RANGER_P703</field>
+            <field name="name">P703 (Next-Gen)</field>
+            <field name="abbr">P70</field>
+            <field name="model_id" ref="model_ford_ranger"/>
+            <field name="chassis_code">P703</field>
+            <field name="year_start">2022</field>
+            <field name="year_end">0</field>
+            <field name="desc">Next-Generation Ranger</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- FORD EVEREST         -->
+        <!-- ==================== -->
+
+        <record id="gen_everest_u375" model="itx.info.vehicle.generation">
+            <field name="code">EVEREST_U375</field>
+            <field name="name">U375</field>
+            <field name="abbr">375</field>
+            <field name="model_id" ref="model_ford_everest"/>
+            <field name="chassis_code">U375</field>
+            <field name="year_start">2015</field>
+            <field name="year_end">2022</field>
+        </record>
+
+        <record id="gen_everest_u704" model="itx.info.vehicle.generation">
+            <field name="code">EVEREST_U704</field>
+            <field name="name">U704 (Next-Gen)</field>
+            <field name="abbr">704</field>
+            <field name="model_id" ref="model_ford_everest"/>
+            <field name="chassis_code">U704</field>
+            <field name="year_start">2022</field>
+            <field name="year_end">0</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- MAZDA BT-50          -->
+        <!-- ==================== -->
+
+        <record id="gen_bt50_up" model="itx.info.vehicle.generation">
+            <field name="code">BT50_UP</field>
+            <field name="name">UP</field>
+            <field name="abbr">UP</field>
+            <field name="model_id" ref="model_mazda_bt50"/>
+            <field name="chassis_code">UP</field>
+            <field name="year_start">2011</field>
+            <field name="year_end">2020</field>
+        </record>
+
+        <record id="gen_bt50_tf" model="itx.info.vehicle.generation">
+            <field name="code">BT50_TF</field>
+            <field name="name">TF</field>
+            <field name="abbr">TF</field>
+            <field name="model_id" ref="model_mazda_bt50"/>
+            <field name="chassis_code">TF</field>
+            <field name="year_start">2020</field>
+            <field name="year_end">0</field>
+            <field name="desc">Based on Isuzu D-Max</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- MAZDA CX-5           -->
+        <!-- ==================== -->
+
+        <record id="gen_cx5_ke" model="itx.info.vehicle.generation">
+            <field name="code">CX5_KE</field>
+            <field name="name">KE (Gen 1)</field>
+            <field name="abbr">KE</field>
+            <field name="model_id" ref="model_mazda_cx5"/>
+            <field name="chassis_code">KE</field>
+            <field name="year_start">2012</field>
+            <field name="year_end">2017</field>
+        </record>
+
+        <record id="gen_cx5_kf" model="itx.info.vehicle.generation">
+            <field name="code">CX5_KF</field>
+            <field name="name">KF (Gen 2)</field>
+            <field name="abbr">KF</field>
+            <field name="model_id" ref="model_mazda_cx5"/>
+            <field name="chassis_code">KF</field>
+            <field name="year_start">2017</field>
+            <field name="year_end">0</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- MG ZS                -->
+        <!-- ==================== -->
+
+        <record id="gen_zs_gen1" model="itx.info.vehicle.generation">
+            <field name="code">ZS_GEN1</field>
+            <field name="name">Gen 1</field>
+            <field name="abbr">G1</field>
+            <field name="model_id" ref="model_mg_zs"/>
+            <field name="chassis_code">ZS11</field>
+            <field name="year_start">2017</field>
+            <field name="year_end">2021</field>
+        </record>
+
+        <record id="gen_zs_gen2" model="itx.info.vehicle.generation">
+            <field name="code">ZS_GEN2</field>
+            <field name="name">Gen 2</field>
+            <field name="abbr">G2</field>
+            <field name="model_id" ref="model_mg_zs"/>
+            <field name="chassis_code">ZS23</field>
+            <field name="year_start">2021</field>
+            <field name="year_end">0</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- HYUNDAI H-1          -->
+        <!-- ==================== -->
+
+        <record id="gen_h1_tq" model="itx.info.vehicle.generation">
+            <field name="code">H1_TQ</field>
+            <field name="name">TQ</field>
+            <field name="abbr">TQ</field>
+            <field name="model_id" ref="model_hyundai_h1"/>
+            <field name="chassis_code">TQ</field>
+            <field name="year_start">2008</field>
+            <field name="year_end">2018</field>
+        </record>
+
+        <record id="gen_h1_tq_mc" model="itx.info.vehicle.generation">
+            <field name="code">H1_TQ_MC</field>
+            <field name="name">TQ MC</field>
+            <field name="abbr">TQM</field>
+            <field name="model_id" ref="model_hyundai_h1"/>
+            <field name="chassis_code">TQ</field>
+            <field name="year_start">2018</field>
+            <field name="year_end">0</field>
+        </record>
+
+    </data>
+</odoo>

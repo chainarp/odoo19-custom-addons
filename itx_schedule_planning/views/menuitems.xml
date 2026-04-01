@@ -40,13 +40,21 @@
         action="action_schedule_planning_workrole"
         sequence="20"/>
 
-    <!-- Schedule Entries -->
+    <!-- Team Schedule (Manager view - filtered by responsible workroles) -->
+    <menuitem
+        id="itx_schedule_planning_menu_team_schedule"
+        name="Team Schedule"
+        parent="itx_schedule_planning_menu_root"
+        action="action_team_schedule"
+        sequence="30"/>
+
+    <!-- All Schedule Entries (Admin view - no filter) -->
     <menuitem
         id="itx_schedule_planning_menu_entries"
-        name="Schedule Entries"
+        name="All Entries"
         parent="itx_schedule_planning_menu_root"
         action="action_schedule_planning_entry"
-        sequence="30"/>
+        sequence="35"/>
 
     <!-- ==================== -->
     <!-- Configuration Menu   -->

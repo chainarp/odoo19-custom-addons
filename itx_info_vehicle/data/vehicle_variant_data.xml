@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- ========================================== -->
+        <!-- TOYOTA HILUX VIGO - MULTIPLE BODY TYPES   -->
+        <!-- แสดง: 1 Generation มีหลาย Body Type        -->
+        <!-- ========================================== -->
+
+        <!-- Vigo Gen 2 Champ - Double Cab -->
+        <record id="variant_vigo_g2_30g_dcab" model="itx.info.vehicle.variant">
+            <field name="code">VIGO-G2-3.0G-DCAB</field>
+            <field name="name">3.0 G Double Cab</field>
+            <field name="abbr">3GDC</field>
+            <field name="generation_id" ref="gen_vigo_gen2"/>
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="engine_id" ref="engine_1kd"/>
+            <field name="transmission">auto</field>
+            <field name="drive_type">4wd</field>
+            <field name="fuel_type">diesel</field>
+            <field name="desc">Vigo Champ 3.0G 4WD Double Cab - รุ่นท็อป</field>
+        </record>
+
+        <record id="variant_vigo_g2_25e_dcab" model="itx.info.vehicle.variant">
+            <field name="code">VIGO-G2-2.5E-DCAB</field>
+            <field name="name">2.5 E Double Cab</field>
+            <field name="abbr">25EDC</field>
+            <field name="generation_id" ref="gen_vigo_gen2"/>
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="engine_id" ref="engine_2kd"/>
+            <field name="transmission">manual</field>
+            <field name="drive_type">fr</field>
+            <field name="fuel_type">diesel</field>
+            <field name="desc">Vigo Champ 2.5E Double Cab - รุ่นกลาง</field>
+        </record>
+
+        <!-- Vigo Gen 2 Champ - Extra Cab -->
+        <record id="variant_vigo_g2_25e_xcab" model="itx.info.vehicle.variant">
+            <field name="code">VIGO-G2-2.5E-XCAB</field>
+            <field name="name">2.5 E Extra Cab</field>
+            <field name="abbr">25EXC</field>
+            <field name="generation_id" ref="gen_vigo_gen2"/>
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="engine_id" ref="engine_2kd"/>
+            <field name="transmission">manual</field>
+            <field name="drive_type">fr</field>
+            <field name="fuel_type">diesel</field>
+            <field name="desc">Vigo Champ 2.5E Extra Cab</field>
+        </record>
+
+        <!-- Vigo Gen 2 Champ - Single Cab -->
+        <record id="variant_vigo_g2_25j_scab" model="itx.info.vehicle.variant">
+            <field name="code">VIGO-G2-2.5J-SCAB</field>
+            <field name="name">2.5 J Single Cab</field>
+            <field name="abbr">25JSC</field>
+            <field name="generation_id" ref="gen_vigo_gen2"/>
+            <field name="body_type_id" ref="body_type_single_cab"/>
+            <field name="engine_id" ref="engine_2kd"/>
+            <field name="transmission">manual</field>
+            <field name="drive_type">fr</field>
+            <field name="fuel_type">diesel</field>
+            <field name="desc">Vigo Champ 2.5J Single Cab - รุ่นเริ่มต้น</field>
+        </record>
+
+        <!-- ========================================== -->
+        <!-- TOYOTA FORTUNER - SUV (1 Body Type)       -->
+        <!-- แสดง: SUV ทุก variant เป็น body เดียวกัน   -->
+        <!-- ========================================== -->
+
+        <record id="variant_fortuner_g2_28v" model="itx.info.vehicle.variant">
+            <field name="code">FORTUNER-G2-2.8V</field>
+            <field name="name">2.8 V 4WD</field>
+            <field name="abbr">28V</field>
+            <field name="generation_id" ref="gen_fortuner_gen2"/>
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="engine_id" ref="engine_1gd"/>
+            <field name="transmission">auto</field>
+            <field name="drive_type">4wd</field>
+            <field name="fuel_type">diesel</field>
+            <field name="desc">Fortuner 2.8V 4WD - รุ่นท็อป</field>
+        </record>
+
+        <record id="variant_fortuner_g2_24g" model="itx.info.vehicle.variant">
+            <field name="code">FORTUNER-G2-2.4G</field>
+            <field name="name">2.4 G</field>
+            <field name="abbr">24G</field>
+            <field name="generation_id" ref="gen_fortuner_gen2"/>
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="engine_id" ref="engine_2gd"/>
+            <field name="transmission">auto</field>
+            <field name="drive_type">fr</field>
+            <field name="fuel_type">diesel</field>
+            <field name="desc">Fortuner 2.4G - รุ่นกลาง</field>
+        </record>
+
+        <!-- ========================================== -->
+        <!-- HONDA CIVIC FD - SEDAN                    -->
+        <!-- แสดง: รถเก๋ง + เครื่อง Honda               -->
+        <!-- ========================================== -->
+
+        <record id="variant_civic_fd_18s" model="itx.info.vehicle.variant">
+            <field name="code">CIVIC-FD-1.8S</field>
+            <field name="name">1.8 S i-VTEC</field>
+            <field name="abbr">18S</field>
+            <field name="generation_id" ref="gen_civic_fd"/>
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="engine_id" ref="engine_r18a"/>
+            <field name="transmission">auto</field>
+            <field name="drive_type">ff</field>
+            <field name="fuel_type">gasoline</field>
+            <field name="desc">Civic FD 1.8S - รุ่นขายดี</field>
+        </record>
+
+        <record id="variant_civic_fd_18e" model="itx.info.vehicle.variant">
+            <field name="code">CIVIC-FD-1.8E</field>
+            <field name="name">1.8 E i-VTEC</field>
+            <field name="abbr">18E</field>
+            <field name="generation_id" ref="gen_civic_fd"/>
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="engine_id" ref="engine_r18a"/>
+            <field name="transmission">auto</field>
+            <field name="drive_type">ff</field>
+            <field name="fuel_type">gasoline</field>
+            <field name="desc">Civic FD 1.8E - รุ่นกลาง</field>
+        </record>
+
+        <record id="variant_civic_fd_20el" model="itx.info.vehicle.variant">
+            <field name="code">CIVIC-FD-2.0EL</field>
+            <field name="name">2.0 EL i-VTEC</field>
+            <field name="abbr">20EL</field>
+            <field name="generation_id" ref="gen_civic_fd"/>
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="engine_id" ref="engine_k20a"/>
+            <field name="transmission">auto</field>
+            <field name="drive_type">ff</field>
+            <field name="fuel_type">gasoline</field>
+            <field name="desc">Civic FD 2.0EL - รุ่นท็อป</field>
+        </record>
+
+        <!-- ========================================== -->
+        <!-- ISUZU D-MAX GEN 3 - PICKUP                -->
+        <!-- แสดง: รถกระบะ Isuzu + เครื่อง Isuzu        -->
+        <!-- ========================================== -->
+
+        <record id="variant_dmax_g3_19vcross" model="itx.info.vehicle.variant">
+            <field name="code">DMAX-G3-1.9VCROSS</field>
+            <field name="name">1.9 V-Cross 4WD</field>
+            <field name="abbr">19VCR</field>
+            <field name="generation_id" ref="gen_dmax_gen3"/>
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="engine_id" ref="engine_rz4e"/>
+            <field name="transmission">auto</field>
+            <field name="drive_type">4wd</field>
+            <field name="fuel_type">diesel</field>
+            <field name="desc">D-Max V-Cross 4WD - รุ่นออฟโรด</field>
+        </record>
+
+        <record id="variant_dmax_g3_30hilander" model="itx.info.vehicle.variant">
+            <field name="code">DMAX-G3-3.0HI</field>
+            <field name="name">3.0 Hi-Lander</field>
+            <field name="abbr">30HI</field>
+            <field name="generation_id" ref="gen_dmax_gen3"/>
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="engine_id" ref="engine_4jj1"/>
+            <field name="transmission">auto</field>
+            <field name="drive_type">fr</field>
+            <field name="fuel_type">diesel</field>
+            <field name="desc">D-Max Hi-Lander Extra Cab</field>
+        </record>
+
+    </data>
+</odoo>

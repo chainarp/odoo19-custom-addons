@@ -62,6 +62,12 @@ class SchedulePlanningWorkroleEntry(models.Model):
         ondelete='restrict',
         help='Type of shift (Morning, Afternoon, Night, Day Off)'
     )
+    shift_type_code = fields.Char(
+        related='shift_type_id.code',
+        string='Shift Code',
+        store=True,
+        help='Short code for timeline display (M, A, N, D, OFF)'
+    )
     hour_start = fields.Float(
         string='Start Time',
         help='Shift start time (0-24)'
@@ -207,6 +213,10 @@ class SchedulePlanningWorkroleEntry(models.Model):
     @api.depends('date', 'hour_start', 'hour_end', 'is_day_off', 'is_leave')
     def _compute_datetime_fields(self):
         """Compute datetime fields for timeline view."""
+        # Standard contract hours for day off/leave display (8 hours)
+        DEFAULT_START_HOUR = 8
+        DEFAULT_END_HOUR = 16
+
         for entry in self:
             if not entry.date:
                 entry.date_start = False
@@ -214,9 +224,16 @@ class SchedulePlanningWorkroleEntry(models.Model):
                 continue
 
             if entry.is_day_off or entry.is_leave:
-                # For day off/leave, show as full day (00:00 - 23:59)
-                entry.date_start = datetime.combine(entry.date, datetime.min.time())
-                entry.date_end = datetime.combine(entry.date, datetime.max.time().replace(microsecond=0))
+                # Day off/leave: show as standard 8-hour block (contract time only)
+                # We don't own their personal time outside contract hours!
+                entry.date_start = datetime.combine(
+                    entry.date,
+                    datetime.min.time().replace(hour=DEFAULT_START_HOUR)
+                )
+                entry.date_end = datetime.combine(
+                    entry.date,
+                    datetime.min.time().replace(hour=DEFAULT_END_HOUR)
+                )
             else:
                 # Convert float hours to time
                 start_hour = int(entry.hour_start or 0)

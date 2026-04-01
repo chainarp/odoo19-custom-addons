@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List View -->
+    <record id="itx_info_vehicle_variant_view_list" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.variant.view.list</field>
+        <field name="model">itx.info.vehicle.variant</field>
+        <field name="arch" type="xml">
+            <list string="Vehicle Variants">
+                <field name="brand_id"/>
+                <field name="model_id"/>
+                <field name="generation_id"/>
+                <field name="code"/>
+                <field name="abbr"/>
+                <field name="name"/>
+                <field name="body_type_id" optional="show"/>
+                <field name="engine_id" optional="show"/>
+                <field name="transmission" optional="hide"/>
+                <field name="drive_type" optional="hide"/>
+                <field name="active" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="itx_info_vehicle_variant_view_form" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.variant.view.form</field>
+        <field name="model">itx.info.vehicle.variant</field>
+        <field name="arch" type="xml">
+            <form string="Vehicle Variant">
+                <sheet>
+                    <field name="active" invisible="True"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g., 1.8 S i-VTEC"/>
+                        </h1>
+                        <h4>
+                            <field name="full_name" readonly="True"/>
+                        </h4>
+                    </div>
+                    <group>
+                        <group string="Vehicle">
+                            <field name="generation_id"/>
+                            <field name="model_id" readonly="True"/>
+                            <field name="brand_id" readonly="True"/>
+                            <field name="code" placeholder="e.g., 1.8S-IVTEC"/>
+                            <field name="abbr" placeholder="e.g., 1.8S"/>
+                        </group>
+                        <group string="Specification">
+                            <field name="body_type_id"/>
+                            <field name="engine_id"/>
+                            <field name="transmission"/>
+                            <field name="drive_type"/>
+                            <field name="fuel_type"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="desc" placeholder="Additional description..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="itx_info_vehicle_variant_view_search" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.variant.view.search</field>
+        <field name="model">itx.info.vehicle.variant</field>
+        <field name="arch" type="xml">
+            <search string="Search Variants">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="abbr"/>
+                <field name="brand_id"/>
+                <field name="model_id"/>
+                <field name="generation_id"/>
+                <field name="body_type_id"/>
+                <field name="engine_id"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter string="Brand" name="groupby_brand" domain="[]" context="{'group_by': 'brand_id'}"/>
+                    <filter string="Model" name="groupby_model" domain="[]" context="{'group_by': 'model_id'}"/>
+                    <filter string="Generation" name="groupby_generation" domain="[]" context="{'group_by': 'generation_id'}"/>
+                    <filter string="Body Type" name="groupby_body_type" domain="[]" context="{'group_by': 'body_type_id'}"/>
+                    <filter string="Engine" name="groupby_engine" domain="[]" context="{'group_by': 'engine_id'}"/>
+                    <filter string="Transmission" name="groupby_transmission" domain="[]" context="{'group_by': 'transmission'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="itx_info_vehicle_variant_action" model="ir.actions.act_window">
+        <field name="name">Vehicle Variants</field>
+        <field name="res_model">itx.info.vehicle.variant</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="itx_info_vehicle_variant_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first vehicle variant
+            </p>
+            <p>
+                Define variants like 1.8 S i-VTEC, 2.0 EL, Type-R, etc.
+            </p>
+        </field>
+    </record>
+
+</odoo>

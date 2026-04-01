@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_form_view_vehicle_part" model="ir.ui.view">
+        <field name="name">product.template.form.vehicle.part</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <!-- Add part fields under product name -->
+            <xpath expr="//div[hasclass('oe_title')]" position="after">
+                <group>
+                    <group>
+                        <field name="part_brand" placeholder="e.g. Denso, Bosch, NGK"/>
+                        <field name="part_number" placeholder="e.g. ABC-12345"/>
+                    </group>
+                    <group>
+                        <field name="compatible_vehicle_model_ids"
+                               widget="many2many_tags"
+                               options="{'no_create': True, 'color_field': 'color'}"
+                               placeholder="Select compatible vehicle models..."/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Add columns to product list view -->
+    <record id="product_template_tree_view_vehicle_part" model="ir.ui.view">
+        <field name="name">product.template.tree.vehicle.part</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="part_brand" optional="hide"/>
+                <field name="part_number" optional="hide"/>
+                <field name="compatible_vehicle_model_ids" widget="many2many_tags" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Search filter for vehicle parts -->
+    <record id="product_template_search_view_vehicle_part" model="ir.ui.view">
+        <field name="name">product.template.search.vehicle.part</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="part_brand"/>
+                <field name="part_number"/>
+                <field name="compatible_vehicle_model_ids"/>
+            </xpath>
+            <xpath expr="//group" position="inside">
+                <filter string="Part Brand" name="group_part_brand"
+                        context="{'group_by': 'part_brand'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

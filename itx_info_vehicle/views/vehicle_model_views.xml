@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List View -->
+    <record id="itx_info_vehicle_model_view_list" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.model.view.list</field>
+        <field name="model">itx.info.vehicle.model</field>
+        <field name="arch" type="xml">
+            <list string="Vehicle Models">
+                <field name="brand_id"/>
+                <field name="code"/>
+                <field name="abbr"/>
+                <field name="name"/>
+                <field name="generation_count" string="Generations"/>
+                <field name="active" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="itx_info_vehicle_model_view_form" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.model.view.form</field>
+        <field name="model">itx.info.vehicle.model</field>
+        <field name="arch" type="xml">
+            <form string="Vehicle Model">
+                <sheet>
+                    <field name="active" invisible="True"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g., Civic"/>
+                        </h1>
+                        <h4>
+                            <field name="full_name" readonly="True"/>
+                        </h4>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="brand_id"/>
+                            <field name="code" placeholder="e.g., CIVIC"/>
+                            <field name="abbr" placeholder="e.g., CIV"/>
+                        </group>
+                        <group>
+                            <field name="generation_count" readonly="True"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="desc" placeholder="Additional description..."/>
+                        </page>
+                        <page string="Generations" name="generations">
+                            <field name="generation_ids">
+                                <list>
+                                    <field name="code"/>
+                                    <field name="abbr"/>
+                                    <field name="name"/>
+                                    <field name="chassis_code"/>
+                                    <field name="year_start"/>
+                                    <field name="year_end"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="itx_info_vehicle_model_view_search" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.model.view.search</field>
+        <field name="model">itx.info.vehicle.model</field>
+        <field name="arch" type="xml">
+            <search string="Search Models">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="abbr"/>
+                <field name="brand_id"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter string="Brand" name="brand" domain="[]" context="{'group_by': 'brand_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="itx_info_vehicle_model_action" model="ir.actions.act_window">
+        <field name="name">Vehicle Models</field>
+        <field name="res_model">itx.info.vehicle.model</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="itx_info_vehicle_model_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first vehicle model
+            </p>
+            <p>
+                Define vehicle models like Civic, Accord, CR-V, etc.
+            </p>
+        </field>
+    </record>
+
+</odoo>

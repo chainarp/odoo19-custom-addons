@@ -1,0 +1,27 @@
+<odoo>
+  <data>
+    <!-- Add Models menu under Inventory -> Configuration -->
+    <menuitem name="Car Models" 
+              id="menu_stock_config_fleet_models" 
+              parent="stock.menu_stock_config_settings" 
+              sequence="100"/>
+
+    <menuitem name="Manufacturers" 
+              id="menu_stock_fleet_vehicle_model_brand" 
+              parent="menu_stock_config_fleet_models" 
+              action="fleet.fleet_vehicle_model_brand_action" 
+              sequence="10"/>
+
+    <menuitem name="Models" 
+              id="menu_stock_fleet_vehicle_model" 
+              parent="menu_stock_config_fleet_models" 
+              action="fleet.fleet_vehicle_model_action" 
+              sequence="20"/>
+
+    <menuitem name="Categories" 
+              id="menu_stock_fleet_vehicle_model_category" 
+              parent="menu_stock_config_fleet_models" 
+              action="fleet.fleet_vehicle_model_category_action" 
+              sequence="30"/>
+  </data>
+</odoo>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List View -->
+    <record id="itx_info_vehicle_brand_view_list" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.brand.view.list</field>
+        <field name="model">itx.info.vehicle.brand</field>
+        <field name="arch" type="xml">
+            <list string="Vehicle Brands">
+                <field name="code"/>
+                <field name="abbr"/>
+                <field name="name"/>
+                <field name="country_id" optional="show"/>
+                <field name="model_count" string="Models"/>
+                <field name="active" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="itx_info_vehicle_brand_view_form" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.brand.view.form</field>
+        <field name="model">itx.info.vehicle.brand</field>
+        <field name="arch" type="xml">
+            <form string="Vehicle Brand">
+                <sheet>
+                    <field name="active" invisible="True"/>
+                    <field name="logo" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g., Honda"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code" placeholder="e.g., HONDA"/>
+                            <field name="abbr" placeholder="e.g., HON"/>
+                        </group>
+                        <group>
+                            <field name="country_id" placeholder="Country of origin"/>
+                            <field name="model_count" readonly="True"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="desc" placeholder="Additional description..."/>
+                        </page>
+                        <page string="Models" name="models">
+                            <field name="model_ids">
+                                <list>
+                                    <field name="code"/>
+                                    <field name="abbr"/>
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="itx_info_vehicle_brand_view_search" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.brand.view.search</field>
+        <field name="model">itx.info.vehicle.brand</field>
+        <field name="arch" type="xml">
+            <search string="Search Brands">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="abbr"/>
+                <field name="country_id"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter string="Country" name="country" domain="[]" context="{'group_by': 'country_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="itx_info_vehicle_brand_action" model="ir.actions.act_window">
+        <field name="name">Vehicle Brands</field>
+        <field name="res_model">itx.info.vehicle.brand</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="itx_info_vehicle_brand_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first vehicle brand
+            </p>
+            <p>
+                Define vehicle brands like Honda, Toyota, Nissan, etc.
+            </p>
+        </field>
+    </record>
+
+</odoo>

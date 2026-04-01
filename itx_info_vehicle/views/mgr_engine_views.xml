@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List View -->
+    <record id="itx_info_vehicle_mgr_engine_view_list" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.mgr.engine.view.list</field>
+        <field name="model">itx.info.vehicle.mgr.engine</field>
+        <field name="arch" type="xml">
+            <list string="Engines" editable="bottom">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="displacement"/>
+                <field name="fuel_type"/>
+                <field name="active" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="itx_info_vehicle_mgr_engine_view_form" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.mgr.engine.view.form</field>
+        <field name="model">itx.info.vehicle.mgr.engine</field>
+        <field name="arch" type="xml">
+            <form string="Engine">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                        <group>
+                            <field name="displacement"/>
+                            <field name="fuel_type"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="itx_info_vehicle_mgr_engine_view_search" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.mgr.engine.view.search</field>
+        <field name="model">itx.info.vehicle.mgr.engine</field>
+        <field name="arch" type="xml">
+            <search string="Search Engines">
+                <field name="name"/>
+                <field name="code"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter string="Fuel Type" name="fuel_type" domain="[]" context="{'group_by': 'fuel_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="itx_info_vehicle_mgr_engine_action" model="ir.actions.act_window">
+        <field name="name">Engines</field>
+        <field name="res_model">itx.info.vehicle.mgr.engine</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="itx_info_vehicle_mgr_engine_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first engine
+            </p>
+            <p>
+                Define engines like 2KD-FTV, 1ZZ-FE, K24A, etc.
+            </p>
+        </field>
+    </record>
+
+</odoo>

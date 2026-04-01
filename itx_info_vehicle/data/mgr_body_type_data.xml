@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Passenger Cars -->
+        <record id="body_type_sedan" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">sedan</field>
+            <field name="name">Sedan (รถเก๋ง 4 ประตู)</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="body_type_hatchback" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">hatchback</field>
+            <field name="name">Hatchback (รถเก๋ง 5 ประตู)</field>
+            <field name="sequence">20</field>
+        </record>
+        <record id="body_type_coupe" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">coupe</field>
+            <field name="name">Coupe (รถเก๋ง 2 ประตู)</field>
+            <field name="sequence">30</field>
+        </record>
+        <record id="body_type_wagon" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">wagon</field>
+            <field name="name">Wagon (รถเก๋งแวน)</field>
+            <field name="sequence">40</field>
+        </record>
+        <record id="body_type_suv" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">suv</field>
+            <field name="name">SUV</field>
+            <field name="sequence">50</field>
+        </record>
+        <record id="body_type_crossover" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">crossover</field>
+            <field name="name">Crossover</field>
+            <field name="sequence">60</field>
+        </record>
+        <record id="body_type_van" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">van</field>
+            <field name="name">Van / MPV</field>
+            <field name="sequence">70</field>
+        </record>
+
+        <!-- Pickup -->
+        <record id="body_type_pickup" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">pickup</field>
+            <field name="name">Pickup (ทั่วไป)</field>
+            <field name="sequence">100</field>
+        </record>
+        <record id="body_type_single_cab" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">single_cab</field>
+            <field name="name">Single Cab (กระบะ)</field>
+            <field name="sequence">110</field>
+        </record>
+        <record id="body_type_extra_cab" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">extra_cab</field>
+            <field name="name">Extra Cab (แค็บ)</field>
+            <field name="sequence">120</field>
+        </record>
+        <record id="body_type_double_cab" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">double_cab</field>
+            <field name="name">Double Cab (4 ประตู)</field>
+            <field name="sequence">130</field>
+        </record>
+
+        <!-- Trucks -->
+        <record id="body_type_tractor" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">tractor</field>
+            <field name="name">Tractor Head (หัวลาก)</field>
+            <field name="sequence">200</field>
+        </record>
+        <record id="body_type_rigid_truck" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">rigid_truck</field>
+            <field name="name">Rigid Truck (ตู้ติด)</field>
+            <field name="sequence">210</field>
+        </record>
+        <record id="body_type_dump_truck" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">dump_truck</field>
+            <field name="name">Dump Truck (รถดั้ม)</field>
+            <field name="sequence">220</field>
+        </record>
+        <record id="body_type_mixer" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">mixer</field>
+            <field name="name">Mixer (รถโม่ปูน)</field>
+            <field name="sequence">230</field>
+        </record>
+        <record id="body_type_tanker" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">tanker</field>
+            <field name="name">Tanker (รถบรรทุกของเหลว)</field>
+            <field name="sequence">240</field>
+        </record>
+        <record id="body_type_cargo_truck" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">cargo_truck</field>
+            <field name="name">Cargo Truck (รถบรรทุกทั่วไป)</field>
+            <field name="sequence">250</field>
+        </record>
+
+    </data>
+</odoo>
