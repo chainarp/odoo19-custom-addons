@@ -9,17 +9,21 @@ ITX Info Vehicle - Salvage Car Parts Management
 ================================================
 
 Manage vehicle information hierarchy for salvage car parts business:
-- Brand → Model → Generation → Variant
+- Brand → Model → Generation → Spec (4-level hierarchy)
+- Master Data: Body Types, Engines
 - Part Categories (hierarchical)
 - Auto-generate Internal Reference
 - Product integration with vehicle compatibility
 
 Features:
-- Vehicle hierarchy management (Brand/Model/Generation/Variant)
+- Vehicle hierarchy management (Brand/Model/Generation/Spec)
 - Support Minor Change (Pre-MC/Post-MC) as separate Generation records
+- Body Type and Engine master tables
 - Hierarchical part categories
 - Auto-generate Internal Reference from abbreviations
 - Extend product.template with vehicle part fields
+- Compatible Specs (Many2many) for cross-compatibility
+- Part Brand and Part Number fields
 
 Developed by IT Expert Training & Outsourcing Co. (Thailand)
     """,

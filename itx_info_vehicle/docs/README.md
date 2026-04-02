@@ -1,82 +1,91 @@
 # ITX Info Vehicle Module
 
+**Version:** 19.0.1.2.0 | **Status:** Production Ready
+
 ## Overview
 
 โมดูลสำหรับจัดการข้อมูลรถยนต์และอะไหล่รถยนต์มือสอง (Salvage Car Parts)
 ออกแบบมาเพื่อรองรับธุรกิจซื้อ-ขายอะไหล่รถยนต์มือสองที่ต้องการความชัดเจนในการระบุ
-ยี่ห้อ รุ่น ปี และรุ่นย่อยของอะไหล่แต่ละชิ้น
+ยี่ห้อ รุ่น ปี และสเปคของอะไหล่แต่ละชิ้น
 
 ## Key Features
 
-### Prototype A (Current Scope)
+### Vehicle Hierarchy (4 Levels)
+```
+Brand → Model → Generation → Spec
+```
+- **Brand**: Honda, Toyota, Isuzu
+- **Model**: Civic, Accord, Vigo
+- **Generation**: Gen 8 FD (2006-2011), Pre-MC/Post-MC
+- **Spec**: 1.8 S i-VTEC, 3.0 G 4WD Double Cab
 
-- **Vehicle Hierarchy Management**
-  - Brand (ยี่ห้อ) → Model (รุ่น) → Generation (ยุค/ปี) → Variant (รุ่นย่อย)
+### Product Integration
+- Extend `product.template` with vehicle compatibility fields
+- **Single Spec Selection** - เลือก Spec ตัวเดียว Brand/Model/Gen แสดงอัตโนมัติ
+- **Compatible Specs** - Many2many สำหรับอะไหล่ที่ใช้ได้หลายรุ่น
+- **Part Brand/Number** - บันทึกยี่ห้อและเลขชิ้นส่วนผู้ผลิต
+- Auto-generate Internal Reference from hierarchy
 
-- **Part Category Management**
-  - Hierarchical part categories (ประเภทอะไหล่แบบ tree)
+### Master Data Management
+- **Body Types**: Sedan, Double Cab, SUV, Hatchback, etc.
+- **Engines**: 1KD-FTV, 2KD-FTV, R18A, K20A, etc.
+- **Part Categories**: Hierarchical tree structure
 
-- **Product Integration**
-  - Extend `product.template` with vehicle compatibility fields
-  - Auto-generate Internal Reference from hierarchy
-
-- **Auto Internal Reference**
-  - Format: `{brand_abbr}-{model_abbr}-{gen_abbr}-{variant_abbr}-{part_cat_abbr}-{sequence}`
-  - Example: `HON-CIV-FD-1.8S-ENG-00001`
-
-### Future Phases (Not in Prototype A)
-
-- BOM Template for common part sets
-- Compatibility Matrix (cross-reference parts)
-- Salvage Car Management with MRP Integration
-- Advanced Search (3 modes + full-text)
+### Auto Internal Reference
+```
+HON-CIV-FD-18S-HLT-00001
+ │   │   │   │   │    │
+ │   │   │   │   │    └── Running Sequence
+ │   │   │   │   └─────── Part Category (Headlight)
+ │   │   │   └─────────── Spec Abbr (1.8S)
+ │   │   └─────────────── Generation Abbr (FD)
+ │   └─────────────────── Model Abbr (Civic)
+ └─────────────────────── Brand Abbr (Honda)
+```
 
 ## Dependencies
 
 ```python
-'depends': ['base', 'product', 'stock'],
+'depends': ['base', 'product', 'stock']
 ```
 
 ## Module Structure
 
 ```
 itx_info_vehicle/
-├── __init__.py
 ├── __manifest__.py
-├── docs/
-│   ├── README.md                 # This file
-│   ├── FIELD_SPECIFICATION.md    # Detailed field specs
-│   └── DATA_MODEL.md             # Entity relationships
 ├── models/
-│   ├── __init__.py
-│   ├── vehicle_brand.py
-│   ├── vehicle_model.py
-│   ├── vehicle_generation.py
-│   ├── vehicle_variant.py
-│   ├── part_category.py
-│   └── product_template.py
+│   ├── vehicle_brand.py          # Brand model
+│   ├── vehicle_model.py          # Model model
+│   ├── vehicle_generation.py     # Generation model
+│   ├── vehicle_spec.py           # Spec model
+│   ├── mgr_body_type.py          # Body Type master
+│   ├── mgr_engine.py             # Engine master
+│   ├── part_category.py          # Part Category (hierarchical)
+│   └── product_template.py       # Extends product.template
 ├── views/
-│   ├── vehicle_brand_views.xml
-│   ├── vehicle_model_views.xml
-│   ├── vehicle_generation_views.xml
-│   ├── vehicle_variant_views.xml
-│   ├── part_category_views.xml
+│   ├── vehicle_*_views.xml       # All view definitions
+│   ├── mgr_*_views.xml           # Master data views
 │   ├── product_template_views.xml
 │   └── menuitems.xml
 ├── security/
-│   ├── ir.model.access.csv
-│   └── security_groups.xml
+│   └── ir.model.access.csv
 ├── data/
-│   └── ir_sequence_data.xml      # Sequence for running number
-└── static/
-    └── description/
-        └── icon.png
+│   ├── ir_sequence_data.xml      # Auto-sequence for parts
+│   ├── vehicle_*_data.xml        # Sample vehicle data
+│   ├── mgr_*_data.xml            # Master data
+│   ├── part_category_data.xml    # Part categories
+│   └── demo_vehicle_parts.xml    # Demo parts (16 records)
+└── docs/
+    ├── README.md                 # This file
+    ├── MODULE_SUMMARY.md         # Detailed summary for design discussion
+    └── ...
 ```
 
 ## Installation
 
 ```bash
-# Install module
+# Install module (new database recommended)
 python3 odoo/odoo-bin -c odoo.conf -d odoo19 -i itx_info_vehicle --stop-after-init
 
 # Upgrade module
@@ -88,76 +97,84 @@ python3 odoo/odoo-bin -c odoo.conf -d odoo19 -u itx_info_vehicle --stop-after-in
 ### 1. Setup Vehicle Hierarchy
 
 1. Go to **Inventory → Configuration → Vehicle Info**
-2. Create **Brands** (e.g., Honda, Toyota, Nissan)
+2. Create **Brands** (e.g., Honda, Toyota, Isuzu)
 3. Create **Models** under each brand (e.g., Civic, Accord)
 4. Create **Generations** for each model (e.g., Gen 8 FD 2006-2011)
-5. Create **Variants** for each generation (e.g., 1.8 S i-VTEC)
+5. Create **Specs** for each generation (e.g., 1.8 S i-VTEC)
 
 ### 2. Setup Part Categories
 
-1. Go to **Inventory → Configuration → Part Categories**
+1. Go to **Inventory → Configuration → Vehicle Info → Part Categories**
 2. Create hierarchical categories:
-   - เครื่องยนต์ (ENGINE)
-     - หัวเครื่อง (HEAD)
-     - เสื้อสูบ (BLOCK)
-   - ระบบส่งกำลัง (TRANS)
-     - เกียร์ (GEAR)
-     - คลัทช์ (CLUTCH)
+   ```
+   Engine (เครื่องยนต์)
+   ├── Engine Assembly (เครื่องทั้งลูก)
+   ├── Alternator (ไดชาร์จ)
+   └── Starter (ไดสตาร์ท)
+   Body (ตัวถัง)
+   ├── Hood Front (ฝากระโปรงหน้า)
+   └── Bumper (กันชน)
+   ```
 
-### 3. Create Vehicle Parts (Products)
+### 3. Create Vehicle Parts
 
-1. Go to **Inventory → Products**
+1. Go to **Inventory → Vehicle Parts**
 2. Create new product
 3. Enable **"Vehicle Part"** checkbox
-4. Select Brand → Model → Generation → Variant → Part Category
-5. Internal Reference auto-generates: `HON-CIV-FD-1.8S-ENG-00001`
+4. Select **Spec** → Brand/Model/Generation shows automatically
+5. Select Part Category, Origin (OEM/Aftermarket), Condition
+6. Internal Reference auto-generates
 
-## Technical Notes
+## Menu Structure
 
-### Standard Fields (All Models)
-
-Every model includes these standard fields:
-
-| Field | Type | Purpose |
-|-------|------|---------|
-| `code` | Char | Market code (ตามตลาดใช้จริง) |
-| `name` | Char | Display name |
-| `description` | Text | Description/notes |
-| `abbr` | Char(10) | Abbreviation for Internal Ref (auto-gen, editable) |
-| `active` | Boolean | Archive support |
-
-### Internal Reference Generation
-
-```python
-# Format
-default_code = f"{brand.abbr}-{model.abbr}-{gen.abbr}-{variant.abbr}-{part_cat.abbr}-{seq}"
-
-# Example
-default_code = "HON-CIV-FD-1.8S-ENG-00001"
+```
+Inventory
+├── Inventory Control
+│   └── Vehicle Parts          ← รายการอะไหล่ทั้งหมด
+│
+└── Configuration
+    └── Vehicle Info
+        ├── Brands
+        ├── Models
+        ├── Generations
+        ├── Specs
+        ├── Part Categories
+        └── Master Data
+            ├── Body Types
+            └── Engines
 ```
 
-### Abbreviation Auto-Generation
+## Product Fields
 
-```python
-# Logic: Take first 3-4 uppercase chars from name
-"Honda" → "HON"
-"Civic" → "CIV"
-"Gen 8 (FD)" → "FD" (extract from parentheses if exists)
-"1.8 S i-VTEC" → "1.8S"
-"เครื่องยนต์" → "ENG" (from code field)
-```
+| Field | Type | Description |
+|-------|------|-------------|
+| `itx_is_vehicle_part` | Boolean | เปิด/ปิด Vehicle Part mode |
+| `itx_spec_id` | Many2one | สเปครถหลัก |
+| `itx_brand_id` | Related | ยี่ห้อ (auto จาก spec) |
+| `itx_model_id` | Related | รุ่น (auto จาก spec) |
+| `itx_generation_id` | Related | เจน (auto จาก spec) |
+| `itx_compatible_spec_ids` | Many2many | สเปคที่เข้ากันได้ |
+| `itx_part_category_id` | Many2one | หมวดอะไหล่ |
+| `itx_part_brand` | Char | ยี่ห้ออะไหล่ (Denso, Bosch) |
+| `itx_part_number` | Char | เลขชิ้นส่วน |
+| `itx_part_origin` | Selection | OEM/Aftermarket/Reconditioned |
+| `itx_condition` | Selection | New/Like New/Good/Fair |
+| `itx_oem_part_number` | Char | เลข OEM (optional) |
+| `itx_sequence` | Char | Running number (auto) |
 
 ## Version History
 
 | Version | Date | Description |
 |---------|------|-------------|
-| 0.1.0 | 2026-03 | Prototype A - Core models (Odoo 19) |
+| 19.0.1.2.0 | 2026-04-02 | Rename Variant→Spec, Simplify product form |
+| 19.0.1.1.0 | 2026-03 | Add Body Type, Engine master tables |
+| 19.0.1.0.0 | 2026-03 | Initial release - Core models |
 
 ## Author
 
 **IT Expert Training & Outsourcing Co. (Thailand)**
+https://www.itexpert.co.th
 
 ---
 
-*For detailed field specifications, see [FIELD_SPECIFICATION.md](./FIELD_SPECIFICATION.md)*
-*For data model diagrams, see [DATA_MODEL.md](./DATA_MODEL.md)*
+*For detailed design documentation, see [MODULE_SUMMARY.md](./MODULE_SUMMARY.md)*
