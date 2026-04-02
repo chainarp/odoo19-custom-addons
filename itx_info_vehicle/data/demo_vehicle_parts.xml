@@ -11,11 +11,10 @@
         <record id="part_vigo_headlight_lh" model="product.template">
             <field name="name">ไฟหน้าซ้าย</field>
             <field name="itx_is_vehicle_part" eval="True"/>
-            <field name="itx_brand_id" ref="brand_toyota"/>
-            <field name="itx_model_id" ref="model_toyota_vigo"/>
-            <field name="itx_generation_id" ref="gen_vigo_gen2"/>
-            <field name="itx_variant_id" ref="variant_vigo_g2_30g_dcab"/>
+            <field name="itx_spec_id" ref="spec_vigo_g2_30g_dcab"/>
             <field name="itx_part_category_id" ref="part_cat_headlight"/>
+            <field name="itx_part_brand">Denso</field>
+            <field name="itx_part_number">HD-VIGO-LH</field>
             <field name="itx_part_origin">oem</field>
             <field name="itx_condition">like_new</field>
             <field name="itx_oem_part_number">81170-0K440</field>
@@ -27,11 +26,10 @@
         <record id="part_vigo_headlight_rh" model="product.template">
             <field name="name">ไฟหน้าขวา</field>
             <field name="itx_is_vehicle_part" eval="True"/>
-            <field name="itx_brand_id" ref="brand_toyota"/>
-            <field name="itx_model_id" ref="model_toyota_vigo"/>
-            <field name="itx_generation_id" ref="gen_vigo_gen2"/>
-            <field name="itx_variant_id" ref="variant_vigo_g2_30g_dcab"/>
+            <field name="itx_spec_id" ref="spec_vigo_g2_30g_dcab"/>
             <field name="itx_part_category_id" ref="part_cat_headlight"/>
+            <field name="itx_part_brand">Denso</field>
+            <field name="itx_part_number">HD-VIGO-RH</field>
             <field name="itx_part_origin">oem</field>
             <field name="itx_condition">like_new</field>
             <field name="itx_oem_part_number">81130-0K440</field>
@@ -48,10 +46,7 @@
         <record id="part_vigo_bumper_front_likenew" model="product.template">
             <field name="name">กันชนหน้า</field>
             <field name="itx_is_vehicle_part" eval="True"/>
-            <field name="itx_brand_id" ref="brand_toyota"/>
-            <field name="itx_model_id" ref="model_toyota_vigo"/>
-            <field name="itx_generation_id" ref="gen_vigo_gen2"/>
-            <field name="itx_variant_id" ref="variant_vigo_g2_30g_dcab"/>
+            <field name="itx_spec_id" ref="spec_vigo_g2_30g_dcab"/>
             <field name="itx_part_category_id" ref="part_cat_bumper_front"/>
             <field name="itx_part_origin">oem</field>
             <field name="itx_condition">like_new</field>
@@ -63,10 +58,7 @@
         <record id="part_vigo_bumper_front_good" model="product.template">
             <field name="name">กันชนหน้า</field>
             <field name="itx_is_vehicle_part" eval="True"/>
-            <field name="itx_brand_id" ref="brand_toyota"/>
-            <field name="itx_model_id" ref="model_toyota_vigo"/>
-            <field name="itx_generation_id" ref="gen_vigo_gen2"/>
-            <field name="itx_variant_id" ref="variant_vigo_g2_30g_dcab"/>
+            <field name="itx_spec_id" ref="spec_vigo_g2_30g_dcab"/>
             <field name="itx_part_category_id" ref="part_cat_bumper_front"/>
             <field name="itx_part_origin">oem</field>
             <field name="itx_condition">good</field>
@@ -78,10 +70,7 @@
         <record id="part_vigo_bumper_front_fair" model="product.template">
             <field name="name">กันชนหน้า</field>
             <field name="itx_is_vehicle_part" eval="True"/>
-            <field name="itx_brand_id" ref="brand_toyota"/>
-            <field name="itx_model_id" ref="model_toyota_vigo"/>
-            <field name="itx_generation_id" ref="gen_vigo_gen2"/>
-            <field name="itx_variant_id" ref="variant_vigo_g2_30g_dcab"/>
+            <field name="itx_spec_id" ref="spec_vigo_g2_30g_dcab"/>
             <field name="itx_part_category_id" ref="part_cat_bumper_front"/>
             <field name="itx_part_origin">oem</field>
             <field name="itx_condition">fair</field>
@@ -98,10 +87,7 @@
         <record id="part_vigo_grille_oem" model="product.template">
             <field name="name">หน้ากระจังตัวนอก</field>
             <field name="itx_is_vehicle_part" eval="True"/>
-            <field name="itx_brand_id" ref="brand_toyota"/>
-            <field name="itx_model_id" ref="model_toyota_vigo"/>
-            <field name="itx_generation_id" ref="gen_vigo_gen2"/>
-            <field name="itx_variant_id" ref="variant_vigo_g2_30g_dcab"/>
+            <field name="itx_spec_id" ref="spec_vigo_g2_30g_dcab"/>
             <field name="itx_part_category_id" ref="part_cat_grille_outer"/>
             <field name="itx_part_origin">oem</field>
             <field name="itx_condition">like_new</field>
@@ -114,11 +100,9 @@
         <record id="part_vigo_grille_aftermarket" model="product.template">
             <field name="name">หน้ากระจังตัวนอก</field>
             <field name="itx_is_vehicle_part" eval="True"/>
-            <field name="itx_brand_id" ref="brand_toyota"/>
-            <field name="itx_model_id" ref="model_toyota_vigo"/>
-            <field name="itx_generation_id" ref="gen_vigo_gen2"/>
-            <field name="itx_variant_id" ref="variant_vigo_g2_30g_dcab"/>
+            <field name="itx_spec_id" ref="spec_vigo_g2_30g_dcab"/>
             <field name="itx_part_category_id" ref="part_cat_grille_outer"/>
+            <field name="itx_part_brand">Taiwan</field>
             <field name="itx_part_origin">aftermarket</field>
             <field name="itx_condition">new</field>
             <field name="list_price">950</field>
@@ -134,10 +118,7 @@
         <record id="part_vigo_mirror_lh" model="product.template">
             <field name="name">กระจกมองข้างซ้าย</field>
             <field name="itx_is_vehicle_part" eval="True"/>
-            <field name="itx_brand_id" ref="brand_toyota"/>
-            <field name="itx_model_id" ref="model_toyota_vigo"/>
-            <field name="itx_generation_id" ref="gen_vigo_gen2"/>
-            <field name="itx_variant_id" ref="variant_vigo_g2_30g_dcab"/>
+            <field name="itx_spec_id" ref="spec_vigo_g2_30g_dcab"/>
             <field name="itx_part_category_id" ref="part_cat_mirror"/>
             <field name="itx_part_origin">oem</field>
             <field name="itx_condition">good</field>
@@ -150,10 +131,7 @@
         <record id="part_vigo_mirror_rh" model="product.template">
             <field name="name">กระจกมองข้างขวา</field>
             <field name="itx_is_vehicle_part" eval="True"/>
-            <field name="itx_brand_id" ref="brand_toyota"/>
-            <field name="itx_model_id" ref="model_toyota_vigo"/>
-            <field name="itx_generation_id" ref="gen_vigo_gen2"/>
-            <field name="itx_variant_id" ref="variant_vigo_g2_30g_dcab"/>
+            <field name="itx_spec_id" ref="spec_vigo_g2_30g_dcab"/>
             <field name="itx_part_category_id" ref="part_cat_mirror"/>
             <field name="itx_part_origin">oem</field>
             <field name="itx_condition">good</field>
@@ -171,10 +149,7 @@
         <record id="part_vigo_door_cap_lh" model="product.template">
             <field name="name">ประตูแคปซ้าย</field>
             <field name="itx_is_vehicle_part" eval="True"/>
-            <field name="itx_brand_id" ref="brand_toyota"/>
-            <field name="itx_model_id" ref="model_toyota_vigo"/>
-            <field name="itx_generation_id" ref="gen_vigo_gen2"/>
-            <field name="itx_variant_id" ref="variant_vigo_g2_25e_xcab"/>
+            <field name="itx_spec_id" ref="spec_vigo_g2_25e_xcab"/>
             <field name="itx_part_category_id" ref="part_cat_door_cap"/>
             <field name="itx_part_origin">oem</field>
             <field name="itx_condition">like_new</field>
@@ -186,10 +161,7 @@
         <record id="part_vigo_tailgate" model="product.template">
             <field name="name">ฝาปิดท้ายกระบะ</field>
             <field name="itx_is_vehicle_part" eval="True"/>
-            <field name="itx_brand_id" ref="brand_toyota"/>
-            <field name="itx_model_id" ref="model_toyota_vigo"/>
-            <field name="itx_generation_id" ref="gen_vigo_gen2"/>
-            <field name="itx_variant_id" ref="variant_vigo_g2_25j_scab"/>
+            <field name="itx_spec_id" ref="spec_vigo_g2_25j_scab"/>
             <field name="itx_part_category_id" ref="part_cat_tailgate"/>
             <field name="itx_part_origin">oem</field>
             <field name="itx_condition">good</field>
@@ -206,10 +178,7 @@
         <record id="part_civic_hood_front" model="product.template">
             <field name="name">ฝากระโปรงหน้า</field>
             <field name="itx_is_vehicle_part" eval="True"/>
-            <field name="itx_brand_id" ref="brand_honda"/>
-            <field name="itx_model_id" ref="model_honda_civic"/>
-            <field name="itx_generation_id" ref="gen_civic_fd"/>
-            <field name="itx_variant_id" ref="variant_civic_fd_18s"/>
+            <field name="itx_spec_id" ref="spec_civic_fd_18s"/>
             <field name="itx_part_category_id" ref="part_cat_hood_front"/>
             <field name="itx_part_origin">oem</field>
             <field name="itx_condition">like_new</field>
@@ -222,10 +191,7 @@
         <record id="part_civic_taillight_lh" model="product.template">
             <field name="name">ไฟท้ายซ้าย</field>
             <field name="itx_is_vehicle_part" eval="True"/>
-            <field name="itx_brand_id" ref="brand_honda"/>
-            <field name="itx_model_id" ref="model_honda_civic"/>
-            <field name="itx_generation_id" ref="gen_civic_fd"/>
-            <field name="itx_variant_id" ref="variant_civic_fd_18s"/>
+            <field name="itx_spec_id" ref="spec_civic_fd_18s"/>
             <field name="itx_part_category_id" ref="part_cat_taillight"/>
             <field name="itx_part_origin">oem</field>
             <field name="itx_condition">good</field>
@@ -243,10 +209,7 @@
         <record id="part_fortuner_bumper_rear" model="product.template">
             <field name="name">กันชนหลัง</field>
             <field name="itx_is_vehicle_part" eval="True"/>
-            <field name="itx_brand_id" ref="brand_toyota"/>
-            <field name="itx_model_id" ref="model_toyota_fortuner"/>
-            <field name="itx_generation_id" ref="gen_fortuner_gen2"/>
-            <field name="itx_variant_id" ref="variant_fortuner_g2_28v"/>
+            <field name="itx_spec_id" ref="spec_fortuner_g2_28v"/>
             <field name="itx_part_category_id" ref="part_cat_bumper_rear"/>
             <field name="itx_part_origin">oem</field>
             <field name="itx_condition">like_new</field>
@@ -263,10 +226,7 @@
         <record id="part_vigo_engine_1kd" model="product.template">
             <field name="name">เครื่องยนต์ 1KD-FTV ทั้งลูก</field>
             <field name="itx_is_vehicle_part" eval="True"/>
-            <field name="itx_brand_id" ref="brand_toyota"/>
-            <field name="itx_model_id" ref="model_toyota_vigo"/>
-            <field name="itx_generation_id" ref="gen_vigo_gen2"/>
-            <field name="itx_variant_id" ref="variant_vigo_g2_30g_dcab"/>
+            <field name="itx_spec_id" ref="spec_vigo_g2_30g_dcab"/>
             <field name="itx_part_category_id" ref="part_cat_engine_assy"/>
             <field name="itx_part_origin">oem</field>
             <field name="itx_condition">good</field>
@@ -278,10 +238,7 @@
         <record id="part_civic_gearbox_auto" model="product.template">
             <field name="name">เกียร์ออโต้ทั้งลูก</field>
             <field name="itx_is_vehicle_part" eval="True"/>
-            <field name="itx_brand_id" ref="brand_honda"/>
-            <field name="itx_model_id" ref="model_honda_civic"/>
-            <field name="itx_generation_id" ref="gen_civic_fd"/>
-            <field name="itx_variant_id" ref="variant_civic_fd_18s"/>
+            <field name="itx_spec_id" ref="spec_civic_fd_18s"/>
             <field name="itx_part_category_id" ref="part_cat_gearbox_auto"/>
             <field name="itx_part_origin">oem</field>
             <field name="itx_condition">good</field>

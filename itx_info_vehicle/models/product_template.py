@@ -28,30 +28,48 @@ class ProductTemplate(models.Model):
         help='Enable Vehicle Part mode',
     )
 
-    # === Vehicle Hierarchy Fields ===
+    # === Main Vehicle Spec Field ===
+    itx_spec_id = fields.Many2one(
+        comodel_name='itx.info.vehicle.spec',
+        string='Vehicle Spec',
+        index=True,
+        help='Primary vehicle spec this part is for',
+    )
+
+    # === Related Fields (Read-only, from Spec) ===
     itx_brand_id = fields.Many2one(
         comodel_name='itx.info.vehicle.brand',
         string='Brand',
-        index=True,
+        related='itx_spec_id.brand_id',
+        store=True,
+        readonly=True,
     )
     itx_model_id = fields.Many2one(
         comodel_name='itx.info.vehicle.model',
         string='Model',
-        index=True,
-        domain="[('brand_id', '=', itx_brand_id)]",
+        related='itx_spec_id.model_id',
+        store=True,
+        readonly=True,
     )
     itx_generation_id = fields.Many2one(
         comodel_name='itx.info.vehicle.generation',
         string='Generation',
-        index=True,
-        domain="[('model_id', '=', itx_model_id)]",
+        related='itx_spec_id.generation_id',
+        store=True,
+        readonly=True,
     )
-    itx_variant_id = fields.Many2one(
-        comodel_name='itx.info.vehicle.variant',
-        string='Variant',
-        index=True,
-        domain="[('generation_id', '=', itx_generation_id)]",
+
+    # === Compatible Specs (Many2many) ===
+    itx_compatible_spec_ids = fields.Many2many(
+        comodel_name='itx.info.vehicle.spec',
+        relation='product_template_compatible_spec_rel',
+        column1='product_id',
+        column2='spec_id',
+        string='Compatible Specs',
+        help='Other vehicle specs this part is compatible with',
     )
+
+    # === Part Category ===
     itx_part_category_id = fields.Many2one(
         comodel_name='itx.info.vehicle.part.category',
         string='Part Category',
@@ -59,6 +77,16 @@ class ProductTemplate(models.Model):
     )
 
     # === Part Information ===
+    itx_part_brand = fields.Char(
+        string='Part Brand',
+        index=True,
+        help='Part manufacturer brand (e.g., Denso, Bosch, OEM)',
+    )
+    itx_part_number = fields.Char(
+        string='Part Number',
+        index=True,
+        help='Manufacturer part number',
+    )
     itx_part_origin = fields.Selection(
         selection=PART_ORIGIN_SELECTION,
         string='Part Origin',
@@ -86,32 +114,18 @@ class ProductTemplate(models.Model):
     # === Constraints ===
     _sql_constraints = [
         ('vehicle_part_uniq',
-         'UNIQUE(itx_variant_id, itx_part_category_id, name, itx_part_origin, itx_condition, itx_oem_part_number)',
+         'UNIQUE(itx_spec_id, itx_part_category_id, name, itx_part_origin, itx_condition, itx_oem_part_number)',
          'Part with same vehicle, category, name, origin, condition and OEM part number already exists!'),
     ]
 
     # === Onchange Methods ===
-    @api.onchange('itx_brand_id')
-    def _onchange_itx_brand_id(self):
-        """Clear dependent fields when brand changes"""
-        self.itx_model_id = False
-        self.itx_generation_id = False
-        self.itx_variant_id = False
+    @api.onchange('itx_spec_id')
+    def _onchange_itx_spec_id(self):
+        """Recompute default_code when spec changes"""
+        if self.itx_is_vehicle_part:
+            self._compute_itx_default_code()
 
-    @api.onchange('itx_model_id')
-    def _onchange_itx_model_id(self):
-        """Clear dependent fields when model changes"""
-        self.itx_generation_id = False
-        self.itx_variant_id = False
-
-    @api.onchange('itx_generation_id')
-    def _onchange_itx_generation_id(self):
-        """Clear variant when generation changes"""
-        self.itx_variant_id = False
-
-    @api.onchange('itx_is_vehicle_part', 'itx_brand_id', 'itx_model_id',
-                  'itx_generation_id', 'itx_variant_id', 'itx_part_category_id',
-                  'itx_sequence')
+    @api.onchange('itx_is_vehicle_part', 'itx_spec_id', 'itx_part_category_id', 'itx_sequence')
     def _onchange_compute_default_code(self):
         """Auto-generate internal reference from vehicle hierarchy"""
         if self.itx_is_vehicle_part:
@@ -121,16 +135,17 @@ class ProductTemplate(models.Model):
     def _compute_itx_default_code(self):
         """Build default_code from abbreviations"""
         for rec in self:
-            if rec.itx_is_vehicle_part:
+            if rec.itx_is_vehicle_part and rec.itx_spec_id:
                 parts = []
-                if rec.itx_brand_id and rec.itx_brand_id.abbr:
-                    parts.append(rec.itx_brand_id.abbr)
-                if rec.itx_model_id and rec.itx_model_id.abbr:
-                    parts.append(rec.itx_model_id.abbr)
-                if rec.itx_generation_id and rec.itx_generation_id.abbr:
-                    parts.append(rec.itx_generation_id.abbr)
-                if rec.itx_variant_id and rec.itx_variant_id.abbr:
-                    parts.append(rec.itx_variant_id.abbr)
+                # Get from spec's related fields
+                if rec.itx_spec_id.brand_id and rec.itx_spec_id.brand_id.abbr:
+                    parts.append(rec.itx_spec_id.brand_id.abbr)
+                if rec.itx_spec_id.model_id and rec.itx_spec_id.model_id.abbr:
+                    parts.append(rec.itx_spec_id.model_id.abbr)
+                if rec.itx_spec_id.generation_id and rec.itx_spec_id.generation_id.abbr:
+                    parts.append(rec.itx_spec_id.generation_id.abbr)
+                if rec.itx_spec_id.abbr:
+                    parts.append(rec.itx_spec_id.abbr)
                 if rec.itx_part_category_id and rec.itx_part_category_id.abbr:
                     parts.append(rec.itx_part_category_id.abbr)
                 if rec.itx_sequence:
@@ -163,8 +178,7 @@ class ProductTemplate(models.Model):
 
         # Recompute default_code if vehicle part fields changed
         vehicle_fields = [
-            'itx_is_vehicle_part', 'itx_brand_id', 'itx_model_id',
-            'itx_generation_id', 'itx_variant_id', 'itx_part_category_id',
+            'itx_is_vehicle_part', 'itx_spec_id', 'itx_part_category_id',
             'itx_sequence'
         ]
         if any(f in vals for f in vehicle_fields):

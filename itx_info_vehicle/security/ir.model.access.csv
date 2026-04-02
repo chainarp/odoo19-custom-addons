@@ -5,8 +5,8 @@ access_itx_info_vehicle_model_user,itx.info.vehicle.model.user,model_itx_info_ve
 access_itx_info_vehicle_model_manager,itx.info.vehicle.model.manager,model_itx_info_vehicle_model,stock.group_stock_manager,1,1,1,1
 access_itx_info_vehicle_generation_user,itx.info.vehicle.generation.user,model_itx_info_vehicle_generation,stock.group_stock_user,1,0,0,0
 access_itx_info_vehicle_generation_manager,itx.info.vehicle.generation.manager,model_itx_info_vehicle_generation,stock.group_stock_manager,1,1,1,1
-access_itx_info_vehicle_variant_user,itx.info.vehicle.variant.user,model_itx_info_vehicle_variant,stock.group_stock_user,1,0,0,0
-access_itx_info_vehicle_variant_manager,itx.info.vehicle.variant.manager,model_itx_info_vehicle_variant,stock.group_stock_manager,1,1,1,1
+access_itx_info_vehicle_spec_user,itx.info.vehicle.spec.user,model_itx_info_vehicle_spec,stock.group_stock_user,1,0,0,0
+access_itx_info_vehicle_spec_manager,itx.info.vehicle.spec.manager,model_itx_info_vehicle_spec,stock.group_stock_manager,1,1,1,1
 access_itx_info_vehicle_part_category_user,itx.info.vehicle.part.category.user,model_itx_info_vehicle_part_category,stock.group_stock_user,1,0,0,0
 access_itx_info_vehicle_part_category_manager,itx.info.vehicle.part.category.manager,model_itx_info_vehicle_part_category,stock.group_stock_manager,1,1,1,1
 access_itx_info_vehicle_mgr_body_type_user,itx.info.vehicle.mgr.body.type.user,model_itx_info_vehicle_mgr_body_type,stock.group_stock_user,1,0,0,0

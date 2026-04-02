@@ -28,11 +28,11 @@
               action="itx_info_vehicle_generation_action"
               sequence="30"/>
 
-    <!-- Submenu: Variants -->
-    <menuitem id="menu_itx_vehicle_variant"
-              name="Variants"
+    <!-- Submenu: Specs -->
+    <menuitem id="menu_itx_vehicle_spec"
+              name="Specs"
               parent="menu_itx_vehicle_info_root"
-              action="itx_info_vehicle_variant_action"
+              action="itx_info_vehicle_spec_action"
               sequence="40"/>
 
     <!-- Submenu: Part Categories -->

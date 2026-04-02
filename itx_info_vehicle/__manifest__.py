@@ -42,7 +42,7 @@ Developed by IT Expert Training & Outsourcing Co. (Thailand)
         'data/vehicle_generation_data.xml',
         'data/mgr_body_type_data.xml',
         'data/mgr_engine_data.xml',
-        'data/vehicle_variant_data.xml',
+        'data/vehicle_spec_data.xml',
         # Demo Vehicle Parts (16 records สำหรับ demo)
         'data/demo_vehicle_parts.xml',
         # Views
@@ -51,7 +51,7 @@ Developed by IT Expert Training & Outsourcing Co. (Thailand)
         'views/vehicle_brand_views.xml',
         'views/vehicle_model_views.xml',
         'views/vehicle_generation_views.xml',
-        'views/vehicle_variant_views.xml',
+        'views/vehicle_spec_views.xml',
         'views/part_category_views.xml',
         'views/product_template_views.xml',
         'views/menuitems.xml',

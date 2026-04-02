@@ -57,6 +57,7 @@
                                     <field name="chassis_code"/>
                                     <field name="year_start"/>
                                     <field name="year_end"/>
+                                    <field name="spec_count" string="Specs"/>
                                 </list>
                             </field>
                         </page>

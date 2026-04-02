@@ -62,14 +62,14 @@ class ItxInfoVehicleGeneration(models.Model):
     )
 
     # === Relational Fields ===
-    variant_ids = fields.One2many(
-        comodel_name='itx.info.vehicle.variant',
+    spec_ids = fields.One2many(
+        comodel_name='itx.info.vehicle.spec',
         inverse_name='generation_id',
-        string='Variants',
+        string='Specs',
     )
-    variant_count = fields.Integer(
-        string='Variant Count',
-        compute='_compute_variant_count',
+    spec_count = fields.Integer(
+        string='Spec Count',
+        compute='_compute_spec_count',
     )
 
     # === Related Fields ===
@@ -129,10 +129,10 @@ class ItxInfoVehicleGeneration(models.Model):
             else:
                 rec.year_range = ''
 
-    @api.depends('variant_ids')
-    def _compute_variant_count(self):
+    @api.depends('spec_ids')
+    def _compute_spec_count(self):
         for rec in self:
-            rec.variant_count = len(rec.variant_ids)
+            rec.spec_count = len(rec.spec_ids)
 
     # === Onchange Methods ===
     @api.onchange('name')

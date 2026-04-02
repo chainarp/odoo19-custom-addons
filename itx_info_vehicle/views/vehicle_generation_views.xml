@@ -15,7 +15,7 @@
                 <field name="chassis_code" optional="show"/>
                 <field name="year_start"/>
                 <field name="year_end"/>
-                <field name="variant_count" string="Variants"/>
+                <field name="spec_count" string="Specs"/>
                 <field name="active" column_invisible="True"/>
             </list>
         </field>
@@ -49,23 +49,23 @@
                             <field name="chassis_code" placeholder="e.g., FD1/FD2"/>
                             <field name="year_start"/>
                             <field name="year_end" placeholder="0 = still in production"/>
-                            <field name="variant_count" readonly="True"/>
+                            <field name="spec_count" readonly="True"/>
                         </group>
                     </group>
                     <notebook>
                         <page string="Description" name="description">
                             <field name="desc" placeholder="Additional description..."/>
                         </page>
-                        <page string="Variants" name="variants">
-                            <field name="variant_ids">
-                                <list editable="bottom">
+                        <page string="Specs" name="specs">
+                            <field name="spec_ids" widget="one2many">
+                                <list create="1">
                                     <field name="code"/>
                                     <field name="abbr"/>
                                     <field name="name"/>
-                                    <field name="engine_code"/>
-                                    <field name="engine_displacement"/>
-                                    <field name="fuel_type"/>
+                                    <field name="body_type_id"/>
+                                    <field name="engine_id"/>
                                     <field name="transmission"/>
+                                    <field name="drive_type"/>
                                 </list>
                             </field>
                         </page>

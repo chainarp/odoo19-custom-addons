@@ -52,6 +52,7 @@
                                     <field name="code"/>
                                     <field name="abbr"/>
                                     <field name="name"/>
+                                    <field name="generation_count" string="Generations"/>
                                 </list>
                             </field>
                         </page>

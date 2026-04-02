@@ -8,7 +8,7 @@
         <!-- ========================================== -->
 
         <!-- Vigo Gen 2 Champ - Double Cab -->
-        <record id="variant_vigo_g2_30g_dcab" model="itx.info.vehicle.variant">
+        <record id="spec_vigo_g2_30g_dcab" model="itx.info.vehicle.spec">
             <field name="code">VIGO-G2-3.0G-DCAB</field>
             <field name="name">3.0 G Double Cab</field>
             <field name="abbr">3GDC</field>
@@ -21,7 +21,7 @@
             <field name="desc">Vigo Champ 3.0G 4WD Double Cab - รุ่นท็อป</field>
         </record>
 
-        <record id="variant_vigo_g2_25e_dcab" model="itx.info.vehicle.variant">
+        <record id="spec_vigo_g2_25e_dcab" model="itx.info.vehicle.spec">
             <field name="code">VIGO-G2-2.5E-DCAB</field>
             <field name="name">2.5 E Double Cab</field>
             <field name="abbr">25EDC</field>
@@ -35,7 +35,7 @@
         </record>
 
         <!-- Vigo Gen 2 Champ - Extra Cab -->
-        <record id="variant_vigo_g2_25e_xcab" model="itx.info.vehicle.variant">
+        <record id="spec_vigo_g2_25e_xcab" model="itx.info.vehicle.spec">
             <field name="code">VIGO-G2-2.5E-XCAB</field>
             <field name="name">2.5 E Extra Cab</field>
             <field name="abbr">25EXC</field>
@@ -49,7 +49,7 @@
         </record>
 
         <!-- Vigo Gen 2 Champ - Single Cab -->
-        <record id="variant_vigo_g2_25j_scab" model="itx.info.vehicle.variant">
+        <record id="spec_vigo_g2_25j_scab" model="itx.info.vehicle.spec">
             <field name="code">VIGO-G2-2.5J-SCAB</field>
             <field name="name">2.5 J Single Cab</field>
             <field name="abbr">25JSC</field>
@@ -64,10 +64,10 @@
 
         <!-- ========================================== -->
         <!-- TOYOTA FORTUNER - SUV (1 Body Type)       -->
-        <!-- แสดง: SUV ทุก variant เป็น body เดียวกัน   -->
+        <!-- แสดง: SUV ทุก spec เป็น body เดียวกัน   -->
         <!-- ========================================== -->
 
-        <record id="variant_fortuner_g2_28v" model="itx.info.vehicle.variant">
+        <record id="spec_fortuner_g2_28v" model="itx.info.vehicle.spec">
             <field name="code">FORTUNER-G2-2.8V</field>
             <field name="name">2.8 V 4WD</field>
             <field name="abbr">28V</field>
@@ -80,7 +80,7 @@
             <field name="desc">Fortuner 2.8V 4WD - รุ่นท็อป</field>
         </record>
 
-        <record id="variant_fortuner_g2_24g" model="itx.info.vehicle.variant">
+        <record id="spec_fortuner_g2_24g" model="itx.info.vehicle.spec">
             <field name="code">FORTUNER-G2-2.4G</field>
             <field name="name">2.4 G</field>
             <field name="abbr">24G</field>
@@ -98,7 +98,7 @@
         <!-- แสดง: รถเก๋ง + เครื่อง Honda               -->
         <!-- ========================================== -->
 
-        <record id="variant_civic_fd_18s" model="itx.info.vehicle.variant">
+        <record id="spec_civic_fd_18s" model="itx.info.vehicle.spec">
             <field name="code">CIVIC-FD-1.8S</field>
             <field name="name">1.8 S i-VTEC</field>
             <field name="abbr">18S</field>
@@ -111,7 +111,7 @@
             <field name="desc">Civic FD 1.8S - รุ่นขายดี</field>
         </record>
 
-        <record id="variant_civic_fd_18e" model="itx.info.vehicle.variant">
+        <record id="spec_civic_fd_18e" model="itx.info.vehicle.spec">
             <field name="code">CIVIC-FD-1.8E</field>
             <field name="name">1.8 E i-VTEC</field>
             <field name="abbr">18E</field>
@@ -124,7 +124,7 @@
             <field name="desc">Civic FD 1.8E - รุ่นกลาง</field>
         </record>
 
-        <record id="variant_civic_fd_20el" model="itx.info.vehicle.variant">
+        <record id="spec_civic_fd_20el" model="itx.info.vehicle.spec">
             <field name="code">CIVIC-FD-2.0EL</field>
             <field name="name">2.0 EL i-VTEC</field>
             <field name="abbr">20EL</field>
@@ -142,7 +142,7 @@
         <!-- แสดง: รถกระบะ Isuzu + เครื่อง Isuzu        -->
         <!-- ========================================== -->
 
-        <record id="variant_dmax_g3_19vcross" model="itx.info.vehicle.variant">
+        <record id="spec_dmax_g3_19vcross" model="itx.info.vehicle.spec">
             <field name="code">DMAX-G3-1.9VCROSS</field>
             <field name="name">1.9 V-Cross 4WD</field>
             <field name="abbr">19VCR</field>
@@ -155,7 +155,7 @@
             <field name="desc">D-Max V-Cross 4WD - รุ่นออฟโรด</field>
         </record>
 
-        <record id="variant_dmax_g3_30hilander" model="itx.info.vehicle.variant">
+        <record id="spec_dmax_g3_30hilander" model="itx.info.vehicle.spec">
             <field name="code">DMAX-G3-3.0HI</field>
             <field name="name">3.0 Hi-Lander</field>
             <field name="abbr">30HI</field>

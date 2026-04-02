@@ -34,9 +34,9 @@ DRIVE_TYPE_SELECTION = [
 ]
 
 
-class ItxInfoVehicleVariant(models.Model):
-    _name = 'itx.info.vehicle.variant'
-    _description = 'Vehicle Variant'
+class ItxInfoVehicleSpec(models.Model):
+    _name = 'itx.info.vehicle.spec'
+    _description = 'Vehicle Spec'
     _order = 'generation_id, name'
 
     # === Standard Fields ===
@@ -44,13 +44,13 @@ class ItxInfoVehicleVariant(models.Model):
         string='Code',
         required=True,
         index=True,
-        help='Market code, e.g., 1.8S-IVTEC, 2.0EL',
+        help='Spec code, e.g., 1.8S-IVTEC, 2.0EL',
     )
     name = fields.Char(
         string='Name',
         required=True,
         index=True,
-        help='Variant name, e.g., 1.8 S i-VTEC, 2.0 EL',
+        help='Spec name, e.g., 1.8 S i-VTEC, 2.0 EL',
     )
     desc = fields.Text(
         string='Description',
@@ -64,7 +64,7 @@ class ItxInfoVehicleVariant(models.Model):
         help='Abbreviation for Internal Reference, e.g., 1.8S, 2.0L',
     )
 
-    # === Variant Specific Fields ===
+    # === Spec Specific Fields ===
     generation_id = fields.Many2one(
         comodel_name='itx.info.vehicle.generation',
         string='Generation',
@@ -139,7 +139,7 @@ class ItxInfoVehicleVariant(models.Model):
     # === Constraints ===
     _sql_constraints = [
         ('code_gen_uniq', 'UNIQUE(code, generation_id)',
-         'Variant code must be unique per generation!'),
+         'Spec code must be unique per generation!'),
     ]
 
     @api.constrains('engine_displacement')
