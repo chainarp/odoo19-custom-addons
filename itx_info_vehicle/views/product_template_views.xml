@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
             <list string="Vehicle Parts">
                 <field name="default_code" string="Internal Ref"/>
-                <field name="name"/>
+                <field name="itx_part_name_id"/>
                 <field name="itx_part_brand" optional="show"/>
                 <field name="itx_part_number" optional="show"/>
                 <field name="itx_spec_id"/>
@@ -31,6 +31,22 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="arch" type="xml">
+            <!-- Hide standard name field when is_vehicle_part, show itx_part_name_id instead -->
+            <field name="name" position="attributes">
+                <attribute name="invisible">itx_is_vehicle_part</attribute>
+            </field>
+
+            <!-- Show Part Name (Many2one with autocomplete) when is_vehicle_part -->
+            <field name="name" position="after">
+                <field name="itx_part_name_id"
+                       string="Part Name"
+                       invisible="not itx_is_vehicle_part"
+                       required="itx_is_vehicle_part"
+                       placeholder="Type to search part name..."
+                       class="o_text_overflow"
+                       options="{'no_quick_create': True}"/>
+            </field>
+
             <!-- Add Vehicle Part checkbox in options div -->
             <div name="options" position="inside">
                 <span class="d-inline-flex">
@@ -56,6 +72,7 @@
                     <group>
                         <group string="Vehicle Spec">
                             <field name="itx_spec_id"
+                                   required="itx_is_vehicle_part"
                                    options="{'no_create': True}"
                                    placeholder="Select vehicle spec..."/>
                             <field name="itx_brand_id" readonly="1"/>
@@ -63,10 +80,16 @@
                             <field name="itx_generation_id" readonly="1"/>
                         </group>
                         <group string="Part Information">
+                            <field name="itx_part_name_id"
+                                   required="itx_is_vehicle_part"
+                                   placeholder="Select part name..."
+                                   options="{'no_quick_create': True}"/>
                             <field name="itx_part_category_id"
                                    options="{'no_create': True}"/>
-                            <field name="itx_part_origin"/>
-                            <field name="itx_condition"/>
+                            <field name="itx_part_origin"
+                                   required="itx_is_vehicle_part"/>
+                            <field name="itx_condition"
+                                   required="itx_is_vehicle_part"/>
                             <field name="itx_oem_part_number"
                                    placeholder="(optional, fill later)"/>
                             <field name="itx_sequence"/>
@@ -94,6 +117,7 @@
                 <field name="itx_brand_id"/>
                 <field name="itx_model_id"/>
                 <field name="itx_generation_id"/>
+                <field name="itx_part_name_id"/>
                 <field name="itx_part_category_id"/>
                 <field name="itx_part_brand"/>
                 <field name="itx_part_number"/>
@@ -124,6 +148,8 @@
                         context="{'group_by': 'itx_model_id'}"/>
                 <filter string="Part Category" name="groupby_part_category"
                         context="{'group_by': 'itx_part_category_id'}"/>
+                <filter string="Part Name" name="groupby_part_name"
+                        context="{'group_by': 'itx_part_name_id'}"/>
                 <filter string="Part Brand" name="groupby_part_brand"
                         context="{'group_by': 'itx_part_brand'}"/>
                 <filter string="Part Origin" name="groupby_origin"

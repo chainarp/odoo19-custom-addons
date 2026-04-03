@@ -1,0 +1,2680 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- ==================== -->
+        <!-- กะบะแคป -->
+        <!-- ==================== -->
+
+        <record id="bom_extra_cab_bump_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_bump_fr"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="bom_extra_cab_arm_lo_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_lo_fr_r"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="bom_extra_cab_bump_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_bump_rr"/>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="bom_extra_cab_arm_lo_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_lo_fr_l"/>
+            <field name="sequence">40</field>
+        </record>
+
+        <record id="bom_extra_cab_fend_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_r"/>
+            <field name="sequence">50</field>
+        </record>
+
+        <record id="bom_extra_cab_arm_up_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_up_fr_r"/>
+            <field name="sequence">60</field>
+        </record>
+
+        <record id="bom_extra_cab_fend_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_l"/>
+            <field name="sequence">70</field>
+        </record>
+
+        <record id="bom_extra_cab_arm_up_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_up_fr_l"/>
+            <field name="sequence">80</field>
+        </record>
+
+        <record id="bom_extra_cab_door_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_r"/>
+            <field name="sequence">90</field>
+        </record>
+
+        <record id="bom_extra_cab_door_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_l"/>
+            <field name="sequence">100</field>
+        </record>
+
+        <record id="bom_extra_cab_door_cap_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_cap_r"/>
+            <field name="sequence">110</field>
+        </record>
+
+        <record id="bom_extra_cab_strut_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_strut_fr_r"/>
+            <field name="sequence">120</field>
+        </record>
+
+        <record id="bom_extra_cab_door_cap_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_cap_l"/>
+            <field name="sequence">130</field>
+        </record>
+
+        <record id="bom_extra_cab_strut_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_strut_fr_l"/>
+            <field name="sequence">140</field>
+        </record>
+
+        <record id="bom_extra_cab_hood_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_hood_fr"/>
+            <field name="sequence">150</field>
+        </record>
+
+        <record id="bom_extra_cab_shock_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_fr_r"/>
+            <field name="sequence">160</field>
+        </record>
+
+        <record id="bom_extra_cab_hood_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_hood_rr"/>
+            <field name="sequence">170</field>
+        </record>
+
+        <record id="bom_extra_cab_shock_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_fr_l"/>
+            <field name="sequence">180</field>
+        </record>
+
+        <record id="bom_extra_cab_tailgate" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_tailgate"/>
+            <field name="sequence">190</field>
+        </record>
+
+        <record id="bom_extra_cab_shock_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_r"/>
+            <field name="sequence">200</field>
+        </record>
+
+        <record id="bom_extra_cab_roof" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_roof"/>
+            <field name="sequence">210</field>
+        </record>
+
+        <record id="bom_extra_cab_shock_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_l"/>
+            <field name="sequence">220</field>
+        </record>
+
+        <record id="bom_extra_cab_mirror_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_mirror_r"/>
+            <field name="sequence">230</field>
+        </record>
+
+        <record id="bom_extra_cab_mirror_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_mirror_l"/>
+            <field name="sequence">240</field>
+        </record>
+
+        <record id="bom_extra_cab_panel_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_panel_fr"/>
+            <field name="sequence">250</field>
+        </record>
+
+        <record id="bom_extra_cab_bed" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_bed"/>
+            <field name="sequence">260</field>
+        </record>
+
+        <record id="bom_extra_cab_light_hd_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_r"/>
+            <field name="sequence">270</field>
+        </record>
+
+        <record id="bom_extra_cab_grille_in" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_grille_in"/>
+            <field name="sequence">280</field>
+        </record>
+
+        <record id="bom_extra_cab_light_hd_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_l"/>
+            <field name="sequence">290</field>
+        </record>
+
+        <record id="bom_extra_cab_grille_out" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_grille_out"/>
+            <field name="sequence">300</field>
+        </record>
+
+        <record id="bom_extra_cab_light_tl_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_r"/>
+            <field name="sequence">310</field>
+        </record>
+
+        <record id="bom_extra_cab_light_tl_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_l"/>
+            <field name="sequence">320</field>
+        </record>
+
+        <record id="bom_extra_cab_refl_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_refl_rr_r"/>
+            <field name="sequence">330</field>
+        </record>
+
+        <record id="bom_extra_cab_refl_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_refl_rr_l"/>
+            <field name="sequence">340</field>
+        </record>
+
+        <record id="bom_extra_cab_panel_ac" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_panel_ac"/>
+            <field name="sequence">350</field>
+        </record>
+
+        <record id="bom_extra_cab_console" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_console"/>
+            <field name="sequence">360</field>
+        </record>
+
+        <record id="bom_extra_cab_motor_rad" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_motor_rad"/>
+            <field name="sequence">370</field>
+        </record>
+
+        <record id="bom_extra_cab_motor_ac" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_motor_ac"/>
+            <field name="sequence">380</field>
+        </record>
+
+        <record id="bom_extra_cab_wire_fuse" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_wire_fuse"/>
+            <field name="sequence">390</field>
+        </record>
+
+        <record id="bom_extra_cab_rack_steer" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_rack_steer"/>
+            <field name="sequence">400</field>
+        </record>
+
+        <record id="bom_extra_cab_wire_cons" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_wire_cons"/>
+            <field name="sequence">410</field>
+        </record>
+
+        <record id="bom_extra_cab_wheel_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_r"/>
+            <field name="sequence">420</field>
+        </record>
+
+        <record id="bom_extra_cab_sens_bump_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_sens_bump_fr"/>
+            <field name="sequence">430</field>
+        </record>
+
+        <record id="bom_extra_cab_wheel_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_l"/>
+            <field name="sequence">440</field>
+        </record>
+
+        <record id="bom_extra_cab_sens_bump_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_sens_bump_rr"/>
+            <field name="sequence">450</field>
+        </record>
+
+        <record id="bom_extra_cab_wheel_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_r"/>
+            <field name="sequence">460</field>
+        </record>
+
+        <record id="bom_extra_cab_ecu" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_ecu"/>
+            <field name="sequence">470</field>
+        </record>
+
+        <record id="bom_extra_cab_wheel_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_l"/>
+            <field name="sequence">480</field>
+        </record>
+
+        <record id="bom_extra_cab_abs_pump" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_abs_pump"/>
+            <field name="sequence">490</field>
+        </record>
+
+        <record id="bom_extra_cab_radiator" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_cooling"/>
+            <field name="part_template_id" ref="tpl_part_radiator"/>
+            <field name="sequence">500</field>
+        </record>
+
+        <record id="bom_extra_cab_airbag_mod" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_airbag_mod"/>
+            <field name="sequence">510</field>
+        </record>
+
+        <record id="bom_extra_cab_trans" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_transmission"/>
+            <field name="part_template_id" ref="tpl_part_trans"/>
+            <field name="sequence">520</field>
+        </record>
+
+        <record id="bom_extra_cab_airbag_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_airbag_r"/>
+            <field name="sequence">530</field>
+        </record>
+
+        <record id="bom_extra_cab_airbag_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_airbag_l"/>
+            <field name="sequence">540</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- กะบะ 4 ประตู -->
+        <!-- ==================== -->
+
+        <record id="bom_double_cab_bump_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_bump_fr"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="bom_double_cab_arm_lo_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_lo_fr_r"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="bom_double_cab_bump_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_bump_rr"/>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="bom_double_cab_arm_lo_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_lo_fr_l"/>
+            <field name="sequence">40</field>
+        </record>
+
+        <record id="bom_double_cab_fend_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_r"/>
+            <field name="sequence">50</field>
+        </record>
+
+        <record id="bom_double_cab_arm_up_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_up_fr_r"/>
+            <field name="sequence">60</field>
+        </record>
+
+        <record id="bom_double_cab_fend_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_l"/>
+            <field name="sequence">70</field>
+        </record>
+
+        <record id="bom_double_cab_arm_up_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_up_fr_l"/>
+            <field name="sequence">80</field>
+        </record>
+
+        <record id="bom_double_cab_door_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_r"/>
+            <field name="sequence">90</field>
+        </record>
+
+        <record id="bom_double_cab_door_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_l"/>
+            <field name="sequence">100</field>
+        </record>
+
+        <record id="bom_double_cab_door_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_rr_r"/>
+            <field name="sequence">110</field>
+        </record>
+
+        <record id="bom_double_cab_strut_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_strut_fr_r"/>
+            <field name="sequence">120</field>
+        </record>
+
+        <record id="bom_double_cab_door_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_rr_l"/>
+            <field name="sequence">130</field>
+        </record>
+
+        <record id="bom_double_cab_strut_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_strut_fr_l"/>
+            <field name="sequence">140</field>
+        </record>
+
+        <record id="bom_double_cab_hood_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_hood_fr"/>
+            <field name="sequence">150</field>
+        </record>
+
+        <record id="bom_double_cab_shock_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_fr_r"/>
+            <field name="sequence">160</field>
+        </record>
+
+        <record id="bom_double_cab_hood_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_hood_rr"/>
+            <field name="sequence">170</field>
+        </record>
+
+        <record id="bom_double_cab_shock_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_fr_l"/>
+            <field name="sequence">180</field>
+        </record>
+
+        <record id="bom_double_cab_tailgate" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_tailgate"/>
+            <field name="sequence">190</field>
+        </record>
+
+        <record id="bom_double_cab_shock_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_r"/>
+            <field name="sequence">200</field>
+        </record>
+
+        <record id="bom_double_cab_roof" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_roof"/>
+            <field name="sequence">210</field>
+        </record>
+
+        <record id="bom_double_cab_shock_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_l"/>
+            <field name="sequence">220</field>
+        </record>
+
+        <record id="bom_double_cab_mirror_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_mirror_r"/>
+            <field name="sequence">230</field>
+        </record>
+
+        <record id="bom_double_cab_mirror_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_mirror_l"/>
+            <field name="sequence">240</field>
+        </record>
+
+        <record id="bom_double_cab_panel_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_panel_fr"/>
+            <field name="sequence">250</field>
+        </record>
+
+        <record id="bom_double_cab_bed" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_bed"/>
+            <field name="sequence">260</field>
+        </record>
+
+        <record id="bom_double_cab_light_hd_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_r"/>
+            <field name="sequence">270</field>
+        </record>
+
+        <record id="bom_double_cab_grille_in" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_grille_in"/>
+            <field name="sequence">280</field>
+        </record>
+
+        <record id="bom_double_cab_light_hd_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_l"/>
+            <field name="sequence">290</field>
+        </record>
+
+        <record id="bom_double_cab_grille_out" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_grille_out"/>
+            <field name="sequence">300</field>
+        </record>
+
+        <record id="bom_double_cab_light_tl_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_r"/>
+            <field name="sequence">310</field>
+        </record>
+
+        <record id="bom_double_cab_light_tl_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_l"/>
+            <field name="sequence">320</field>
+        </record>
+
+        <record id="bom_double_cab_refl_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_refl_rr_r"/>
+            <field name="sequence">330</field>
+        </record>
+
+        <record id="bom_double_cab_refl_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_refl_rr_l"/>
+            <field name="sequence">340</field>
+        </record>
+
+        <record id="bom_double_cab_panel_ac" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_panel_ac"/>
+            <field name="sequence">350</field>
+        </record>
+
+        <record id="bom_double_cab_console" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_console"/>
+            <field name="sequence">360</field>
+        </record>
+
+        <record id="bom_double_cab_motor_rad" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_motor_rad"/>
+            <field name="sequence">370</field>
+        </record>
+
+        <record id="bom_double_cab_motor_ac" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_motor_ac"/>
+            <field name="sequence">380</field>
+        </record>
+
+        <record id="bom_double_cab_wire_fuse" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_wire_fuse"/>
+            <field name="sequence">390</field>
+        </record>
+
+        <record id="bom_double_cab_rack_steer" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_rack_steer"/>
+            <field name="sequence">400</field>
+        </record>
+
+        <record id="bom_double_cab_wire_cons" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_wire_cons"/>
+            <field name="sequence">410</field>
+        </record>
+
+        <record id="bom_double_cab_wheel_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_r"/>
+            <field name="sequence">420</field>
+        </record>
+
+        <record id="bom_double_cab_sens_bump_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_sens_bump_fr"/>
+            <field name="sequence">430</field>
+        </record>
+
+        <record id="bom_double_cab_wheel_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_l"/>
+            <field name="sequence">440</field>
+        </record>
+
+        <record id="bom_double_cab_sens_bump_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_sens_bump_rr"/>
+            <field name="sequence">450</field>
+        </record>
+
+        <record id="bom_double_cab_wheel_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_r"/>
+            <field name="sequence">460</field>
+        </record>
+
+        <record id="bom_double_cab_ecu" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_ecu"/>
+            <field name="sequence">470</field>
+        </record>
+
+        <record id="bom_double_cab_wheel_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_l"/>
+            <field name="sequence">480</field>
+        </record>
+
+        <record id="bom_double_cab_abs_pump" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_abs_pump"/>
+            <field name="sequence">490</field>
+        </record>
+
+        <record id="bom_double_cab_radiator" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_cooling"/>
+            <field name="part_template_id" ref="tpl_part_radiator"/>
+            <field name="sequence">500</field>
+        </record>
+
+        <record id="bom_double_cab_airbag_mod" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_airbag_mod"/>
+            <field name="sequence">510</field>
+        </record>
+
+        <record id="bom_double_cab_trans" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_transmission"/>
+            <field name="part_template_id" ref="tpl_part_trans"/>
+            <field name="sequence">520</field>
+        </record>
+
+        <record id="bom_double_cab_airbag_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_airbag_r"/>
+            <field name="sequence">530</field>
+        </record>
+
+        <record id="bom_double_cab_airbag_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_airbag_l"/>
+            <field name="sequence">540</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- SUV -->
+        <!-- ==================== -->
+
+        <record id="bom_suv_bump_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_bump_fr"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="bom_suv_arm_lo_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_lo_fr_r"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="bom_suv_bump_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_bump_rr"/>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="bom_suv_arm_lo_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_lo_fr_l"/>
+            <field name="sequence">40</field>
+        </record>
+
+        <record id="bom_suv_fend_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_r"/>
+            <field name="sequence">50</field>
+        </record>
+
+        <record id="bom_suv_arm_up_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_up_fr_r"/>
+            <field name="sequence">60</field>
+        </record>
+
+        <record id="bom_suv_fend_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_l"/>
+            <field name="sequence">70</field>
+        </record>
+
+        <record id="bom_suv_arm_up_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_up_fr_l"/>
+            <field name="sequence">80</field>
+        </record>
+
+        <record id="bom_suv_door_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_r"/>
+            <field name="sequence">90</field>
+        </record>
+
+        <record id="bom_suv_door_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_l"/>
+            <field name="sequence">100</field>
+        </record>
+
+        <record id="bom_suv_door_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_rr_r"/>
+            <field name="sequence">110</field>
+        </record>
+
+        <record id="bom_suv_strut_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_strut_fr_r"/>
+            <field name="sequence">120</field>
+        </record>
+
+        <record id="bom_suv_door_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_rr_l"/>
+            <field name="sequence">130</field>
+        </record>
+
+        <record id="bom_suv_strut_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_strut_fr_l"/>
+            <field name="sequence">140</field>
+        </record>
+
+        <record id="bom_suv_hood_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_hood_fr"/>
+            <field name="sequence">150</field>
+        </record>
+
+        <record id="bom_suv_shock_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_fr_r"/>
+            <field name="sequence">160</field>
+        </record>
+
+        <record id="bom_suv_hood_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_hood_rr"/>
+            <field name="sequence">170</field>
+        </record>
+
+        <record id="bom_suv_shock_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_fr_l"/>
+            <field name="sequence">180</field>
+        </record>
+
+        <record id="bom_suv_roof" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_roof"/>
+            <field name="sequence">190</field>
+        </record>
+
+        <record id="bom_suv_shock_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_r"/>
+            <field name="sequence">200</field>
+        </record>
+
+        <record id="bom_suv_mirror_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_mirror_r"/>
+            <field name="sequence">210</field>
+        </record>
+
+        <record id="bom_suv_shock_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_l"/>
+            <field name="sequence">220</field>
+        </record>
+
+        <record id="bom_suv_mirror_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_mirror_l"/>
+            <field name="sequence">230</field>
+        </record>
+
+        <record id="bom_suv_panel_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_panel_fr"/>
+            <field name="sequence">240</field>
+        </record>
+
+        <record id="bom_suv_grille_in" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_grille_in"/>
+            <field name="sequence">250</field>
+        </record>
+
+        <record id="bom_suv_grille_out" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_grille_out"/>
+            <field name="sequence">260</field>
+        </record>
+
+        <record id="bom_suv_light_hd_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_r"/>
+            <field name="sequence">270</field>
+        </record>
+
+        <record id="bom_suv_light_hd_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_l"/>
+            <field name="sequence">280</field>
+        </record>
+
+        <record id="bom_suv_light_tl_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_r"/>
+            <field name="sequence">290</field>
+        </record>
+
+        <record id="bom_suv_light_tl_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_l"/>
+            <field name="sequence">300</field>
+        </record>
+
+        <record id="bom_suv_refl_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_refl_rr_r"/>
+            <field name="sequence">310</field>
+        </record>
+
+        <record id="bom_suv_refl_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_refl_rr_l"/>
+            <field name="sequence">320</field>
+        </record>
+
+        <record id="bom_suv_panel_ac" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_panel_ac"/>
+            <field name="sequence">330</field>
+        </record>
+
+        <record id="bom_suv_console" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_console"/>
+            <field name="sequence">340</field>
+        </record>
+
+        <record id="bom_suv_motor_rad" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_motor_rad"/>
+            <field name="sequence">350</field>
+        </record>
+
+        <record id="bom_suv_motor_ac" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_motor_ac"/>
+            <field name="sequence">360</field>
+        </record>
+
+        <record id="bom_suv_wire_fuse" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_wire_fuse"/>
+            <field name="sequence">370</field>
+        </record>
+
+        <record id="bom_suv_rack_steer" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_rack_steer"/>
+            <field name="sequence">380</field>
+        </record>
+
+        <record id="bom_suv_wire_cons" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_wire_cons"/>
+            <field name="sequence">390</field>
+        </record>
+
+        <record id="bom_suv_wheel_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_r"/>
+            <field name="sequence">400</field>
+        </record>
+
+        <record id="bom_suv_sens_bump_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_sens_bump_fr"/>
+            <field name="sequence">410</field>
+        </record>
+
+        <record id="bom_suv_wheel_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_l"/>
+            <field name="sequence">420</field>
+        </record>
+
+        <record id="bom_suv_sens_bump_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_sens_bump_rr"/>
+            <field name="sequence">430</field>
+        </record>
+
+        <record id="bom_suv_wheel_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_r"/>
+            <field name="sequence">440</field>
+        </record>
+
+        <record id="bom_suv_ecu" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_ecu"/>
+            <field name="sequence">450</field>
+        </record>
+
+        <record id="bom_suv_wheel_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_l"/>
+            <field name="sequence">460</field>
+        </record>
+
+        <record id="bom_suv_abs_pump" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_abs_pump"/>
+            <field name="sequence">470</field>
+        </record>
+
+        <record id="bom_suv_radiator" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_cooling"/>
+            <field name="part_template_id" ref="tpl_part_radiator"/>
+            <field name="sequence">480</field>
+        </record>
+
+        <record id="bom_suv_airbag_mod" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_airbag_mod"/>
+            <field name="sequence">490</field>
+        </record>
+
+        <record id="bom_suv_trans" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_transmission"/>
+            <field name="part_template_id" ref="tpl_part_trans"/>
+            <field name="sequence">500</field>
+        </record>
+
+        <record id="bom_suv_airbag_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_airbag_r"/>
+            <field name="sequence">510</field>
+        </record>
+
+        <record id="bom_suv_airbag_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_suv"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_airbag_l"/>
+            <field name="sequence">520</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- รถตู้ -->
+        <!-- ==================== -->
+
+        <record id="bom_van_bump_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_bump_fr"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="bom_van_arm_lo_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_lo_fr_r"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="bom_van_bump_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_bump_rr"/>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="bom_van_arm_lo_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_lo_fr_l"/>
+            <field name="sequence">40</field>
+        </record>
+
+        <record id="bom_van_fend_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_r"/>
+            <field name="sequence">50</field>
+        </record>
+
+        <record id="bom_van_arm_up_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_up_fr_r"/>
+            <field name="sequence">60</field>
+        </record>
+
+        <record id="bom_van_fend_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_l"/>
+            <field name="sequence">70</field>
+        </record>
+
+        <record id="bom_van_arm_up_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_up_fr_l"/>
+            <field name="sequence">80</field>
+        </record>
+
+        <record id="bom_van_door_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_r"/>
+            <field name="sequence">90</field>
+        </record>
+
+        <record id="bom_van_door_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_l"/>
+            <field name="sequence">100</field>
+        </record>
+
+        <record id="bom_van_door_sl_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_sl_l"/>
+            <field name="sequence">110</field>
+        </record>
+
+        <record id="bom_van_strut_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_strut_fr_r"/>
+            <field name="sequence">120</field>
+        </record>
+
+        <record id="bom_van_hood_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_hood_fr"/>
+            <field name="sequence">130</field>
+        </record>
+
+        <record id="bom_van_strut_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_strut_fr_l"/>
+            <field name="sequence">140</field>
+        </record>
+
+        <record id="bom_van_hood_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_hood_rr"/>
+            <field name="sequence">150</field>
+        </record>
+
+        <record id="bom_van_shock_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_fr_r"/>
+            <field name="sequence">160</field>
+        </record>
+
+        <record id="bom_van_roof" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_roof"/>
+            <field name="sequence">170</field>
+        </record>
+
+        <record id="bom_van_shock_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_fr_l"/>
+            <field name="sequence">180</field>
+        </record>
+
+        <record id="bom_van_mirror_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_mirror_r"/>
+            <field name="sequence">190</field>
+        </record>
+
+        <record id="bom_van_shock_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_r"/>
+            <field name="sequence">200</field>
+        </record>
+
+        <record id="bom_van_mirror_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_mirror_l"/>
+            <field name="sequence">210</field>
+        </record>
+
+        <record id="bom_van_shock_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_l"/>
+            <field name="sequence">220</field>
+        </record>
+
+        <record id="bom_van_panel_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_panel_fr"/>
+            <field name="sequence">230</field>
+        </record>
+
+        <record id="bom_van_grille_in" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_grille_in"/>
+            <field name="sequence">240</field>
+        </record>
+
+        <record id="bom_van_grille_out" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_grille_out"/>
+            <field name="sequence">250</field>
+        </record>
+
+        <record id="bom_van_light_hd_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_r"/>
+            <field name="sequence">260</field>
+        </record>
+
+        <record id="bom_van_light_hd_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_l"/>
+            <field name="sequence">270</field>
+        </record>
+
+        <record id="bom_van_light_tl_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_r"/>
+            <field name="sequence">280</field>
+        </record>
+
+        <record id="bom_van_light_tl_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_l"/>
+            <field name="sequence">290</field>
+        </record>
+
+        <record id="bom_van_refl_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_refl_rr_r"/>
+            <field name="sequence">300</field>
+        </record>
+
+        <record id="bom_van_refl_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_refl_rr_l"/>
+            <field name="sequence">310</field>
+        </record>
+
+        <record id="bom_van_panel_ac" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_panel_ac"/>
+            <field name="sequence">320</field>
+        </record>
+
+        <record id="bom_van_console" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_console"/>
+            <field name="sequence">330</field>
+        </record>
+
+        <record id="bom_van_motor_rad" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_motor_rad"/>
+            <field name="sequence">340</field>
+        </record>
+
+        <record id="bom_van_motor_ac" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_motor_ac"/>
+            <field name="sequence">350</field>
+        </record>
+
+        <record id="bom_van_wire_fuse" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_wire_fuse"/>
+            <field name="sequence">360</field>
+        </record>
+
+        <record id="bom_van_rack_steer" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_rack_steer"/>
+            <field name="sequence">370</field>
+        </record>
+
+        <record id="bom_van_wire_cons" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_wire_cons"/>
+            <field name="sequence">380</field>
+        </record>
+
+        <record id="bom_van_wheel_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_r"/>
+            <field name="sequence">390</field>
+        </record>
+
+        <record id="bom_van_sens_bump_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_sens_bump_fr"/>
+            <field name="sequence">400</field>
+        </record>
+
+        <record id="bom_van_wheel_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_l"/>
+            <field name="sequence">410</field>
+        </record>
+
+        <record id="bom_van_sens_bump_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_sens_bump_rr"/>
+            <field name="sequence">420</field>
+        </record>
+
+        <record id="bom_van_wheel_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_r"/>
+            <field name="sequence">430</field>
+        </record>
+
+        <record id="bom_van_ecu" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_ecu"/>
+            <field name="sequence">440</field>
+        </record>
+
+        <record id="bom_van_wheel_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_l"/>
+            <field name="sequence">450</field>
+        </record>
+
+        <record id="bom_van_abs_pump" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_abs_pump"/>
+            <field name="sequence">460</field>
+        </record>
+
+        <record id="bom_van_radiator" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_cooling"/>
+            <field name="part_template_id" ref="tpl_part_radiator"/>
+            <field name="sequence">470</field>
+        </record>
+
+        <record id="bom_van_airbag_mod" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_airbag_mod"/>
+            <field name="sequence">480</field>
+        </record>
+
+        <record id="bom_van_trans" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_transmission"/>
+            <field name="part_template_id" ref="tpl_part_trans"/>
+            <field name="sequence">490</field>
+        </record>
+
+        <record id="bom_van_airbag_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_airbag_r"/>
+            <field name="sequence">500</field>
+        </record>
+
+        <record id="bom_van_airbag_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_airbag_l"/>
+            <field name="sequence">510</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- รถตู้ VIP -->
+        <!-- ==================== -->
+
+        <record id="bom_van_vip_bump_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_bump_fr"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="bom_van_vip_arm_lo_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_lo_fr_r"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="bom_van_vip_bump_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_bump_rr"/>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="bom_van_vip_arm_lo_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_lo_fr_l"/>
+            <field name="sequence">40</field>
+        </record>
+
+        <record id="bom_van_vip_fend_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_r"/>
+            <field name="sequence">50</field>
+        </record>
+
+        <record id="bom_van_vip_arm_up_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_up_fr_r"/>
+            <field name="sequence">60</field>
+        </record>
+
+        <record id="bom_van_vip_fend_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_l"/>
+            <field name="sequence">70</field>
+        </record>
+
+        <record id="bom_van_vip_arm_up_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_up_fr_l"/>
+            <field name="sequence">80</field>
+        </record>
+
+        <record id="bom_van_vip_door_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_r"/>
+            <field name="sequence">90</field>
+        </record>
+
+        <record id="bom_van_vip_door_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_l"/>
+            <field name="sequence">100</field>
+        </record>
+
+        <record id="bom_van_vip_door_slp_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_slp_l"/>
+            <field name="sequence">110</field>
+        </record>
+
+        <record id="bom_van_vip_strut_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_strut_fr_r"/>
+            <field name="sequence">120</field>
+        </record>
+
+        <record id="bom_van_vip_door_slp_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_slp_r"/>
+            <field name="sequence">130</field>
+        </record>
+
+        <record id="bom_van_vip_strut_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_strut_fr_l"/>
+            <field name="sequence">140</field>
+        </record>
+
+        <record id="bom_van_vip_hood_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_hood_fr"/>
+            <field name="sequence">150</field>
+        </record>
+
+        <record id="bom_van_vip_shock_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_fr_r"/>
+            <field name="sequence">160</field>
+        </record>
+
+        <record id="bom_van_vip_hood_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_hood_rr"/>
+            <field name="sequence">170</field>
+        </record>
+
+        <record id="bom_van_vip_shock_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_fr_l"/>
+            <field name="sequence">180</field>
+        </record>
+
+        <record id="bom_van_vip_roof" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_roof"/>
+            <field name="sequence">190</field>
+        </record>
+
+        <record id="bom_van_vip_shock_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_r"/>
+            <field name="sequence">200</field>
+        </record>
+
+        <record id="bom_van_vip_mirror_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_mirror_r"/>
+            <field name="sequence">210</field>
+        </record>
+
+        <record id="bom_van_vip_shock_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_l"/>
+            <field name="sequence">220</field>
+        </record>
+
+        <record id="bom_van_vip_mirror_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_mirror_l"/>
+            <field name="sequence">230</field>
+        </record>
+
+        <record id="bom_van_vip_airbag_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_airbag_fr"/>
+            <field name="sequence">240</field>
+        </record>
+
+        <record id="bom_van_vip_panel_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_panel_fr"/>
+            <field name="sequence">250</field>
+        </record>
+
+        <record id="bom_van_vip_airbag_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_airbag_rr"/>
+            <field name="sequence">260</field>
+        </record>
+
+        <record id="bom_van_vip_grille_in" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_grille_in"/>
+            <field name="sequence">270</field>
+        </record>
+
+        <record id="bom_van_vip_grille_out" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_grille_out"/>
+            <field name="sequence">280</field>
+        </record>
+
+        <record id="bom_van_vip_light_hd_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_r"/>
+            <field name="sequence">290</field>
+        </record>
+
+        <record id="bom_van_vip_light_hd_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_l"/>
+            <field name="sequence">300</field>
+        </record>
+
+        <record id="bom_van_vip_light_tl_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_r"/>
+            <field name="sequence">310</field>
+        </record>
+
+        <record id="bom_van_vip_light_tl_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_l"/>
+            <field name="sequence">320</field>
+        </record>
+
+        <record id="bom_van_vip_refl_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_refl_rr_r"/>
+            <field name="sequence">330</field>
+        </record>
+
+        <record id="bom_van_vip_refl_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_refl_rr_l"/>
+            <field name="sequence">340</field>
+        </record>
+
+        <record id="bom_van_vip_panel_ac" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_panel_ac"/>
+            <field name="sequence">350</field>
+        </record>
+
+        <record id="bom_van_vip_console" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_console"/>
+            <field name="sequence">360</field>
+        </record>
+
+        <record id="bom_van_vip_motor_rad" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_motor_rad"/>
+            <field name="sequence">370</field>
+        </record>
+
+        <record id="bom_van_vip_motor_ac" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_motor_ac"/>
+            <field name="sequence">380</field>
+        </record>
+
+        <record id="bom_van_vip_wire_fuse" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_wire_fuse"/>
+            <field name="sequence">390</field>
+        </record>
+
+        <record id="bom_van_vip_rack_steer" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_rack_steer"/>
+            <field name="sequence">400</field>
+        </record>
+
+        <record id="bom_van_vip_wire_cons" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_wire_cons"/>
+            <field name="sequence">410</field>
+        </record>
+
+        <record id="bom_van_vip_wheel_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_r"/>
+            <field name="sequence">420</field>
+        </record>
+
+        <record id="bom_van_vip_sens_bump_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_sens_bump_fr"/>
+            <field name="sequence">430</field>
+        </record>
+
+        <record id="bom_van_vip_wheel_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_l"/>
+            <field name="sequence">440</field>
+        </record>
+
+        <record id="bom_van_vip_sens_bump_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_sens_bump_rr"/>
+            <field name="sequence">450</field>
+        </record>
+
+        <record id="bom_van_vip_wheel_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_r"/>
+            <field name="sequence">460</field>
+        </record>
+
+        <record id="bom_van_vip_ecu" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_ecu"/>
+            <field name="sequence">470</field>
+        </record>
+
+        <record id="bom_van_vip_wheel_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_l"/>
+            <field name="sequence">480</field>
+        </record>
+
+        <record id="bom_van_vip_abs_pump" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_abs_pump"/>
+            <field name="sequence">490</field>
+        </record>
+
+        <record id="bom_van_vip_radiator" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_cooling"/>
+            <field name="part_template_id" ref="tpl_part_radiator"/>
+            <field name="sequence">500</field>
+        </record>
+
+        <record id="bom_van_vip_airbag_mod" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_airbag_mod"/>
+            <field name="sequence">510</field>
+        </record>
+
+        <record id="bom_van_vip_trans" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_transmission"/>
+            <field name="part_template_id" ref="tpl_part_trans"/>
+            <field name="sequence">520</field>
+        </record>
+
+        <record id="bom_van_vip_airbag_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_airbag_r"/>
+            <field name="sequence">530</field>
+        </record>
+
+        <record id="bom_van_vip_airbag_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_airbag_l"/>
+            <field name="sequence">540</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- สิบล้อ -->
+        <!-- ==================== -->
+
+        <record id="bom_truck_10wheel_bump_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_bump_fr"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="bom_truck_10wheel_arm_lo_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_lo_fr_r"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="bom_truck_10wheel_bump_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_bump_rr"/>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="bom_truck_10wheel_arm_lo_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_lo_fr_l"/>
+            <field name="sequence">40</field>
+        </record>
+
+        <record id="bom_truck_10wheel_fend_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_r"/>
+            <field name="sequence">50</field>
+        </record>
+
+        <record id="bom_truck_10wheel_arm_up_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_up_fr_r"/>
+            <field name="sequence">60</field>
+        </record>
+
+        <record id="bom_truck_10wheel_fend_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_l"/>
+            <field name="sequence">70</field>
+        </record>
+
+        <record id="bom_truck_10wheel_arm_up_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_up_fr_l"/>
+            <field name="sequence">80</field>
+        </record>
+
+        <record id="bom_truck_10wheel_door_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_r"/>
+            <field name="sequence">90</field>
+        </record>
+
+        <record id="bom_truck_10wheel_door_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_l"/>
+            <field name="sequence">100</field>
+        </record>
+
+        <record id="bom_truck_10wheel_deflect_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_deflect_fr"/>
+            <field name="sequence">110</field>
+        </record>
+
+        <record id="bom_truck_10wheel_strut_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_strut_fr_r"/>
+            <field name="sequence">120</field>
+        </record>
+
+        <record id="bom_truck_10wheel_tailgate" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_tailgate"/>
+            <field name="sequence">130</field>
+        </record>
+
+        <record id="bom_truck_10wheel_strut_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_strut_fr_l"/>
+            <field name="sequence">140</field>
+        </record>
+
+        <record id="bom_truck_10wheel_mirror_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_mirror_r"/>
+            <field name="sequence">150</field>
+        </record>
+
+        <record id="bom_truck_10wheel_shock_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_fr_r"/>
+            <field name="sequence">160</field>
+        </record>
+
+        <record id="bom_truck_10wheel_mirror_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_mirror_l"/>
+            <field name="sequence">170</field>
+        </record>
+
+        <record id="bom_truck_10wheel_shock_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_fr_l"/>
+            <field name="sequence">180</field>
+        </record>
+
+        <record id="bom_truck_10wheel_panel_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_panel_fr"/>
+            <field name="sequence">190</field>
+        </record>
+
+        <record id="bom_truck_10wheel_shock_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_r"/>
+            <field name="sequence">200</field>
+        </record>
+
+        <record id="bom_truck_10wheel_bed" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_bed"/>
+            <field name="sequence">210</field>
+        </record>
+
+        <record id="bom_truck_10wheel_shock_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_l"/>
+            <field name="sequence">220</field>
+        </record>
+
+        <record id="bom_truck_10wheel_grille_in" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_grille_in"/>
+            <field name="sequence">230</field>
+        </record>
+
+        <record id="bom_truck_10wheel_grille_out" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_grille_out"/>
+            <field name="sequence">240</field>
+        </record>
+
+        <record id="bom_truck_10wheel_light_hd_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_r"/>
+            <field name="sequence">250</field>
+        </record>
+
+        <record id="bom_truck_10wheel_light_hd_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_l"/>
+            <field name="sequence">260</field>
+        </record>
+
+        <record id="bom_truck_10wheel_light_tl_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_r"/>
+            <field name="sequence">270</field>
+        </record>
+
+        <record id="bom_truck_10wheel_light_tl_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_l"/>
+            <field name="sequence">280</field>
+        </record>
+
+        <record id="bom_truck_10wheel_refl_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_refl_rr_r"/>
+            <field name="sequence">290</field>
+        </record>
+
+        <record id="bom_truck_10wheel_refl_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_refl_rr_l"/>
+            <field name="sequence">300</field>
+        </record>
+
+        <record id="bom_truck_10wheel_panel_ac" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_panel_ac"/>
+            <field name="sequence">310</field>
+        </record>
+
+        <record id="bom_truck_10wheel_console" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_console"/>
+            <field name="sequence">320</field>
+        </record>
+
+        <record id="bom_truck_10wheel_motor_rad" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_motor_rad"/>
+            <field name="sequence">330</field>
+        </record>
+
+        <record id="bom_truck_10wheel_motor_ac" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_motor_ac"/>
+            <field name="sequence">340</field>
+        </record>
+
+        <record id="bom_truck_10wheel_wire_fuse" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_wire_fuse"/>
+            <field name="sequence">350</field>
+        </record>
+
+        <record id="bom_truck_10wheel_rack_steer" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_rack_steer"/>
+            <field name="sequence">360</field>
+        </record>
+
+        <record id="bom_truck_10wheel_wire_cons" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_wire_cons"/>
+            <field name="sequence">370</field>
+        </record>
+
+        <record id="bom_truck_10wheel_wheel_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_r"/>
+            <field name="sequence">380</field>
+        </record>
+
+        <record id="bom_truck_10wheel_sens_bump_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_sens_bump_fr"/>
+            <field name="sequence">390</field>
+        </record>
+
+        <record id="bom_truck_10wheel_wheel_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_l"/>
+            <field name="sequence">400</field>
+        </record>
+
+        <record id="bom_truck_10wheel_sens_bump_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_sens_bump_rr"/>
+            <field name="sequence">410</field>
+        </record>
+
+        <record id="bom_truck_10wheel_wheel_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_r"/>
+            <field name="sequence">420</field>
+        </record>
+
+        <record id="bom_truck_10wheel_ecu" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_ecu"/>
+            <field name="sequence">430</field>
+        </record>
+
+        <record id="bom_truck_10wheel_wheel_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_l"/>
+            <field name="sequence">440</field>
+        </record>
+
+        <record id="bom_truck_10wheel_abs_pump" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_abs_pump"/>
+            <field name="sequence">450</field>
+        </record>
+
+        <record id="bom_truck_10wheel_radiator" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_cooling"/>
+            <field name="part_template_id" ref="tpl_part_radiator"/>
+            <field name="sequence">460</field>
+        </record>
+
+        <record id="bom_truck_10wheel_airbag_mod" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_airbag_mod"/>
+            <field name="sequence">470</field>
+        </record>
+
+        <record id="bom_truck_10wheel_trans" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_transmission"/>
+            <field name="part_template_id" ref="tpl_part_trans"/>
+            <field name="sequence">480</field>
+        </record>
+
+        <record id="bom_truck_10wheel_airbag_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_airbag_r"/>
+            <field name="sequence">490</field>
+        </record>
+
+        <record id="bom_truck_10wheel_airbag_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_truck_10wheel"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_airbag_l"/>
+            <field name="sequence">500</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- รถเก๋ง -->
+        <!-- ==================== -->
+
+        <record id="bom_sedan_bump_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_bump_fr"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="bom_sedan_arm_lo_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_lo_fr_r"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="bom_sedan_bump_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_bump_rr"/>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="bom_sedan_arm_lo_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_lo_fr_l"/>
+            <field name="sequence">40</field>
+        </record>
+
+        <record id="bom_sedan_fend_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_r"/>
+            <field name="sequence">50</field>
+        </record>
+
+        <record id="bom_sedan_arm_up_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_up_fr_r"/>
+            <field name="sequence">60</field>
+        </record>
+
+        <record id="bom_sedan_fend_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_l"/>
+            <field name="sequence">70</field>
+        </record>
+
+        <record id="bom_sedan_arm_up_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_arm_up_fr_l"/>
+            <field name="sequence">80</field>
+        </record>
+
+        <record id="bom_sedan_door_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_r"/>
+            <field name="sequence">90</field>
+        </record>
+
+        <record id="bom_sedan_door_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_l"/>
+            <field name="sequence">100</field>
+        </record>
+
+        <record id="bom_sedan_door_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_rr_r"/>
+            <field name="sequence">110</field>
+        </record>
+
+        <record id="bom_sedan_strut_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_strut_fr_r"/>
+            <field name="sequence">120</field>
+        </record>
+
+        <record id="bom_sedan_door_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_door_rr_l"/>
+            <field name="sequence">130</field>
+        </record>
+
+        <record id="bom_sedan_strut_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_strut_fr_l"/>
+            <field name="sequence">140</field>
+        </record>
+
+        <record id="bom_sedan_fend_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_fend_rr_r"/>
+            <field name="sequence">150</field>
+        </record>
+
+        <record id="bom_sedan_shock_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_fr_r"/>
+            <field name="sequence">160</field>
+        </record>
+
+        <record id="bom_sedan_fend_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_fend_rr_l"/>
+            <field name="sequence">170</field>
+        </record>
+
+        <record id="bom_sedan_shock_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_fr_l"/>
+            <field name="sequence">180</field>
+        </record>
+
+        <record id="bom_sedan_hood_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_hood_fr"/>
+            <field name="sequence">190</field>
+        </record>
+
+        <record id="bom_sedan_shock_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_r"/>
+            <field name="sequence">200</field>
+        </record>
+
+        <record id="bom_sedan_hood_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_hood_rr"/>
+            <field name="sequence">210</field>
+        </record>
+
+        <record id="bom_sedan_shock_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_l"/>
+            <field name="sequence">220</field>
+        </record>
+
+        <record id="bom_sedan_roof" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_roof"/>
+            <field name="sequence">230</field>
+        </record>
+
+        <record id="bom_sedan_subframe" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_subframe"/>
+            <field name="sequence">240</field>
+        </record>
+
+        <record id="bom_sedan_mirror_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_mirror_r"/>
+            <field name="sequence">250</field>
+        </record>
+
+        <record id="bom_sedan_crossmem_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_crossmem_rr"/>
+            <field name="sequence">260</field>
+        </record>
+
+        <record id="bom_sedan_mirror_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_mirror_l"/>
+            <field name="sequence">270</field>
+        </record>
+
+        <record id="bom_sedan_panel_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_panel_fr"/>
+            <field name="sequence">280</field>
+        </record>
+
+        <record id="bom_sedan_light_hd_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_r"/>
+            <field name="sequence">290</field>
+        </record>
+
+        <record id="bom_sedan_panel_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_panel_rr"/>
+            <field name="sequence">300</field>
+        </record>
+
+        <record id="bom_sedan_light_hd_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_l"/>
+            <field name="sequence">310</field>
+        </record>
+
+        <record id="bom_sedan_grille_in" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_grille_in"/>
+            <field name="sequence">320</field>
+        </record>
+
+        <record id="bom_sedan_light_tl_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_r"/>
+            <field name="sequence">330</field>
+        </record>
+
+        <record id="bom_sedan_grille_out" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_grille_out"/>
+            <field name="sequence">340</field>
+        </record>
+
+        <record id="bom_sedan_light_tl_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_l"/>
+            <field name="sequence">350</field>
+        </record>
+
+        <record id="bom_sedan_skirt_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_skirt_fr"/>
+            <field name="sequence">360</field>
+        </record>
+
+        <record id="bom_sedan_refl_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_refl_rr_r"/>
+            <field name="sequence">370</field>
+        </record>
+
+        <record id="bom_sedan_skirt_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_skirt_rr"/>
+            <field name="sequence">380</field>
+        </record>
+
+        <record id="bom_sedan_refl_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_refl_rr_l"/>
+            <field name="sequence">390</field>
+        </record>
+
+        <record id="bom_sedan_skirt_sd_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_skirt_sd_r"/>
+            <field name="sequence">400</field>
+        </record>
+
+        <record id="bom_sedan_panel_ac" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_panel_ac"/>
+            <field name="sequence">410</field>
+        </record>
+
+        <record id="bom_sedan_skirt_sd_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_body"/>
+            <field name="part_template_id" ref="tpl_part_skirt_sd_l"/>
+            <field name="sequence">420</field>
+        </record>
+
+        <record id="bom_sedan_console" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_console"/>
+            <field name="sequence">430</field>
+        </record>
+
+        <record id="bom_sedan_motor_rad" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_motor_rad"/>
+            <field name="sequence">440</field>
+        </record>
+
+        <record id="bom_sedan_motor_ac" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_motor_ac"/>
+            <field name="sequence">450</field>
+        </record>
+
+        <record id="bom_sedan_wire_fuse" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_wire_fuse"/>
+            <field name="sequence">460</field>
+        </record>
+
+        <record id="bom_sedan_shaft_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shaft_fr_r"/>
+            <field name="sequence">470</field>
+        </record>
+
+        <record id="bom_sedan_wire_cons" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_wire_cons"/>
+            <field name="sequence">480</field>
+        </record>
+
+        <record id="bom_sedan_shaft_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_shaft_fr_l"/>
+            <field name="sequence">490</field>
+        </record>
+
+        <record id="bom_sedan_sens_bump_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_sens_bump_fr"/>
+            <field name="sequence">500</field>
+        </record>
+
+        <record id="bom_sedan_rack_steer" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_suspension"/>
+            <field name="part_template_id" ref="tpl_part_rack_steer"/>
+            <field name="sequence">510</field>
+        </record>
+
+        <record id="bom_sedan_sens_bump_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_sens_bump_rr"/>
+            <field name="sequence">520</field>
+        </record>
+
+        <record id="bom_sedan_wheel_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_r"/>
+            <field name="sequence">530</field>
+        </record>
+
+        <record id="bom_sedan_ecu" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_ecu"/>
+            <field name="sequence">540</field>
+        </record>
+
+        <record id="bom_sedan_wheel_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_l"/>
+            <field name="sequence">550</field>
+        </record>
+
+        <record id="bom_sedan_abs_pump" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_abs_pump"/>
+            <field name="sequence">560</field>
+        </record>
+
+        <record id="bom_sedan_wheel_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_r"/>
+            <field name="sequence">570</field>
+        </record>
+
+        <record id="bom_sedan_airbag_mod" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_electrical"/>
+            <field name="part_template_id" ref="tpl_part_airbag_mod"/>
+            <field name="sequence">580</field>
+        </record>
+
+        <record id="bom_sedan_wheel_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_wheel"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_l"/>
+            <field name="sequence">590</field>
+        </record>
+
+        <record id="bom_sedan_airbag_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_airbag_r"/>
+            <field name="sequence">600</field>
+        </record>
+
+        <record id="bom_sedan_radiator" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_cooling"/>
+            <field name="part_template_id" ref="tpl_part_radiator"/>
+            <field name="sequence">610</field>
+        </record>
+
+        <record id="bom_sedan_airbag_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_interior"/>
+            <field name="part_template_id" ref="tpl_part_airbag_l"/>
+            <field name="sequence">620</field>
+        </record>
+
+        <record id="bom_sedan_trans" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_category_id" ref="part_cat_transmission"/>
+            <field name="part_template_id" ref="tpl_part_trans"/>
+            <field name="sequence">630</field>
+        </record>
+
+    </data>
+</odoo>

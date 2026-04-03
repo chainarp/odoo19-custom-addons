@@ -62,6 +62,13 @@
             <field name="desc">ระบบหล่อเย็นและแอร์</field>
         </record>
 
+        <record id="part_cat_wheel" model="itx.info.vehicle.part.category">
+            <field name="code">WHEEL</field>
+            <field name="name">ล้อและยาง</field>
+            <field name="abbr">WHL</field>
+            <field name="desc">ล้อแม็ก ล้อเหล็ก ยาง</field>
+        </record>
+
         <!-- ==================== -->
         <!-- BODY - SUB CATEGORIES -->
         <!-- ==================== -->

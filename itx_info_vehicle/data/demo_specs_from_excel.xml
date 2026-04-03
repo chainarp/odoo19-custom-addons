@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- ================================================== -->
+        <!-- DEMO SPECS: Generated from Excel Body Types         -->
+        <!-- Note: Data insufficient to identify certain spec    -->
+        <!-- These are EDUCATED GUESSES based on:                -->
+        <!--   - Body Type (from Excel sheet names)              -->
+        <!--   - Brand hint (TOYOTA placeholder in template)     -->
+        <!--   - VIN pattern analysis (MR2 = Toyota Thailand)    -->
+        <!-- ================================================== -->
+
+        <!-- ==================== -->
+        <!-- GENERATIONS (New)    -->
+        <!-- ==================== -->
+
+        <!-- Commuter Gen 6 (H300) - รถตู้ -->
+        <record id="gen_commuter_gen6" model="itx.info.vehicle.generation">
+            <field name="code">COMMUTER_GEN6</field>
+            <field name="name">Gen 6 (H300)</field>
+            <field name="abbr">G6</field>
+            <field name="model_id" ref="model_toyota_commuter"/>
+            <field name="chassis_code">H300</field>
+            <field name="year_start">2019</field>
+            <field name="year_end">0</field>
+            <field name="desc">Commuter รุ่นใหม่ 2019+</field>
+        </record>
+
+        <!-- Alphard Gen 4 - รถตู้ VIP -->
+        <record id="gen_alphard_gen4" model="itx.info.vehicle.generation">
+            <field name="code">ALPHARD_GEN4</field>
+            <field name="name">Gen 4 (AH40)</field>
+            <field name="abbr">G4</field>
+            <field name="model_id" ref="model_toyota_alphard"/>
+            <field name="chassis_code">AH40</field>
+            <field name="year_start">2023</field>
+            <field name="year_end">0</field>
+            <field name="desc">Alphard รุ่นใหม่ล่าสุด 2023+</field>
+        </record>
+
+        <!-- Camry Gen 8 (XV70) - รถเก๋ง -->
+        <record id="gen_camry_gen8" model="itx.info.vehicle.generation">
+            <field name="code">CAMRY_GEN8</field>
+            <field name="name">Gen 8 (XV70)</field>
+            <field name="abbr">G8</field>
+            <field name="model_id" ref="model_toyota_camry"/>
+            <field name="chassis_code">XV70</field>
+            <field name="year_start">2019</field>
+            <field name="year_end">0</field>
+            <field name="desc">Camry TNGA Platform 2019+</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- SPECS FOR DEMO       -->
+        <!-- ==================== -->
+
+        <!-- กะบะแคป → Revo Smart Cab -->
+        <record id="spec_demo_revo_xcab" model="itx.info.vehicle.spec">
+            <field name="code">DEMO-REVO-24E-XCAB</field>
+            <field name="name">2.4E Smart Cab (Demo)</field>
+            <field name="abbr">24EXC</field>
+            <field name="generation_id" ref="gen_revo_gen2"/>
+            <field name="body_type_id" ref="body_type_extra_cab"/>
+            <field name="transmission">manual</field>
+            <field name="drive_type">fr</field>
+            <field name="fuel_type">diesel</field>
+            <field name="desc">Demo spec สำหรับทดสอบ - กะบะแคป จาก Excel template</field>
+        </record>
+
+        <!-- กะบะ 4 ประตู → Revo Double Cab -->
+        <record id="spec_demo_revo_dcab" model="itx.info.vehicle.spec">
+            <field name="code">DEMO-REVO-24G-DCAB</field>
+            <field name="name">2.4G Double Cab (Demo)</field>
+            <field name="abbr">24GDC</field>
+            <field name="generation_id" ref="gen_revo_gen2"/>
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="transmission">auto</field>
+            <field name="drive_type">fr</field>
+            <field name="fuel_type">diesel</field>
+            <field name="desc">Demo spec สำหรับทดสอบ - กะบะ 4 ประตู จาก Excel template</field>
+        </record>
+
+        <!-- SUV → Fortuner (มี spec อยู่แล้ว: spec_fortuner_g2_28v) -->
+
+        <!-- รถตู้ → Commuter Standard -->
+        <record id="spec_demo_commuter_std" model="itx.info.vehicle.spec">
+            <field name="code">DEMO-COMMUTER-STD</field>
+            <field name="name">Standard (Demo)</field>
+            <field name="abbr">STD</field>
+            <field name="generation_id" ref="gen_commuter_gen6"/>
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="transmission">auto</field>
+            <field name="drive_type">fr</field>
+            <field name="fuel_type">diesel</field>
+            <field name="desc">Demo spec สำหรับทดสอบ - รถตู้ จาก Excel template</field>
+        </record>
+
+        <!-- รถตู้ VIP → Alphard Hybrid -->
+        <record id="spec_demo_alphard_hv" model="itx.info.vehicle.spec">
+            <field name="code">DEMO-ALPHARD-25HV</field>
+            <field name="name">2.5 HV (Demo)</field>
+            <field name="abbr">25HV</field>
+            <field name="generation_id" ref="gen_alphard_gen4"/>
+            <field name="body_type_id" ref="body_type_van_vip"/>
+            <field name="transmission">auto</field>
+            <field name="drive_type">awd</field>
+            <field name="fuel_type">hybrid</field>
+            <field name="desc">Demo spec สำหรับทดสอบ - รถตู้ VIP จาก Excel template</field>
+        </record>
+
+        <!-- สิบล้อ → ไม่มีข้อมูลพอ -->
+        <!-- NOTE: Cannot identify certain spec for 10-wheel truck -->
+        <!-- No brand/model info in Excel template -->
+
+        <!-- รถเก๋ง → Camry Hybrid -->
+        <record id="spec_demo_camry_hv" model="itx.info.vehicle.spec">
+            <field name="code">DEMO-CAMRY-25HV</field>
+            <field name="name">2.5 HV (Demo)</field>
+            <field name="abbr">25HV</field>
+            <field name="generation_id" ref="gen_camry_gen8"/>
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="transmission">auto</field>
+            <field name="drive_type">ff</field>
+            <field name="fuel_type">hybrid</field>
+            <field name="desc">Demo spec สำหรับทดสอบ - รถเก๋ง จาก Excel template (VIN: MR2K33F3201209505)</field>
+        </record>
+
+    </data>
+</odoo>

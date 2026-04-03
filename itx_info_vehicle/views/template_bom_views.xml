@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Template BOM List View -->
+    <record id="itx_info_vehicle_template_bom_view_list" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.template.bom.view.list</field>
+        <field name="model">itx.info.vehicle.template.bom</field>
+        <field name="arch" type="xml">
+            <list string="BOM Templates" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="body_type_id"/>
+                <field name="part_category_id"/>
+                <field name="part_template_id"/>
+                <field name="part_name" optional="show"/>
+                <field name="part_abbr" optional="show"/>
+                <field name="qty"/>
+                <field name="active" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Template BOM Form View -->
+    <record id="itx_info_vehicle_template_bom_view_form" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.template.bom.view.form</field>
+        <field name="model">itx.info.vehicle.template.bom</field>
+        <field name="arch" type="xml">
+            <form string="BOM Template">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                   options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <group>
+                        <group string="Body Type">
+                            <field name="body_type_id" options="{'no_create': True}"/>
+                        </group>
+                        <group string="Part">
+                            <field name="part_category_id" options="{'no_create': True}"/>
+                            <field name="part_template_id" options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Quantity">
+                            <field name="qty"/>
+                            <field name="sequence"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Template BOM Search View -->
+    <record id="itx_info_vehicle_template_bom_view_search" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.template.bom.view.search</field>
+        <field name="model">itx.info.vehicle.template.bom</field>
+        <field name="arch" type="xml">
+            <search string="BOM Templates">
+                <field name="body_type_id"/>
+                <field name="part_category_id"/>
+                <field name="part_template_id"/>
+                <field name="part_name"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter string="Body Type" name="groupby_body_type" domain="[]" context="{'group_by': 'body_type_id'}"/>
+                    <filter string="Part Category" name="groupby_category" domain="[]" context="{'group_by': 'part_category_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Template BOM Action -->
+    <record id="itx_info_vehicle_template_bom_action" model="ir.actions.act_window">
+        <field name="name">BOM Templates</field>
+        <field name="res_model">itx.info.vehicle.template.bom</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="itx_info_vehicle_template_bom_view_search"/>
+        <field name="context">{'search_default_groupby_body_type': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first BOM template
+            </p>
+            <p>
+                BOM templates define standard parts for each body type.
+            </p>
+        </field>
+    </record>
+
+</odoo>

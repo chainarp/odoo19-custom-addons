@@ -13,3 +13,7 @@ access_itx_info_vehicle_mgr_body_type_user,itx.info.vehicle.mgr.body.type.user,m
 access_itx_info_vehicle_mgr_body_type_manager,itx.info.vehicle.mgr.body.type.manager,model_itx_info_vehicle_mgr_body_type,stock.group_stock_manager,1,1,1,1
 access_itx_info_vehicle_mgr_engine_user,itx.info.vehicle.mgr.engine.user,model_itx_info_vehicle_mgr_engine,stock.group_stock_user,1,0,0,0
 access_itx_info_vehicle_mgr_engine_manager,itx.info.vehicle.mgr.engine.manager,model_itx_info_vehicle_mgr_engine,stock.group_stock_manager,1,1,1,1
+access_itx_info_vehicle_template_part_user,itx.info.vehicle.template.part.user,model_itx_info_vehicle_template_part,stock.group_stock_user,1,0,0,0
+access_itx_info_vehicle_template_part_manager,itx.info.vehicle.template.part.manager,model_itx_info_vehicle_template_part,stock.group_stock_manager,1,1,1,1
+access_itx_info_vehicle_template_bom_user,itx.info.vehicle.template.bom.user,model_itx_info_vehicle_template_bom,stock.group_stock_user,1,0,0,0
+access_itx_info_vehicle_template_bom_manager,itx.info.vehicle.template.bom.manager,model_itx_info_vehicle_template_bom,stock.group_stock_manager,1,1,1,1

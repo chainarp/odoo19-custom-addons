@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Template Part List View -->
+    <record id="itx_info_vehicle_template_part_view_list" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.template.part.view.list</field>
+        <field name="model">itx.info.vehicle.template.part</field>
+        <field name="arch" type="xml">
+            <list string="Part Templates" editable="bottom">
+                <field name="code"/>
+                <field name="abbr"/>
+                <field name="name"/>
+                <field name="name_en" optional="show"/>
+                <field name="category_id"/>
+                <field name="desc" optional="hide"/>
+                <field name="active" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Template Part Form View -->
+    <record id="itx_info_vehicle_template_part_view_form" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.template.part.view.form</field>
+        <field name="model">itx.info.vehicle.template.part</field>
+        <field name="arch" type="xml">
+            <form string="Part Template">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                   options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <group>
+                        <group string="Identification">
+                            <field name="code"/>
+                            <field name="abbr"/>
+                        </group>
+                        <group string="Names">
+                            <field name="name" placeholder="ชื่อไทย (ชัดเจนในตัวเอง)"/>
+                            <field name="name_en" placeholder="English name"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Classification">
+                            <field name="category_id" options="{'no_create': True}"/>
+                        </group>
+                        <group string="Description">
+                            <field name="desc" nolabel="1"
+                                   placeholder="Additional context and description..."/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Template Part Search View -->
+    <record id="itx_info_vehicle_template_part_view_search" model="ir.ui.view">
+        <field name="name">itx.info.vehicle.template.part.view.search</field>
+        <field name="model">itx.info.vehicle.template.part</field>
+        <field name="arch" type="xml">
+            <search string="Part Templates">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="name_en"/>
+                <field name="abbr"/>
+                <field name="category_id"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter string="Category" name="groupby_category" domain="[]" context="{'group_by': 'category_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Template Part Action -->
+    <record id="itx_info_vehicle_template_part_action" model="ir.actions.act_window">
+        <field name="name">Part Templates</field>
+        <field name="res_model">itx.info.vehicle.template.part</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="itx_info_vehicle_template_part_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first part template
+            </p>
+            <p>
+                Part templates are master data for standardized part names.
+            </p>
+        </field>
+    </record>
+
+</odoo>

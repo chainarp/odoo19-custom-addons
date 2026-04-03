@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- ==================== -->
+        <!-- BODY PARTS (31)      -->
+        <!-- ==================== -->
+
+        <record id="tpl_part_bump_fr" model="itx.info.vehicle.template.part">
+            <field name="code">BUMP_FR</field>
+            <field name="name">กันชนหน้า</field>
+            <field name="name_en">Front Bumper</field>
+            <field name="abbr">BPF</field>
+            <field name="category_id" ref="part_cat_body"/>
+        </record>
+
+        <record id="tpl_part_bump_rr" model="itx.info.vehicle.template.part">
+            <field name="code">BUMP_RR</field>
+            <field name="name">กันชนหลัง</field>
+            <field name="name_en">Rear Bumper</field>
+            <field name="abbr">BPR</field>
+            <field name="category_id" ref="part_cat_body"/>
+        </record>
+
+        <record id="tpl_part_fend_fr_r" model="itx.info.vehicle.template.part">
+            <field name="code">FEND_FR_R</field>
+            <field name="name">บังโคลนหน้าขวา</field>
+            <field name="name_en">Front Right Fender</field>
+            <field name="abbr">FDFR</field>
+            <field name="category_id" ref="part_cat_body"/>
+        </record>
+
+        <record id="tpl_part_fend_fr_l" model="itx.info.vehicle.template.part">
+            <field name="code">FEND_FR_L</field>
+            <field name="name">บังโคลนหน้าซ้าย</field>
+            <field name="name_en">Front Left Fender</field>
+            <field name="abbr">FDFL</field>
+            <field name="category_id" ref="part_cat_body"/>
+        </record>
+
+        <record id="tpl_part_fend_rr_r" model="itx.info.vehicle.template.part">
+            <field name="code">FEND_RR_R</field>
+            <field name="name">บังโคลนหลังขวา</field>
+            <field name="name_en">Rear Right Fender</field>
+            <field name="abbr">FDRR</field>
+            <field name="category_id" ref="part_cat_body"/>
+            <field name="desc">เฉพาะรถเก๋ง</field>
+        </record>
+
+        <record id="tpl_part_fend_rr_l" model="itx.info.vehicle.template.part">
+            <field name="code">FEND_RR_L</field>
+            <field name="name">บังโคลนหลังซ้าย</field>
+            <field name="name_en">Rear Left Fender</field>
+            <field name="abbr">FDRL</field>
+            <field name="category_id" ref="part_cat_body"/>
+            <field name="desc">เฉพาะรถเก๋ง</field>
+        </record>
+
+        <record id="tpl_part_door_fr_r" model="itx.info.vehicle.template.part">
+            <field name="code">DOOR_FR_R</field>
+            <field name="name">ประตูหน้าขวา</field>
+            <field name="name_en">Front Right Door</field>
+            <field name="abbr">DRFR</field>
+            <field name="category_id" ref="part_cat_body"/>
+        </record>
+
+        <record id="tpl_part_door_fr_l" model="itx.info.vehicle.template.part">
+            <field name="code">DOOR_FR_L</field>
+            <field name="name">ประตูหน้าซ้าย</field>
+            <field name="name_en">Front Left Door</field>
+            <field name="abbr">DRFL</field>
+            <field name="category_id" ref="part_cat_body"/>
+        </record>
+
+        <record id="tpl_part_door_rr_r" model="itx.info.vehicle.template.part">
+            <field name="code">DOOR_RR_R</field>
+            <field name="name">ประตูหลังขวา</field>
+            <field name="name_en">Rear Right Door</field>
+            <field name="abbr">DRRR</field>
+            <field name="category_id" ref="part_cat_body"/>
+            <field name="desc">4 ประตู/SUV/รถเก๋ง</field>
+        </record>
+
+        <record id="tpl_part_door_rr_l" model="itx.info.vehicle.template.part">
+            <field name="code">DOOR_RR_L</field>
+            <field name="name">ประตูหลังซ้าย</field>
+            <field name="name_en">Rear Left Door</field>
+            <field name="abbr">DRRL</field>
+            <field name="category_id" ref="part_cat_body"/>
+            <field name="desc">4 ประตู/SUV/รถเก๋ง</field>
+        </record>
+
+        <record id="tpl_part_door_cap_r" model="itx.info.vehicle.template.part">
+            <field name="code">DOOR_CAP_R</field>
+            <field name="name">ประตูแค็บขวา</field>
+            <field name="name_en">Right Cap Door</field>
+            <field name="abbr">DCPR</field>
+            <field name="category_id" ref="part_cat_body"/>
+            <field name="desc">เฉพาะกระบะแค็บ</field>
+        </record>
+
+        <record id="tpl_part_door_cap_l" model="itx.info.vehicle.template.part">
+            <field name="code">DOOR_CAP_L</field>
+            <field name="name">ประตูแค็บซ้าย</field>
+            <field name="name_en">Left Cap Door</field>
+            <field name="abbr">DCPL</field>
+            <field name="category_id" ref="part_cat_body"/>
+            <field name="desc">เฉพาะกระบะแค็บ</field>
+        </record>
+
+        <record id="tpl_part_door_sl_l" model="itx.info.vehicle.template.part">
+            <field name="code">DOOR_SL_L</field>
+            <field name="name">ประตูสไลด์ข้างซ้าย</field>
+            <field name="name_en">Left Slide Door</field>
+            <field name="abbr">DSLL</field>
+            <field name="category_id" ref="part_cat_body"/>
+            <field name="desc">เฉพาะรถตู้</field>
+        </record>
+
+        <record id="tpl_part_door_slp_l" model="itx.info.vehicle.template.part">
+            <field name="code">DOOR_SLP_L</field>
+            <field name="name">ประตูสไลด์ไฟฟ้าข้างซ้าย</field>
+            <field name="name_en">Left Power Slide Door</field>
+            <field name="abbr">DPSL</field>
+            <field name="category_id" ref="part_cat_body"/>
+            <field name="desc">เฉพาะรถตู้ VIP</field>
+        </record>
+
+        <record id="tpl_part_door_slp_r" model="itx.info.vehicle.template.part">
+            <field name="code">DOOR_SLP_R</field>
+            <field name="name">ประตูสไลด์ไฟฟ้าข้างขวา</field>
+            <field name="name_en">Right Power Slide Door</field>
+            <field name="abbr">DPSR</field>
+            <field name="category_id" ref="part_cat_body"/>
+            <field name="desc">เฉพาะรถตู้ VIP</field>
+        </record>
+
+        <record id="tpl_part_hood_fr" model="itx.info.vehicle.template.part">
+            <field name="code">HOOD_FR</field>
+            <field name="name">ฝากระโปรงหน้า</field>
+            <field name="name_en">Front Hood</field>
+            <field name="abbr">HDF</field>
+            <field name="category_id" ref="part_cat_body"/>
+        </record>
+
+        <record id="tpl_part_hood_rr" model="itx.info.vehicle.template.part">
+            <field name="code">HOOD_RR</field>
+            <field name="name">ฝากระโปรงหลัง</field>
+            <field name="name_en">Rear Hood/Trunk Lid</field>
+            <field name="abbr">HDR</field>
+            <field name="category_id" ref="part_cat_body"/>
+        </record>
+
+        <record id="tpl_part_tailgate" model="itx.info.vehicle.template.part">
+            <field name="code">TAILGATE</field>
+            <field name="name">ฝาปิดท้ายกระบะ</field>
+            <field name="name_en">Tailgate</field>
+            <field name="abbr">TGT</field>
+            <field name="category_id" ref="part_cat_body"/>
+            <field name="desc">เฉพาะกระบะ</field>
+        </record>
+
+        <record id="tpl_part_roof" model="itx.info.vehicle.template.part">
+            <field name="code">ROOF</field>
+            <field name="name">หลังคา</field>
+            <field name="name_en">Roof</field>
+            <field name="abbr">ROF</field>
+            <field name="category_id" ref="part_cat_body"/>
+        </record>
+
+        <record id="tpl_part_mirror_r" model="itx.info.vehicle.template.part">
+            <field name="code">MIRROR_R</field>
+            <field name="name">กระจกมองข้างขวา</field>
+            <field name="name_en">Right Side Mirror</field>
+            <field name="abbr">MRR</field>
+            <field name="category_id" ref="part_cat_body"/>
+        </record>
+
+        <record id="tpl_part_mirror_l" model="itx.info.vehicle.template.part">
+            <field name="code">MIRROR_L</field>
+            <field name="name">กระจกมองข้างซ้าย</field>
+            <field name="name_en">Left Side Mirror</field>
+            <field name="abbr">MRL</field>
+            <field name="category_id" ref="part_cat_body"/>
+        </record>
+
+        <record id="tpl_part_panel_fr" model="itx.info.vehicle.template.part">
+            <field name="code">PANEL_FR</field>
+            <field name="name">แผงหน้า</field>
+            <field name="name_en">Front Panel/Radiator Support</field>
+            <field name="abbr">PNF</field>
+            <field name="category_id" ref="part_cat_body"/>
+        </record>
+
+        <record id="tpl_part_panel_rr" model="itx.info.vehicle.template.part">
+            <field name="code">PANEL_RR</field>
+            <field name="name">แผงท้าย</field>
+            <field name="name_en">Rear Panel</field>
+            <field name="abbr">PNR</field>
+            <field name="category_id" ref="part_cat_body"/>
+            <field name="desc">เฉพาะรถเก๋ง</field>
+        </record>
+
+        <record id="tpl_part_grille_in" model="itx.info.vehicle.template.part">
+            <field name="code">GRILLE_IN</field>
+            <field name="name">หน้ากระจังตัวใน</field>
+            <field name="name_en">Inner Grille</field>
+            <field name="abbr">GRI</field>
+            <field name="category_id" ref="part_cat_body"/>
+        </record>
+
+        <record id="tpl_part_grille_out" model="itx.info.vehicle.template.part">
+            <field name="code">GRILLE_OUT</field>
+            <field name="name">หน้ากระจังตัวนอก</field>
+            <field name="name_en">Outer Grille</field>
+            <field name="abbr">GRO</field>
+            <field name="category_id" ref="part_cat_body"/>
+        </record>
+
+        <record id="tpl_part_bed" model="itx.info.vehicle.template.part">
+            <field name="code">BED</field>
+            <field name="name">กระบะ</field>
+            <field name="name_en">Pickup Bed</field>
+            <field name="abbr">BED</field>
+            <field name="category_id" ref="part_cat_body"/>
+            <field name="desc">เฉพาะกระบะ</field>
+        </record>
+
+        <record id="tpl_part_skirt_fr" model="itx.info.vehicle.template.part">
+            <field name="code">SKIRT_FR</field>
+            <field name="name">สเกิร์ตกันชนหน้า</field>
+            <field name="name_en">Front Bumper Skirt</field>
+            <field name="abbr">SKF</field>
+            <field name="category_id" ref="part_cat_body"/>
+            <field name="desc">เฉพาะรถเก๋ง</field>
+        </record>
+
+        <record id="tpl_part_skirt_rr" model="itx.info.vehicle.template.part">
+            <field name="code">SKIRT_RR</field>
+            <field name="name">สเกิร์ตกันชนหลัง</field>
+            <field name="name_en">Rear Bumper Skirt</field>
+            <field name="abbr">SKR</field>
+            <field name="category_id" ref="part_cat_body"/>
+            <field name="desc">เฉพาะรถเก๋ง</field>
+        </record>
+
+        <record id="tpl_part_skirt_sd_r" model="itx.info.vehicle.template.part">
+            <field name="code">SKIRT_SD_R</field>
+            <field name="name">สเกิร์ตบันไดขวา</field>
+            <field name="name_en">Right Side Skirt</field>
+            <field name="abbr">SSR</field>
+            <field name="category_id" ref="part_cat_body"/>
+            <field name="desc">เฉพาะรถเก๋ง</field>
+        </record>
+
+        <record id="tpl_part_skirt_sd_l" model="itx.info.vehicle.template.part">
+            <field name="code">SKIRT_SD_L</field>
+            <field name="name">สเกิร์ตบันไดซ้าย</field>
+            <field name="name_en">Left Side Skirt</field>
+            <field name="abbr">SSL</field>
+            <field name="category_id" ref="part_cat_body"/>
+            <field name="desc">เฉพาะรถเก๋ง</field>
+        </record>
+
+        <record id="tpl_part_deflect_fr" model="itx.info.vehicle.template.part">
+            <field name="code">DEFLECT_FR</field>
+            <field name="name">บังลมหน้า</field>
+            <field name="name_en">Front Deflector</field>
+            <field name="abbr">DFL</field>
+            <field name="category_id" ref="part_cat_body"/>
+            <field name="desc">เฉพาะสิบล้อ</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- SUSPENSION (18)      -->
+        <!-- ==================== -->
+
+        <record id="tpl_part_arm_lo_fr_r" model="itx.info.vehicle.template.part">
+            <field name="code">ARM_LO_FR_R</field>
+            <field name="name">ปีกนกหน้าขวา</field>
+            <field name="name_en">Front Right Lower Arm</field>
+            <field name="abbr">ALFR</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+        </record>
+
+        <record id="tpl_part_arm_lo_fr_l" model="itx.info.vehicle.template.part">
+            <field name="code">ARM_LO_FR_L</field>
+            <field name="name">ปีกนกหน้าซ้าย</field>
+            <field name="name_en">Front Left Lower Arm</field>
+            <field name="abbr">ALFL</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+        </record>
+
+        <record id="tpl_part_arm_up_fr_r" model="itx.info.vehicle.template.part">
+            <field name="code">ARM_UP_FR_R</field>
+            <field name="name">ปีกนกบนหน้าขวา</field>
+            <field name="name_en">Front Right Upper Arm</field>
+            <field name="abbr">AUFR</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+        </record>
+
+        <record id="tpl_part_arm_up_fr_l" model="itx.info.vehicle.template.part">
+            <field name="code">ARM_UP_FR_L</field>
+            <field name="name">ปีกนกบนหน้าซ้าย</field>
+            <field name="name_en">Front Left Upper Arm</field>
+            <field name="abbr">AUFL</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+        </record>
+
+        <record id="tpl_part_strut_fr_r" model="itx.info.vehicle.template.part">
+            <field name="code">STRUT_FR_R</field>
+            <field name="name">คอม้าหน้าขวา</field>
+            <field name="name_en">Right Front Strut</field>
+            <field name="abbr">STFR</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+        </record>
+
+        <record id="tpl_part_strut_fr_l" model="itx.info.vehicle.template.part">
+            <field name="code">STRUT_FR_L</field>
+            <field name="name">คอม้าหน้าซ้าย</field>
+            <field name="name_en">Left Front Strut</field>
+            <field name="abbr">STFL</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+        </record>
+
+        <record id="tpl_part_shock_fr_r" model="itx.info.vehicle.template.part">
+            <field name="code">SHOCK_FR_R</field>
+            <field name="name">โช้คอัพหน้าขวา</field>
+            <field name="name_en">Front Right Shock</field>
+            <field name="abbr">SHFR</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+        </record>
+
+        <record id="tpl_part_shock_fr_l" model="itx.info.vehicle.template.part">
+            <field name="code">SHOCK_FR_L</field>
+            <field name="name">โช้คอัพหน้าซ้าย</field>
+            <field name="name_en">Front Left Shock</field>
+            <field name="abbr">SHFL</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+        </record>
+
+        <record id="tpl_part_shock_rr_r" model="itx.info.vehicle.template.part">
+            <field name="code">SHOCK_RR_R</field>
+            <field name="name">โช้คอัพหลังขวา</field>
+            <field name="name_en">Rear Right Shock</field>
+            <field name="abbr">SHRR</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+        </record>
+
+        <record id="tpl_part_shock_rr_l" model="itx.info.vehicle.template.part">
+            <field name="code">SHOCK_RR_L</field>
+            <field name="name">โช้คอัพหลังซ้าย</field>
+            <field name="name_en">Rear Left Shock</field>
+            <field name="abbr">SHRL</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+        </record>
+
+        <record id="tpl_part_rack_steer" model="itx.info.vehicle.template.part">
+            <field name="code">RACK_STEER</field>
+            <field name="name">แร็คพวงมาลัย</field>
+            <field name="name_en">Steering Rack</field>
+            <field name="abbr">RST</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+        </record>
+
+        <record id="tpl_part_axle_rr" model="itx.info.vehicle.template.part">
+            <field name="code">AXLE_RR</field>
+            <field name="name">เพลาท้าย</field>
+            <field name="name_en">Rear Axle</field>
+            <field name="abbr">AXR</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+        </record>
+
+        <record id="tpl_part_axle_fr" model="itx.info.vehicle.template.part">
+            <field name="code">AXLE_FR</field>
+            <field name="name">เพลาหน้า</field>
+            <field name="name_en">Front Axle</field>
+            <field name="abbr">AXF</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+            <field name="desc">เฉพาะ SUV</field>
+        </record>
+
+        <record id="tpl_part_axle_sd" model="itx.info.vehicle.template.part">
+            <field name="code">AXLE_SD</field>
+            <field name="name">เพลาข้าง</field>
+            <field name="name_en">Side Axle</field>
+            <field name="abbr">AXS</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+            <field name="desc">เฉพาะสิบล้อ</field>
+        </record>
+
+        <record id="tpl_part_shaft_fr_r" model="itx.info.vehicle.template.part">
+            <field name="code">SHAFT_FR_R</field>
+            <field name="name">เพลาขับหน้าขวา</field>
+            <field name="name_en">Front Right Drive Shaft</field>
+            <field name="abbr">DSFR</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+            <field name="desc">เฉพาะรถเก๋ง</field>
+        </record>
+
+        <record id="tpl_part_shaft_fr_l" model="itx.info.vehicle.template.part">
+            <field name="code">SHAFT_FR_L</field>
+            <field name="name">เพลาขับหน้าซ้าย</field>
+            <field name="name_en">Front Left Drive Shaft</field>
+            <field name="abbr">DSFL</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+            <field name="desc">เฉพาะรถเก๋ง</field>
+        </record>
+
+        <record id="tpl_part_subframe" model="itx.info.vehicle.template.part">
+            <field name="code">SUBFRAME</field>
+            <field name="name">คานใต้เครื่อง</field>
+            <field name="name_en">Subframe</field>
+            <field name="abbr">SBF</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+            <field name="desc">เฉพาะรถเก๋ง</field>
+        </record>
+
+        <record id="tpl_part_crossmem_rr" model="itx.info.vehicle.template.part">
+            <field name="code">CROSSMEM_RR</field>
+            <field name="name">คานหลัง</field>
+            <field name="name_en">Rear Crossmember</field>
+            <field name="abbr">CMR</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+            <field name="desc">เฉพาะรถเก๋ง</field>
+        </record>
+
+        <record id="tpl_part_subframe_fr" model="itx.info.vehicle.template.part">
+            <field name="code">SUBFRAME_FR</field>
+            <field name="name">แพหน้าทั้งชุด</field>
+            <field name="name_en">Front Subframe Assembly</field>
+            <field name="abbr">SFA</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+            <field name="desc">เฉพาะรถเก๋ง</field>
+        </record>
+
+        <record id="tpl_part_subframe_rr" model="itx.info.vehicle.template.part">
+            <field name="code">SUBFRAME_RR</field>
+            <field name="name">คานหลังทั้งชุด</field>
+            <field name="name_en">Rear Subframe Assembly</field>
+            <field name="abbr">SRA</field>
+            <field name="category_id" ref="part_cat_suspension"/>
+            <field name="desc">เฉพาะรถเก๋ง</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- LIGHTING (6)         -->
+        <!-- ==================== -->
+
+        <record id="tpl_part_light_hd_r" model="itx.info.vehicle.template.part">
+            <field name="code">LIGHT_HD_R</field>
+            <field name="name">ไฟหน้าขวา</field>
+            <field name="name_en">Right Headlight</field>
+            <field name="abbr">HLR</field>
+            <field name="category_id" ref="part_cat_electrical"/>
+        </record>
+
+        <record id="tpl_part_light_hd_l" model="itx.info.vehicle.template.part">
+            <field name="code">LIGHT_HD_L</field>
+            <field name="name">ไฟหน้าซ้าย</field>
+            <field name="name_en">Left Headlight</field>
+            <field name="abbr">HLL</field>
+            <field name="category_id" ref="part_cat_electrical"/>
+        </record>
+
+        <record id="tpl_part_light_tl_r" model="itx.info.vehicle.template.part">
+            <field name="code">LIGHT_TL_R</field>
+            <field name="name">ไฟท้ายขวา</field>
+            <field name="name_en">Right Taillight</field>
+            <field name="abbr">TLR</field>
+            <field name="category_id" ref="part_cat_electrical"/>
+        </record>
+
+        <record id="tpl_part_light_tl_l" model="itx.info.vehicle.template.part">
+            <field name="code">LIGHT_TL_L</field>
+            <field name="name">ไฟท้ายซ้าย</field>
+            <field name="name_en">Left Taillight</field>
+            <field name="abbr">TLL</field>
+            <field name="category_id" ref="part_cat_electrical"/>
+        </record>
+
+        <record id="tpl_part_refl_rr_r" model="itx.info.vehicle.template.part">
+            <field name="code">REFL_RR_R</field>
+            <field name="name">ไฟทับทิมหลังขวา</field>
+            <field name="name_en">Right Rear Reflector</field>
+            <field name="abbr">RFR</field>
+            <field name="category_id" ref="part_cat_electrical"/>
+        </record>
+
+        <record id="tpl_part_refl_rr_l" model="itx.info.vehicle.template.part">
+            <field name="code">REFL_RR_L</field>
+            <field name="name">ไฟทับทิมหลังซ้าย</field>
+            <field name="name_en">Left Rear Reflector</field>
+            <field name="abbr">RFL</field>
+            <field name="category_id" ref="part_cat_electrical"/>
+        </record>
+
+        <!-- ==================== -->
+        <!-- ELECTRICAL (10)      -->
+        <!-- ==================== -->
+
+        <record id="tpl_part_wire_fuse" model="itx.info.vehicle.template.part">
+            <field name="code">WIRE_FUSE</field>
+            <field name="name">ชุดสายไฟเข้ากล่องฟิวส์</field>
+            <field name="name_en">Fuse Box Wiring Harness</field>
+            <field name="abbr">WFU</field>
+            <field name="category_id" ref="part_cat_electrical"/>
+        </record>
+
+        <record id="tpl_part_wire_eng" model="itx.info.vehicle.template.part">
+            <field name="code">WIRE_ENG</field>
+            <field name="name">ชุดสายไฟเข้าเครื่องยนต์</field>
+            <field name="name_en">Engine Wiring Harness</field>
+            <field name="abbr">WEN</field>
+            <field name="category_id" ref="part_cat_electrical"/>
+        </record>
+
+        <record id="tpl_part_wire_cons" model="itx.info.vehicle.template.part">
+            <field name="code">WIRE_CONS</field>
+            <field name="name">ชุดสายไฟเข้าคอนโซล</field>
+            <field name="name_en">Console Wiring Harness</field>
+            <field name="abbr">WCO</field>
+            <field name="category_id" ref="part_cat_electrical"/>
+        </record>
+
+        <record id="tpl_part_ecu" model="itx.info.vehicle.template.part">
+            <field name="code">ECU</field>
+            <field name="name">กล่อง ECU</field>
+            <field name="name_en">ECU</field>
+            <field name="abbr">ECU</field>
+            <field name="category_id" ref="part_cat_electrical"/>
+        </record>
+
+        <record id="tpl_part_abs_pump" model="itx.info.vehicle.template.part">
+            <field name="code">ABS_PUMP</field>
+            <field name="name">ปั๊ม ABS</field>
+            <field name="name_en">ABS Pump</field>
+            <field name="abbr">ABS</field>
+            <field name="category_id" ref="part_cat_electrical"/>
+        </record>
+
+        <record id="tpl_part_airbag_mod" model="itx.info.vehicle.template.part">
+            <field name="code">AIRBAG_MOD</field>
+            <field name="name">กล่องควบคุมแอร์แบ็ก</field>
+            <field name="name_en">Airbag Control Module</field>
+            <field name="abbr">ABM</field>
+            <field name="category_id" ref="part_cat_electrical"/>
+        </record>
+
+        <record id="tpl_part_sens_bump_fr" model="itx.info.vehicle.template.part">
+            <field name="code">SENS_BUMP_FR</field>
+            <field name="name">เซ็นเซอร์กันชนหน้า</field>
+            <field name="name_en">Front Bumper Sensor</field>
+            <field name="abbr">SBF</field>
+            <field name="category_id" ref="part_cat_electrical"/>
+        </record>
+
+        <record id="tpl_part_sens_bump_rr" model="itx.info.vehicle.template.part">
+            <field name="code">SENS_BUMP_RR</field>
+            <field name="name">เซ็นเซอร์กันชนหลัง</field>
+            <field name="name_en">Rear Bumper Sensor</field>
+            <field name="abbr">SBR</field>
+            <field name="category_id" ref="part_cat_electrical"/>
+        </record>
+
+        <record id="tpl_part_motor_rad" model="itx.info.vehicle.template.part">
+            <field name="code">MOTOR_RAD</field>
+            <field name="name">มอเตอร์พัดลมหม้อน้ำ</field>
+            <field name="name_en">Radiator Fan Motor</field>
+            <field name="abbr">MRD</field>
+            <field name="category_id" ref="part_cat_electrical"/>
+        </record>
+
+        <record id="tpl_part_motor_ac" model="itx.info.vehicle.template.part">
+            <field name="code">MOTOR_AC</field>
+            <field name="name">มอเตอร์พัดลมแอร์</field>
+            <field name="name_en">A/C Fan Motor</field>
+            <field name="abbr">MAC</field>
+            <field name="category_id" ref="part_cat_electrical"/>
+        </record>
+
+        <!-- ==================== -->
+        <!-- INTERIOR (6)         -->
+        <!-- ==================== -->
+
+        <record id="tpl_part_panel_ac" model="itx.info.vehicle.template.part">
+            <field name="code">PANEL_AC</field>
+            <field name="name">แผงแอร์</field>
+            <field name="name_en">A/C Panel</field>
+            <field name="abbr">PAC</field>
+            <field name="category_id" ref="part_cat_interior"/>
+        </record>
+
+        <record id="tpl_part_console" model="itx.info.vehicle.template.part">
+            <field name="code">CONSOLE</field>
+            <field name="name">ชุดคอนโซลหน้าปัด</field>
+            <field name="name_en">Dashboard Console</field>
+            <field name="abbr">CON</field>
+            <field name="category_id" ref="part_cat_interior"/>
+        </record>
+
+        <record id="tpl_part_airbag_r" model="itx.info.vehicle.template.part">
+            <field name="code">AIRBAG_R</field>
+            <field name="name">ถุงลมนิรภัยขวา</field>
+            <field name="name_en">Right Airbag</field>
+            <field name="abbr">ABR</field>
+            <field name="category_id" ref="part_cat_interior"/>
+        </record>
+
+        <record id="tpl_part_airbag_l" model="itx.info.vehicle.template.part">
+            <field name="code">AIRBAG_L</field>
+            <field name="name">ถุงลมนิรภัยซ้าย</field>
+            <field name="name_en">Left Airbag</field>
+            <field name="abbr">ABL</field>
+            <field name="category_id" ref="part_cat_interior"/>
+        </record>
+
+        <record id="tpl_part_airbag_fr" model="itx.info.vehicle.template.part">
+            <field name="code">AIRBAG_FR</field>
+            <field name="name">ถุงลมหน้าซ้าย-ขวา</field>
+            <field name="name_en">Front Airbags</field>
+            <field name="abbr">ABF</field>
+            <field name="category_id" ref="part_cat_interior"/>
+            <field name="desc">เฉพาะรถตู้ VIP</field>
+        </record>
+
+        <record id="tpl_part_airbag_rr" model="itx.info.vehicle.template.part">
+            <field name="code">AIRBAG_RR</field>
+            <field name="name">ถุงลมหลังซ้าย-ขวา</field>
+            <field name="name_en">Rear Airbags</field>
+            <field name="abbr">ABRR</field>
+            <field name="category_id" ref="part_cat_interior"/>
+            <field name="desc">เฉพาะรถตู้ VIP</field>
+        </record>
+
+        <!-- ==================== -->
+        <!-- ENGINE/DRIVETRAIN(2) -->
+        <!-- ==================== -->
+
+        <record id="tpl_part_trans" model="itx.info.vehicle.template.part">
+            <field name="code">TRANS</field>
+            <field name="name">ชุดเกียร์</field>
+            <field name="name_en">Transmission</field>
+            <field name="abbr">TRN</field>
+            <field name="category_id" ref="part_cat_transmission"/>
+        </record>
+
+        <record id="tpl_part_radiator" model="itx.info.vehicle.template.part">
+            <field name="code">RADIATOR</field>
+            <field name="name">หม้อน้ำ</field>
+            <field name="name_en">Radiator</field>
+            <field name="abbr">RAD</field>
+            <field name="category_id" ref="part_cat_cooling"/>
+        </record>
+
+        <!-- ==================== -->
+        <!-- WHEELS (4)           -->
+        <!-- ==================== -->
+
+        <record id="tpl_part_wheel_fr_r" model="itx.info.vehicle.template.part">
+            <field name="code">WHEEL_FR_R</field>
+            <field name="name">ล้อแม็กหน้าขวา</field>
+            <field name="name_en">Front Right Alloy Wheel</field>
+            <field name="abbr">WLFR</field>
+            <field name="category_id" ref="part_cat_wheel"/>
+        </record>
+
+        <record id="tpl_part_wheel_fr_l" model="itx.info.vehicle.template.part">
+            <field name="code">WHEEL_FR_L</field>
+            <field name="name">ล้อแม็กหน้าซ้าย</field>
+            <field name="name_en">Front Left Alloy Wheel</field>
+            <field name="abbr">WLFL</field>
+            <field name="category_id" ref="part_cat_wheel"/>
+        </record>
+
+        <record id="tpl_part_wheel_rr_r" model="itx.info.vehicle.template.part">
+            <field name="code">WHEEL_RR_R</field>
+            <field name="name">ล้อแม็กหลังขวา</field>
+            <field name="name_en">Rear Right Alloy Wheel</field>
+            <field name="abbr">WLRR</field>
+            <field name="category_id" ref="part_cat_wheel"/>
+        </record>
+
+        <record id="tpl_part_wheel_rr_l" model="itx.info.vehicle.template.part">
+            <field name="code">WHEEL_RR_L</field>
+            <field name="name">ล้อแม็กหลังซ้าย</field>
+            <field name="name_en">Rear Left Alloy Wheel</field>
+            <field name="abbr">WLRL</field>
+            <field name="category_id" ref="part_cat_wheel"/>
+        </record>
+
+        <!-- ==================== -->
+        <!-- TRUCK SPECIFIC (2)   -->
+        <!-- ==================== -->
+
+        <record id="tpl_part_pump_hyd" model="itx.info.vehicle.template.part">
+            <field name="code">PUMP_HYD</field>
+            <field name="name">ปั๊มไฮดรอลิก</field>
+            <field name="name_en">Hydraulic Pump</field>
+            <field name="abbr">PHY</field>
+            <field name="category_id" ref="part_cat_cutparts"/>
+            <field name="desc">เฉพาะสิบล้อ</field>
+        </record>
+
+        <record id="tpl_part_cyl_hyd" model="itx.info.vehicle.template.part">
+            <field name="code">CYL_HYD</field>
+            <field name="name">กระบอกไฮดรอลิก</field>
+            <field name="name_en">Hydraulic Cylinder</field>
+            <field name="abbr">CHY</field>
+            <field name="category_id" ref="part_cat_cutparts"/>
+            <field name="desc">เฉพาะสิบล้อ</field>
+        </record>
+
+    </data>
+</odoo>

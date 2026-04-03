@@ -35,8 +35,13 @@
         </record>
         <record id="body_type_van" model="itx.info.vehicle.mgr.body.type">
             <field name="code">van</field>
-            <field name="name">Van / MPV</field>
+            <field name="name">Van / MPV (รถตู้)</field>
             <field name="sequence">70</field>
+        </record>
+        <record id="body_type_van_vip" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">van_vip</field>
+            <field name="name">VIP Van (รถตู้ VIP)</field>
+            <field name="sequence">75</field>
         </record>
 
         <!-- Pickup -->
@@ -91,6 +96,11 @@
             <field name="code">cargo_truck</field>
             <field name="name">Cargo Truck (รถบรรทุกทั่วไป)</field>
             <field name="sequence">250</field>
+        </record>
+        <record id="body_type_truck_10wheel" model="itx.info.vehicle.mgr.body.type">
+            <field name="code">truck_10wheel</field>
+            <field name="name">10-Wheel Truck (สิบล้อ)</field>
+            <field name="sequence">260</field>
         </record>
 
     </data>

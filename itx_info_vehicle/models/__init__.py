@@ -7,4 +7,6 @@ from . import vehicle_model
 from . import vehicle_generation
 from . import vehicle_spec
 from . import part_category
+from . import template_part
+from . import template_bom
 from . import product_template

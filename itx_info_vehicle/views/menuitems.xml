@@ -62,6 +62,20 @@
               action="itx_info_vehicle_mgr_engine_action"
               sequence="20"/>
 
+    <!-- Submenu: Part Templates -->
+    <menuitem id="menu_itx_vehicle_template_part"
+              name="Part Templates"
+              parent="menu_itx_vehicle_mgr_root"
+              action="itx_info_vehicle_template_part_action"
+              sequence="30"/>
+
+    <!-- Submenu: BOM Templates -->
+    <menuitem id="menu_itx_vehicle_template_bom"
+              name="BOM Templates"
+              parent="menu_itx_vehicle_mgr_root"
+              action="itx_info_vehicle_template_bom_action"
+              sequence="40"/>
+
     <!-- Menu: Vehicle Parts (under Inventory Products) -->
     <menuitem id="menu_itx_vehicle_parts"
               name="Vehicle Parts"
