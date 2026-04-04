@@ -12,8 +12,10 @@
                 <field name="part_category_id"/>
                 <field name="part_template_id"/>
                 <field name="part_name" optional="show"/>
-                <field name="part_abbr" optional="show"/>
+                <field name="part_abbr" optional="hide"/>
                 <field name="qty"/>
+                <field name="default_part_origin_id" optional="show"/>
+                <field name="default_part_condition_id" optional="show"/>
                 <field name="active" column_invisible="True"/>
             </list>
         </field>
@@ -46,6 +48,12 @@
                         <group string="Quantity">
                             <field name="qty"/>
                             <field name="sequence"/>
+                        </group>
+                        <group string="Defaults for Assessment">
+                            <field name="default_part_origin_id"
+                                   options="{'no_create': True}"/>
+                            <field name="default_part_condition_id"
+                                   options="{'no_create': True}"/>
                         </group>
                     </group>
                 </sheet>

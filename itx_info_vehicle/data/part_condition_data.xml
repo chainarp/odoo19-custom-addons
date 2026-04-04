@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="part_condition_new" model="itx.info.vehicle.part.condition">
+            <field name="code">NEW</field>
+            <field name="name">New (มือหนึ่ง)</field>
+            <field name="abbr">NEW</field>
+            <field name="desc">อะไหล่ใหม่ ยังไม่เคยใช้งาน</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="part_condition_like_new" model="itx.info.vehicle.part.condition">
+            <field name="code">LIKE_NEW</field>
+            <field name="name">Like New (มือสองสภาพใหม่)</field>
+            <field name="abbr">LKN</field>
+            <field name="desc">อะไหล่มือสอง สภาพดีมาก ใกล้เคียงของใหม่</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="part_condition_good" model="itx.info.vehicle.part.condition">
+            <field name="code">GOOD</field>
+            <field name="name">Good (ใช้งานได้ดี)</field>
+            <field name="abbr">GD</field>
+            <field name="desc">อะไหล่มือสอง สภาพดี ใช้งานได้ปกติ</field>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="part_condition_fair" model="itx.info.vehicle.part.condition">
+            <field name="code">FAIR</field>
+            <field name="name">Fair (ต้องซ่อม/ปรับแต่ง)</field>
+            <field name="abbr">FR</field>
+            <field name="desc">อะไหล่มือสอง ต้องซ่อมแซมหรือปรับแต่งก่อนใช้งาน</field>
+            <field name="sequence">40</field>
+        </record>
+
+    </data>
+</odoo>

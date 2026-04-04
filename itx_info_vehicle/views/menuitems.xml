@@ -76,6 +76,20 @@
               action="itx_info_vehicle_template_bom_action"
               sequence="40"/>
 
+    <!-- Submenu: Part Origins -->
+    <menuitem id="menu_itx_vehicle_part_origin"
+              name="Part Origins"
+              parent="menu_itx_vehicle_mgr_root"
+              action="itx_info_vehicle_part_origin_action"
+              sequence="50"/>
+
+    <!-- Submenu: Part Conditions -->
+    <menuitem id="menu_itx_vehicle_part_condition"
+              name="Part Conditions"
+              parent="menu_itx_vehicle_mgr_root"
+              action="itx_info_vehicle_part_condition_action"
+              sequence="60"/>
+
     <!-- Menu: Vehicle Parts (under Inventory Products) -->
     <menuitem id="menu_itx_vehicle_parts"
               name="Vehicle Parts"

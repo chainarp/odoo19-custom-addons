@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'ITX Info Vehicle',
-    'version': '19.0.1.4.4',
+    'version': '19.0.1.5.0',
     'category': 'Inventory/Inventory',
     'summary': 'Vehicle Information Management for Salvage Car Parts',
     'description': """
@@ -44,6 +44,8 @@ Developed by IT Expert Training & Outsourcing Co. (Thailand)
         # Data
         'data/ir_sequence_data.xml',
         'data/part_category_data.xml',
+        'data/part_origin_data.xml',
+        'data/part_condition_data.xml',
         'data/vehicle_brand_data.xml',
         'data/vehicle_model_data.xml',
         'data/vehicle_generation_data.xml',
@@ -66,6 +68,8 @@ Developed by IT Expert Training & Outsourcing Co. (Thailand)
         'views/vehicle_generation_views.xml',
         'views/vehicle_spec_views.xml',
         'views/part_category_views.xml',
+        'views/part_origin_views.xml',
+        'views/part_condition_views.xml',
         'views/template_part_views.xml',
         'views/template_bom_views.xml',
         'views/product_template_views.xml',

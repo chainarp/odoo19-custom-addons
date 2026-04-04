@@ -37,6 +37,20 @@ class ItxInfoVehicleTemplateBom(models.Model):
         default=1,
         help='Expected quantity of this part',
     )
+
+    # === Default Origin & Condition ===
+    default_part_origin_id = fields.Many2one(
+        comodel_name='itx.info.vehicle.part.origin',
+        string='Default Origin',
+        index=True,
+        help='Default part origin for assessment (e.g., OEM)',
+    )
+    default_part_condition_id = fields.Many2one(
+        comodel_name='itx.info.vehicle.part.condition',
+        string='Default Condition',
+        index=True,
+        help='Default part condition for assessment (e.g., Good)',
+    )
     sequence = fields.Integer(
         string='Sequence',
         default=10,

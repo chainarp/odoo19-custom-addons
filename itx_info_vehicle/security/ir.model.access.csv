@@ -17,3 +17,7 @@ access_itx_info_vehicle_template_part_user,itx.info.vehicle.template.part.user,m
 access_itx_info_vehicle_template_part_manager,itx.info.vehicle.template.part.manager,model_itx_info_vehicle_template_part,stock.group_stock_manager,1,1,1,1
 access_itx_info_vehicle_template_bom_user,itx.info.vehicle.template.bom.user,model_itx_info_vehicle_template_bom,stock.group_stock_user,1,0,0,0
 access_itx_info_vehicle_template_bom_manager,itx.info.vehicle.template.bom.manager,model_itx_info_vehicle_template_bom,stock.group_stock_manager,1,1,1,1
+access_itx_info_vehicle_part_origin_user,itx.info.vehicle.part.origin.user,model_itx_info_vehicle_part_origin,stock.group_stock_user,1,0,0,0
+access_itx_info_vehicle_part_origin_manager,itx.info.vehicle.part.origin.manager,model_itx_info_vehicle_part_origin,stock.group_stock_manager,1,1,1,1
+access_itx_info_vehicle_part_condition_user,itx.info.vehicle.part.condition.user,model_itx_info_vehicle_part_condition,stock.group_stock_user,1,0,0,0
+access_itx_info_vehicle_part_condition_manager,itx.info.vehicle.part.condition.manager,model_itx_info_vehicle_part_condition,stock.group_stock_manager,1,1,1,1
