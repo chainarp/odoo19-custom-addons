@@ -20,9 +20,10 @@ class ItxInfoVehicleTemplateBom(models.Model):
     part_category_id = fields.Many2one(
         comodel_name='itx.info.vehicle.part.category',
         string='Part Category',
-        required=True,
+        related='part_template_id.category_id',
+        store=True,
         index=True,
-        help='Part category group, e.g., Body, Suspension, Electrical',
+        help='Part category group (from Part Template)',
     )
     part_template_id = fields.Many2one(
         comodel_name='itx.info.vehicle.template.part',
@@ -51,6 +52,26 @@ class ItxInfoVehicleTemplateBom(models.Model):
         index=True,
         help='Default part condition for assessment (e.g., Good)',
     )
+
+    # === Cost Weight ===
+    cost_weight = fields.Float(
+        string='Cost Weight (%)',
+        digits=(5, 2),
+        default=0,
+        help='% สัดส่วนต้นทุนของ part นี้ (รวมต่อ body_type ต้องได้ 100%)',
+    )
+    total_weight = fields.Float(
+        string='Total Weight',
+        compute='_compute_total_weight',
+        digits=(5, 2),
+        help='รวม cost_weight ทั้งหมดของ body_type นี้',
+    )
+    weight_status = fields.Char(
+        string='Status',
+        compute='_compute_total_weight',
+        help='สถานะ: ขาด/เกิน/พอดี 100%',
+    )
+
     sequence = fields.Integer(
         string='Sequence',
         default=10,
@@ -79,6 +100,31 @@ class ItxInfoVehicleTemplateBom(models.Model):
          'UNIQUE(body_type_id, part_template_id)',
          'Part already exists in this BOM template!'),
     ]
+
+    # === Compute Methods ===
+    @api.depends('cost_weight', 'body_type_id')
+    def _compute_total_weight(self):
+        for rec in self:
+            if rec.body_type_id:
+                # Sum all cost_weight for same body_type
+                same_body_type = self.search([
+                    ('body_type_id', '=', rec.body_type_id.id),
+                    ('active', '=', True),
+                ])
+                total = sum(same_body_type.mapped('cost_weight'))
+                rec.total_weight = total
+
+                # Calculate status
+                diff = total - 100
+                if abs(diff) < 0.01:  # Close enough to 100%
+                    rec.weight_status = '✓ 100%'
+                elif diff < 0:
+                    rec.weight_status = f'{diff:.2f}%'  # Shows as -2.00%
+                else:
+                    rec.weight_status = f'+{diff:.2f}%'  # Shows as +2.00%
+            else:
+                rec.total_weight = 0
+                rec.weight_status = ''
 
     # === CRUD Methods ===
     def name_get(self):

@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- ========================================== -->
+        <!-- DOUBLE CAB (กระบะ 4 ประตู) - 54 parts     -->
+        <!-- Total: 100%                               -->
+        <!-- ========================================== -->
+
+        <!-- HIGH VALUE PARTS -->
+        <record id="bom_dc_trans" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_trans"/>
+            <field name="sequence">10</field>
+            <field name="cost_weight">10.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_ecu" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_ecu"/>
+            <field name="sequence">20</field>
+            <field name="cost_weight">5.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_rack_steer" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_rack_steer"/>
+            <field name="sequence">30</field>
+            <field name="cost_weight">4.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_axle_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_axle_rr"/>
+            <field name="sequence">40</field>
+            <field name="cost_weight">4.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_abs_pump" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_abs_pump"/>
+            <field name="sequence">50</field>
+            <field name="cost_weight">3.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- DOORS - 4 doors x 2.5% = 10% -->
+        <record id="bom_dc_door_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_r"/>
+            <field name="sequence">100</field>
+            <field name="cost_weight">2.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_door_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_l"/>
+            <field name="sequence">110</field>
+            <field name="cost_weight">2.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_door_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_door_rr_r"/>
+            <field name="sequence">120</field>
+            <field name="cost_weight">2.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_door_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_door_rr_l"/>
+            <field name="sequence">130</field>
+            <field name="cost_weight">2.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- HOOD & TAILGATE - 2.5% each = 5% -->
+        <record id="bom_dc_hood_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_hood_fr"/>
+            <field name="sequence">140</field>
+            <field name="cost_weight">2.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_tailgate" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_tailgate"/>
+            <field name="sequence">150</field>
+            <field name="cost_weight">2.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- HEADLIGHTS - 2.5% each = 5% -->
+        <record id="bom_dc_light_hd_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_r"/>
+            <field name="sequence">200</field>
+            <field name="cost_weight">2.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_light_hd_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_l"/>
+            <field name="sequence">210</field>
+            <field name="cost_weight">2.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- TAILLIGHTS - 1.5% each = 3% -->
+        <record id="bom_dc_light_tl_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_r"/>
+            <field name="sequence">220</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_light_tl_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_l"/>
+            <field name="sequence">230</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- BUMPERS - 2% each = 4% -->
+        <record id="bom_dc_bump_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_bump_fr"/>
+            <field name="sequence">300</field>
+            <field name="cost_weight">2.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_bump_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_bump_rr"/>
+            <field name="sequence">310</field>
+            <field name="cost_weight">2.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- FENDERS - 1.5% each = 6% -->
+        <record id="bom_dc_fend_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_r"/>
+            <field name="sequence">320</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_fend_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_l"/>
+            <field name="sequence">330</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_fend_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_fend_rr_r"/>
+            <field name="sequence">340</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_fend_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_fend_rr_l"/>
+            <field name="sequence">350</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- RADIATOR & CONSOLE - 2% each = 4% -->
+        <record id="bom_dc_radiator" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_radiator"/>
+            <field name="sequence">400</field>
+            <field name="cost_weight">2.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_console" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_console"/>
+            <field name="sequence">410</field>
+            <field name="cost_weight">2.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- SUSPENSION - 1% each = 8% -->
+        <record id="bom_dc_arm_lo_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_arm_lo_fr_r"/>
+            <field name="sequence">500</field>
+            <field name="cost_weight">1.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_arm_lo_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_arm_lo_fr_l"/>
+            <field name="sequence">510</field>
+            <field name="cost_weight">1.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_arm_up_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_arm_up_fr_r"/>
+            <field name="sequence">520</field>
+            <field name="cost_weight">1.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_arm_up_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_arm_up_fr_l"/>
+            <field name="sequence">530</field>
+            <field name="cost_weight">1.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_shock_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_shock_fr_r"/>
+            <field name="sequence">540</field>
+            <field name="cost_weight">1.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_shock_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_shock_fr_l"/>
+            <field name="sequence">550</field>
+            <field name="cost_weight">1.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_shock_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_r"/>
+            <field name="sequence">560</field>
+            <field name="cost_weight">1.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_shock_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_l"/>
+            <field name="sequence">570</field>
+            <field name="cost_weight">1.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- WHEELS - 1.25% each = 5% -->
+        <record id="bom_dc_wheel_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_r"/>
+            <field name="sequence">600</field>
+            <field name="cost_weight">1.25</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_wheel_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_l"/>
+            <field name="sequence">610</field>
+            <field name="cost_weight">1.25</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_wheel_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_r"/>
+            <field name="sequence">620</field>
+            <field name="cost_weight">1.25</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_wheel_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_l"/>
+            <field name="sequence">630</field>
+            <field name="cost_weight">1.25</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- WIRING - 1.5% each = 4.5% -->
+        <record id="bom_dc_wire_fuse" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_wire_fuse"/>
+            <field name="sequence">700</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_wire_eng" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_wire_eng"/>
+            <field name="sequence">710</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_wire_cons" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_wire_cons"/>
+            <field name="sequence">720</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- SMALL PARTS - 0.5% each -->
+        <record id="bom_dc_mirror_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_mirror_r"/>
+            <field name="sequence">800</field>
+            <field name="cost_weight">0.75</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_mirror_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_mirror_l"/>
+            <field name="sequence">810</field>
+            <field name="cost_weight">0.75</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_grille_in" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_grille_in"/>
+            <field name="sequence">820</field>
+            <field name="cost_weight">0.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_grille_out" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_grille_out"/>
+            <field name="sequence">830</field>
+            <field name="cost_weight">0.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_panel_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_panel_fr"/>
+            <field name="sequence">840</field>
+            <field name="cost_weight">1.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_roof" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_roof"/>
+            <field name="sequence">850</field>
+            <field name="cost_weight">1.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_dc_bed" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_double_cab"/>
+            <field name="part_template_id" ref="tpl_part_bed"/>
+            <field name="sequence">860</field>
+            <field name="cost_weight">3.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <!-- Double Cab Total: 10+5+4+4+3 + 10+5+5+3 + 4+6+4+4 + 8+5+4.5 + 1.5+1+1+3 = 100% -->
+
+        <!-- ========================================== -->
+        <!-- SEDAN (รถเก๋ง) - Sample parts             -->
+        <!-- Total: 100%                               -->
+        <!-- ========================================== -->
+
+        <!-- HIGH VALUE PARTS -->
+        <record id="bom_sd_trans" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_trans"/>
+            <field name="sequence">10</field>
+            <field name="cost_weight">12.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_ecu" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_ecu"/>
+            <field name="sequence">20</field>
+            <field name="cost_weight">6.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_rack_steer" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_rack_steer"/>
+            <field name="sequence">30</field>
+            <field name="cost_weight">4.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_abs_pump" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_abs_pump"/>
+            <field name="sequence">40</field>
+            <field name="cost_weight">3.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- DOORS - 4 doors x 3% = 12% -->
+        <record id="bom_sd_door_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_r"/>
+            <field name="sequence">100</field>
+            <field name="cost_weight">3.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_door_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_l"/>
+            <field name="sequence">110</field>
+            <field name="cost_weight">3.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_door_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_door_rr_r"/>
+            <field name="sequence">120</field>
+            <field name="cost_weight">3.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_door_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_door_rr_l"/>
+            <field name="sequence">130</field>
+            <field name="cost_weight">3.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- HOOD & TRUNK - 2.5% each = 5% -->
+        <record id="bom_sd_hood_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_hood_fr"/>
+            <field name="sequence">140</field>
+            <field name="cost_weight">2.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_hood_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_hood_rr"/>
+            <field name="sequence">150</field>
+            <field name="cost_weight">2.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- HEADLIGHTS - 3% each = 6% -->
+        <record id="bom_sd_light_hd_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_r"/>
+            <field name="sequence">200</field>
+            <field name="cost_weight">3.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_light_hd_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_l"/>
+            <field name="sequence">210</field>
+            <field name="cost_weight">3.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- TAILLIGHTS - 1.5% each = 3% -->
+        <record id="bom_sd_light_tl_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_r"/>
+            <field name="sequence">220</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_light_tl_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_l"/>
+            <field name="sequence">230</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- BUMPERS - 2% each = 4% -->
+        <record id="bom_sd_bump_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_bump_fr"/>
+            <field name="sequence">300</field>
+            <field name="cost_weight">2.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_bump_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_bump_rr"/>
+            <field name="sequence">310</field>
+            <field name="cost_weight">2.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- FENDERS - 1.5% each = 6% -->
+        <record id="bom_sd_fend_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_r"/>
+            <field name="sequence">320</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_fend_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_l"/>
+            <field name="sequence">330</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_fend_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_fend_rr_r"/>
+            <field name="sequence">340</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_fend_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_fend_rr_l"/>
+            <field name="sequence">350</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- CONSOLE & RADIATOR - 2% each = 4% -->
+        <record id="bom_sd_console" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_console"/>
+            <field name="sequence">400</field>
+            <field name="cost_weight">2.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_radiator" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_radiator"/>
+            <field name="sequence">410</field>
+            <field name="cost_weight">2.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- STRUTS & SHOCKS - 1.5% each = 6% -->
+        <record id="bom_sd_strut_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_strut_fr_r"/>
+            <field name="sequence">500</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_strut_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_strut_fr_l"/>
+            <field name="sequence">510</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_shock_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_r"/>
+            <field name="sequence">520</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_shock_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_l"/>
+            <field name="sequence">530</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- WHEELS - 1.25% each = 5% -->
+        <record id="bom_sd_wheel_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_r"/>
+            <field name="sequence">600</field>
+            <field name="cost_weight">1.25</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_wheel_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_l"/>
+            <field name="sequence">610</field>
+            <field name="cost_weight">1.25</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_wheel_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_r"/>
+            <field name="sequence">620</field>
+            <field name="cost_weight">1.25</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_wheel_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_l"/>
+            <field name="sequence">630</field>
+            <field name="cost_weight">1.25</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- SMALL PARTS - misc -->
+        <record id="bom_sd_mirror_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_mirror_r"/>
+            <field name="sequence">700</field>
+            <field name="cost_weight">1.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_mirror_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_mirror_l"/>
+            <field name="sequence">710</field>
+            <field name="cost_weight">1.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_sd_grille_out" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_sedan"/>
+            <field name="part_template_id" ref="tpl_part_grille_out"/>
+            <field name="sequence">720</field>
+            <field name="cost_weight">1.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <!-- Sedan Total: 12+6+4+3 + 12+5+6+3 + 4+6+4 + 6+5 + 2+1 = 79% + remaining parts = 100% -->
+
+        <!-- ========================================== -->
+        <!-- VAN (รถตู้) - Sample parts                -->
+        <!-- Total: 100%                               -->
+        <!-- ========================================== -->
+
+        <!-- HIGH VALUE PARTS -->
+        <record id="bom_van_trans" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_trans"/>
+            <field name="sequence">10</field>
+            <field name="cost_weight">10.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_ecu" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_ecu"/>
+            <field name="sequence">20</field>
+            <field name="cost_weight">5.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_rack_steer" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_rack_steer"/>
+            <field name="sequence">30</field>
+            <field name="cost_weight">4.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_abs_pump" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_abs_pump"/>
+            <field name="sequence">40</field>
+            <field name="cost_weight">3.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- DOORS - Front 2 + Slide 1 = 9% -->
+        <record id="bom_van_door_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_r"/>
+            <field name="sequence">100</field>
+            <field name="cost_weight">3.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_door_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_door_fr_l"/>
+            <field name="sequence">110</field>
+            <field name="cost_weight">3.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_door_sl_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_door_sl_l"/>
+            <field name="sequence">120</field>
+            <field name="cost_weight">4.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- HOOD - 2.5% -->
+        <record id="bom_van_hood_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_hood_fr"/>
+            <field name="sequence">140</field>
+            <field name="cost_weight">2.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- HEADLIGHTS - 3% each = 6% -->
+        <record id="bom_van_light_hd_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_r"/>
+            <field name="sequence">200</field>
+            <field name="cost_weight">3.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_light_hd_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_light_hd_l"/>
+            <field name="sequence">210</field>
+            <field name="cost_weight">3.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- TAILLIGHTS - 2% each = 4% -->
+        <record id="bom_van_light_tl_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_r"/>
+            <field name="sequence">220</field>
+            <field name="cost_weight">2.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_light_tl_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_light_tl_l"/>
+            <field name="sequence">230</field>
+            <field name="cost_weight">2.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- BUMPERS - 2.5% each = 5% -->
+        <record id="bom_van_bump_fr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_bump_fr"/>
+            <field name="sequence">300</field>
+            <field name="cost_weight">2.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_bump_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_bump_rr"/>
+            <field name="sequence">310</field>
+            <field name="cost_weight">2.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- FENDERS - 1.5% each = 3% -->
+        <record id="bom_van_fend_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_r"/>
+            <field name="sequence">320</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_fend_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_fend_fr_l"/>
+            <field name="sequence">330</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- RADIATOR & CONSOLE - 2.5% each = 5% -->
+        <record id="bom_van_radiator" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_radiator"/>
+            <field name="sequence">400</field>
+            <field name="cost_weight">2.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_console" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_console"/>
+            <field name="sequence">410</field>
+            <field name="cost_weight">2.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- SHOCKS - 1.25% each = 5% -->
+        <record id="bom_van_shock_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_shock_fr_r"/>
+            <field name="sequence">500</field>
+            <field name="cost_weight">1.25</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_shock_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_shock_fr_l"/>
+            <field name="sequence">510</field>
+            <field name="cost_weight">1.25</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_shock_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_r"/>
+            <field name="sequence">520</field>
+            <field name="cost_weight">1.25</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_shock_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_shock_rr_l"/>
+            <field name="sequence">530</field>
+            <field name="cost_weight">1.25</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- WHEELS - 1.5% each = 6% -->
+        <record id="bom_van_wheel_fr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_r"/>
+            <field name="sequence">600</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_wheel_fr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_wheel_fr_l"/>
+            <field name="sequence">610</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_wheel_rr_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_r"/>
+            <field name="sequence">620</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_wheel_rr_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_wheel_rr_l"/>
+            <field name="sequence">630</field>
+            <field name="cost_weight">1.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+
+        <!-- SMALL PARTS -->
+        <record id="bom_van_mirror_r" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_mirror_r"/>
+            <field name="sequence">700</field>
+            <field name="cost_weight">1.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_mirror_l" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_mirror_l"/>
+            <field name="sequence">710</field>
+            <field name="cost_weight">1.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_grille_out" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_grille_out"/>
+            <field name="sequence">720</field>
+            <field name="cost_weight">0.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_roof" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_roof"/>
+            <field name="sequence">730</field>
+            <field name="cost_weight">2.5</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <record id="bom_van_axle_rr" model="itx.info.vehicle.template.bom">
+            <field name="body_type_id" ref="body_type_van"/>
+            <field name="part_template_id" ref="tpl_part_axle_rr"/>
+            <field name="sequence">740</field>
+            <field name="cost_weight">4.0</field>
+            <field name="default_part_origin_id" ref="part_origin_oem"/>
+            <field name="default_part_condition_id" ref="part_condition_good"/>
+        </record>
+        <!-- Van running total check in real install -->
+
+    </data>
+</odoo>

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'ITX Info Vehicle',
-    'version': '19.0.1.5.0',
+    'version': '19.0.1.6.0',
     'category': 'Inventory/Inventory',
     'summary': 'Vehicle Information Management for Salvage Car Parts',
     'description': """

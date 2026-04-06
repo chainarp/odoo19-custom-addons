@@ -9,13 +9,18 @@
             <list string="BOM Templates" editable="bottom">
                 <field name="sequence" widget="handle"/>
                 <field name="body_type_id"/>
-                <field name="part_category_id"/>
                 <field name="part_template_id"/>
-                <field name="part_name" optional="show"/>
+                <field name="part_category_id" readonly="1"/>
+                <field name="part_name" optional="hide"/>
                 <field name="part_abbr" optional="hide"/>
                 <field name="qty"/>
-                <field name="default_part_origin_id" optional="show"/>
-                <field name="default_part_condition_id" optional="show"/>
+                <field name="default_part_origin_id" string="Origin"/>
+                <field name="default_part_condition_id" string="Condition"/>
+                <field name="cost_weight" sum="Total Weight"/>
+                <field name="total_weight" optional="show"/>
+                <field name="weight_status" optional="show"
+                       decoration-success="weight_status == '✓ 100%'"
+                       decoration-danger="weight_status and weight_status != '✓ 100%'"/>
                 <field name="active" column_invisible="True"/>
             </list>
         </field>
@@ -40,13 +45,16 @@
                             <field name="body_type_id" options="{'no_create': True}"/>
                         </group>
                         <group string="Part">
-                            <field name="part_category_id" options="{'no_create': True}"/>
                             <field name="part_template_id" options="{'no_create': True}"/>
+                            <field name="part_category_id" readonly="1"/>
                         </group>
                     </group>
                     <group>
-                        <group string="Quantity">
+                        <group string="Quantity &amp; Cost">
                             <field name="qty"/>
+                            <field name="cost_weight"/>
+                            <field name="total_weight" readonly="1"/>
+                            <field name="weight_status" readonly="1"/>
                             <field name="sequence"/>
                         </group>
                         <group string="Defaults for Assessment">
