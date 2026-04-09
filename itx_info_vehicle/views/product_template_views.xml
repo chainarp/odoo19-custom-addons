@@ -16,8 +16,6 @@
                 <field name="itx_model_id" optional="hide"/>
                 <field name="itx_generation_id" optional="hide"/>
                 <field name="itx_part_category_id"/>
-                <field name="itx_part_origin_id"/>
-                <field name="itx_condition_id"/>
                 <field name="itx_oem_part_number" optional="hide"/>
                 <field name="list_price" string="Price"/>
                 <field name="qty_available" string="On Hand" optional="show"/>
@@ -86,12 +84,6 @@
                                    options="{'no_quick_create': True}"/>
                             <field name="itx_part_category_id"
                                    options="{'no_create': True}"/>
-                            <field name="itx_part_origin_id"
-                                   required="itx_is_vehicle_part"
-                                   options="{'no_create': True}"/>
-                            <field name="itx_condition_id"
-                                   required="itx_is_vehicle_part"
-                                   options="{'no_create': True}"/>
                             <field name="itx_oem_part_number"
                                    placeholder="(optional, fill later)"/>
                             <field name="itx_sequence"/>
@@ -129,17 +121,7 @@
                 <filter string="Vehicle Parts" name="vehicle_parts"
                         domain="[('itx_is_vehicle_part', '=', True)]"/>
                 <separator/>
-                <filter string="OEM" name="filter_oem"
-                        domain="[('itx_part_origin_id.code', '=', 'OEM')]"/>
-                <filter string="Aftermarket" name="filter_aftermarket"
-                        domain="[('itx_part_origin_id.code', '=', 'AFT')]"/>
-                <separator/>
-                <filter string="New" name="filter_new"
-                        domain="[('itx_condition_id.code', '=', 'NEW')]"/>
-                <filter string="Like New" name="filter_like_new"
-                        domain="[('itx_condition_id.code', '=', 'LIKE_NEW')]"/>
-                <filter string="Good" name="filter_good"
-                        domain="[('itx_condition_id.code', '=', 'GOOD')]"/>
+                <!-- Origin/Condition filters removed — now in product variants -->
             </filter>
             <filter name="group_by_categ_id" position="after">
                 <filter string="Vehicle Spec" name="groupby_spec"
@@ -154,10 +136,7 @@
                         context="{'group_by': 'itx_part_name_id'}"/>
                 <filter string="Part Brand" name="groupby_part_brand"
                         context="{'group_by': 'itx_part_brand'}"/>
-                <filter string="Part Origin" name="groupby_origin"
-                        context="{'group_by': 'itx_part_origin_id'}"/>
-                <filter string="Condition" name="groupby_condition"
-                        context="{'group_by': 'itx_condition_id'}"/>
+                <!-- Origin/Condition group-by removed — now in product variants -->
             </filter>
         </field>
     </record>

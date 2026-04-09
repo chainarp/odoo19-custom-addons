@@ -8,6 +8,7 @@
             <field name="abbr">NEW</field>
             <field name="desc">อะไหล่ใหม่ ยังไม่เคยใช้งาน</field>
             <field name="sequence">10</field>
+            <field name="attribute_value_id" ref="attr_val_cond_new"/>
         </record>
 
         <record id="part_condition_like_new" model="itx.info.vehicle.part.condition">
@@ -16,6 +17,7 @@
             <field name="abbr">LKN</field>
             <field name="desc">อะไหล่มือสอง สภาพดีมาก ใกล้เคียงของใหม่</field>
             <field name="sequence">20</field>
+            <field name="attribute_value_id" ref="attr_val_cond_like_new"/>
         </record>
 
         <record id="part_condition_good" model="itx.info.vehicle.part.condition">
@@ -24,6 +26,8 @@
             <field name="abbr">GD</field>
             <field name="desc">อะไหล่มือสอง สภาพดี ใช้งานได้ปกติ</field>
             <field name="sequence">30</field>
+            <field name="is_default" eval="True"/>
+            <field name="attribute_value_id" ref="attr_val_cond_good"/>
         </record>
 
         <record id="part_condition_fair" model="itx.info.vehicle.part.condition">
@@ -32,6 +36,7 @@
             <field name="abbr">FR</field>
             <field name="desc">อะไหล่มือสอง ต้องซ่อมแซมหรือปรับแต่งก่อนใช้งาน</field>
             <field name="sequence">40</field>
+            <field name="attribute_value_id" ref="attr_val_cond_fair"/>
         </record>
 
     </data>

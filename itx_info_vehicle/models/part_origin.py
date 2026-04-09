@@ -35,6 +35,18 @@ class ItxInfoVehiclePartOrigin(models.Model):
         string='Sequence',
         default=10,
     )
+    is_default = fields.Boolean(
+        string='Default',
+        default=False,
+        help='If checked, this origin is used as default when generating assessment lines',
+    )
+    attribute_value_id = fields.Many2one(
+        comodel_name='product.attribute.value',
+        string='Attribute Value',
+        index=True,
+        ondelete='set null',
+        help='Linked product.attribute.value for variant creation',
+    )
     active = fields.Boolean(
         string='Active',
         default=True,

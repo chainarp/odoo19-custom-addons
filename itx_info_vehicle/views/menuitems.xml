@@ -1,100 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- Main Menu: Vehicle Info (under Inventory) -->
-    <menuitem id="menu_itx_vehicle_info_root"
-              name="Vehicle Info"
-              parent="stock.menu_stock_config_settings"
-              sequence="100"/>
+    <!-- ============================================ -->
+    <!-- Main Menu: Vehicle Parts (App)               -->
+    <!-- ============================================ -->
+    <menuitem id="menu_vehicle_parts_root"
+              name="Vehicle Parts >>"
+              web_icon="itx_info_vehicle,static/description/icon.png"
+              sequence="45"/>
 
-    <!-- Submenu: Brands -->
-    <menuitem id="menu_itx_vehicle_brand"
+    <!-- ============================================ -->
+    <!-- Configuration                                -->
+    <!-- ============================================ -->
+    <menuitem id="menu_vehicle_parts_config"
+              name="Configuration"
+              parent="menu_vehicle_parts_root"
+              sequence="90"/>
+
+    <!-- Vehicle Spec -->
+    <menuitem id="menu_config_vehicle_spec"
+              name="Vehicle Spec"
+              parent="menu_vehicle_parts_config"
+              sequence="10"/>
+
+    <menuitem id="menu_config_brand"
               name="Brands"
-              parent="menu_itx_vehicle_info_root"
+              parent="menu_config_vehicle_spec"
               action="itx_info_vehicle_brand_action"
               sequence="10"/>
 
-    <!-- Submenu: Models -->
-    <menuitem id="menu_itx_vehicle_model"
+    <menuitem id="menu_config_model"
               name="Models"
-              parent="menu_itx_vehicle_info_root"
+              parent="menu_config_vehicle_spec"
               action="itx_info_vehicle_model_action"
               sequence="20"/>
 
-    <!-- Submenu: Generations -->
-    <menuitem id="menu_itx_vehicle_generation"
+    <menuitem id="menu_config_generation"
               name="Generations"
-              parent="menu_itx_vehicle_info_root"
+              parent="menu_config_vehicle_spec"
               action="itx_info_vehicle_generation_action"
               sequence="30"/>
 
-    <!-- Submenu: Specs -->
-    <menuitem id="menu_itx_vehicle_spec"
+    <menuitem id="menu_config_spec"
               name="Specs"
-              parent="menu_itx_vehicle_info_root"
+              parent="menu_config_vehicle_spec"
               action="itx_info_vehicle_spec_action"
               sequence="40"/>
 
-    <!-- Submenu: Part Categories -->
-    <menuitem id="menu_itx_vehicle_part_category"
-              name="Part Categories"
-              parent="menu_itx_vehicle_info_root"
-              action="itx_info_vehicle_part_category_action"
-              sequence="50"/>
+    <!-- Vehicle Data -->
+    <menuitem id="menu_config_vehicle_data"
+              name="Vehicle Data"
+              parent="menu_vehicle_parts_config"
+              sequence="20"/>
 
-    <!-- Separator: Manager Tables -->
-    <menuitem id="menu_itx_vehicle_mgr_root"
-              name="Master Data"
-              parent="menu_itx_vehicle_info_root"
-              sequence="90"/>
-
-    <!-- Submenu: Body Types -->
-    <menuitem id="menu_itx_vehicle_mgr_body_type"
+    <menuitem id="menu_config_body_type"
               name="Body Types"
-              parent="menu_itx_vehicle_mgr_root"
+              parent="menu_config_vehicle_data"
               action="itx_info_vehicle_mgr_body_type_action"
               sequence="10"/>
 
-    <!-- Submenu: Engines -->
-    <menuitem id="menu_itx_vehicle_mgr_engine"
+    <menuitem id="menu_config_engine"
               name="Engines"
-              parent="menu_itx_vehicle_mgr_root"
+              parent="menu_config_vehicle_data"
               action="itx_info_vehicle_mgr_engine_action"
               sequence="20"/>
 
-    <!-- Submenu: Part Templates -->
-    <menuitem id="menu_itx_vehicle_template_part"
-              name="Part Templates"
-              parent="menu_itx_vehicle_mgr_root"
-              action="itx_info_vehicle_template_part_action"
+    <!-- Vehicle Part Data -->
+    <menuitem id="menu_config_part_data"
+              name="Vehicle Part Data"
+              parent="menu_vehicle_parts_config"
               sequence="30"/>
 
-    <!-- Submenu: BOM Templates -->
-    <menuitem id="menu_itx_vehicle_template_bom"
-              name="BOM Templates"
-              parent="menu_itx_vehicle_mgr_root"
-              action="itx_info_vehicle_template_bom_action"
+    <menuitem id="menu_config_part_category"
+              name="Part Categories"
+              parent="menu_config_part_data"
+              action="itx_info_vehicle_part_category_action"
+              sequence="10"/>
+
+    <menuitem id="menu_config_part_origin"
+              name="Part Origins"
+              parent="menu_config_part_data"
+              action="itx_info_vehicle_part_origin_action"
+              sequence="20"/>
+
+    <menuitem id="menu_config_part_condition"
+              name="Part Conditions"
+              parent="menu_config_part_data"
+              action="itx_info_vehicle_part_condition_action"
+              sequence="30"/>
+
+    <!-- Template Data -->
+    <menuitem id="menu_config_template_data"
+              name="Template Data"
+              parent="menu_vehicle_parts_config"
               sequence="40"/>
 
-    <!-- Submenu: Part Origins -->
-    <menuitem id="menu_itx_vehicle_part_origin"
-              name="Part Origins"
-              parent="menu_itx_vehicle_mgr_root"
-              action="itx_info_vehicle_part_origin_action"
-              sequence="50"/>
+    <menuitem id="menu_config_template_part"
+              name="Part Templates"
+              parent="menu_config_template_data"
+              action="itx_info_vehicle_template_part_action"
+              sequence="10"/>
 
-    <!-- Submenu: Part Conditions -->
-    <menuitem id="menu_itx_vehicle_part_condition"
-              name="Part Conditions"
-              parent="menu_itx_vehicle_mgr_root"
-              action="itx_info_vehicle_part_condition_action"
-              sequence="60"/>
-
-    <!-- Menu: Vehicle Parts (under Inventory Products) -->
-    <menuitem id="menu_itx_vehicle_parts"
-              name="Vehicle Parts"
-              parent="stock.menu_stock_inventory_control"
-              action="product_template_action_vehicle_parts"
-              sequence="15"/>
+    <menuitem id="menu_config_template_bom"
+              name="BOM Templates"
+              parent="menu_config_template_data"
+              action="itx_info_vehicle_template_bom_action"
+              sequence="20"/>
 
 </odoo>

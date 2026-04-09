@@ -8,6 +8,8 @@
             <field name="abbr">OEM</field>
             <field name="desc">Original Equipment Manufacturer - อะไหล่แท้จากโรงงาน</field>
             <field name="sequence">10</field>
+            <field name="is_default" eval="True"/>
+            <field name="attribute_value_id" ref="attr_val_origin_oem"/>
         </record>
 
         <record id="part_origin_aftermarket" model="itx.info.vehicle.part.origin">
@@ -16,6 +18,7 @@
             <field name="abbr">AFT</field>
             <field name="desc">อะไหล่เทียบ/ทดแทน จากผู้ผลิตอื่น</field>
             <field name="sequence">20</field>
+            <field name="attribute_value_id" ref="attr_val_origin_aft"/>
         </record>
 
         <record id="part_origin_reconditioned" model="itx.info.vehicle.part.origin">
@@ -24,6 +27,7 @@
             <field name="abbr">REC</field>
             <field name="desc">อะไหล่ที่ผ่านการซ่อมแซม/ปรับปรุงสภาพใหม่</field>
             <field name="sequence">30</field>
+            <field name="attribute_value_id" ref="attr_val_origin_rec"/>
         </record>
 
     </data>

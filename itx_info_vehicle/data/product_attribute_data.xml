@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ============================================ -->
+        <!-- Part Origin Attribute (Dynamic Variant)      -->
+        <!-- ============================================ -->
+        <record id="attr_part_origin" model="product.attribute">
+            <field name="name">Part Origin</field>
+            <field name="create_variant">dynamic</field>
+            <field name="display_type">radio</field>
+            <field name="sequence">100</field>
+        </record>
+
+        <!-- Origin Values -->
+        <record id="attr_val_origin_oem" model="product.attribute.value">
+            <field name="attribute_id" ref="attr_part_origin"/>
+            <field name="name">OEM</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="attr_val_origin_aft" model="product.attribute.value">
+            <field name="attribute_id" ref="attr_part_origin"/>
+            <field name="name">Aftermarket</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="attr_val_origin_rec" model="product.attribute.value">
+            <field name="attribute_id" ref="attr_part_origin"/>
+            <field name="name">Reconditioned</field>
+            <field name="sequence">30</field>
+        </record>
+
+        <!-- ============================================ -->
+        <!-- Part Condition Attribute (Dynamic Variant)   -->
+        <!-- ============================================ -->
+        <record id="attr_part_condition" model="product.attribute">
+            <field name="name">Part Condition</field>
+            <field name="create_variant">dynamic</field>
+            <field name="display_type">radio</field>
+            <field name="sequence">101</field>
+        </record>
+
+        <!-- Condition Values -->
+        <record id="attr_val_cond_new" model="product.attribute.value">
+            <field name="attribute_id" ref="attr_part_condition"/>
+            <field name="name">New</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="attr_val_cond_like_new" model="product.attribute.value">
+            <field name="attribute_id" ref="attr_part_condition"/>
+            <field name="name">Like New</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="attr_val_cond_good" model="product.attribute.value">
+            <field name="attribute_id" ref="attr_part_condition"/>
+            <field name="name">Good</field>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="attr_val_cond_fair" model="product.attribute.value">
+            <field name="attribute_id" ref="attr_part_condition"/>
+            <field name="name">Fair</field>
+            <field name="sequence">40</field>
+        </record>
+
+    </data>
+</odoo>
