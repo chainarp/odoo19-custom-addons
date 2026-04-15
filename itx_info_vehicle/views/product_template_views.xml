@@ -7,7 +7,7 @@
         <field name="model">product.template</field>
         <field name="arch" type="xml">
             <list string="Vehicle Parts">
-                <field name="default_code" string="Internal Ref"/>
+                <field name="itx_base_code" string="Base Code"/>
                 <field name="itx_part_name_id"/>
                 <field name="itx_part_brand" optional="show"/>
                 <field name="itx_part_number" optional="show"/>
@@ -87,6 +87,7 @@
                             <field name="itx_oem_part_number"
                                    placeholder="(optional, fill later)"/>
                             <field name="itx_sequence"/>
+                            <field name="itx_base_code" readonly="1"/>
                         </group>
                     </group>
                     <group string="Compatible Specs">

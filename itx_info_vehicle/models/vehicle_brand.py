@@ -48,6 +48,10 @@ class ItxInfoVehicleBrand(models.Model):
         string='Active',
         default=True,
     )
+    source_module = fields.Selection([
+        ('revival', 'Revival'),
+        ('procure', 'Procure'),
+    ], string='Source Module', index=True)
 
     # === Relational Fields ===
     model_ids = fields.One2many(
@@ -62,8 +66,10 @@ class ItxInfoVehicleBrand(models.Model):
 
     # === Constraints ===
     _sql_constraints = [
-        ('code_uniq', 'UNIQUE(code)', 'Brand code must be unique!'),
-        ('abbr_uniq', 'UNIQUE(abbr)', 'Brand abbreviation must be unique!'),
+        ('code_source_uniq', 'UNIQUE(code, source_module)',
+         'Brand code must be unique per source module!'),
+        ('abbr_source_uniq', 'UNIQUE(abbr, source_module)',
+         'Brand abbreviation must be unique per source module!'),
     ]
 
     # === Compute Methods ===

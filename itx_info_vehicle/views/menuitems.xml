@@ -10,6 +10,128 @@
               sequence="45"/>
 
     <!-- ============================================ -->
+    <!-- Operations                                   -->
+    <!-- ============================================ -->
+    <menuitem id="menu_vehicle_parts_operations"
+              name="Operations"
+              parent="menu_vehicle_parts_root"
+              sequence="70"/>
+
+    <!-- Purchases -->
+    <menuitem id="menu_operations_purchases"
+              name="Purchases"
+              parent="menu_vehicle_parts_operations"
+              sequence="10"/>
+
+    <menuitem id="menu_operations_purchase_orders"
+              name="Purchase Orders"
+              parent="menu_operations_purchases"
+              action="purchase.purchase_form_action"
+              sequence="1"/>
+
+    <!-- Sales -->
+    <menuitem id="menu_operations_sales"
+              name="Sales"
+              parent="menu_vehicle_parts_operations"
+              sequence="20"/>
+
+    <menuitem id="menu_operations_sales_orders"
+              name="Sales Orders"
+              parent="menu_operations_sales"
+              action="sale.action_orders"
+              sequence="1"/>
+
+    <!-- Transfers -->
+    <menuitem id="menu_operations_transfers"
+              name="Transfers"
+              parent="menu_vehicle_parts_operations"
+              sequence="30"/>
+
+    <menuitem id="menu_operations_receipts"
+              name="Receipts"
+              parent="menu_operations_transfers"
+              action="stock.method_action_picking_tree_incoming"
+              groups="stock.group_stock_manager,stock.group_stock_user"
+              sequence="1"/>
+
+    <menuitem id="menu_operations_deliveries"
+              name="Deliveries"
+              parent="menu_operations_transfers"
+              action="stock.method_action_picking_tree_outgoing"
+              groups="stock.group_stock_manager,stock.group_stock_user"
+              sequence="2"/>
+
+    <menuitem id="menu_operations_dropships"
+              name="Dropships"
+              parent="menu_operations_transfers"
+              action="stock_dropshipping.action_picking_tree_dropship"
+              sequence="3"/>
+
+    <!-- Manufacturing -->
+    <menuitem id="menu_operations_manufacturing"
+              name="Manufacturing"
+              parent="menu_vehicle_parts_operations"
+              sequence="40"/>
+
+    <menuitem id="menu_operations_unbuild"
+              name="Unbuild Orders"
+              parent="menu_operations_manufacturing"
+              action="mrp.mrp_unbuild"
+              sequence="1"/>
+
+    <!-- Adjustments -->
+    <menuitem id="menu_operations_adjustments"
+              name="Adjustments"
+              parent="menu_vehicle_parts_operations"
+              sequence="50"/>
+
+    <menuitem id="menu_operations_physical_inventory"
+              name="Physical Inventory"
+              parent="menu_operations_adjustments"
+              action="stock.action_view_inventory_tree"
+              sequence="1"/>
+
+    <menuitem id="menu_operations_scrap"
+              name="Scrap"
+              parent="menu_operations_adjustments"
+              action="stock.action_stock_scrap"
+              sequence="2"/>
+
+    <!-- ============================================ -->
+    <!-- Products                                     -->
+    <!-- ============================================ -->
+    <menuitem id="menu_vehicle_parts_products"
+              name="Products"
+              parent="menu_vehicle_parts_root"
+              sequence="80"/>
+
+    <menuitem id="menu_vehicle_products_template"
+              name="Products"
+              parent="menu_vehicle_parts_products"
+              action="mrp.product_template_action"
+              sequence="1"/>
+
+    <menuitem id="menu_vehicle_products_variant"
+              name="Product Variants"
+              parent="menu_vehicle_parts_products"
+              action="mrp.mrp_product_variant_action"
+              groups="product.group_product_variant"
+              sequence="2"/>
+
+    <menuitem id="menu_vehicle_products_lot"
+              name="Lots/Serial Numbers"
+              parent="menu_vehicle_parts_products"
+              action="stock.action_production_lot_form"
+              groups="stock.group_production_lot"
+              sequence="3"/>
+
+    <menuitem id="menu_vehicle_products_bom"
+              name="Bills of Materials"
+              parent="menu_vehicle_parts_products"
+              action="mrp.mrp_bom_form_action"
+              sequence="4"/>
+
+    <!-- ============================================ -->
     <!-- Configuration                                -->
     <!-- ============================================ -->
     <menuitem id="menu_vehicle_parts_config"

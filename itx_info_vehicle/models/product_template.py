@@ -93,6 +93,15 @@ class ProductTemplate(models.Model):
         help='Running number for Internal Reference (auto-generated, editable)',
     )
 
+    # === Base Code (used by variants to build default_code) ===
+    itx_base_code = fields.Char(
+        string='Base Code',
+        compute='_compute_itx_base_code',
+        store=True,
+        index=True,
+        help='Brand-Model-Gen-Spec-Cat-Part-Seq — variants append Origin+Condition abbr',
+    )
+
     # === Constraints ===
     @api.constrains('itx_is_vehicle_part', 'itx_spec_id', 'itx_part_name_id')
     def _check_vehicle_part_required_and_unique(self):
@@ -108,30 +117,28 @@ class ProductTemplate(models.Model):
                 continue
 
             # === Required Fields Check ===
-            missing = []
+            # itx_spec_id required สำหรับ vehicle part ทุกกรณี
+            # itx_part_name_id required เฉพาะ revival (procure ใช้ free text name)
             if not rec.itx_spec_id:
-                missing.append('Vehicle Spec')
-            if not rec.itx_part_name_id:
-                missing.append('Part Name')
-
-            if missing:
                 raise ValidationError(
-                    f"Vehicle Part ต้องระบุ: {', '.join(missing)}"
+                    "Vehicle Part ต้องระบุ: Vehicle Spec"
                 )
 
             # === Unique Constraint Check: (spec, part_name) ===
-            domain = [
-                ('id', '!=', rec.id),
-                ('itx_is_vehicle_part', '=', True),
-                ('itx_spec_id', '=', rec.itx_spec_id.id),
-                ('itx_part_name_id', '=', rec.itx_part_name_id.id),
-            ]
-            duplicate = self.search(domain, limit=1)
-            if duplicate:
-                raise ValidationError(
-                    f"อะไหล่ซ้ำ: {rec.itx_spec_id.display_name} - "
-                    f"{rec.itx_part_name_id.name} มีอยู่แล้วในระบบ!"
-                )
+            # เฉพาะกรณีที่มี part_name_id (revival flow)
+            if rec.itx_part_name_id:
+                domain = [
+                    ('id', '!=', rec.id),
+                    ('itx_is_vehicle_part', '=', True),
+                    ('itx_spec_id', '=', rec.itx_spec_id.id),
+                    ('itx_part_name_id', '=', rec.itx_part_name_id.id),
+                ]
+                duplicate = self.search(domain, limit=1)
+                if duplicate:
+                    raise ValidationError(
+                        f"อะไหล่ซ้ำ: {rec.itx_spec_id.display_name} - "
+                        f"{rec.itx_part_name_id.name} มีอยู่แล้วในระบบ!"
+                    )
 
     # === Onchange Methods ===
     @api.onchange('itx_part_name_id')
@@ -142,45 +149,47 @@ class ProductTemplate(models.Model):
             if self.itx_part_name_id.category_id:
                 self.itx_part_category_id = self.itx_part_name_id.category_id
 
-    @api.onchange('itx_spec_id')
-    def _onchange_itx_spec_id(self):
-        """Recompute default_code when spec changes"""
-        if self.itx_is_vehicle_part:
-            self._compute_itx_default_code()
-
-    @api.onchange('itx_is_vehicle_part', 'itx_spec_id', 'itx_part_category_id',
-                  'itx_part_name_id', 'itx_sequence')
-    def _onchange_compute_default_code(self):
-        """Auto-generate internal reference from vehicle hierarchy"""
-        if self.itx_is_vehicle_part:
-            self._compute_itx_default_code()
-
-    # === Compute Internal Reference ===
-    def _compute_itx_default_code(self):
-        """Build default_code from abbreviations
+    # === Compute Base Code (consumed by product.product to build default_code) ===
+    @api.depends(
+        'itx_is_vehicle_part',
+        'itx_spec_id',
+        'itx_spec_id.abbr',
+        'itx_spec_id.brand_id.abbr',
+        'itx_spec_id.model_id.abbr',
+        'itx_spec_id.generation_id.abbr',
+        'itx_part_category_id',
+        'itx_part_category_id.abbr',
+        'itx_part_name_id',
+        'itx_part_name_id.abbr',
+        'itx_sequence',
+    )
+    def _compute_itx_base_code(self):
+        """Build base code from abbreviations.
         Format: BRAND-MODEL-GEN-SPEC-CAT-PART-SEQ
-        (origin/condition no longer in template default_code — shown in variant name)
+        Variants append -ORIGIN-CONDITION when computing their own default_code.
         """
         for rec in self:
-            if rec.itx_is_vehicle_part and rec.itx_spec_id:
-                parts = []
-                if rec.itx_spec_id.brand_id and rec.itx_spec_id.brand_id.abbr:
-                    parts.append(rec.itx_spec_id.brand_id.abbr)
-                if rec.itx_spec_id.model_id and rec.itx_spec_id.model_id.abbr:
-                    parts.append(rec.itx_spec_id.model_id.abbr)
-                if rec.itx_spec_id.generation_id and rec.itx_spec_id.generation_id.abbr:
-                    parts.append(rec.itx_spec_id.generation_id.abbr)
-                if rec.itx_spec_id.abbr:
-                    parts.append(rec.itx_spec_id.abbr)
-                if rec.itx_part_category_id and rec.itx_part_category_id.abbr:
-                    parts.append(rec.itx_part_category_id.abbr)
-                if rec.itx_part_name_id and rec.itx_part_name_id.abbr:
-                    parts.append(rec.itx_part_name_id.abbr)
-                if rec.itx_sequence:
-                    parts.append(rec.itx_sequence)
+            if not (rec.itx_is_vehicle_part and rec.itx_spec_id):
+                rec.itx_base_code = False
+                continue
 
-                if parts:
-                    rec.default_code = '-'.join(parts)
+            parts = []
+            if rec.itx_spec_id.brand_id and rec.itx_spec_id.brand_id.abbr:
+                parts.append(rec.itx_spec_id.brand_id.abbr)
+            if rec.itx_spec_id.model_id and rec.itx_spec_id.model_id.abbr:
+                parts.append(rec.itx_spec_id.model_id.abbr)
+            if rec.itx_spec_id.generation_id and rec.itx_spec_id.generation_id.abbr:
+                parts.append(rec.itx_spec_id.generation_id.abbr)
+            if rec.itx_spec_id.abbr:
+                parts.append(rec.itx_spec_id.abbr)
+            if rec.itx_part_category_id and rec.itx_part_category_id.abbr:
+                parts.append(rec.itx_part_category_id.abbr)
+            if rec.itx_part_name_id and rec.itx_part_name_id.abbr:
+                parts.append(rec.itx_part_name_id.abbr)
+            if rec.itx_sequence:
+                parts.append(rec.itx_sequence)
+
+            rec.itx_base_code = '-'.join(parts) if parts else False
 
     # === CRUD Methods ===
     @api.model_create_multi
@@ -191,27 +200,7 @@ class ProductTemplate(models.Model):
                     'itx.info.vehicle.part.sequence'
                 ) or '00001'
 
-        records = super().create(vals_list)
-
-        for record in records:
-            if record.itx_is_vehicle_part:
-                record._compute_itx_default_code()
-
-        return records
-
-    def write(self, vals):
-        result = super().write(vals)
-
-        vehicle_fields = [
-            'itx_is_vehicle_part', 'itx_spec_id', 'itx_part_category_id',
-            'itx_part_name_id', 'itx_sequence'
-        ]
-        if any(f in vals for f in vehicle_fields):
-            for record in self:
-                if record.itx_is_vehicle_part:
-                    record._compute_itx_default_code()
-
-        return result
+        return super().create(vals_list)
 
     # === Variant Helpers ===
     def _ensure_vehicle_part_attributes(self):

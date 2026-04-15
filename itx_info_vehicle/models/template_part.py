@@ -45,11 +45,29 @@ class ItxInfoVehicleTemplatePart(models.Model):
         index=True,
         help='Suggested part category',
     )
+    default_location_id = fields.Many2one(
+        comodel_name='stock.location',
+        string='Default Stock Location',
+        domain="[('usage', '=', 'internal')]",
+        help='Default destination location when this part is stocked in from dismantling. '
+             'Falls back to category default, then to warehouse main stock.',
+    )
 
     active = fields.Boolean(
         string='Active',
         default=True,
     )
+
+    def _get_default_stock_location(self):
+        """Resolve destination location: part template → category → False.
+        Caller should fall back to warehouse main stock if False.
+        """
+        self.ensure_one()
+        if self.default_location_id:
+            return self.default_location_id
+        if self.category_id and self.category_id.default_location_id:
+            return self.category_id.default_location_id
+        return self.env['stock.location']
 
     # === Constraints ===
     _sql_constraints = [

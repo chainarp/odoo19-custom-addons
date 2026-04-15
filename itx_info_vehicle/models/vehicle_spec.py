@@ -111,6 +111,10 @@ class ItxInfoVehicleSpec(models.Model):
         string='Active',
         default=True,
     )
+    source_module = fields.Selection([
+        ('revival', 'Revival'),
+        ('procure', 'Procure'),
+    ], string='Source Module', index=True)
 
     # === Related Fields ===
     brand_id = fields.Many2one(

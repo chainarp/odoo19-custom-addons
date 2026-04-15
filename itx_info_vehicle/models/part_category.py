@@ -52,6 +52,13 @@ class ItxInfoVehiclePartCategory(models.Model):
         index=True,
         unaccent=False,
     )
+    default_location_id = fields.Many2one(
+        comodel_name='stock.location',
+        string='Default Stock Location',
+        domain="[('usage', '=', 'internal')]",
+        help='Default destination when a part of this category is stocked in '
+             'from dismantling. Used as fallback if the part template has no override.',
+    )
     active = fields.Boolean(
         string='Active',
         default=True,

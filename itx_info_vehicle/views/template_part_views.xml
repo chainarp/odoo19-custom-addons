@@ -12,6 +12,7 @@
                 <field name="name"/>
                 <field name="name_en" optional="show"/>
                 <field name="category_id"/>
+                <field name="default_location_id" optional="show"/>
                 <field name="desc" optional="hide"/>
                 <field name="active" column_invisible="True"/>
             </list>
@@ -45,6 +46,8 @@
                     <group>
                         <group string="Classification">
                             <field name="category_id" options="{'no_create': True}"/>
+                            <field name="default_location_id"
+                                   options="{'no_create': True}"/>
                         </group>
                         <group string="Description">
                             <field name="desc" nolabel="1"

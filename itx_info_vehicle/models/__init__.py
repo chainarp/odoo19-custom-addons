@@ -12,3 +12,4 @@ from . import part_condition
 from . import template_part
 from . import template_bom
 from . import product_template
+from . import product_product

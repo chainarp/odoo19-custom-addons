@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ============================================================ -->
+        <!-- CATEGORY TAGS                                                 -->
+        <!-- ============================================================ -->
+        <record id="categ_insurance" model="res.partner.category">
+            <field name="name">บริษัทประกันภัย</field>
+            <field name="color">1</field>
+        </record>
+        <record id="categ_garage" model="res.partner.category">
+            <field name="name">อู่ซ่อมรถประกัน</field>
+            <field name="color">5</field>
+        </record>
+        <record id="categ_parts_dealer" model="res.partner.category">
+            <field name="name">ร้านขายอะไหล่รถ</field>
+            <field name="color">10</field>
+        </record>
+
+        <!-- ============================================================ -->
+        <!-- GROUP 1: บริษัทประกันภัย (Supplier ซากรถ + Customer ซื้อ part) -->
+        <!-- ============================================================ -->
+        <record id="partner_insurance_tipaya" model="res.partner">
+            <field name="name">บริษัท ทิพยประกันภัย จำกัด (มหาชน)</field>
+            <field name="is_company">True</field>
+            <field name="street">63/2 ถนนพระราม 9</field>
+            <field name="street2">แขวงห้วยขวาง</field>
+            <field name="city">เขตห้วยขวาง</field>
+            <field name="zip">10310</field>
+            <field name="country_id" ref="base.th"/>
+            <field name="phone">02-239-2200</field>
+            <field name="email">contact@dhipaya.co.th</field>
+            <field name="vat">0107536000986</field>
+            <field name="website">www.dhipaya.co.th</field>
+            <field name="category_id" eval="[(6, 0, [ref('categ_insurance')])]"/>
+        </record>
+
+        <record id="partner_insurance_viriyah" model="res.partner">
+            <field name="name">บริษัท วิริยะประกันภัย จำกัด (มหาชน)</field>
+            <field name="is_company">True</field>
+            <field name="street">121/28, 121/65 ถนนรัชดาภิเษก</field>
+            <field name="street2">แขวงดินแดง</field>
+            <field name="city">เขตดินแดง</field>
+            <field name="zip">10400</field>
+            <field name="country_id" ref="base.th"/>
+            <field name="phone">02-239-1557</field>
+            <field name="email">contact@viriyah.co.th</field>
+            <field name="vat">0100535001170</field>
+            <field name="website">www.viriyah.co.th</field>
+            <field name="category_id" eval="[(6, 0, [ref('categ_insurance')])]"/>
+        </record>
+
+        <record id="partner_insurance_bangkok" model="res.partner">
+            <field name="name">บริษัท กรุงเทพประกันภัย จำกัด (มหาชน)</field>
+            <field name="is_company">True</field>
+            <field name="street">25 ถนนสาทรใต้</field>
+            <field name="street2">แขวงทุ่งมหาเมฆ</field>
+            <field name="city">เขตสาทร</field>
+            <field name="zip">10120</field>
+            <field name="country_id" ref="base.th"/>
+            <field name="phone">02-285-8888</field>
+            <field name="email">contact@bki.co.th</field>
+            <field name="vat">0107536000200</field>
+            <field name="website">www.bangkokinsurance.com</field>
+            <field name="category_id" eval="[(6, 0, [ref('categ_insurance')])]"/>
+        </record>
+
+        <record id="partner_insurance_muangthai" model="res.partner">
+            <field name="name">บริษัท เมืองไทยประกันภัย จำกัด (มหาชน)</field>
+            <field name="is_company">True</field>
+            <field name="street">252 ถนนรัชดาภิเษก</field>
+            <field name="street2">แขวงห้วยขวาง</field>
+            <field name="city">เขตห้วยขวาง</field>
+            <field name="zip">10310</field>
+            <field name="country_id" ref="base.th"/>
+            <field name="phone">1484</field>
+            <field name="email">contact@mtins.com</field>
+            <field name="vat">0107547000258</field>
+            <field name="website">www.muangthaiinsurance.com</field>
+            <field name="category_id" eval="[(6, 0, [ref('categ_insurance')])]"/>
+        </record>
+
+        <record id="partner_insurance_synmunkong" model="res.partner">
+            <field name="name">บริษัท สินมั่นคงประกันภัย จำกัด (มหาชน)</field>
+            <field name="is_company">True</field>
+            <field name="street">313 ถนนศรีนครินทร์</field>
+            <field name="street2">แขวงหนองบอน</field>
+            <field name="city">เขตประเวศ</field>
+            <field name="zip">10250</field>
+            <field name="country_id" ref="base.th"/>
+            <field name="phone">02-378-7000</field>
+            <field name="email">contact@smk.co.th</field>
+            <field name="vat">0107536000382</field>
+            <field name="website">www.smk.co.th</field>
+            <field name="category_id" eval="[(6, 0, [ref('categ_insurance')])]"/>
+        </record>
+
+        <!-- ============================================================ -->
+        <!-- GROUP 2: อู่ซ่อมรถประกัน (Delivery Address — Dropship)       -->
+        <!-- ============================================================ -->
+        <record id="partner_garage_somchai" model="res.partner">
+            <field name="name">อู่สมชาย ออโต้เซอร์วิส</field>
+            <field name="is_company">True</field>
+            <field name="street">88/5 ซอยลาดพร้าว 71</field>
+            <field name="street2">แขวงลาดพร้าว</field>
+            <field name="city">เขตลาดพร้าว</field>
+            <field name="zip">10230</field>
+            <field name="country_id" ref="base.th"/>
+            <field name="phone">02-538-9900</field>
+
+            <field name="email">somchai.auto@gmail.com</field>
+            <field name="category_id" eval="[(6, 0, [ref('categ_garage')])]"/>
+        </record>
+
+        <record id="partner_garage_petchburi" model="res.partner">
+            <field name="name">อู่เพชรบุรี การช่าง</field>
+            <field name="is_company">True</field>
+            <field name="street">234 ถนนเพชรบุรีตัดใหม่</field>
+            <field name="street2">แขวงบางกะปิ</field>
+            <field name="city">เขตห้วยขวาง</field>
+            <field name="zip">10310</field>
+            <field name="country_id" ref="base.th"/>
+            <field name="phone">02-318-4455</field>
+
+            <field name="email">petchburi.garage@gmail.com</field>
+            <field name="category_id" eval="[(6, 0, [ref('categ_garage')])]"/>
+        </record>
+
+        <record id="partner_garage_bangna" model="res.partner">
+            <field name="name">อู่บางนา บอดี้เพ้นท์</field>
+            <field name="is_company">True</field>
+            <field name="street">99/7 ถนนบางนา-ตราด กม.5</field>
+            <field name="street2">แขวงบางนา</field>
+            <field name="city">เขตบางนา</field>
+            <field name="zip">10260</field>
+            <field name="country_id" ref="base.th"/>
+            <field name="phone">02-744-1122</field>
+            <field name="email">bangna.bodypaint@gmail.com</field>
+            <field name="category_id" eval="[(6, 0, [ref('categ_garage')])]"/>
+        </record>
+
+        <record id="partner_garage_rangsit" model="res.partner">
+            <field name="name">อู่รังสิต คาร์แคร์ แอนด์ เซอร์วิส</field>
+            <field name="is_company">True</field>
+            <field name="street">55/12 ถนนรังสิต-นครนายก คลอง 3</field>
+            <field name="street2">ตำบลบึงยี่โถ</field>
+            <field name="city">อำเภอธัญบุรี จ.ปทุมธานี</field>
+            <field name="zip">12130</field>
+            <field name="country_id" ref="base.th"/>
+            <field name="phone">02-990-3344</field>
+            <field name="email">rangsit.carcare@gmail.com</field>
+            <field name="category_id" eval="[(6, 0, [ref('categ_garage')])]"/>
+        </record>
+
+        <record id="partner_garage_srinakarin" model="res.partner">
+            <field name="name">อู่ศรีนครินทร์ เซอร์วิส เซ็นเตอร์</field>
+            <field name="is_company">True</field>
+            <field name="street">456/9 ถนนศรีนครินทร์</field>
+            <field name="street2">แขวงสวนหลวง</field>
+            <field name="city">เขตสวนหลวง</field>
+            <field name="zip">10250</field>
+            <field name="country_id" ref="base.th"/>
+            <field name="phone">02-722-8800</field>
+            <field name="email">srinakarin.service@gmail.com</field>
+            <field name="category_id" eval="[(6, 0, [ref('categ_garage')])]"/>
+        </record>
+
+        <!-- ============================================================ -->
+        <!-- GROUP 3: ร้าน/บริษัท ขายอะไหล่รถ (Customer — ซื้อ parts)    -->
+        <!-- ============================================================ -->
+        <record id="partner_parts_yannawa" model="res.partner">
+            <field name="name">ร้าน ยานนาวาอะไหล่ยนต์</field>
+            <field name="is_company">True</field>
+            <field name="street">78/3 ถนนพระราม 3</field>
+            <field name="street2">แขวงช่องนนทรี</field>
+            <field name="city">เขตยานนาวา</field>
+            <field name="zip">10120</field>
+            <field name="country_id" ref="base.th"/>
+            <field name="phone">02-294-5566</field>
+            <field name="email">yannawa.parts@gmail.com</field>
+            <field name="vat">0105549012345</field>
+            <field name="category_id" eval="[(6, 0, [ref('categ_parts_dealer')])]"/>
+        </record>
+
+        <record id="partner_parts_worachak" model="res.partner">
+            <field name="name">บริษัท วรจักรอะไหล่ จำกัด</field>
+            <field name="is_company">True</field>
+            <field name="street">123 ถนนวรจักร</field>
+            <field name="street2">แขวงบ้านบาตร</field>
+            <field name="city">เขตป้อมปราบศัตรูพ่าย</field>
+            <field name="zip">10100</field>
+            <field name="country_id" ref="base.th"/>
+            <field name="phone">02-221-7788</field>
+            <field name="email">worachak.parts@hotmail.com</field>
+            <field name="vat">0105540067890</field>
+            <field name="category_id" eval="[(6, 0, [ref('categ_parts_dealer')])]"/>
+        </record>
+
+        <record id="partner_parts_seacon" model="res.partner">
+            <field name="name">บริษัท ซีคอน ออโต้พาร์ท จำกัด</field>
+            <field name="is_company">True</field>
+            <field name="street">789/15 ถนนศรีนครินทร์</field>
+            <field name="street2">แขวงหนองบอน</field>
+            <field name="city">เขตประเวศ</field>
+            <field name="zip">10250</field>
+            <field name="country_id" ref="base.th"/>
+            <field name="phone">02-748-9900</field>
+            <field name="email">seacon.autopart@gmail.com</field>
+            <field name="vat">0105555098765</field>
+            <field name="website">www.seaconautopart.com</field>
+            <field name="category_id" eval="[(6, 0, [ref('categ_parts_dealer')])]"/>
+        </record>
+
+        <record id="partner_parts_bkkautoparts" model="res.partner">
+            <field name="name">ห้างหุ้นส่วนจำกัด กรุงเทพอะไหล่ยนต์</field>
+            <field name="is_company">True</field>
+            <field name="street">345/2 ถนนเจริญกรุง</field>
+            <field name="street2">แขวงสี่พระยา</field>
+            <field name="city">เขตบางรัก</field>
+            <field name="zip">10500</field>
+            <field name="country_id" ref="base.th"/>
+            <field name="phone">02-234-1122</field>
+            <field name="email">bkk.autoparts@gmail.com</field>
+            <field name="vat">0103530045678</field>
+            <field name="category_id" eval="[(6, 0, [ref('categ_parts_dealer')])]"/>
+        </record>
+
+        <record id="partner_parts_esan" model="res.partner">
+            <field name="name">ร้าน อีสานยานยนต์อะไหล่</field>
+            <field name="is_company">True</field>
+            <field name="street">56/8 ถนนมิตรภาพ</field>
+            <field name="street2">ตำบลในเมือง</field>
+            <field name="city">อำเภอเมือง จ.นครราชสีมา</field>
+            <field name="zip">30000</field>
+            <field name="country_id" ref="base.th"/>
+            <field name="phone">044-255-667</field>
+            <field name="email">esan.autoparts@gmail.com</field>
+            <field name="category_id" eval="[(6, 0, [ref('categ_parts_dealer')])]"/>
+        </record>
+
+    </data>
+</odoo>

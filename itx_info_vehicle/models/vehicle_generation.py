@@ -60,6 +60,10 @@ class ItxInfoVehicleGeneration(models.Model):
         string='Active',
         default=True,
     )
+    source_module = fields.Selection([
+        ('revival', 'Revival'),
+        ('procure', 'Procure'),
+    ], string='Source Module', index=True)
 
     # === Relational Fields ===
     spec_ids = fields.One2many(

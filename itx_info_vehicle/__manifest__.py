@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'ITX Info Vehicle',
-    'version': '19.0.2.0.0',
+    'version': '19.0.2.2.0',
     'category': 'Inventory/Inventory',
     'summary': 'Vehicle Information Management for Salvage Car Parts',
     'description': """
@@ -37,6 +37,10 @@ Developed by IT Expert Training & Outsourcing Co. (Thailand)
         'base',
         'product',
         'stock',
+        'mrp',
+        'sale',
+        'purchase',
+        'stock_dropshipping',
     ],
     'data': [
         # Security
@@ -59,6 +63,8 @@ Developed by IT Expert Training & Outsourcing Co. (Thailand)
         'data/template_part_data.xml',
         # BOM Templates (7 body types x ~56 parts each)
         'data/template_bom_data.xml',
+        # Demo contacts (insurance, garages, parts dealers)
+        'data/demo_contacts_data.xml',
         # Demo Vehicle Parts - DISABLED (needs itx_part_name_id)
         # 'data/demo_vehicle_parts.xml',
         # Views
